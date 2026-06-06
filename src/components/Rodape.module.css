@@ -1,0 +1,199 @@
+.rodap {
+  align-self: stretch;
+  background-color: var(--azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 56px 24px;
+  gap: 40px;
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--sideBar);
+  font-family: var(--font-montserrat);
+}
+
+.logoIcon, .logoJurikiGirassolCompleto, .iconParkOutlineinstagram {
+  transition: transform 0.3s ease;
+}
+.logo:hover, .iconParkOutlineinstagram:hover {
+  transform: scale(1.05);
+}
+
+.informaesEmCimaDireitoAu a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.informaesEmCimaDireitoAu a:hover {
+  opacity: 0.8;
+}
+
+.informaesEmCimaDireitoAu {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.logoERedesSociais {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: var(--fs-20);
+}
+
+.logoEJuriki {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+}
+
+.logoJurikiGirassolCompleto {
+  width: 40px;
+  height: auto;
+  object-fit: cover;
+}
+
+.juriki {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--sideBar);
+}
+
+.aJustiaQue {
+  font-size: var(--fs-13);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.redesSociais {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconParkOutlineinstagram {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.iconParkOutlineinstagram:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.navegao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.navegao2 {
+  font-weight: 600;
+  font-size: var(--fs-14);
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.incioParent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.incio {
+  font-size: var(--fs-13);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.incio:hover {
+  opacity: 1;
+}
+
+.paraVoc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.informaes {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.informaes a {
+  font-size: var(--fs-13);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.informaes a:hover {
+  opacity: 1;
+}
+
+.paraAdvogados,
+.contato {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paraAdvogados a,
+.contato a {
+  font-size: var(--fs-13);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.paraAdvogados a:hover,
+.contato a:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1150px) {
+  .informaesEmCimaDireitoAu {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .rodap {
+    padding: 32px 24px 20px;
+    gap: 32px;
+  }
+  .informaesEmCimaDireitoAu {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .logoERedesSociais {
+    align-items: center;
+  }
+  .navegao,
+  .paraVoc,
+  .paraAdvogados,
+  .contato {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .juriki {
+    font-size: var(--fs-16);
+  }
+}

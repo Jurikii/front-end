@@ -1,0 +1,99 @@
+.processosEmAndamento,
+.processosEmAndamento2 {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+.processosEmAndamento {
+  align-self: stretch;
+  padding: var(--padding-0) var(--padding-37) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  gap: 61.5px;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul-sereno);
+  font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.processosEmAndamento:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.processosEmAndamento2 {
+  flex: 1;
+  gap: var(--gap-15);
+  min-width: var(--min-w-222);
+}
+.iconeBalana {
+  width: var(--width-60);
+  position: relative;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.processosEmAndamento3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-6);
+  flex-shrink: 0;
+}
+.processosEmAndamento4 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+.acompanhesSeusProcessos {
+  position: relative;
+  font-size: var(--fs-14);
+  color: var(--azul-escuro);
+}
+.h2 {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-35);
+  font-weight: 700;
+  font-family: inherit;
+}
+.verTodos {
+  height: var(--height-24);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: var(--fs-15);
+}
+.verTodos2 {
+  position: relative;
+  font-weight: 600;
+}
+.setinha1 {
+  height: var(--height-24);
+  width: var(--width-24);
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  .processosEmAndamento {
+    gap: var(--gap-31);
+    flex-wrap: wrap;
+  }
+  .processosEmAndamento2 {
+    flex-wrap: wrap;
+  }
+  .h2 {
+    font-size: var(--fs-28);
+  }
+}
+@media screen and (max-width: 450px) {
+  .processosEmAndamento {
+    gap: var(--gap-15);
+  }
+  .processosEmAndamento4 {
+    font-size: var(--fs-16);
+  }
+  .h2 {
+    font-size: var(--fs-21);
+  }
+}

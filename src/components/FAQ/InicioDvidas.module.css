@@ -1,0 +1,158 @@
+.inicioDvidas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+.dvidas {
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+.florzinhaETexto {
+  border-radius: var(--br-10);
+  border: 1px solid var(--color-darkorange);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-5) var(--padding-4);
+  gap: 7px;
+  transition: border-color 0.2s ease;
+}
+.florzinhaETexto:hover {
+  border-color: var(--amarelo);
+}
+.groupIcon {
+  height: 21.8px;
+  width: var(--width-20);
+  position: relative;
+}
+.aquiAJustia {
+  position: relative;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ttuloELinha {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--fs-64);
+}
+.dvidasFrequentes {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25))
+    drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+.frequentes {
+  color: var(--amarelo);
+}
+.ttuloELinhaChild {
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  border-top: 5px solid var(--amarelo);
+  width: 105px;
+}
+.semJuridiqusS {
+  font-size: var(--fs-25);
+  color: var(--color-black);
+  font-weight: 700;
+}
+.noAchouEBoto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap-10) var(--gap-22);
+  font-size: var(--fs-20);
+}
+.iconeBaloETexto {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-12);
+  min-width: 251px;
+}
+.groupIcon3 {
+  width: var(--width-48);
+  position: relative;
+  max-height: 100%;
+}
+.noAchouO {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+.botoDvidas {
+  box-shadow: var(--shadow-drop);
+  border-radius: var(--br-10);
+  background-color: var(--amarelo);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-10);
+  gap: var(--gap-10);
+  cursor: pointer;
+  color: var(--azul-escuro);
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+.botoDvidas:hover {
+  filter: brightness(0.92);
+}
+.botoDvidas:active {
+  transform: scale(0.97);
+}
+.hugeiconschat01 {
+  height: 29px;
+  width: 29px;
+  position: relative;
+}
+.image113Icon {
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 1050px) {
+  .inicioDvidas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .image113Icon {
+    max-width: 100%;
+    width: 100%;
+  }
+  .dvidas {
+    min-width: unset;
+  }
+}
+@media screen and (max-width: 900px) {
+  .dvidasFrequentes {
+    font-size: 51px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .dvidasFrequentes {
+    font-size: 38px;
+  }
+  .semJuridiqusS {
+    font-size: var(--fs-20);
+  }
+  .iconeBaloETexto {
+    flex-wrap: wrap;
+  }
+  .noAchouO {
+    font-size: var(--fs-16);
+  }
+}

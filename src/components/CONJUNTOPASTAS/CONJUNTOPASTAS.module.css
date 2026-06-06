@@ -1,0 +1,123 @@
+.conjuntoPastas {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: var(--gap-10) 65px;
+  max-width: 100%;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+.consumidor,
+.consumidorWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.consumidorWrapper {
+  min-width: 154px;
+  max-width: 384px;
+}
+.consumidor {
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  padding: var(--padding-20) var(--padding-0) var(--padding-20)
+    var(--padding-50);
+  box-sizing: border-box;
+  gap: var(--gap-10);
+  max-width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.consumidor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+.consumidor:active {
+  transform: translateY(0);
+}
+.consumidorChild {
+  height: var(--height-20);
+  width: var(--width-20);
+  position: relative;
+  border-radius: 3px;
+  background-color: var(--color-gainsboro);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+}
+.textoPasta {
+  height: var(--height-24);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-0) var(--padding-14) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+}
+.nomeDoDocumento {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  white-space: pre-wrap;
+}
+.fluentarrowFit16RegularIcon {
+  height: var(--height-20);
+  width: var(--width-20);
+  position: relative;
+  object-fit: contain;
+}
+.textoPasta2 {
+  height: var(--height-24);
+  width: 111px;
+  position: relative;
+}
+.categoriasParent {
+  height: var(--height-24);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+}
+.categorias {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+.textoPasta3 {
+  height: var(--height-24);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media screen and (max-width: 1350px) {
+  .conjuntoPastas {
+    gap: var(--gap-32);
+  }
+}
+@media screen and (max-width: 800px) {
+  .conjuntoPastas {
+    gap: var(--gap-16);
+  }
+}
+@media screen and (max-width: 450px) {
+  .consumidorWrapper {
+    max-width: 100%;
+  }
+  .consumidor {
+    flex-wrap: wrap;
+    padding-left: var(--padding-20);
+    padding-right: var(--padding-20);
+    box-sizing: border-box;
+  }
+  .categorias,
+  .nomeDoDocumento {
+    font-size: var(--fs-16);
+  }
+}

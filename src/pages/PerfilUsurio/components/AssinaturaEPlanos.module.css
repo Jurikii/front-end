@@ -1,0 +1,141 @@
+.assinaturaEPlanos {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+.assinaturaEPlanos2 {
+  margin: 0;
+  align-self: stretch;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.juncaBtn {
+  align-self: stretch;
+  border-radius: var(--br-20);
+  border: var(--border-1);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--padding-20) var(--padding-24);
+  gap: var(--gap-20);
+  box-sizing: border-box;
+  max-width: 100%;
+  font-size: var(--fs-14);
+  background-color: var(--branco);
+  min-height: 95px;
+  transition: all 0.2s ease;
+}
+
+.juncaBtn:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+.coroa {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 280px;
+  max-width: 100%;
+}
+.iconeCoroa {
+  width: 52px;
+  flex-shrink: 0;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: cover;
+}
+.planoGratuito {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-6);
+  min-width: 200px;
+  max-width: 100%;
+}
+.planoGratuito2 {
+  margin: 0;
+  align-self: stretch;
+  font-size: var(--fs-18);
+  font-weight: 600;
+  font-family: inherit;
+}
+.vocPossuAcesso {
+  align-self: stretch;
+  font-size: var(--fs-14);
+  color: var(--azul-escuro);
+}
+.risco {
+  margin-top: 2px;
+}
+.verDetalhesDo {
+  font-size: var(--fs-13);
+  text-decoration: underline;
+  color: var(--azul-sereno);
+  cursor: pointer;
+  display: inline-block;
+}
+.btnVerPlanos {
+  height: 44px;
+  min-width: 200px;
+  border-radius: var(--br-15);
+  background-color: var(--amarelo);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-24);
+  box-sizing: border-box;
+  color: var(--azul-escuro);
+  font-weight: 600;
+  font-size: var(--fs-14);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btnVerPlanos:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.btnVerPlanos:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.verPlanosGratuitos {
+  white-space: nowrap;
+}
+@media screen and (max-width: 450px) {
+  .assinaturaEPlanos2 {
+    font-size: var(--fs-16);
+  }
+  .juncaBtn {
+    padding: var(--padding-16);
+    gap: var(--gap-12);
+    min-height: auto;
+  }
+  .coroa {
+    min-width: 100%;
+    gap: 12px;
+  }
+  .planoGratuito2 {
+    font-size: var(--fs-16);
+  }
+  .btnVerPlanos {
+    height: 38px;
+    min-width: 160px;
+    font-size: var(--fs-13);
+  }
+}

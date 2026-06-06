@@ -1,0 +1,136 @@
+.iconeMultidoETexto,
+.milhes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  box-sizing: border-box;
+}
+.milhes {
+  width: 100%;
+  background: var(--gradient-1);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: var(--padding-20) clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+  gap: var(--gap-30) 56px;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--branco);
+  font-family: var(--font-montserrat);
+  transition: box-shadow 0.3s ease;
+}
+.iconeMultidoETexto {
+  flex: 1;
+  padding: var(--padding-0) var(--padding-2);
+  gap: var(--gap-15);
+  min-width: var(--min-w-270);
+  max-width: 613px;
+}
+.image104Icon {
+  width: var(--width-80);
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+.texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-6);
+  min-width: 264px;
+  max-width: 100%;
+}
+.estamosAquiPara,
+.milhesDePessoas {
+  align-self: stretch;
+  position: relative;
+}
+.estamosAquiPara {
+  font-weight: 600;
+}
+.benefcios {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-5);
+  min-width: var(--min-w-270);
+  max-width: 530px;
+  text-align: center;
+}
+.benefciosChild {
+  height: var(--height-108);
+  width: var(--width-1);
+  position: relative;
+  border-right: var(--border-1);
+  box-sizing: border-box;
+}
+.simples {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-9);
+}
+.image105Icon {
+  width: var(--width-50);
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+.linguagemSimples {
+  align-self: stretch;
+  position: relative;
+  font-weight: 500;
+}
+.tecnologia {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-9);
+  min-width: 118px;
+}
+.image105Icon3 {
+  width: var(--width-60);
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+.tecnologiaComPropsito {
+  position: relative;
+  font-weight: 500;
+}
+@media screen and (max-width: 725px) {
+  .milhes {
+    gap: var(--gap-28);
+  }
+  .benefcios,
+  .iconeMultidoETexto {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .milhes {
+    height: auto;
+  }
+  .estamosAquiPara,
+  .milhesDePessoas {
+    font-size: var(--fs-16);
+  }
+  .benefcios {
+    flex-wrap: wrap;
+  }
+  .benefciosChild {
+    width: 100%;
+    height: var(--height-1);
+  }
+  .linguagemSimples,
+  .tecnologiaComPropsito {
+    font-size: var(--fs-16);
+  }
+}

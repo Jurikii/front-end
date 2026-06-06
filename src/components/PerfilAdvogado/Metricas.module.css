@@ -1,0 +1,105 @@
+.metricas {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-20) var(--padding-0);
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+  text-align: left;
+  font-size: var(--fs-24);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-1);
+  transition: color 0.2s;
+}
+
+.item:hover {
+  color: var(--azul-sereno);
+}
+
+.valor {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.rotulo {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-16);
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.rotuloCentral {
+  align-self: stretch;
+  text-align: center;
+}
+
+.divisor {
+  height: 48px;
+  width: var(--width-1);
+  position: relative;
+  border-right: var(--border-1);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.valorRecomendacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avaliacoesItem,
+.casosItem,
+.itemCentral {
+  text-align: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1125px) {
+  .metricas {
+    flex-wrap: wrap;
+    padding-left: var(--padding-30);
+    padding-right: var(--padding-30);
+    box-sizing: border-box;
+  }
+  .divisor {
+    width: 100%;
+    height: var(--height-1);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .valor {
+    font-size: var(--fs-24);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .metricas {
+    padding-left: var(--padding-20);
+    padding-right: var(--padding-20);
+    box-sizing: border-box;
+  }
+  .valor {
+    font-size: var(--fs-18);
+  }
+  .rotulo {
+    font-size: var(--fs-16);
+  }
+}

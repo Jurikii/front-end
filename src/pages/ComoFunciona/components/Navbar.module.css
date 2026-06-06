@@ -1,0 +1,131 @@
+.navbar {
+  align-self: stretch;
+  background: var(--gradient-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px var(--padding-0);
+  box-sizing: border-box;
+  max-width: 100%;
+  z-index: 4;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--fs-25);
+  color: var(--branco);
+  font-family: var(--font-montserrat);
+}
+.maskGroupParent {
+  width: 100%;
+  min-height: 89px;
+  position: relative;
+  max-width: 1440px;
+}
+.menuWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  height: 100%;
+}
+.logoEJuriki,
+.menu {
+  display: flex;
+  align-items: center;
+}
+.menu {
+  align-self: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: var(--padding-12) var(--padding-40);
+  box-sizing: border-box;
+  gap: var(--gap-4);
+  max-width: 100%;
+}
+.logoEJuriki {
+  height: 65px;
+  gap: var(--gap-10);
+}
+.logoJurikiGirassolCompleto {
+  width: 61px;
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+.juriki {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.abas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 29px);
+  min-width: var(--min-w-310);
+  max-width: 832px;
+  flex-wrap: wrap;
+}
+.incio {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding-bottom: 4px;
+}
+.incio:hover {
+  color: var(--amarelo);
+}
+.incio:focus-visible {
+  outline: 2px solid var(--amarelo);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.active {
+  color: var(--amarelo);
+  border-bottom: 3px solid var(--amarelo);
+}
+.botes {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-16);
+  min-width: 250px;
+  max-width: 351px;
+}
+@media screen and (max-width: 1050px) {
+  .abas {
+    max-width: 100%;
+  }
+  .menu {
+    gap: var(--gap-12);
+    padding: var(--padding-12) var(--padding-12);
+  }
+  .botes {
+    min-width: auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  .menu {
+    flex-direction: column;
+    gap: var(--gap-10);
+  }
+  .abas {
+    min-width: auto;
+    width: 100%;
+    gap: 10px;
+  }
+  .logoEJuriki {
+    height: auto;
+  }
+}

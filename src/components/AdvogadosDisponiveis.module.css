@@ -1,0 +1,36 @@
+.advogadosDisponiveis {
+  position: absolute;
+  top: 384px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 25px;
+  color: var(--azul);
+  font-family: Montserrat;
+}
+.advogadosDisponveis {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.advogados {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 19px;
+  max-width: 100%;
+}
+@media screen and (max-width: 450px) {
+  .advogadosDisponveis {
+    font-size: 20px;
+  }
+}

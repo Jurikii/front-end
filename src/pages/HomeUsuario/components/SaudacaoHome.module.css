@@ -1,0 +1,166 @@
+.saudacaoHome {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: var(--padding-0) var(--padding-30);
+  box-sizing: border-box;
+  gap: 54px;
+  max-width: 100%;
+}
+.cumprimentosHome,
+.saudao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.saudao {
+  flex: 1;
+  padding: var(--padding-100) var(--padding-0) 98px;
+  box-sizing: border-box;
+  gap: 53.5px;
+  min-width: var(--min-w-310);
+  max-width: 725px;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+.cumprimentosHome {
+  align-self: stretch;
+  gap: var(--gap-12);
+  font-size: 55px;
+}
+.comoPossoTe,
+.olAlice {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-weight: 700;
+  font-family: inherit;
+}
+.olAlice {
+  font-size: inherit;
+}
+.comoPossoTe {
+  font-size: var(--fs-30);
+}
+.juridiquesSozinha {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+  max-width: 100%;
+}
+.mdiheartOutlineIcon {
+  height: var(--height-30);
+  width: var(--width-30);
+  position: relative;
+}
+.vocNoPrecisa {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.avisoJuriki {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  border: 1px solid var(--areia);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: var(--padding-20) 25px;
+  gap: var(--gap-16);
+  max-width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.avisoJuriki:hover {
+  border-color: var(--amarelo-claro);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.seguroIcon {
+  width: 70px;
+  position: relative;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: cover;
+}
+.textoAviso {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-6);
+  min-width: 382px;
+  max-width: 100%;
+}
+.aJurikiOferece,
+.emCasosImportantes {
+  position: relative;
+  display: inline-block;
+}
+.aJurikiOferece {
+  width: 100%;
+  font-weight: 600;
+  max-width: 587px;
+}
+.emCasosImportantes {
+  font-size: var(--fs-14);
+  max-width: 100%;
+}
+.image145Icon {
+  flex: 1;
+  position: relative;
+  max-width: 513px;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  min-width: var(--min-w-310);
+}
+@media screen and (max-width: 800px) {
+  .saudacaoHome,
+  .saudao {
+    gap: 27px;
+  }
+  .saudao {
+    padding-top: var(--padding-65);
+    padding-bottom: var(--padding-64);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .olAlice {
+    font-size: 44px;
+  }
+  .comoPossoTe {
+    font-size: var(--fs-24);
+  }
+  .avisoJuriki,
+  .juridiquesSozinha {
+    flex-wrap: wrap;
+  }
+  .textoAviso {
+    min-width: 100%;
+  }
+  .aJurikiOferece,
+  .image145Icon {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .olAlice {
+    font-size: 33px;
+  }
+  .comoPossoTe {
+    font-size: var(--fs-18);
+  }
+  .aJurikiOferece,
+  .vocNoPrecisa {
+    font-size: var(--fs-16);
+  }
+}

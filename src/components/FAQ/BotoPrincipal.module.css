@@ -1,0 +1,27 @@
+.botoPrincipal {
+  height: 49px;
+  width: 186px;
+  border-radius: var(--br-10);
+  background-color: var(--amarelo);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-10);
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--fs-24);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+.botoPrincipal:hover {
+  filter: brightness(0.92);
+}
+.botoPrincipal:active {
+  transform: scale(0.97);
+}
+.boto {
+  position: relative;
+}

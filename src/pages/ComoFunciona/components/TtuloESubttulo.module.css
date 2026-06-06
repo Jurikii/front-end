@@ -1,0 +1,114 @@
+.ttuloESubttulo {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  z-index: 2;
+  text-align: center;
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+.textinhoEFlorzinhas {
+  display: flex;
+  justify-content: center;
+}
+.textinhoEFlorzinhas2 {
+  height: 34px;
+  border-radius: 100px;
+  border: 1px solid var(--color-darkorange);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+}
+.textinhoEFlorzinhas2:hover {
+  border-color: var(--amarelo);
+}
+.groupIcon {
+  height: 18px;
+  width: 18px;
+  flex-shrink: 0;
+}
+.simplesSeguroE {
+  font-size: var(--fs-13);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.comoFuncionaAJuriki {
+  width: 100%;
+  max-width: 780px;
+}
+.comoFuncionaAContainer {
+  margin: 0;
+  font-size: var(--fs-56);
+  font-weight: 800;
+  font-family: inherit;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.juriki {
+  color: var(--amarelo);
+}
+.simplificamosOAcessoInfor {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  max-width: 780px;
+}
+.simplificamosOAcesso {
+  font-size: var(--fs-22);
+  font-weight: 400;
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  color: var(--preto);
+  opacity: 0.7;
+}
+.ttuloESubttuloChild {
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--amarelo);
+  border: none;
+  opacity: 0.8;
+}
+@media screen and (max-width: 1050px) {
+  .comoFuncionaAContainer {
+    font-size: var(--fs-44);
+  }
+  .simplificamosOAcesso {
+    font-size: var(--fs-20);
+  }
+}
+@media screen and (max-width: 750px) {
+  .ttuloESubttulo {
+    gap: 24px;
+  }
+  .comoFuncionaAContainer {
+    font-size: var(--fs-36);
+  }
+  .simplificamosOAcesso {
+    font-size: var(--fs-18);
+  }
+}
+@media screen and (max-width: 450px) {
+  .ttuloESubttulo {
+    gap: 20px;
+    padding: 0 16px;
+  }
+  .comoFuncionaAContainer {
+    font-size: var(--fs-30);
+  }
+  .simplificamosOAcesso {
+    font-size: var(--fs-16);
+  }
+}

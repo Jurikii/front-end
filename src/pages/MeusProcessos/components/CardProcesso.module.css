@@ -1,0 +1,228 @@
+.card {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+
+  border-radius: var(--br-20);
+  border: var(--border-1);
+  overflow: hidden;
+
+  font-size: var(--fs-20);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  text-align: left;
+
+  background-color: var(--branco);
+  transition: all 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-drop-2);
+  transform: translateY(-2px);
+}
+
+.corpo {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-20) var(--padding-24);
+  gap: var(--gap-14);
+  box-sizing: border-box;
+}
+
+.cabecalho {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  gap: var(--gap-14);
+}
+
+.badgeCategoria {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  border-radius: 999px;
+  padding: var(--padding-4) var(--padding-14);
+  box-sizing: border-box;
+  font-size: var(--fs-14);
+  font-weight: 500;
+}
+
+.titulo {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--azul-escuro);
+  font-family: inherit;
+}
+
+.detalhes {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap-14);
+  font-size: var(--fs-16);
+  color: var(--color-black);
+}
+
+.informes {
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-8);
+  min-width: 220px;
+}
+
+.informes li {
+  font-size: var(--fs-14);
+  font-weight: 400;
+  font-family: var(--font-montserrat);
+  color: var(--preto);
+}
+
+.statusArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.badgeStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0 var(--padding-12);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+}
+
+.acoes {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  font-size: var(--fs-16);
+  border-top: var(--border-1);
+}
+
+.acao {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-8);
+  padding: var(--padding-12) var(--padding-24);
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  font-size: var(--fs-14);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.acao:active {
+  transform: scale(0.98);
+}
+
+.acao:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.acao:first-child {
+  border-radius: var(--br-0) var(--br-0) var(--br-0) var(--br-20);
+}
+
+.acao:not(:first-child) {
+  border-left: var(--border-1);
+}
+
+.acao_primaria {
+  color: var(--azul);
+}
+
+.acao_perigo {
+  color: var(--color-firebrick);
+}
+
+.acao_secundaria {
+  color: var(--azul);
+}
+
+.acaoIcone {
+  height: 18px;
+  width: 18px;
+}
+
+@media screen and (max-width: 1325px) {
+  .corpo {
+    padding-right: 24px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .corpo {
+    gap: var(--gap-12);
+    padding: var(--padding-16) var(--padding-20);
+  }
+
+  .titulo {
+    font-size: var(--fs-18);
+  }
+
+  .informes {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .detalhes {
+    flex-direction: column;
+  }
+  .statusArea {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .corpo {
+    padding: var(--padding-12) var(--padding-12);
+  }
+
+  .badgeCategoria {
+    font-size: var(--fs-12);
+    height: 22px;
+    padding: var(--padding-2) var(--padding-10);
+  }
+
+  .titulo {
+    font-size: var(--fs-16);
+  }
+
+  .informes li {
+    font-size: var(--fs-12);
+  }
+
+  .acao {
+    flex-wrap: wrap;
+    font-size: var(--fs-12);
+    min-width: 100px;
+    padding: var(--padding-8) var(--padding-6);
+  }
+}

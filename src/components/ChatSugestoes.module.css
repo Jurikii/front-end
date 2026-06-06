@@ -1,0 +1,43 @@
+.chatSugestes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  width: clamp(280px, 30vw, 430px);
+  max-width: 100%;
+  border-radius: 20px;
+  background-color: var(--color-gray-100);
+  border: var(--border-3);
+  box-sizing: border-box;
+  padding: 16px clamp(16px, 2.5vw, 32px);
+  text-align: center;
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: var(--sideBar);
+  font-family: var(--font-montserrat);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.chatSugestes:hover {
+  background-color: var(--amarelo);
+  color: var(--color-black);
+  border-color: var(--amarelo);
+}
+.chatSugestes:active {
+  transform: scale(0.97);
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  font-weight: 500;
+  font-size: clamp(13px, 1.1vw, 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.4;
+}

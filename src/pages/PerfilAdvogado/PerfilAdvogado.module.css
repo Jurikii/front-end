@@ -1,0 +1,108 @@
+.perfilAdvogado {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  background-color: var(--branco);
+  overflow: hidden;
+  padding: var(--padding-0) var(--padding-0) var(--padding-30);
+  line-height: normal;
+  letter-spacing: normal;
+  transition: background-color 0.3s ease;
+}
+
+.sessaoCompleta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: var(--padding-20) var(--padding-0);
+  gap: var(--gap-28);
+  max-width: 1292px;
+  transition: padding 0.3s ease;
+}
+
+.topo {
+  align-self: stretch;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+  transition: gap 0.3s ease;
+  text-align: left;
+  font-size: var(--fs-15);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+
+.voltarBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-0) var(--padding-20) var(--padding-0) var(--padding-0);
+  background: none;
+}
+
+.voltarIcone {
+  height: 20.1px;
+  width: 20.1px;
+  position: relative;
+  object-fit: contain;
+}
+
+.voltarTexto {
+  font-size: var(--fs-15);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--azul);
+}
+
+.titulo {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-28);
+  font-weight: 700;
+  font-family: var(--font-montserrat);
+  color: var(--azul);
+}
+
+@media screen and (max-width: 1300px) {
+  .sessaoCompleta {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .sessaoCompleta {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sessaoCompleta {
+    gap: 26px;
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+    box-sizing: border-box;
+  }
+  .topo {
+    gap: 19px;
+  }
+  .titulo {
+    font-size: var(--fs-28);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .titulo {
+    font-size: 21px;
+  }
+}

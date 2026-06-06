@@ -1,0 +1,397 @@
+.sobreNsTeste {
+  --border-1: 1px solid var(--amarelo);
+  --shadow-drop: -4px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  position: relative;
+  background-color: var(--areia);
+  font-family: var(--font-montserrat);
+  color: var(--azul-escuro);
+  overflow-x: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.sobreNsTeste *,
+.sobreNsTeste *::before,
+.sobreNsTeste *::after {
+  border-width: revert;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 100px clamp(20px, 5vw, 80px);
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 503px;
+  text-align: left;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 15px;
+  border: 1px solid var(--color-darkorange);
+  border-radius: var(--br-10);
+  font-weight: 600;
+  font-size: var(--fs-18);
+  margin-bottom: clamp(16px, 2vw, 20px);
+}
+
+.heroTitle {
+  margin: 0 0 clamp(12px, 1.5vw, 15px);
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25)) drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+  max-width: 503px;
+}
+
+.heroTitleHighlight {
+  color: var(--amarelo);
+}
+
+.heroDivider {
+  width: 105px;
+  height: 5px;
+  border-top: 5px solid var(--amarelo);
+  box-sizing: border-box;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+  margin-bottom: clamp(20px, 3vw, 35px);
+}
+
+.heroDescription {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  color: var(--color-black);
+  max-width: 503px;
+  margin: 0;
+}
+
+.chatBubble {
+  position: absolute;
+  top: clamp(60px, 8vw, 111px);
+  left: calc(50% - 254px);
+  z-index: 2;
+  width: 190px;
+  height: 190px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.chatFrame {
+  width: 175.3px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 43.1px 0 54.5px;
+  box-sizing: border-box;
+  background-image: url(/public/Frame@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: none;
+}
+
+.chatText {
+  width: 156px;
+  position: relative;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: var(--branco);
+}
+
+/* ==================== BACKGROUND DO CONTEÚDO ==================== */
+.contentBg {
+  position: relative;
+  isolation: isolate;
+}
+
+.contentBgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ==================== ESSÊNCIA ==================== */
+.essencia {
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 40px);
+  text-align: center;
+}
+
+.essenciaTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 21px);
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.essenciaTitle h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 700;
+  font-family: inherit;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25)) drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+  max-width: 100%;
+}
+
+.essenciaHighlight {
+  color: var(--amarelo);
+}
+
+.essenciaDescription {
+  max-width: 1020px;
+  margin: 0 auto;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  color: var(--color-black);
+}
+
+.decorIcon {
+  height: var(--height-30);
+  width: var(--width-30);
+  position: relative;
+}
+
+/* ==================== MISSÃO & VISÃO ==================== */
+.missoes {
+  padding: 40px clamp(20px, 5vw, 80px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-30);
+  justify-content: center;
+  max-width: 1330px;
+  margin: 0 auto;
+}
+
+/* ==================== VALORES ==================== */
+.valoresSection {
+  padding: 40px clamp(16px, 4vw, 40px) 60px;
+  text-align: center;
+}
+
+.valoresTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-15);
+  padding: var(--padding-5);
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.valoresTitle h2 {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 30px);
+  font-weight: 700;
+  font-family: inherit;
+  white-space: pre-wrap;
+  text-shadow: var(--text-shadow-1);
+  transition: text-shadow 0.3s ease;
+}
+
+.valorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  max-width: 1186px;
+  margin: 0 auto 40px;
+}
+
+.valorCard {
+  flex: 1;
+  min-width: 194px;
+  max-width: 270px;
+  background-color: var(--branco-dos-valores);
+  border-radius: var(--br-30);
+  border: 1px solid var(--amarelo);
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25), -4px 4px 4px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-28) var(--padding-20);
+  gap: var(--gap-10);
+  text-align: center;
+  font-size: var(--fs-20);
+  color: var(--color-black);
+  transition: all 0.3s ease;
+}
+
+.valorCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.valorCardTall {
+  min-height: 256px;
+}
+
+.valorIcon {
+  width: var(--width-80);
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.valorIconLarge {
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.valorIconWide {
+  width: var(--width-100);
+}
+
+.valorCard h3 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  align-self: stretch;
+}
+
+.valorCard p {
+  margin: 0;
+  align-self: stretch;
+  font-size: var(--fs-16);
+  flex-shrink: 0;
+}
+
+.valorGrid2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 50px;
+  justify-content: center;
+  max-width: 877px;
+  margin: 0 auto;
+}
+
+/* ==================== DECORAÇÃO ==================== */
+.decorSmall {
+  height: var(--height-21_8);
+  width: var(--width-20);
+  position: relative;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 1025px) {
+  .essenciaDescription {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 975px) {
+  .hero {
+    justify-content: center;
+    min-height: auto;
+    padding: 120px 20px 60px;
+  }
+  .heroContent {
+    max-width: 100%;
+    text-align: center;
+  }
+  .heroDivider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chatBubble {
+    display: none;
+  }
+  .valoresTitle h2 {
+    font-size: var(--fs-24);
+  }
+  .heroTitle,
+  .essenciaTitle h1 {
+    font-size: 43px;
+  }
+}
+
+@media (max-width: 725px) {
+  .heroTitle,
+  .essenciaTitle h1 {
+    font-size: 36px;
+  }
+  .heroDescription {
+    max-width: 100%;
+  }
+  .essenciaTitle {
+    flex-wrap: wrap;
+  }
+  .essencia {
+    gap: 15px;
+  }
+  .missoes {
+    gap: 20px;
+  }
+  .valorCard {
+    min-width: 160px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .heroTitle,
+  .essenciaTitle h1 {
+    font-size: var(--fs-32);
+  }
+  .heroDescription {
+    font-size: var(--fs-16);
+  }
+  .badge {
+    font-size: var(--fs-16);
+  }
+  .valoresTitle h2 {
+    font-size: var(--fs-18);
+  }
+  .valorCard {
+    min-width: 100%;
+  }
+  .valorCard p {
+    font-size: var(--fs-16);
+  }
+  .missaoText {
+    max-width: 100%;
+  }
+  .missaoText h2 {
+    font-size: var(--fs-20);
+  }
+  .missaoText p {
+    font-size: var(--fs-16);
+  }
+  .essenciaDescription {
+    font-size: var(--fs-16);
+  }
+}

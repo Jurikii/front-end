@@ -1,0 +1,61 @@
+.processosEmAndamento {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  min-height: var(--min-h-60);
+  row-gap: var(--gap-20);
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul-sereno);
+  font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.processosEmAndamento:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.processosEmAndamento2 {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+.mdiheartOutlineIcon {
+  height: var(--height-50);
+  width: var(--width-50);
+  position: relative;
+  object-fit: cover;
+}
+.processosEmAndamento3 {
+  height: var(--height-47);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-6);
+}
+.meusFavoritos {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+.vejaSeusAdvogados {
+  position: relative;
+  font-size: var(--fs-14);
+  color: var(--azul-escuro);
+}
+.setinha1 {
+  height: var(--height-24);
+  width: var(--width-24);
+  position: relative;
+}
+@media screen and (max-width: 450px) {
+  .processosEmAndamento2 {
+    flex-wrap: wrap;
+  }
+  .meusFavoritos {
+    font-size: var(--fs-16);
+  }
+}

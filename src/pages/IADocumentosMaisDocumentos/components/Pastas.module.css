@@ -1,0 +1,128 @@
+.pastas {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-36);
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--cinza);
+  font-family: var(--font-montserrat);
+}
+
+.docRecentes {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 63px 0 0;
+  gap: var(--gap-20);
+}
+
+.titulo {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.conjuntoPastas {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+}
+
+.card {
+  height: var(--height-101);
+  width: 284px;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-20) var(--padding-50);
+  gap: var(--gap-10);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+}
+
+.folderIcon {
+  height: var(--height-59);
+  width: var(--width-59);
+  position: relative;
+  object-fit: cover;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: var(--width-113);
+}
+
+.cardLabel {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.cardCount {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.input {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .docRecentes {
+    padding-right: 31px;
+    box-sizing: border-box;
+  }
+  .conjuntoPastas {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .pastas {
+    gap: var(--gap-18);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .docRecentes {
+    flex-wrap: wrap;
+  }
+  .cardLabel,
+  .titulo {
+    font-size: var(--fs-16);
+  }
+}

@@ -1,0 +1,70 @@
+/* ============================================
+   custom.css — Classes utilitárias ausentes no
+   Bootstrap (mantidas após conversão Tailwind→Bootstrap)
+   ============================================ */
+
+/* --- Hover --- */
+.hover-text-azul:hover { color: #102e44; }
+
+/* --- Input placeholder --- */
+.input-placeholder::placeholder {
+  color: rgba(12, 24, 34, 0.45);
+  opacity: 1;
+}
+
+/* --- Autofill override --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #f4ead8 inset !important;
+  -webkit-text-fill-color: var(--azul-escuro) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ============================================
+   Responsivo — Media Queries
+   ============================================ */
+
+@media (max-width: 975px) {
+  .mq975\:flex-wrap { flex-wrap: wrap; }
+}
+
+@media (max-width: 950px) {
+  .mq950\:px-16 { padding-left: 64px; padding-right: 64px; }
+  .mq950\:pt-\[84px\] { padding-top: 84px; }
+}
+
+@media (max-width: 700px) {
+  .mq700\:text-\[32px\] { font-size: 32px; }
+  .mq700\:gap-4 { gap: 16px; }
+  .mq700\:gap-5 { gap: 20px; }
+  .mq700\:gap-6 { gap: 24px; }
+  .mq700\:flex-col { flex-direction: column; }
+  .mq700\:flex-wrap { flex-wrap: wrap; }
+  .mq700\:max-w-full { max-width: 100%; }
+  .mq700\:min-h-\[60px\] { min-height: 60px; }
+  .mq700\:h-auto { height: auto; }
+  .mq700\:py-4 { padding-top: 24px; padding-bottom: 24px; }
+  .mq700\:px-4 { padding-left: 24px; padding-right: 24px; }
+  .mq700\:py-5 { padding-top: 32px; padding-bottom: 32px; }
+  .mq700\:pt-16 { padding-top: 64px; }
+}
+
+@media (max-width: 450px) {
+  .mq450\:text-2xl { font-size: 24px; }
+  .mq450\:text-base { font-size: 16px; }
+  .mq450\:text-lg { font-size: 18px; }
+  .mq450\:text-sm { font-size: 14px; }
+  .mq450\:gap-2 { gap: 8px; }
+  .mq450\:gap-5 { gap: 20px; }
+  .mq450\:flex-col { flex-direction: column; }
+  .mq450\:items-center { align-items: center; }
+  .mq450\:min-h-\[50px\] { min-height: 50px; }
+  .mq450\:px-3 { padding-left: 16px; padding-right: 16px; }
+  .mq450\:py-5 { padding-top: 32px; padding-bottom: 32px; }
+  .mq450\:h-8 { height: 32px; }
+  .mq450\:w-8 { width: 32px; }
+  .mq450\:w-5 { width: 20px; }
+  .mq450\:h-5 { height: 20px; }
+}

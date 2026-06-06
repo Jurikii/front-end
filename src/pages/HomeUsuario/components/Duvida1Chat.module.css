@@ -1,0 +1,42 @@
+.duvida1Chat {
+  border-radius: var(--br-60);
+  background-color: var(--branco);
+  border: 1px solid var(--azul-sereno);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-12) var(--padding-20);
+  gap: var(--gap-12);
+  text-align: left;
+  font-size: var(--fs-15);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.duvida1Chat:hover {
+  background-color: var(--color-oldlace);
+  border-color: var(--amarelo-claro);
+}
+.duvida1Chat:active {
+  transform: scale(0.97);
+}
+.chat,
+.fuiDemitidoQuais {
+  position: relative;
+  flex-shrink: 0;
+}
+.chat {
+  height: var(--height-30);
+  width: var(--width-30);
+  overflow: hidden;
+}
+.fuiDemitidoQuais {
+  width: var(--width-179);
+  white-space: pre-wrap;
+  display: inline-block;
+}
+.setinha1 {
+  height: var(--height-15);
+  width: var(--width-15);
+  position: relative;
+}

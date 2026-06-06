@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background-color: var(--branco);
+  border-radius: var(--br-20);
+  padding: 40px 32px 32px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 0.25s ease;
+  outline: none;
+}
+
+.iconArea {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #fde8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSair {
+  width: 32px;
+  height: 32px;
+}
+
+.titulo {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  text-align: center;
+}
+
+.mensagem {
+  margin: 0;
+  font-size: var(--fs-15);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.botoes {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btnCancelar,
+.btnConfirmar {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: var(--br-10);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  border: none;
+}
+
+.btnCancelar {
+  background-color: var(--color-whitesmoke);
+  color: var(--azul);
+}
+
+.btnCancelar:hover {
+  background-color: #e0e0e0;
+}
+
+.btnConfirmar {
+  background-color: #c83c3c;
+  color: var(--branco);
+}
+
+.btnConfirmar:hover {
+  background-color: #a52a2a;
+}
+
+.btnCancelar:active,
+.btnConfirmar:active {
+  transform: scale(0.96);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .modal {
+    padding: 28px 20px 24px;
+  }
+
+  .botoes {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,108 @@
+.planos {
+  width: 100%;
+  position: relative;
+  background-color: var(--branco);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  line-height: normal;
+  letter-spacing: normal;
+  transition: gap 0.3s ease;
+}
+
+/* ── Conteúdo principal ───────────────────────────── */
+.conteudo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 64px 80px;
+  box-sizing: border-box;
+  gap: 80px;
+  max-width: 1280px;
+  flex-shrink: 0;
+  transition: padding 0.3s ease, gap 0.3s ease;
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px 56px;
+  gap: 16px;
+  font-size: 44px;
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+  text-align: center;
+  transition: padding 0.3s ease;
+}
+
+.tituloHero {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  transition: font-size 0.3s ease;
+}
+
+.destaque {
+  color: var(--amarelo);
+}
+
+.subtituloHero {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  max-width: 700px;
+  color: var(--color-gray);
+}
+
+/* ── Responsivo ───────────────────────────────────── */
+@media screen and (max-width: 1225px) {
+  .conteudo {
+    max-width: 100%;
+    padding: 0 40px 64px;
+  }
+  .planos {
+    gap: 48px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .planos {
+    gap: 40px;
+  }
+  .conteudo {
+    gap: 48px;
+    padding: 0 24px 56px;
+  }
+  .tituloHero {
+    font-size: 32px;
+  }
+  .hero {
+    padding: 32px 20px 40px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .planos {
+    gap: 32px;
+  }
+  .conteudo {
+    gap: 32px;
+    padding: 0 16px 48px;
+  }
+  .tituloHero {
+    font-size: var(--fs-24);
+  }
+  .subtituloHero {
+    font-size: var(--fs-16);
+  }
+  .hero {
+    padding: 24px 12px 32px;
+  }
+}

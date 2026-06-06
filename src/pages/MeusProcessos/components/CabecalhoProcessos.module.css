@@ -1,0 +1,133 @@
+.cabecalho {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: var(--border-1);
+  gap: var(--gap-20);
+  font-size: var(--fs-28);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  text-align: left;
+  padding-bottom: var(--padding-16);
+  transition: border-color 0.2s ease;
+}
+
+.titulo {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+}
+
+.paginaTitulo {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.paginaSubtitulo {
+  margin: 0;
+  align-self: stretch;
+  font-size: var(--fs-16);
+  font-weight: 400;
+  color: var(--azul-escuro);
+  font-family: inherit;
+}
+
+.filtros {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-15);
+  gap: var(--gap-20);
+}
+
+.filtro,
+.filtroAtivo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+  height: 40px;
+  padding: var(--padding-8) var(--padding-12);
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  color: var(--azul);
+  cursor: pointer;
+}
+
+.filtroAtivo {
+  border-bottom: 3px solid var(--amarelo);
+}
+.filtroAtivo:hover {
+  opacity: 0.8;
+}
+.filtro:active,
+.filtroAtivo:active {
+  transform: scale(0.97);
+}
+
+.filtro:hover {
+  opacity: 0.7;
+}
+
+.filtroIcone {
+  height: 22px;
+  width: 22px;
+}
+
+.filtroBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--br-10);
+  background-color: var(--color-khaki);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .cabecalho {
+    gap: var(--gap-16);
+    padding-bottom: var(--padding-12);
+  }
+
+  .paginaTitulo {
+    font-size: var(--fs-24);
+  }
+
+  .filtros {
+    gap: var(--gap-14);
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .filtros {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-8);
+  }
+  .cabecalho {
+    gap: var(--gap-14);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .paginaTitulo {
+    font-size: var(--fs-20);
+  }
+
+  .paginaSubtitulo,
+  .filtroLabel {
+    font-size: var(--fs-14);
+  }
+}

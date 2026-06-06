@@ -1,0 +1,173 @@
+.completoEscolhaAdvogado {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 106, 138, 0.4);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 40px 15px;
+  gap: 20px;
+  max-width: 1292px;
+  text-align: left;
+  font-size: 25px;
+  color: var(--azul);
+  font-family: Montserrat;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.completoEscolhaAdvogado:hover {
+  border-color: var(--amarelo);
+  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.12);
+}
+.advogados,
+.escolhaUmAdvogado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.advogados {
+  align-self: stretch;
+  gap: 45px;
+  max-width: 100%;
+}
+.escolhaUmAdvogado {
+  width: 100%;
+  gap: 22px;
+  max-width: 627px;
+}
+.escolhaUmAdvogado2 {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.botesIniciais,
+.escolhaUmAdvogado3 {
+  align-self: stretch;
+  display: flex;
+  max-width: 100%;
+}
+.escolhaUmAdvogado3 {
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.botesIniciais {
+  align-items: center;
+}
+.menuDeBusca,
+.pesquisar {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.pesquisar {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--azul-escuro);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 24px 5px 19px;
+  gap: 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.pesquisar:hover {
+  border-color: var(--amarelo);
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+}
+.pesquisar:focus-within {
+  border-color: var(--amarelo);
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.18);
+}
+.busquePorNome,
+.lupaIcon {
+  position: relative;
+  flex-shrink: 0;
+}
+.busquePorNome {
+  font-weight: 600;
+}
+.lupaIcon {
+  height: 38px;
+  width: 40px;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.pesquisar:hover .lupaIcon {
+  transform: scale(1.08);
+}
+.advogados2,
+.mensagemSeria {
+  align-self: stretch;
+  display: flex;
+  max-width: 100%;
+}
+.advogados2 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 19px;
+}
+.mensagemSeria {
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-size: 20px;
+  color: var(--azul-escuro);
+}
+.sininhoIcon {
+  height: 49px;
+  width: 46px;
+  position: relative;
+  border-radius: 3604px;
+}
+.asPartesSero {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+@media screen and (max-width: 1325px) {
+  .completoEscolhaAdvogado {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .mensagemSeria {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .completoEscolhaAdvogado {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+  .advogados {
+    gap: 22px;
+  }
+  .escolhaUmAdvogado {
+    max-width: 100%;
+  }
+  .pesquisar {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .escolhaUmAdvogado2 {
+    font-size: 20px;
+  }
+  .asPartesSero {
+    font-size: 16px;
+  }
+}

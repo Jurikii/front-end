@@ -1,0 +1,185 @@
+.florzinhaTextoEBoto {
+  align-self: stretch;
+  background-color: var(--color-antiquewhite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 64px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--fs-30);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+
+.image77Icon {
+  height: 120px;
+  width: 168px;
+  border-radius: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.textoEmDestaqueEBoto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.textoEmDestaque {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.aJustia {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.entenderO {
+  margin: 0;
+  font-size: var(--fs-18);
+  font-weight: 400;
+  font-family: var(--font-inter);
+  color: var(--azul-escuro);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.botoETextoEmbaixo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.botoDvidas {
+  height: 56px;
+  min-width: 240px;
+  padding: 0 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-goldenrod-100), #f5a623);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(250, 184, 76, 0.35);
+}
+.botoDvidas:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(250, 184, 76, 0.45);
+}
+.botoDvidas:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(250, 184, 76, 0.3);
+}
+
+.comearAgora {
+  font-size: var(--fs-16);
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.mingcutearrowUpFillIcon {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.seguro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.materialSymbolslockOutlineIcon {
+  height: 18px;
+  width: 18px;
+  object-fit: contain;
+}
+
+.rpidoSeguroE {
+  font-size: var(--fs-14);
+  font-weight: 400;
+  color: var(--azul-escuro);
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1366px) {
+  .florzinhaTextoEBoto {
+    padding: 48px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .florzinhaTextoEBoto {
+    flex-wrap: wrap;
+    padding: 40px 48px;
+    gap: 40px;
+  }
+  .textoEmDestaqueEBoto {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .florzinhaTextoEBoto {
+    padding: 32px;
+    gap: 32px;
+  }
+  .textoEmDestaqueEBoto {
+    gap: 32px;
+  }
+  .aJustia {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .florzinhaTextoEBoto {
+    padding: 28px 20px;
+    gap: 24px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .textoEmDestaqueEBoto {
+    gap: 20px;
+    justify-content: center;
+  }
+  .textoEmDestaque {
+    align-items: center;
+    text-align: center;
+  }
+  .aJustia {
+    font-size: 22px;
+  }
+  .entenderO {
+    font-size: var(--fs-16);
+  }
+  .botoDvidas {
+    width: 100%;
+    min-width: unset;
+  }
+  .image77Icon {
+    width: 100px;
+    height: auto;
+  }
+}

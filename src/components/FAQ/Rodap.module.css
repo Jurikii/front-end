@@ -1,0 +1,122 @@
+.rodap {
+  width: 100%;
+  background-color: var(--azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-30) var(--padding-40) var(--padding-12);
+  box-sizing: border-box;
+  gap: 29px;
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--branco);
+  font-family: var(--font-montserrat);
+}
+.informaesEmCimaDireitoAu {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.logoERedesSociais {
+  width: 217px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  text-align: center;
+  font-size: var(--fs-20);
+}
+.logoEJuriki {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-2);
+}
+.logoIcon {
+  width: 52px;
+  height: 46px;
+  position: relative;
+  object-fit: cover;
+}
+.juriki {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.aJustiaQue,
+.redesSociais {
+  align-self: stretch;
+}
+.aJustiaQue {
+  position: relative;
+  font-size: var(--fs-14);
+}
+.redesSociais {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-12);
+}
+.iconParkOutlineinstagram {
+  width: var(--width-24);
+  position: relative;
+  max-height: 100%;
+}
+.navegao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-10);
+  text-align: center;
+}
+.navegao2 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.incioParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+.incio {
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.incio:hover {
+  color: var(--amarelo);
+}
+.informaes,
+.coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+}
+.informaes {
+  gap: var(--gap-5);
+}
+.polticaDePrivacidade {
+  text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .informaesEmCimaDireitoAu {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .logoERedesSociais,
+  .navegao,
+  .coluna {
+    align-items: center;
+  }
+  .incioParent,
+  .informaes {
+    align-items: center;
+  }
+}

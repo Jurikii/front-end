@@ -1,0 +1,212 @@
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 36px 28px;
+  box-sizing: border-box;
+
+  background-color: var(--branco);
+  border: var(--border-1);
+  border-radius: var(--br-20);
+  box-shadow: var(--shadow-drop);
+
+  min-width: 280px;
+  max-width: 400px;
+
+  font-size: var(--fs-14);
+  font-family: var(--font-montserrat);
+  color: var(--preto);
+  text-align: left;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-drop-3);
+  transform: translateY(-4px);
+}
+
+/* Card em destaque (ex: plano intermediário) */
+.destaque {
+  border-color: var(--amarelo);
+  border-width: 2px;
+}
+
+/* Card com features em 2 colunas (planos enterprise) */
+.duasColunas {
+  min-width: 400px;
+  max-width: 100%;
+}
+
+/* ── Cabeçalho ────────────────────────────────────── */
+.cabecalho {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 32px;
+}
+
+.iconeContainer {
+  flex-shrink: 0;
+  height: 80px;
+  width: 80px;
+  border-radius: var(--br-30);
+  background-color: var(--areia);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone {
+  width: 44px;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.infoPlano {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nomeEDescricao {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nome {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.descricao {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-gray);
+  font-family: inherit;
+}
+
+/* ── Preço ────────────────────────────────────────── */
+.preco {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.cifrao {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  align-self: center;
+}
+
+.valor {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.periodo {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-gray);
+  padding-bottom: 4px;
+  align-self: flex-end;
+}
+
+/* ── Divisor ──────────────────────────────────────── */
+.divisor {
+  align-self: stretch;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* ── Features ─────────────────────────────────────── */
+.features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.duasColunas .features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 40px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkIcon {
+  height: 12px;
+  width: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Responsivo ───────────────────────────────────── */
+@media screen and (max-width: 750px) {
+  .cabecalho {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+
+  .nome,
+  .valor {
+    font-size: 28px;
+  }
+
+  .duasColunas .features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  .iconeContainer {
+    width: 64px;
+    height: 64px;
+  }
+
+  .icone {
+    width: 36px;
+  }
+
+  .nome {
+    font-size: 22px;
+  }
+
+  .descricao,
+  .cifrao,
+  .periodo {
+    font-size: 16px;
+  }
+
+  .valor {
+    font-size: 22px;
+  }
+}

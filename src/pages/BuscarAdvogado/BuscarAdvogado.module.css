@@ -1,0 +1,154 @@
+.buscarAdvogado {
+  width: 100%;
+  height: 1374px;
+  position: relative;
+  background-color: var(--branco);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+  transition: background-color 0.3s ease;
+}
+.areasAtuacao,
+.elementos {
+  position: absolute;
+  max-width: 100%;
+}
+.elementos {
+  top: calc(50% - 528px);
+  left: calc(50% - 646px);
+  width: 1292px;
+  height: 1151px;
+  text-align: left;
+  font-size: 25px;
+  color: var(--azul);
+  font-family: Montserrat;
+}
+.areasAtuacao {
+  top: 231px;
+  left: 0;
+  width: 775px;
+  height: 93px;
+}
+.reasDeAtuao {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.areasAtuacao2,
+.trabalhista {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.areasAtuacao2 {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  gap: 30px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 15px;
+}
+.trabalhista {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 106, 138, 0.4);
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.trabalhista2 {
+  position: relative;
+  display: inline-block;
+  min-width: 88px;
+}
+.civil {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 106, 138, 0.4);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.consumidor2,
+.cvel,
+.famlia {
+  position: relative;
+  display: inline-block;
+  min-width: 40px;
+}
+.consumidor2,
+.famlia {
+  min-width: 61px;
+}
+.consumidor2 {
+  min-width: 97px;
+}
+.previdenciario {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 106, 138, 0.4);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-shrink: 0;
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.previdencirio,
+.verTodas2 {
+  position: relative;
+}
+.verTodas2 {
+  display: inline-block;
+  min-width: 71px;
+}
+.trabalhista:hover,
+.civil:hover,
+.previdenciario:hover {
+  border-color: var(--azul-sereno);
+  background-color: rgba(61, 106, 138, 0.04);
+}
+@media screen and (max-width: 800px) {
+  .buscarAdvogado,
+  .elementos {
+    height: auto;
+    min-height: 1374px;
+  }
+  .elementos {
+    min-height: 1151px;
+  }
+  .areasAtuacao {
+    height: auto;
+    min-height: 93px;
+  }
+  .areasAtuacao2 {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .reasDeAtuao {
+    font-size: 20px;
+  }
+  .civil,
+  .previdenciario,
+  .trabalhista {
+    width: calc(100% - 40px);
+  }
+}

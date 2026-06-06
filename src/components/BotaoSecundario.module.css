@@ -1,0 +1,26 @@
+.botoSecundario {
+  width: 149px;
+  border-radius: var(--br-10);
+  border: var(--border-2);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-10);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  text-align: left;
+  font-size: var(--fs-24);
+  color: var(--sideBar);
+  font-family: var(--font-inter);
+}
+.botoSecundario:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.botoSecundario:active {
+  transform: scale(0.97);
+}
+.boto2 {
+  position: relative;
+}

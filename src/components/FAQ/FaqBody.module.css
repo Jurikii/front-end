@@ -1,0 +1,303 @@
+.faqBody {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 33px;
+  flex-wrap: wrap;
+  text-align: left;
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-25);
+}
+.categorias {
+  flex: 1;
+  border-radius: var(--br-20);
+  background-color: var(--branco-dos-valores);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-40) var(--padding-30);
+  gap: var(--gap-20);
+  min-width: 280px;
+  max-width: 403px;
+  font-size: var(--fs-20);
+  transition: box-shadow 0.2s ease;
+}
+.categorias:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.maisBuscadas {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--azul-sereno);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-10) var(--padding-20);
+  gap: var(--gap-10);
+  color: var(--branco);
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.maisBuscadas:hover {
+  filter: brightness(0.92);
+}
+.streamlinestar1SolidIcon {
+  width: var(--width-24);
+  position: relative;
+  max-height: 100%;
+}
+.sobreIa {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--branco-dos-valores);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-10) var(--padding-20);
+  gap: var(--gap-10);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.sobreIa:hover {
+  background-color: var(--color-oldlace);
+}
+.magerobotHappyIcon {
+  width: var(--width-26);
+  position: relative;
+  max-height: 100%;
+}
+.sobreAIa {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.sobreUso {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--branco-dos-valores);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-10) var(--padding-20);
+  gap: 9px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.sobreUso:hover {
+  background-color: var(--color-oldlace);
+}
+.entypobriefcaseIcon {
+  width: 25px;
+  position: relative;
+  max-height: 100%;
+}
+.mensagem {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--color-oldlace);
+  border: 1px solid var(--amarelo-claro);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-10) var(--padding-15);
+  gap: var(--gap-20);
+  font-size: var(--fs-18);
+}
+.texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  min-width: 143px;
+}
+.aJurikiExiste {
+  max-width: 220px;
+  position: relative;
+}
+.conteComA {
+  align-self: stretch;
+  position: relative;
+  font-weight: 500;
+}
+.image114Icon {
+  width: 89px;
+  position: relative;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: contain;
+}
+.perguntasMaisBuscadas {
+  flex: 2;
+  min-width: 400px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+}
+.perguntasMaisBuscadas2 {
+  flex: 1;
+  border-radius: var(--br-10);
+  background-color: var(--branco-dos-valores);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 29px 26px 27px 29px;
+  gap: 17px;
+}
+.ttuloSeo {
+  width: 100%;
+  background-color: var(--branco-dos-valores);
+  border-bottom: 1px solid var(--amarelo);
+  box-sizing: border-box;
+  padding: 0 30px 20px 20px;
+}
+.iconeEPergunta {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-22);
+  flex-wrap: wrap;
+}
+.estrelaIcon {
+  width: 61px;
+  position: relative;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: cover;
+}
+.texto2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  min-width: 280px;
+}
+.maisBuscadas3 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.asDvidasMais {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 400;
+  font-family: inherit;
+}
+.peguntas {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-18);
+  text-align: center;
+  font-size: var(--fs-20);
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+}
+.aindaDvidas {
+  align-self: stretch;
+  border-radius: var(--br-20);
+  background-color: var(--color-oldlace);
+  border: 1px solid var(--amarelo-claro);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px var(--padding-20);
+  gap: var(--gap-12);
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.aindaDvidas:hover {
+  border-color: var(--amarelo);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.imagemETexto {
+  height: 71px;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  min-width: 71px;
+}
+.botoESeguro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-12);
+}
+.botoDvidas {
+  box-shadow: var(--shadow-drop);
+  border-radius: var(--br-10);
+  background-color: var(--amarelo);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: var(--padding-10);
+  gap: var(--gap-10);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+.botoDvidas:hover {
+  filter: brightness(0.92);
+}
+.botoDvidas:active {
+  transform: scale(0.97);
+}
+.hugeiconschat01 {
+  width: 29px;
+  position: relative;
+  max-height: 100%;
+}
+.perguntarParaA {
+  position: relative;
+  font-weight: 500;
+}
+.seguro {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-16);
+  color: var(--preto);
+}
+.materialSymbolslockOutlineIcon {
+  width: var(--width-20);
+  position: relative;
+  max-height: 100%;
+}
+.rpidoSeguroE {
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media screen and (max-width: 900px) {
+  .perguntasMaisBuscadas {
+    min-width: 100%;
+  }
+  .texto2 {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .categorias {
+    max-width: 100%;
+  }
+  .mensagem {
+    flex-wrap: wrap;
+  }
+  .maisBuscadas3 {
+    font-size: var(--fs-20);
+  }
+  .asDvidasMais {
+    font-size: var(--fs-16);
+  }
+}

@@ -1,0 +1,187 @@
+.card {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  padding: var(--padding-26);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-15);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-24);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contentWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-28);
+  max-width: 100%;
+}
+
+.tags {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-15);
+  flex-wrap: wrap;
+}
+
+.tagTitle {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.tagBadge {
+  height: 36px;
+  border-radius: var(--br-10);
+  background-color: var(--color-darkgreen-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5) 10px;
+  box-sizing: border-box;
+  color: var(--color-darkgreen-200);
+}
+
+.info {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  font-size: var(--fs-16);
+  color: var(--color-black);
+}
+
+.infoCenter {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--gap-0);
+  row-gap: var(--gap-15);
+  max-width: 100%;
+}
+
+.infoColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-8);
+  max-width: 100%;
+}
+
+.processoNumero {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.infoText {
+  align-self: stretch;
+  position: relative;
+  margin: 0;
+}
+
+.advogadoRow {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.trocarBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--amarelo);
+  border-radius: 8px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--amarelo);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.trocarBtn:hover {
+  background-color: var(--amarelo);
+  color: var(--branco);
+}
+
+.trocarBtn:hover .trocarIcon {
+  filter: brightness(0) invert(1);
+}
+
+.trocarIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  width: 150px;
+  height: 28px;
+  border-radius: var(--br-10);
+  background-color: var(--color-darkgreen-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5);
+  box-sizing: border-box;
+  font-size: var(--fs-16);
+  color: var(--color-darkgreen-100);
+}
+
+.statusText {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    gap: var(--gap-15);
+  }
+  .contentWrapper {
+    gap: var(--gap-15);
+  }
+  .tagTitle {
+    font-size: var(--fs-20);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .tagTitle {
+    font-size: var(--fs-16);
+  }
+  .infoText,
+  .processoNumero {
+    font-size: var(--fs-14);
+  }
+}

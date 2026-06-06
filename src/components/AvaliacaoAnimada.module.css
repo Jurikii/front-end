@@ -1,0 +1,23 @@
+.avaliaoAnimada1 {
+  width: 433px;
+  height: 530px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  gap: var(--gap-30);
+  text-align: center;
+  font-size: var(--fs-24);
+  color: var(--color-gray-400);
+  font-family: var(--font-montserrat);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.avaliaoAnimada1:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}

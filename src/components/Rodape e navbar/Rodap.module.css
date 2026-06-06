@@ -1,0 +1,215 @@
+.rodap {
+  align-self: stretch;
+  background-color: var(--azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 64px 20px;
+  gap: var(--gap-29);
+  z-index: 7;
+  flex-shrink: 0;
+  font-size: var(--fs-14);
+  color: var(--branco);
+  font-family: var(--font-montserrat);
+  text-align: left;
+}
+
+/* ── Área principal ───────────────────────────────── */
+.conteudo {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  row-gap: 32px;
+}
+
+/* ── Logo + redes sociais ─────────────────────────── */
+.logoERedesSociais {
+  width: 217px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: var(--fs-20);
+  text-align: center;
+}
+
+.logoEJuriki {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+}
+
+.logoIcon {
+  width: 42px;         /* Escolha a largura que preferir aqui */
+  height: auto;        /* Faz o cálculo proporcional automático */
+  object-fit: contain; /* Garante que os pixels fiquem perfeitamente contidos */
+}
+
+.juriki {
+  margin: 0;
+  height: 46px;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slogan {
+  margin: 0;
+  font-size: var(--fs-14);
+}
+
+.redesSociais {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-12);
+}
+
+.iconeSocial {
+  width: var(--width-24);
+  max-height: 100%;
+}
+
+/* ── Colunas de links ─────────────────────────────── */
+.colunaLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+}
+
+.tituloColuna {
+  margin: 0;
+  font-weight: 600;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.listaLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+
+.link {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--amarelo);
+  text-decoration: underline;
+}
+
+.textoContato {
+  cursor: auto; 
+}
+
+/* ── Rodapé de direitos ───────────────────────────── */
+.direitos {
+  margin: 0;
+  align-self: stretch;
+  text-align: center;
+}
+
+@media screen and (max-width: 1366px) {
+  .rodap {
+    padding: 40px 48px 20px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .rodap {
+    padding: 40px 48px 20px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .conteudo {
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Tablet (768–1023px) ── */
+@media screen and (max-width: 1023px) {
+  .rodap {
+    padding: 32px 32px 16px;
+  }
+  .conteudo {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logoERedesSociais {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .logoEJuriki {
+    justify-content: center;
+  }
+  .redesSociais {
+    justify-content: center;
+  }
+  .colunaLinks {
+    flex: 1 1 160px;
+  }
+}
+
+/* ── Mobile (≤767px) ── */
+@media screen and (max-width: 767px) {
+  .rodap {
+    padding: 24px 16px 16px;
+    gap: 20px;
+  }
+  .conteudo {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .logoERedesSociais {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .logoEJuriki {
+    justify-content: center;
+  }
+  .redesSociais {
+    justify-content: center;
+  }
+  .colunaLinks {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .listaLinks {
+    align-items: center;
+    text-align: center;
+  }
+  .tituloColuna {
+    text-align: center;
+    width: 100%;
+  }
+  .juriki {
+    font-size: var(--fs-16);
+  }
+}
+
+.linkSocial {
+  display: inline-flex;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.linkSocial:hover {
+  transform: scale(1.1); /* Dá um leve zoom no ícone */
+  opacity: 0.8;          /* Deixa o ícone levemente transparente */
+}

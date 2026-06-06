@@ -1,0 +1,212 @@
+.trocarDeAdvogado,
+.trocarDeAdvogado2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.trocarDeAdvogado {
+  width: 100%;
+  gap: 30px;
+  max-width: 1292px;
+  text-align: left;
+  font-size: 15px;
+  color: var(--azul);
+  font-family: Montserrat;
+}
+.trocarDeAdvogado2 {
+  align-self: stretch;
+  gap: 27px;
+}
+.voltarParaMeusProcessos {
+  width: 243.1px;
+  height: 20.1px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.voltarParaMeusProcessos:hover {
+  opacity: 0.7;
+  transform: translateX(-3px);
+}
+.voltarParaMeusProcessos:active {
+  transform: translateX(0);
+}
+.pepiconsPencilarrowUp {
+  height: 20.1px;
+  width: 20.1px;
+  position: relative;
+  object-fit: contain;
+}
+.voltarParaMeus {
+  position: relative;
+  font-weight: 600;
+}
+.cumprimentosHome {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px 0;
+  font-size: 35px;
+}
+.trocarDeAdvogado3 {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.processoSelecionado {
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 106, 138, 0.4);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 29px 30px;
+  gap: 60px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 30px;
+  color: var(--azul-escuro);
+  font-family: Montserrat;
+  transition: box-shadow 0.3s ease, border-color 0.2s ease;
+}
+.processoSelecionado:hover {
+  border-color: var(--amarelo);
+  box-shadow: 0 4px 16px rgba(218, 165, 32, 0.1);
+}
+.processoSelecionado2 {
+  margin: 0;
+  width: 100%;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 1212px;
+}
+.caso1,
+.casoCompleto3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.casoCompleto3 {
+  width: 100%;
+  padding: 0 9px;
+  box-sizing: border-box;
+  max-width: 1230px;
+  font-size: 25px;
+  color: #1c6406;
+}
+.caso1 {
+  align-self: stretch;
+  gap: 40px;
+  max-width: 100%;
+}
+.trabalhista,
+.trabalhista2 {
+  display: flex;
+  align-items: center;
+}
+.trabalhista {
+  align-self: stretch;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 20px;
+}
+.trabalhista2 {
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(28, 101, 6, 0.1);
+  justify-content: center;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.rescisoIndireta,
+.trabalhista3 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.rescisoIndireta {
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+.informes {
+  align-self: stretch;
+  flex-direction: column;
+  font-size: 20px;
+  color: #000;
+}
+.emAndamento,
+.informes,
+.informes2 {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.emAndamento {
+  align-self: stretch;
+  justify-content: center;
+  gap: 0;
+  row-gap: 20px;
+}
+.informes2 {
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+}
+.advogadaDraBeatriz {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+@media screen and (max-width: 1325px) {
+  .casoCompleto3,
+  .processoSelecionado2,
+  .trocarDeAdvogado {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .trocarDeAdvogado3 {
+    font-size: 28px;
+  }
+  .processoSelecionado {
+    gap: 30px;
+  }
+  .processoSelecionado2 {
+    font-size: 24px;
+  }
+  .caso1 {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .trocarDeAdvogado3 {
+    font-size: 21px;
+  }
+  .processoSelecionado2 {
+    font-size: 18px;
+  }
+  .rescisoIndireta,
+  .trabalhista3 {
+    font-size: 20px;
+  }
+  .advogadaDraBeatriz {
+    font-size: 16px;
+  }
+}

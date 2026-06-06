@@ -1,0 +1,77 @@
+.vectorParent {
+  width: clamp(280px, 22vw, 340px);
+  min-height: clamp(360px, 28vw, 420px);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 2.5vw, 32px) clamp(16px, 1.5vw, 24px);
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  font-size: var(--fs-16);
+  color: var(--sideBar);
+  font-family: var(--font-montserrat);
+  user-select: none;
+  overflow: hidden;
+  border-radius: var(--br-20);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.vectorParent:hover {
+  transform: translateY(-4px);
+}
+
+.instanceChild {
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.advocateRectsInnerParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+}
+
+.advocateRectsInner {
+  width: clamp(120px, 10vw, 150px);
+  height: clamp(120px, 10vw, 150px);
+  border-radius: var(--br-20);
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.drSandraBackram {
+  font-weight: 600;
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: var(--sideBar);
+}
+
+.advocateInfos {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 20px);
+  z-index: 2;
+}
+
+.advogadaCriminalistaEspecial {
+  font-size: clamp(12px, 1vw, 14px);
+  opacity: 0.7;
+  line-height: 1.5;
+  color: var(--sideBar);
+}
