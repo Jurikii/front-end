@@ -1,4 +1,3 @@
-import { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Menu1.module.css";
 import { NavLink } from "react-router-dom";

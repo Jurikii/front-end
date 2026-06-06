@@ -5,9 +5,9 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: var(--padding-0) var(--padding-30);
+  padding: var(--padding-0) var(--padding-40);
   box-sizing: border-box;
-  gap: 54px;
+  gap: 64px;
   max-width: 100%;
 }
 .cumprimentosHome,
@@ -18,11 +18,11 @@
 }
 .saudao {
   flex: 1;
-  padding: var(--padding-100) var(--padding-0) 98px;
+  padding: var(--padding-100) var(--padding-0) var(--padding-100);
   box-sizing: border-box;
-  gap: 53.5px;
+  gap: 44px;
   min-width: var(--min-w-310);
-  max-width: 725px;
+  max-width: 680px;
   text-align: left;
   font-size: var(--fs-20);
   color: var(--azul);
@@ -30,8 +30,8 @@
 }
 .cumprimentosHome {
   align-self: stretch;
-  gap: var(--gap-12);
-  font-size: 55px;
+  gap: var(--gap-6);
+  font-size: 48px;
 }
 .comoPossoTe,
 .olAlice {
@@ -43,9 +43,13 @@
 }
 .olAlice {
   font-size: inherit;
+  letter-spacing: -0.03em;
+  color: var(--azul);
 }
 .comoPossoTe {
-  font-size: var(--fs-30);
+  font-size: var(--fs-24);
+  font-weight: 500;
+  color: var(--azul-sereno);
 }
 .juridiquesSozinha {
   align-self: stretch;
@@ -55,49 +59,55 @@
   max-width: 100%;
 }
 .mdiheartOutlineIcon {
-  height: var(--height-30);
-  width: var(--width-30);
+  height: var(--height-24);
+  width: var(--width-24);
   position: relative;
+  flex-shrink: 0;
 }
 .vocNoPrecisa {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: var(--fs-18);
   font-weight: 600;
   font-family: inherit;
   display: inline-block;
   max-width: 100%;
+  color: var(--azul);
+  line-height: 1.4;
 }
 .avisoJuriki {
   align-self: stretch;
-  border-radius: var(--br-10);
+  border-radius: var(--br-12);
   border: 1px solid var(--areia);
+  background-color: rgba(244, 234, 216, 0.15);
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: var(--padding-20) 25px;
+  padding: var(--padding-20) var(--padding-24);
   gap: var(--gap-16);
   max-width: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
 }
 .avisoJuriki:hover {
   border-color: var(--amarelo-claro);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: rgba(252, 237, 200, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 .seguroIcon {
-  width: 70px;
+  width: 56px;
+  height: 56px;
   position: relative;
   border-radius: var(--br-360);
-  max-height: 100%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 .textoAviso {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-6);
-  min-width: 382px;
+  gap: var(--gap-4);
+  min-width: 280px;
   max-width: 100%;
 }
 .aJurikiOferece,
@@ -108,37 +118,53 @@
 .aJurikiOferece {
   width: 100%;
   font-weight: 600;
-  max-width: 587px;
+  max-width: 540px;
+  line-height: 1.5;
+  font-size: var(--fs-13);
+  color: var(--azul);
 }
 .emCasosImportantes {
-  font-size: var(--fs-14);
+  font-size: var(--fs-15);
+  color: var(--azul-escuro);
+  opacity: 0.8;
   max-width: 100%;
 }
 .image145Icon {
   flex: 1;
   position: relative;
-  max-width: 513px;
+  max-width: 480px;
   overflow: hidden;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   min-width: var(--min-w-310);
+  align-self: center;
+}
+@media screen and (max-width: 1050px) {
+  .image145Icon {
+    max-width: 400px;
+  }
 }
 @media screen and (max-width: 800px) {
-  .saudacaoHome,
-  .saudao {
-    gap: 27px;
+  .saudacaoHome {
+    padding-left: var(--padding-24);
+    padding-right: var(--padding-24);
+    gap: 40px;
   }
   .saudao {
+    gap: 32px;
     padding-top: var(--padding-65);
-    padding-bottom: var(--padding-64);
+    padding-bottom: var(--padding-65);
     box-sizing: border-box;
     max-width: 100%;
   }
+  .cumprimentosHome {
+    font-size: 40px;
+  }
   .olAlice {
-    font-size: 44px;
+    font-size: 40px;
   }
   .comoPossoTe {
-    font-size: var(--fs-24);
+    font-size: var(--fs-22);
   }
   .avisoJuriki,
   .juridiquesSozinha {
@@ -153,13 +179,22 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .saudacaoHome {
+    padding-left: var(--padding-16);
+    padding-right: var(--padding-16);
+  }
+  .cumprimentosHome {
+    font-size: 30px;
+  }
   .olAlice {
-    font-size: 33px;
+    font-size: 30px;
   }
   .comoPossoTe {
     font-size: var(--fs-18);
   }
-  .aJurikiOferece,
+  .aJurikiOferece {
+    font-size: var(--fs-13);
+  }
   .vocNoPrecisa {
     font-size: var(--fs-16);
   }

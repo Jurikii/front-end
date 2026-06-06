@@ -1,15 +1,21 @@
-import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useCallback, useMemo } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import CabecalhoProcessos from "./components/CabecalhoProcessos";
 import CardProcesso from "./components/CardProcesso";
-import { FILTROS, PROCESSOS } from "./data/processos";
+import { FILTROS, PROCESSOS, STATUS } from "./data/processos";
 import styles from "./MeusProcessos.module.css";
 import Menu1 from "../../components/Menu1";
 
 const FILTRO_PADRAO = FILTROS[0].id;
 
 const MeusProcessos = () => {
-  const [filtroAtivo, setFiltroAtivo] = useState(FILTRO_PADRAO);
+  const [searchParams] = useSearchParams();
+  const filtroInicial = useMemo(() => {
+    const param = searchParams.get("filtro");
+    if (param && FILTROS.some((f) => f.id === param)) return param;
+    return FILTRO_PADRAO;
+  }, []);
+  const [filtroAtivo, setFiltroAtivo] = useState(filtroInicial);
   const navigate = useNavigate();
 
   const handleAcaoProcesso = useCallback((processoId, acaoId) => {
@@ -22,7 +28,18 @@ const MeusProcessos = () => {
     setFiltroAtivo(filtroId);
   }, []);
 
-  const processosFiltrados = filtroAtivo === "ativos" ? PROCESSOS : [];
+  const processosFiltrados = useMemo(() => {
+    switch (filtroAtivo) {
+      case "ativos":
+        return PROCESSOS.filter((p) => p.status === STATUS.EM_ANDAMENTO || p.status === STATUS.AGUARDANDO);
+      case "encerrados":
+        return PROCESSOS.filter((p) => p.status === STATUS.ENCERRADO);
+      case "consultas":
+        return [];
+      default:
+        return [];
+    }
+  }, [filtroAtivo]);
 
   return (
     <div className={styles.pagina}>

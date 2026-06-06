@@ -13,11 +13,9 @@ const SobreNos = () => {
       {/* ============ HERO ============ */}
       <section className={styles.hero}>
         <img className={styles.heroBg} alt="" src="/merged-asset-2@2x.png" />
-        <div className={styles.chatBubble}>
-          <div className={styles.chatFrame}>
-            <div className={styles.chatText}>
-              Oi! Sou a Sofia, assistente da Juriki. 😃
-            </div>
+        <div className={styles.chatFrame}>
+          <div className={styles.chatText}>
+            Oi! Sou a Sofia, assistente da Juriki. 😃
           </div>
         </div>
         <div className={styles.heroContent}>

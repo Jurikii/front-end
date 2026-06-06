@@ -122,7 +122,6 @@
   --color-darkslategray: #1a2d3a;
   --color-gray-400: rgba(2, 2, 2, 0.8);
   --color-gray-300: rgba(2, 2, 2, 0.6);
-  --color-darkorange: #e8973a;
   --shadow-drop-1: 0px 4px 24px rgba(0, 0, 0, 0.08);
   --shadow-drop-2: 0px 4px 16px rgba(0, 0, 0, 0.1);
   --shadow-drop-3: 0px 4px 24px rgba(0, 0, 0, 0.12);
@@ -170,7 +169,6 @@ html {
   --areia: #f4ead8;
   --color-antiquewhite: #fcead3;
   --color-black: #000;
-  --color-darkorange: #f79432;
   --color-darkslategray: rgba(16, 46, 68, 0.7);
   --color-gainsboro: #e6e6e6;
   --color-goldenrod-100: #fabb4c;

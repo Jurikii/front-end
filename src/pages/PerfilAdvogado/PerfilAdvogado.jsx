@@ -31,6 +31,7 @@ const PerfilAdvogado = () => {
           foto={advogado?.foto}
           areas={advogado?.areas}
           oab={advogado?.oab}
+          advogadoId={advogado?.id}
         />
         <SobreAtuacao
           nome={advogado?.nome}

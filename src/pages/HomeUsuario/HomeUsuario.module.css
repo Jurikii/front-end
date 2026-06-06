@@ -8,12 +8,14 @@
   width: 100%;
   position: relative;
   background-color: var(--branco);
-  gap: 0.9px;
   line-height: normal;
   letter-spacing: normal;
-  transition: background-color 0.3s ease;
 }
 .homeElementos {
   align-self: stretch;
   max-width: 100%;
+}
+
+.homeElementos > section:last-child {
+  margin-bottom: 0;
 }

@@ -87,19 +87,16 @@ export const FILTROS = [
     id: "ativos",
     label: "Ativos",
     icone: "/codicon-folder-active.svg",
-    contagem: 3,
   },
   {
     id: "consultas",
     label: "Consultas agendadas",
     icone: "/mdi-light-calendar.svg",
-    contagem: 0,
   },
   {
     id: "encerrados",
     label: "Encerrados",
     icone: "/ep-finished.svg",
-    contagem: 0,
   },
 ];
 

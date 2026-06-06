@@ -25,6 +25,8 @@ const CardPlano = ({
   destaque = false,
   colunas = 1,
   className = "",
+  onSelecionarPlano,
+  planoId,
 }) => {
   const cardClass = [
     styles.card,
@@ -79,7 +81,10 @@ const CardPlano = ({
       </ul>
 
       {/* Botão de ação */}
-      <BotaoPlano variante={tipoBotao} />
+      <BotaoPlano
+        variante={tipoBotao}
+        onClick={onSelecionarPlano ? () => onSelecionarPlano(planoId) : undefined}
+      />
     </article>
   );
 };
@@ -90,10 +95,12 @@ CardPlano.propTypes = {
   icone: PropTypes.string.isRequired,
   preco: PropTypes.string.isRequired,
   features: PropTypes.arrayOf(PropTypes.string),
-  tipoBotao: PropTypes.oneOf(["assinar", "vendas"]),
+  tipoBotao: PropTypes.oneOf(["assinar", "vendas", "adquirido"]),
   destaque: PropTypes.bool,
   colunas: PropTypes.oneOf([1, 2]),
   className: PropTypes.string,
+  onSelecionarPlano: PropTypes.func,
+  planoId: PropTypes.string,
 };
 
 export default CardPlano;

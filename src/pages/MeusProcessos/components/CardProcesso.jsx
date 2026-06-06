@@ -63,7 +63,7 @@ const CardProcesso = ({
         {ACOES_PROCESSO.map((acao) => (
           <button
             key={acao.id}
-            className={[styles.acao, styles[`acao_${acao.variante}`]].join(" ")}
+            className={[styles.acao, styles[`acao_${acao.variante}`] ?? ""].filter(Boolean).join(" ")}
             onClick={() => onAcao?.(acao.id)}
           >
             <img className={styles.acaoIcone} alt="" src={acao.icone} />

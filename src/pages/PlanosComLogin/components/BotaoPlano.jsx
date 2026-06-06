@@ -7,7 +7,12 @@ import styles from "./BotaoPlano.module.css";
  * - variante "vendas": fundo escuro, para planos enterprise
  */
 const BotaoPlano = ({ variante = "assinar", onClick, className = "" }) => {
-  const label = variante === "vendas" ? "Falar com vendas" : "Assinar plano";
+  const labels = {
+    assinar: "Assinar plano",
+    vendas: "Falar com vendas",
+    adquirido: "Plano adquirido",
+  };
+  const label = labels[variante] || "Assinar plano";
 
   return (
     <button
@@ -20,7 +25,7 @@ const BotaoPlano = ({ variante = "assinar", onClick, className = "" }) => {
 };
 
 BotaoPlano.propTypes = {
-  variante: PropTypes.oneOf(["assinar", "vendas"]),
+  variante: PropTypes.oneOf(["assinar", "vendas", "adquirido"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
 };

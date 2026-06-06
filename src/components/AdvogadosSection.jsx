@@ -1,13 +1,16 @@
 import { useCallback, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { advogados } from "../data/advogados";
 import AdvogadoCard from "./AdvogadoCard";
 import PropTypes from "prop-types";
 import styles from "./AdvogadosSection.module.css";
 
 const AdvogadosSection = ({ className = "" }) => {
+  const navigate = useNavigate();
+
   const onBotoContainerClick = useCallback(() => {
-    // Please sync "Pag - Login" to the project
-  }, []);
+    navigate("/login");
+  }, [navigate]);
 
   const advogadosRef = useRef(null);
   const isDown = useRef(false);

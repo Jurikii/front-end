@@ -34,7 +34,7 @@ export const PLANOS_PARA_VOCE = [
       "Notificações de prazo",
     ],
     tipoBotao: "assinar",
-    destaque: true,
+    destaque: false,
   },
   {
     id: "flor",

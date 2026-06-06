@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Duvida1Chat from "./Duvida1Chat";
 import Chat from "./Chat";
@@ -10,14 +10,15 @@ import styles from "./PrincipaisDuvidas.module.css";
 
 const PrincipaisDuvidas = ({ className = "" }) => {
   const [textoInput, setTextoInput] = useState("");
+  const textoRef = useRef("");
   const navigate = useNavigate();
 
   const handleEnviar = useCallback(() => {
-    const msg = textoInput.trim();
+    const msg = textoRef.current.trim();
     if (!msg) return;
     sessionStorage.setItem("juriki_mensagem_pendente", msg);
     navigate("/ia");
-  }, [textoInput, navigate]);
+  }, [navigate]);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === "Enter") {
@@ -25,6 +26,11 @@ const PrincipaisDuvidas = ({ className = "" }) => {
       handleEnviar();
     }
   }, [handleEnviar]);
+
+  const handleDuvidaClick = useCallback((texto) => {
+    sessionStorage.setItem("juriki_mensagem_pendente", texto);
+    navigate("/ia");
+  }, [navigate]);
 
   return (
     <section className={[styles.principaisDuvidas, className].join(" ")}>
@@ -47,6 +53,7 @@ const PrincipaisDuvidas = ({ className = "" }) => {
             property1="Default"
             text="Fui demitido quais são  meus direitos?"
             iconeAzul={<Chat property1="azul" />}
+            onClick={() => handleDuvidaClick("Fui demitido quais são  meus direitos?")}
           />
           <Duvida1Chat
             property1="Default"
@@ -56,15 +63,17 @@ const PrincipaisDuvidas = ({ className = "" }) => {
             fuiDemitidoQuaisDisplay="unset"
             fuiDemitidoQuaisFlex="1"
             iconeAzul={<House property1="azul" />}
+            onClick={() => handleDuvidaClick("Meu aluguel pode aumentar durante o contrato?")}
           />
           <Duvida1Chat
             property1="Default"
             text="Como funciona a pensão alimentícia?"
             duvida1ChatWidth="unset"
-            fuiDemitidoQuaisWidth="179px"
-            fuiDemitidoQuaisDisplay="inline-block"
-            fuiDemitidoQuaisFlex="unset"
+            fuiDemitidoQuaisWidth="unset"
+            fuiDemitidoQuaisDisplay="unset"
+            fuiDemitidoQuaisFlex="1"
             iconeAzul={<Document property1="Default" />}
+            onClick={() => handleDuvidaClick("Como funciona a pensão alimentícia?")}
           />
           <Duvida1Chat
             property1="Default"
@@ -74,6 +83,7 @@ const PrincipaisDuvidas = ({ className = "" }) => {
             fuiDemitidoQuaisDisplay="unset"
             fuiDemitidoQuaisFlex="1"
             iconeAzul={<People property1="Default" />}
+            onClick={() => handleDuvidaClick("Quais são os meus direitos como consumidor?")}
           />
         </form>
       </section>
@@ -92,7 +102,10 @@ const PrincipaisDuvidas = ({ className = "" }) => {
                 className={styles.campoTexto}
                 placeholder="Escreva sua dúvida aqui"
                 value={textoInput}
-                onChange={(e) => setTextoInput(e.target.value)}
+                onChange={(e) => {
+                  setTextoInput(e.target.value);
+                  textoRef.current = e.target.value;
+                }}
                 onKeyDown={handleKeyDown}
               />
             </div>

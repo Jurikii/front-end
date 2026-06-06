@@ -4,7 +4,8 @@
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  transform-origin: center;
 }
 
 .chat:hover {

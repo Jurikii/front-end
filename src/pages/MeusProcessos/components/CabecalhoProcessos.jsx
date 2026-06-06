@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { FILTROS } from "../data/processos";
+import { FILTROS, PROCESSOS, STATUS } from "../data/processos";
 import styles from "./CabecalhoProcessos.module.css";
 
 /**

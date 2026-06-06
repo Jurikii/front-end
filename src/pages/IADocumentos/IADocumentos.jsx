@@ -6,7 +6,7 @@ import RecentDocumentsSection from "./components/RecentDocumentsSection";
 import SessaoFiltro from "../../components/SessaoFiltro/SessaoFiltro";
 import styles from "./IADocumentos.module.css";
 
-const CATEGORIAS = ["Trabalhista", "Consumidor", "Civil", "Cível", "Tributário", "Empresarial", "Família"];
+const CATEGORIAS = ["Trabalhista", "Consumidor", "Cível", "Tributário", "Empresarial", "Família"];
 
 const FILTROS = [
   { id: "todos", label: "Todas" },
@@ -16,7 +16,7 @@ const FILTROS = [
 const INITIAL_DOCS = [
   { id: 1,  nome: "Contrato de trabalho",      pasta: "Trabalhista", data: "12/05/2025", tamanho: "2.4 MB", icone: "/icone-tipo-arquivo.svg" },
   { id: 2,  nome: "Foto do dano",              pasta: "Consumidor",  data: "12/05/2025", tamanho: "7.8 MB", icone: "/ant-design-file-jpg-outlined.svg" },
-  { id: 3,  nome: "Comprovante de residência", pasta: "Civil",       data: "12/05/2025", tamanho: "4.4 MB", icone: "/bi-filetype-docx.svg" },
+  { id: 3,  nome: "Comprovante de residência", pasta: "Cível",       data: "12/05/2025", tamanho: "4.4 MB", icone: "/bi-filetype-docx.svg" },
   { id: 4,  nome: "Declaração de imposto de renda", pasta: "Tributário", data: "10/05/2025", tamanho: "1.2 MB", icone: "/icone-tipo-arquivo.svg" },
   { id: 5,  nome: "Procuração",                pasta: "Cível",       data: "08/05/2025", tamanho: "0.8 MB", icone: "/bi-filetype-docx.svg" },
   { id: 6,  nome: "Sentença judicial",         pasta: "Trabalhista", data: "05/05/2025", tamanho: "3.1 MB", icone: "/icone-tipo-arquivo.svg" },

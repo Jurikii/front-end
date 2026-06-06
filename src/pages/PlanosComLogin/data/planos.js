@@ -34,7 +34,7 @@ export const PLANOS_PARA_VOCE = [
       "Notificações de prazo",
     ],
     tipoBotao: "assinar",
-    destaque: true,
+    destaque: false,
   },
   {
     id: "flor",
@@ -119,7 +119,7 @@ export const LINKS_RODAPE = {
 export const REDES_SOCIAIS = [
   { src: "/instagram-white-icon.svg", alt: "Instagram", url: "https://www.instagram.com/juriki_juridico"},
   { src: "/linkedin-app-white-icon.svg", alt: "LinkedIn", url: "https://www.linkedin.com/in/juriki-juridico-7165a8405/"},
-  { src: "github-white-icon.svg", alt: "github"},
+  { src: "/github-white-icon.svg", alt: "github", url: "https://github.com/juriki"},
   { src: "/ri-youtube-line.svg", alt: "YouTube" },
   { src: "/hugeicons-new-twitter-rectangle.svg", alt: "Twitter/X" },
 ];

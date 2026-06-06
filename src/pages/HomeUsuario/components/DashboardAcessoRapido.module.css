@@ -9,28 +9,30 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: var(--padding-100) var(--padding-30) 96px;
-  gap: 66px;
+  padding: var(--padding-100) var(--padding-40) var(--padding-100);
+  gap: 48px;
   max-width: 100%;
 }
 .seusAcompanhamentos {
   flex: 1;
-  border-radius: var(--br-10);
+  border-radius: 16px;
   border: 1px solid var(--color-steelblue-100);
   flex-direction: column;
-  padding: 50px var(--padding-60) var(--padding-60);
-  gap: var(--gap-40);
+  padding: 40px var(--padding-48) var(--padding-48);
+  gap: var(--gap-32);
   min-width: var(--min-w-310);
   max-width: 746px;
   text-align: left;
-  font-size: var(--fs-25);
+  font-size: var(--fs-22);
   color: var(--azul);
   font-family: var(--font-montserrat);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.3s ease, transform 0.25s ease, border-color 0.3s ease;
 }
 
 .seusAcompanhamentos:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+  border-color: rgba(61, 106, 138, 0.25);
+  transform: translateY(-3px);
 }
 .seusAcompanhamentos2 {
   margin: 0;
@@ -52,9 +54,10 @@
 }
 .processosChild {
   align-self: stretch;
-  height: var(--height-1);
+  height: 1px;
   position: relative;
-  border-top: var(--border-11);
+  background: linear-gradient(90deg, var(--color-steelblue-100), transparent);
+  border: none;
   box-sizing: border-box;
 }
 .processosConcluidos,
@@ -65,10 +68,9 @@
 }
 .processosConcluidos {
   align-self: stretch;
-  height: var(--height-60);
-  padding: var(--padding-0) var(--padding-37) var(--padding-0) var(--padding-0);
+  padding: var(--padding-0) var(--padding-0) var(--padding-0) var(--padding-0);
   box-sizing: border-box;
-  gap: 63px;
+  gap: 48px;
 }
 .processosEmAndamento {
   flex: 1;
@@ -77,9 +79,9 @@
 }
 .iconeConcludo {
   width: var(--width-60);
+  height: 60px;
   position: relative;
   border-radius: var(--br-360);
-  max-height: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -107,67 +109,80 @@
 .h2 {
   margin: 0;
   position: relative;
-  font-size: var(--fs-35);
+  font-size: var(--fs-28);
   font-weight: 700;
   font-family: inherit;
+  color: var(--azul);
+  flex-shrink: 0;
 }
 .verTodos {
-  height: var(--height-24);
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
+  gap: var(--gap-6);
+  padding: var(--padding-6) var(--padding-10);
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+.verTodos:hover {
+  background-color: rgba(61, 106, 138, 0.06);
 }
 .verTodos2 {
   position: relative;
   font-weight: 600;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  color: var(--azul-sereno);
+}
+.verTodos:hover .verTodos2 {
+  color: var(--azul);
 }
 .setinha1 {
-  height: var(--height-24);
-  width: var(--width-24);
+  height: var(--height-16);
+  width: var(--width-16);
   position: relative;
+  transition: transform 0.25s ease;
+  transform: scaleX(-1);
+}
+.verTodos:hover .setinha1 {
+  transform: scaleX(-1) translateX(-4px);
 }
 .acessoRapido {
   flex: 1;
-  border-radius: var(--br-10);
+  border-radius: 16px;
   border: 1px solid var(--color-steelblue-100);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 50px var(--padding-60) var(--padding-60);
-  gap: var(--gap-40);
+  padding: 40px var(--padding-48) var(--padding-48);
+  gap: var(--gap-32);
   min-width: var(--min-w-310);
   max-width: 480px;
   text-align: left;
-  font-size: var(--fs-25);
+  font-size: var(--fs-22);
   color: var(--azul);
   font-family: var(--font-montserrat);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.3s ease, transform 0.25s ease, border-color 0.3s ease;
 }
 
 .acessoRapido:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+  border-color: rgba(61, 106, 138, 0.25);
+  transform: translateY(-3px);
 }
 .ttuloAcessoRpido {
-  width: 220px;
-  height: var(--height-30);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--gap-15);
+  gap: var(--gap-10);
 }
-.materialSymbolsLightelectriIcon,
-.vectorIcon {
-  height: var(--height-22);
-  width: 21px;
+.materialSymbolsLightelectriIcon {
+  width: 22px;
+  height: 22px;
   position: relative;
-}
-.vectorIcon {
-  position: absolute;
-  top: -0.91px;
-  left: 1px;
-  width: 17px;
+  flex-shrink: 0;
 }
 .acessoRpido {
   margin: 0;
@@ -178,41 +193,38 @@
 }
 @media screen and (max-width: 800px) {
   .dashboardAcessoRapido {
-    gap: 33px;
-    padding-top: var(--padding-65);
-    padding-bottom: 62px;
+    gap: 40px;
+    padding: var(--padding-65) var(--padding-24);
     box-sizing: border-box;
   }
   .seusAcompanhamentos {
-    gap: var(--gap-20);
-    padding-left: var(--padding-30);
-    padding-right: var(--padding-30);
+    gap: var(--gap-24);
+    padding: var(--padding-28) var(--padding-24);
     box-sizing: border-box;
     max-width: 100%;
   }
   .processosConcluidos {
-    gap: var(--gap-31);
+    gap: var(--gap-24);
     flex-wrap: wrap;
   }
   .h2 {
-    font-size: var(--fs-28);
+    font-size: var(--fs-24);
   }
   .acessoRapido {
-    gap: var(--gap-20);
-    padding-left: var(--padding-30);
-    padding-right: var(--padding-30);
+    gap: var(--gap-24);
+    padding: var(--padding-28) var(--padding-24);
     box-sizing: border-box;
     max-width: 100%;
   }
 }
 @media screen and (max-width: 450px) {
   .dashboardAcessoRapido {
-    gap: var(--gap-16);
+    gap: var(--gap-20);
+    padding-left: var(--padding-16);
+    padding-right: var(--padding-16);
   }
   .seusAcompanhamentos {
-    padding-top: var(--padding-32);
-    padding-bottom: 39px;
-    box-sizing: border-box;
+    padding: var(--padding-20) var(--padding-16);
   }
   .seusAcompanhamentos2 {
     font-size: var(--fs-20);
@@ -227,12 +239,10 @@
     font-size: var(--fs-16);
   }
   .h2 {
-    font-size: var(--fs-21);
+    font-size: var(--fs-22);
   }
   .acessoRapido {
-    padding-top: var(--padding-32);
-    padding-bottom: 39px;
-    box-sizing: border-box;
+    padding: var(--padding-20) var(--padding-16);
   }
   .acessoRpido {
     font-size: var(--fs-20);

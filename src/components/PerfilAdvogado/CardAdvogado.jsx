@@ -1,5 +1,6 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFavoritos } from "../../hooks/useFavoritos";
 import PropTypes from "prop-types";
 import styles from "./CardAdvogado.module.css";
 
@@ -9,13 +10,19 @@ const CardAdvogado = ({
   foto = "/Foto-Adv@2x.png",
   areas = ["Consumidor", "Cível", "Trabalhista"],
   oab = "OAB/SP 123.456",
+  advogadoId,
 }) => {
   const navigate = useNavigate();
-  const [favoritado, setFavoritado] = useState(false);
+  const { isFavorito, toggleFavorito } = useFavoritos();
+  const favoritado = advogadoId ? isFavorito(advogadoId) : false;
 
   const onAgendarClick = useCallback(() => {
     navigate("/agendar-consulta", { state: { advogado: { nome, foto, areas, oab } } });
   }, [navigate, nome, foto, areas, oab]);
+
+  const handleToggleFavorito = useCallback(() => {
+    if (advogadoId) toggleFavorito(advogadoId);
+  }, [advogadoId, toggleFavorito]);
 
   return (
     <section className={`${styles.card} ${className}`}>
@@ -45,11 +52,11 @@ const CardAdvogado = ({
       <div className={styles.sessao2Horizontal}>
         <div
           className={styles.favoritos}
-          onClick={() => setFavoritado((prev) => !prev)}
+          onClick={handleToggleFavorito}
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") setFavoritado((prev) => !prev);
+            if (e.key === "Enter" || e.key === " ") handleToggleFavorito();
           }}
         >
           <img
@@ -80,6 +87,7 @@ CardAdvogado.propTypes = {
   foto: PropTypes.string,
   areas: PropTypes.arrayOf(PropTypes.string),
   oab: PropTypes.string,
+  advogadoId: PropTypes.string,
 };
 
 export default CardAdvogado;

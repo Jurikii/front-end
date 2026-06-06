@@ -11,7 +11,7 @@ import styles from "./SecaoPlanos.module.css";
  * - planos    : array de objetos de plano (ver src/data/planos.js)
  * - colunas   : 1 ou 2 — quantas colunas usar nas features dos cards
  */
-const SecaoPlanos = ({ titulo, icone, planos = [], colunas = 1 }) => {
+const SecaoPlanos = ({ titulo, icone, planos = [], colunas = 1, planoAtivo, onSelecionarPlano }) => {
   return (
     <section className={styles.secao}>
       <header className={styles.cabecalho}>
@@ -28,9 +28,11 @@ const SecaoPlanos = ({ titulo, icone, planos = [], colunas = 1 }) => {
             icone={plano.icone}
             preco={plano.preco}
             features={plano.features}
-            tipoBotao={plano.tipoBotao}
-            destaque={plano.destaque}
+            tipoBotao={plano.id === planoAtivo ? "adquirido" : plano.tipoBotao}
+            destaque={plano.id === planoAtivo ? true : plano.destaque}
             colunas={colunas}
+            onSelecionarPlano={onSelecionarPlano}
+            planoId={plano.id}
           />
         ))}
       </div>
@@ -54,6 +56,8 @@ SecaoPlanos.propTypes = {
     })
   ),
   colunas: PropTypes.oneOf([1, 2]),
+  planoAtivo: PropTypes.string,
+  onSelecionarPlano: PropTypes.func,
 };
 
 export default SecaoPlanos;

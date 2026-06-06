@@ -1,8 +1,21 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Navbar from "./Rodape e navbar/Navbar";
 import styles from "./HeroSection.module.css";
 
 const HeroSection = ({ className = "" }) => {
+  const navigate = useNavigate();
+
+  const handleTirarDuvidas = useCallback(() => {
+    navigate("/login");
+  }, [navigate]);
+
+  const handleTestarGratis = useCallback(() => {
+    const el = document.getElementById("chat-demo");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   return (
     <section className={[styles.navbarParent, className].join(" ")}>
       <Navbar activeItem="Início" />
@@ -39,7 +52,7 @@ const HeroSection = ({ className = "" }) => {
               linguagem simples.
             </b>
             <div className={styles.botes2}>
-              <div className={styles.botoDvidas}>
+              <div className={styles.botoDvidas} onClick={handleTirarDuvidas} style={{ cursor: "pointer" }}>
                 <b
                   className={styles.tirarMinhasDvidas}
                 >{`Tirar minhas dúvidas agora `}</b>
@@ -49,7 +62,7 @@ const HeroSection = ({ className = "" }) => {
                   src="/mingcute-arrow-up-fill1.svg"
                 />
               </div>
-              <div className={styles.botoTestar}>
+              <div className={styles.botoTestar} onClick={handleTestarGratis} style={{ cursor: "pointer" }}>
                 <b className={styles.testarGrtis}>Testar grátis</b>
               </div>
             </div>

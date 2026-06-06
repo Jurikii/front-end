@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./BotaoAgendar.module.css";
 
@@ -7,6 +8,12 @@ const BotaoAgendar = ({
   property1 = "Default",
   agendarMargin,
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = useCallback(() => {
+    navigate("/login");
+  }, [navigate]);
+
   const agendarStyle = useMemo(() => {
     return {
       margin: agendarMargin,
@@ -17,6 +24,8 @@ const BotaoAgendar = ({
     <div
       className={[styles.botoAgendar, className].join(" ")}
       data-property1={property1}
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
     >
       <div className={styles.agendar} style={agendarStyle}>
         Agendar

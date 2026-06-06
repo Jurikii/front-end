@@ -1,10 +1,10 @@
-import { useState, useCallback } from "react";
+import { useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Advogado from "./Advogado";
 import PropTypes from "prop-types";
 import styles from "./AdvogadosDisponiveis.module.css";
 
-const ADVOGADOS_LISTA = [
+export const ADVOGADOS_LISTA = [
   {
     id: "beatriz-oliveira",
     fotoDoAdvogadoJustifyContent: "",
@@ -76,9 +76,13 @@ const ADVOGADOS_LISTA = [
   },
 ];
 
-const AdvogadosDisponiveis = ({ className = "" }) => {
+const AdvogadosDisponiveis = ({
+  className = "",
+  isFavorito,
+  onToggleFavorito,
+}) => {
   const navigate = useNavigate();
-  const [advogadoItems] = useState(ADVOGADOS_LISTA);
+  const advogadoItems = ADVOGADOS_LISTA;
 
   const onAdvogadoClick = useCallback((advogado) => {
     navigate(`/advogados/${advogado.id}`, { state: { advogado } });
@@ -87,8 +91,43 @@ const AdvogadosDisponiveis = ({ className = "" }) => {
   const onAdvogadoItemClick = useCallback((item) => {
     onAdvogadoClick(item);
   }, [onAdvogadoClick]);
+
+  const favoritos = useMemo(
+    () => advogadoItems.filter((item) => isFavorito?.(item.id)),
+    [advogadoItems, isFavorito]
+  );
+
   return (
     <section className={[styles.advogadosDisponiveis, className].join(" ")}>
+      {favoritos.length > 0 && (
+        <>
+          <h2 className={styles.advogadosDisponveis}>Advogados favoritos</h2>
+          <div className={styles.advogados}>
+            {favoritos.map((item, index) => (
+              <Advogado
+                key={`fav-${index}`}
+                fotoDoAdvogadoJustifyContent={item.fotoDoAdvogadoJustifyContent}
+                geminiGeneratedImageBkgpjbk={item.geminiGeneratedImageBkgpjbk}
+                geminiGeneratedImageBkgpjbBorderRadius={
+                  item.geminiGeneratedImageBkgpjbBorderRadius
+                }
+                draBeatrizOliveira={item.draBeatrizOliveira}
+                consumidorCvelTrabalhista={item.consumidorCvelTrabalhista}
+                consumidorCvelAlignSelf={item.consumidorCvelAlignSelf}
+                consumidorCvelDisplay={item.consumidorCvelDisplay}
+                setinhaJustifyContent={item.setinhaJustifyContent}
+                tipoDeAtendimentoJustifyContent={
+                  item.tipoDeAtendimentoJustifyContent
+                }
+                onAdvogadoClick={() => onAdvogadoItemClick(item)}
+                favoritado
+                onToggleFavorito={() => onToggleFavorito?.(item.id)}
+              />
+            ))}
+          </div>
+          <div className={styles.divisoria} />
+        </>
+      )}
       <h2 className={styles.advogadosDisponveis}>Advogados disponíveis</h2>
       <div className={styles.advogados}>
         {advogadoItems.map((item, index) => (
@@ -108,6 +147,8 @@ const AdvogadosDisponiveis = ({ className = "" }) => {
               item.tipoDeAtendimentoJustifyContent
             }
             onAdvogadoClick={() => onAdvogadoItemClick(item)}
+            favoritado={isFavorito?.(item.id)}
+            onToggleFavorito={() => onToggleFavorito?.(item.id)}
           />
         ))}
       </div>
@@ -117,6 +158,8 @@ const AdvogadosDisponiveis = ({ className = "" }) => {
 
 AdvogadosDisponiveis.propTypes = {
   className: PropTypes.string,
+  isFavorito: PropTypes.func,
+  onToggleFavorito: PropTypes.func,
 };
 
 export default AdvogadosDisponiveis;

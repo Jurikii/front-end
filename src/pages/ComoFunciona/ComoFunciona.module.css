@@ -14,43 +14,41 @@
 }
 .passoAPasso {
   width: 100%;
-  display: grid;
-  grid-template-columns: 80px 1fr;
+  display: flex;
+  flex-direction: column;
   max-width: 976px;
   padding: 0 24px;
   box-sizing: border-box;
   z-index: 5;
-  gap: 32px;
-  text-align: center;
+  gap: 24px;
+  position: relative;
   font-size: var(--fs-48);
   color: var(--azul);
   font-family: var(--font-montserrat);
 }
-.numerosPassoAPasso {
-  width: 80px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.numerosPassoAPassoChild {
+.dashedLine {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 64px;
   border-left: 3px dashed var(--amarelo);
   opacity: 0.35;
+  z-index: 0;
 }
-.p1Parent {
-  display: flex;
-  flex-direction: column;
+.stepRow {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
   align-items: center;
-  justify-content: space-between;
-  flex: 1;
-  gap: 20px;
+  position: relative;
+  z-index: 1;
 }
-.p1,
-.p2 {
+.numeroBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -60,31 +58,22 @@
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
-.p1:hover,
-.p2:hover {
+.circle:hover {
   transform: scale(1.08);
   box-shadow: 0 4px 16px rgba(250, 184, 76, 0.4);
 }
-.p1:active,
-.p2:active {
+.circle:active {
   transform: scale(0.96);
 }
-.stepSpaces,
-.h2 {
+.numero {
   margin: 0;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
   line-height: 1;
-}
-.todosTextoPassoAPasso {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  min-width: 280px;
 }
 .jurikii21 {
   width: 1px;
@@ -102,47 +91,31 @@
   .passoAPasso {
     max-width: 100%;
   }
-  .p1,
-  .p2 {
+  .circle {
     width: 56px;
     height: 56px;
   }
-  .stepSpaces,
-  .h2 {
+  .numero {
     font-size: var(--fs-36);
+  }
+  .dashedLine {
+    left: 52px;
   }
 }
 @media screen and (max-width: 900px) {
-  .passoAPasso {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
-  .numerosPassoAPasso {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: center;
-    gap: 24px;
-    padding: 0;
-  }
-  .numerosPassoAPassoChild {
+  .dashedLine {
     display: none;
   }
-  .p1Parent {
-    flex-direction: row;
+  .stepRow {
+    grid-template-columns: 56px 1fr;
     gap: 24px;
-    justify-content: center;
   }
-  .p1,
-  .p2 {
-    width: 56px;
-    height: 56px;
+  .circle {
+    width: 48px;
+    height: 48px;
   }
-  .todosTextoPassoAPasso {
-    max-width: 100%;
-    min-width: 0;
+  .numero {
+    font-size: var(--fs-28);
   }
 }
 @media screen and (max-width: 750px) {
@@ -150,18 +123,7 @@
     gap: 48px;
   }
   .passoAPasso {
-    gap: 24px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .p1,
-  .p2 {
-    width: 48px;
-    height: 48px;
-  }
-  .stepSpaces,
-  .h2 {
-    font-size: var(--fs-28);
+    gap: 20px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -170,18 +132,17 @@
   }
   .passoAPasso {
     padding: 0 16px;
-    gap: 20px;
-  }
-  .p1Parent {
     gap: 16px;
   }
-  .p1,
-  .p2 {
+  .stepRow {
+    grid-template-columns: 42px 1fr;
+    gap: 16px;
+  }
+  .circle {
     width: 42px;
     height: 42px;
   }
-  .stepSpaces,
-  .h2 {
+  .numero {
     font-size: var(--fs-22);
   }
 }

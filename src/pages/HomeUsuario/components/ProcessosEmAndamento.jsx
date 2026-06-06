@@ -1,4 +1,5 @@
 import { useMemo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./ProcessosEmAndamento.module.css";
 
@@ -11,7 +12,10 @@ const ProcessosEmAndamento = ({
   processosEmAndamento,
   acompanhesSeusProcessosAtivos,
   prop,
+  filtro,
 }) => {
+  const navigate = useNavigate();
+
   const iconeBalanaStyle = useMemo(() => {
     return {
       maxHeight: iconeBalanaMaxHeight,
@@ -26,8 +30,8 @@ const ProcessosEmAndamento = ({
   }, [processosEmAndamentoHeight]);
 
   const onVerTodosContainerClick = useCallback(() => {
-    // TODO: navegar para "/processos"
-  }, []);
+    navigate(`/processos?filtro=${filtro || "ativos"}`);
+  }, [navigate, filtro]);
 
   return (
     <div className={[styles.processosEmAndamento, className].join(" ")}>
@@ -66,6 +70,7 @@ ProcessosEmAndamento.propTypes = {
   processosEmAndamento: PropTypes.string,
   acompanhesSeusProcessosAtivos: PropTypes.string,
   prop: PropTypes.string,
+  filtro: PropTypes.string,
 
   /** Style props */
   iconeBalanaMaxHeight: PropTypes.string,

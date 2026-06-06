@@ -29,6 +29,12 @@
   gap: 19px;
   max-width: 100%;
 }
+.divisoria {
+  align-self: stretch;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-silver), transparent);
+  margin: 8px 0;
+}
 @media screen and (max-width: 450px) {
   .advogadosDisponveis {
     font-size: 20px;

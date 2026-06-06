@@ -1,11 +1,14 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./FlorzinhaTextoEBotao.module.css";
 
 const FlorzinhaTextoEBotao = ({ className = "" }) => {
+  const navigate = useNavigate();
+
   const onBotoDvidasContainerClick = useCallback(() => {
-    // Please sync "Pag - Login" to the project
-  }, []);
+    navigate("/login");
+  }, [navigate]);
 
   return (
     <div className={[styles.florzinhaTextoEBoto, className].join(" ")}>

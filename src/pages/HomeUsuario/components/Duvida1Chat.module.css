@@ -1,21 +1,26 @@
 .duvida1Chat {
-  border-radius: var(--br-60);
+  border-radius: 16px;
   background-color: var(--branco);
-  border: 1px solid var(--azul-sereno);
+  border: 1px solid rgba(61, 106, 138, 0.2);
   display: flex;
   align-items: center;
-  padding: var(--padding-12) var(--padding-20);
-  gap: var(--gap-12);
+  padding: var(--padding-10) var(--padding-16);
+  gap: var(--gap-10);
   text-align: left;
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
   color: var(--azul);
   font-family: var(--font-montserrat);
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
+  flex: 1;
+  min-width: 200px;
+  min-height: 60px;
+  max-width: 100%;
 }
 .duvida1Chat:hover {
   background-color: var(--color-oldlace);
   border-color: var(--amarelo-claro);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 .duvida1Chat:active {
   transform: scale(0.97);
@@ -23,20 +28,28 @@
 .chat,
 .fuiDemitidoQuais {
   position: relative;
-  flex-shrink: 0;
 }
 .chat {
-  height: var(--height-30);
-  width: var(--width-30);
+  height: var(--height-24);
+  width: var(--width-24);
   overflow: hidden;
+  flex-shrink: 0;
 }
 .fuiDemitidoQuais {
-  width: var(--width-179);
-  white-space: pre-wrap;
-  display: inline-block;
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
 }
 .setinha1 {
-  height: var(--height-15);
-  width: var(--width-15);
+  width: 14px;
+  height: var(--height-14);
   position: relative;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.duvida1Chat:hover .setinha1 {
+  opacity: 0.7;
+  transform: translateX(2px);
 }

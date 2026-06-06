@@ -11,7 +11,7 @@ const BotaoPlano = ({ variante = "assinar", onClick, className = "" }) => {
 
   return (
     <button
-      className={[styles.botao, styles[variante], className].join(" ")}
+      className={[styles.botao, styles[variante] ?? "", className].filter(Boolean).join(" ")}
       onClick={onClick}
     >
       {label}

@@ -40,3 +40,9 @@
   color: var(--branco);
   border-color: var(--azul);
 }
+
+.adquirido {
+  background-color: var(--amarelo);
+  color: var(--preto);
+  border-color: var(--amarelo);
+}

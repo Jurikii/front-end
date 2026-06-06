@@ -25,6 +25,8 @@ const CardPlano = ({
   destaque = false,
   colunas = 1,
   className = "",
+  onSelecionarPlano,
+  planoId,
 }) => {
   const cardClass = [
     styles.card,
@@ -79,7 +81,10 @@ const CardPlano = ({
       </ul>
 
       {/* Botão de ação */}
-      <BotaoPlano variante={tipoBotao} />
+      <BotaoPlano
+        variante={tipoBotao}
+        onClick={onSelecionarPlano ? () => onSelecionarPlano(planoId) : undefined}
+      />
     </article>
   );
 };

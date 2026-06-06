@@ -1,9 +1,16 @@
+import { useState } from "react";
 import Menu1 from "../../components/Menu1";
 import SecaoPlanos from "./components/SecaoPlanos";
 import { PLANOS_PARA_VOCE, PLANOS_PARA_EQUIPES } from "./data/planos";
 import styles from "./PlanosComLogin.module.css";
 
 const Planos = () => {
+  const [planoAtivo, setPlanoAtivo] = useState("broto");
+
+  const handleSelecionarPlano = (id) => {
+    setPlanoAtivo(id);
+  };
+
   return (
     <div className={styles.planos}>
       <Menu1 />
@@ -29,6 +36,8 @@ const Planos = () => {
           icone="/Paravoce.svg"
           planos={PLANOS_PARA_VOCE}
           colunas={1}
+          planoAtivo={planoAtivo}
+          onSelecionarPlano={handleSelecionarPlano}
         />
 
         {/* Seção: planos para equipes */}
@@ -37,6 +46,8 @@ const Planos = () => {
           icone="/Paraequipes.svg"
           planos={PLANOS_PARA_EQUIPES}
           colunas={2}
+          planoAtivo={planoAtivo}
+          onSelecionarPlano={handleSelecionarPlano}
         />
       </main>
 

@@ -11,6 +11,7 @@ const Duvida1Chat = ({
   fuiDemitidoQuaisDisplay,
   fuiDemitidoQuaisFlex,
   iconeAzul,
+  onClick,
 }) => {
   const duvida1ChatStyle = useMemo(() => {
     return {
@@ -31,6 +32,10 @@ const Duvida1Chat = ({
       className={[styles.duvida1Chat, className].join(" ")}
       data-property1={property1}
       style={duvida1ChatStyle}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick?.(e); } }}
     >
       {iconeAzul}
       <div className={styles.fuiDemitidoQuais} style={fuiDemitidoQuaisStyle}>
@@ -45,6 +50,7 @@ Duvida1Chat.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
   iconeAzul: PropTypes.any,
+  onClick: PropTypes.func,
 
   /** Variant props */
   property1: PropTypes.string,

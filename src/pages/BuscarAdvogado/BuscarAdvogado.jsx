@@ -1,9 +1,12 @@
+import { useFavoritos } from "../../hooks/useFavoritos";
 import Menu1 from "../../components/Menu1";
 import BUSCA from "../../components/BUSCA";
 import AdvogadosDisponiveis from "../../components/AdvogadosDisponiveis";
 import styles from "./BuscarAdvogado.module.css";
 
 const BuscarAdvogado = () => {
+  const { isFavorito, toggleFavorito } = useFavoritos();
+
   return (
     <div className={styles.buscarAdvogado}>
       <Menu1 />
@@ -32,7 +35,10 @@ const BuscarAdvogado = () => {
             </div>
           </div>
         </div>
-        <AdvogadosDisponiveis />
+        <AdvogadosDisponiveis
+          isFavorito={isFavorito}
+          onToggleFavorito={toggleFavorito}
+        />
       </main>
     </div>
   );

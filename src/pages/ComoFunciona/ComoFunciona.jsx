@@ -51,27 +51,15 @@ const ComoFunciona = () => {
       </div>
       <TtuloESubttulo />
       <main className={styles.passoAPasso}>
-        <div className={styles.numerosPassoAPasso}>
-          <div className={styles.numerosPassoAPassoChild} />
-          <div className={styles.p1Parent}>
-            <div className={styles.p1}>
-              <h2 className={styles.stepSpaces}>1</h2>
+        <div className={styles.dashedLine} />
+        {p1ELinhaItems.map((item, index) => (
+          <div className={styles.stepRow} key={index}>
+            <div className={styles.numeroBox}>
+              <div className={styles.circle}>
+                <h2 className={styles.numero}>{index + 1}</h2>
+              </div>
             </div>
-            <div className={styles.p2}>
-              <h2 className={styles.h2}>2</h2>
-            </div>
-            <div className={styles.p2}>
-              <h2 className={styles.h2}>3</h2>
-            </div>
-            <div className={styles.p1}>
-              <h2 className={styles.h2}>4</h2>
-            </div>
-          </div>
-        </div>
-        <div className={styles.todosTextoPassoAPasso}>
-          {p1ELinhaItems.map((item, index) => (
             <P1ELinha
-              key={index}
               line61={item.line61}
               passo1FlexWrap={item.passo1FlexWrap}
               passo1AlignContent={item.passo1AlignContent}
@@ -79,8 +67,8 @@ const ComoFunciona = () => {
               conteASuaDvida={item.conteASuaDvida}
               descrevaSuaSituaoOuEnvieSua={item.descrevaSuaSituaoOuEnvieSua}
             />
-          ))}
-        </div>
+          </div>
+        ))}
       </main>
       <img
         className={styles.jurikii21}

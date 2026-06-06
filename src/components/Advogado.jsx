@@ -14,6 +14,8 @@ const Advogado = ({
   consumidorCvelDisplay,
   setinhaJustifyContent,
   tipoDeAtendimentoJustifyContent,
+  favoritado,
+  onToggleFavorito,
 }) => {
   const fotoDoAdvogadoStyle = useMemo(() => {
     return {
@@ -76,6 +78,21 @@ const Advogado = ({
           style={tipoDeAtendimentoStyle}
         >
           <div className={styles.icones}>
+            <button
+              className={styles.botaoFavorito}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFavorito?.();
+              }}
+              type="button"
+              aria-label={favoritado ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+            >
+              <img
+                className={styles.iconeCoracao}
+                alt=""
+                src={favoritado ? "/mdi-heart-filled.svg" : "/mdi-heart-outline.svg"}
+              />
+            </button>
             <img
               className={styles.materialSymbolsmonitorOutliIcon}
               alt=""
@@ -107,6 +124,7 @@ Advogado.propTypes = {
   geminiGeneratedImageBkgpjbk: PropTypes.string,
   draBeatrizOliveira: PropTypes.string,
   consumidorCvelTrabalhista: PropTypes.string,
+  favoritado: PropTypes.bool,
   /** Style props */
   fotoDoAdvogadoJustifyContent: PropTypes.string,
   geminiGeneratedImageBkgpjbBorderRadius: PropTypes.string,
@@ -116,6 +134,7 @@ Advogado.propTypes = {
   tipoDeAtendimentoJustifyContent: PropTypes.string,
   /** Action props */
   onAdvogadoClick: PropTypes.func,
+  onToggleFavorito: PropTypes.func,
 };
 
 export default Advogado;
