@@ -73,8 +73,7 @@ const DashboardAcessoRapido = ({ className = "" }) => {
             processosEmAndamentoHeight="47px"
             processosEmAndamento="Consultas com Advogados"
             acompanhesSeusProcessosAtivos="Acompanhe suas consultas realizadas"
-            prop={String(FILTROS.find((f) => f.id === "consultas").contagem)}
-            filtro="consultas"
+            prop={String(FILTROS.find((f) => f.id === "consultas")?.contagem ?? 0)}
           />
         </div>
       </section>
