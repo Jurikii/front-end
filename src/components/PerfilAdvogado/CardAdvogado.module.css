@@ -5,29 +5,24 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: var(--padding-20) var(--padding-0);
+  padding: var(--padding-20) 0;
   box-sizing: border-box;
   gap: var(--gap-0);
   max-width: 100%;
   row-gap: var(--gap-20);
   text-align: left;
-  font-size: var(--fs-20);
+  font-size: var(--fs-15);
   color: var(--azul-escuro);
   font-family: var(--font-montserrat);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  border-radius: var(--br-15);
 }
 
 .sessao1Horizontal {
   height: 200px;
   flex: 1;
-  border-radius: var(--br-15);
-  background-color: var(--color-floralwhite);
-  border: 2px solid var(--color-whitesmoke);
+  border-radius: var(--br-16);
+  background-color: var(--branco);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-drop-4);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -37,6 +32,10 @@
   max-width: 658px;
   max-height: 200px;
   justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.sessao1Horizontal:hover {
+  box-shadow: var(--shadow-drop-1);
 }
 
 .advogado {
@@ -46,16 +45,17 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  padding: var(--padding-0) var(--padding-8);
+  padding: 0 var(--padding-8);
   gap: var(--gap-14);
   max-width: 614px;
 }
 
 .fotoAdvIcon {
-  height: 148px;
-  width: 148px;
+  height: 140px;
+  width: 140px;
   position: relative;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 .informaesAdv {
@@ -64,31 +64,29 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--gap-14);
+  gap: 10px;
   min-width: 124px;
   max-width: 400px;
 }
 
 .mensagemVocEstAgendando {
-  height: var(--height-24);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .label {
   margin: 0;
   position: relative;
-  font-size: inherit;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: 500;
   font-family: inherit;
+  color: var(--azul-sereno);
 }
 
 .nomeAdv {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: var(--fs-30);
+  font-size: var(--fs-24);
   color: var(--azul);
 }
 
@@ -98,39 +96,38 @@
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
+  line-height: 1.25;
 }
 
 .descrioAdv {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-10);
+  gap: 8px;
   color: var(--azul-sereno);
 }
 
 .linhaArea {
   display: flex;
-  gap: var(--gap-20);
-  align-items: flex-start;
+  gap: 10px;
+  align-items: center;
 }
 
 .iconeBalança {
-  height: 23px;
-  width: 27px;
+  height: 20px;
+  width: 22px;
   position: relative;
   object-fit: contain;
 }
 
 .linhaOab {
-  width: 207px;
-  height: var(--height-26);
   display: flex;
-  align-items: flex-end;
-  gap: var(--gap-23);
+  align-items: center;
+  gap: 12px;
 }
 
 .iconeOab {
-  height: var(--height-26);
-  width: var(--width-24);
+  height: 22px;
+  width: 20px;
   position: relative;
   object-fit: contain;
 }
@@ -140,61 +137,75 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: var(--gap-48);
+  gap: 32px;
   min-width: 344px;
   max-width: 400px;
   color: var(--color-black);
 }
 
 .favoritos {
-  width: 251px;
-  height: var(--height-30);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-0) var(--padding-0) var(--padding-0) var(--padding-20);
+  padding: 0 0 0 var(--padding-20);
   box-sizing: border-box;
-  gap: var(--gap-10);
+  gap: 8px;
   cursor: pointer;
   user-select: none;
+  height: 30px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+.favoritos:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.favoritos:active {
+  transform: scale(0.97);
 }
 
 .iconeMd {
-  height: var(--height-30);
-  width: var(--width-30);
+  height: 24px;
+  width: 24px;
   position: relative;
+  transition: transform 0.2s ease;
+}
+.favoritos:hover .iconeMd {
+  transform: scale(1.1);
 }
 
 .textoFavoritos {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: var(--fs-14);
   font-weight: 400;
   font-family: inherit;
+  color: var(--azul-sereno);
 }
 
 .btnWhatsapp {
   align-self: stretch;
   border-radius: var(--br-12);
-  background-color: var(--amarelo);
+  background: linear-gradient(135deg, var(--amarelo) 0%, #f5a623 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--padding-12) var(--padding-0);
+  padding: 14px 0;
   box-sizing: border-box;
   max-width: 100%;
   cursor: pointer;
   user-select: none;
   color: var(--azul-escuro);
-  transition: filter 0.2s, transform 0.1s;
+  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(250, 184, 76, 0.25);
 }
 
 .btnWhatsapp:hover {
-  filter: brightness(0.85);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(250, 184, 76, 0.35);
 }
 
 .btnWhatsapp:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 .btnWhatsappInner {
@@ -203,24 +214,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-10);
+  gap: 6px;
   max-width: 100%;
 }
 
 .btnWhats {
-  height: var(--height-30);
   display: flex;
   align-items: center;
-  gap: var(--gap-20);
+  gap: 10px;
+  height: 24px;
 }
 
 .agendarConsulta {
   position: relative;
+  font-size: var(--fs-18);
+  font-weight: 700;
 }
 
 .rodapeWhats {
   position: relative;
-  font-size: var(--fs-20);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  opacity: 0.75;
   display: inline-block;
   max-width: 100%;
 }
@@ -229,36 +244,73 @@
   .sessao1Horizontal {
     max-width: 100%;
     flex: 1;
+    height: auto;
+    min-height: 180px;
+    padding: 15px 16px;
   }
   .advogado {
     max-width: 100%;
+    flex-wrap: nowrap;
   }
   .nome {
     font-size: var(--fs-20);
   }
+  .fotoAdvIcon {
+    height: 110px;
+    width: 110px;
+  }
   .sessao2Horizontal {
     max-width: 100%;
+    min-width: 100%;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .label {
-    font-size: var(--fs-14);
+  .card {
+    padding: 12px 0;
+  }
+  .sessao1Horizontal {
+    min-height: auto;
+    padding: 12px;
+  }
+  .advogado {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .fotoAdvIcon {
+    height: 100px;
+    width: 100px;
+  }
+  .informaesAdv {
+    align-items: center;
+  }
+  .nomeAdv {
+    font-size: var(--fs-20);
   }
   .nome {
-    font-size: var(--fs-16);
+    font-size: var(--fs-20);
+  }
+  .label {
+    font-size: var(--fs-13);
+  }
+  .linhaArea, .linhaOab {
+    justify-content: center;
   }
   .sessao2Horizontal {
-    gap: var(--gap-30);
-    max-width: 100%;
+    gap: 20px;
+    align-items: center;
   }
   .textoFavoritos {
-    font-size: var(--fs-14);
+    font-size: var(--fs-13);
   }
   .agendarConsulta {
-    font-size: var(--fs-18);
+    font-size: var(--fs-16);
   }
   .rodapeWhats {
-    font-size: var(--fs-14);
+    font-size: var(--fs-12);
+  }
+  .btnWhatsapp {
+    padding: 12px 0;
   }
 }

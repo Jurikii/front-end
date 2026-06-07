@@ -1,17 +1,23 @@
 .metricas {
   align-self: stretch;
-  border-radius: var(--br-10);
-  border: var(--border-1);
+  border-radius: var(--br-16);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-drop-4);
+  background-color: var(--branco);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-20) var(--padding-0);
+  padding: 24px 0;
   gap: var(--gap-0);
   row-gap: var(--gap-20);
   text-align: left;
-  font-size: var(--fs-24);
+  font-size: var(--fs-22);
   color: var(--azul-escuro);
   font-family: var(--font-montserrat);
+  transition: box-shadow 0.3s ease;
+}
+.metricas:hover {
+  box-shadow: var(--shadow-drop-1);
 }
 
 .item {
@@ -20,42 +26,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-1);
-  transition: color 0.2s;
-}
-
-.item:hover {
-  color: var(--azul-sereno);
+  gap: 4px;
+  padding: 4px 0;
 }
 
 .valor {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: var(--fs-22);
   font-weight: 700;
   font-family: inherit;
+  color: var(--azul);
 }
 
 .rotulo {
   margin: 0;
   position: relative;
-  font-size: var(--fs-16);
+  font-size: var(--fs-14);
   font-weight: 400;
   font-family: inherit;
+  color: var(--azul-sereno);
+  opacity: 0.8;
+}
+
+.divisor {
+  height: 40px;
+  width: 1px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
 }
 
 .rotuloCentral {
   align-self: stretch;
   text-align: center;
-}
-
-.divisor {
-  height: 48px;
-  width: var(--width-1);
-  position: relative;
-  border-right: var(--border-1);
-  box-sizing: border-box;
-  flex-shrink: 0;
 }
 
 .valorRecomendacao {
@@ -76,30 +80,32 @@
     flex-wrap: wrap;
     padding-left: var(--padding-30);
     padding-right: var(--padding-30);
-    box-sizing: border-box;
   }
   .divisor {
     width: 100%;
-    height: var(--height-1);
+    height: 1px;
   }
 }
 
 @media screen and (max-width: 800px) {
+  .metricas {
+    padding: 20px 16px;
+    gap: 12px;
+  }
   .valor {
-    font-size: var(--fs-24);
+    font-size: var(--fs-20);
   }
 }
 
 @media screen and (max-width: 450px) {
   .metricas {
-    padding-left: var(--padding-20);
-    padding-right: var(--padding-20);
-    box-sizing: border-box;
+    padding: 16px 12px;
+    gap: 8px;
   }
   .valor {
     font-size: var(--fs-18);
   }
   .rotulo {
-    font-size: var(--fs-16);
+    font-size: var(--fs-13);
   }
 }

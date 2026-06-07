@@ -7,10 +7,10 @@
   position: relative;
   background-color: var(--branco);
   overflow: hidden;
-  padding: var(--padding-0) var(--padding-0) var(--padding-30);
+  padding: 0 0 var(--padding-30);
   line-height: normal;
   letter-spacing: normal;
-  transition: background-color 0.3s ease;
+  min-height: 100vh;
 }
 
 .sessaoCompleta {
@@ -19,22 +19,19 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding: var(--padding-20) var(--padding-0);
+  padding: var(--padding-20) var(--padding-24);
   gap: var(--gap-28);
   max-width: 1292px;
-  transition: padding 0.3s ease;
 }
 
 .topo {
   align-self: stretch;
-  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-20);
-  transition: gap 0.3s ease;
+  gap: 16px;
   text-align: left;
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
   color: var(--azul);
   font-family: var(--font-montserrat);
 }
@@ -42,25 +39,37 @@
 .voltarBtn {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   cursor: pointer;
   border: none;
-  padding: var(--padding-0) var(--padding-20) var(--padding-0) var(--padding-0);
+  padding: 6px 20px 6px 0;
   background: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+.voltarBtn:hover {
+  background-color: rgba(16, 46, 68, 0.05);
+}
+.voltarBtn:active {
+  transform: scale(0.97);
 }
 
 .voltarIcone {
-  height: 20.1px;
-  width: 20.1px;
+  height: 18px;
+  width: 18px;
   position: relative;
   object-fit: contain;
+  transition: transform 0.2s ease;
+}
+.voltarBtn:hover .voltarIcone {
+  transform: translateX(-2px);
 }
 
 .voltarTexto {
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
   font-weight: 600;
   font-family: var(--font-montserrat);
-  color: var(--azul);
+  color: var(--azul-sereno);
 }
 
 .titulo {
@@ -80,29 +89,29 @@
 
 @media screen and (max-width: 1125px) {
   .sessaoCompleta {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    box-sizing: border-box;
+    padding: 24px 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .sessaoCompleta {
-    gap: 26px;
-    padding-top: var(--padding-20);
-    padding-bottom: var(--padding-20);
-    box-sizing: border-box;
+    gap: 24px;
+    padding: 20px 16px;
   }
   .topo {
-    gap: 19px;
+    gap: 14px;
   }
   .titulo {
-    font-size: var(--fs-28);
+    font-size: 24px;
   }
 }
 
 @media screen and (max-width: 450px) {
   .titulo {
-    font-size: 21px;
+    font-size: 20px;
+  }
+  .sessaoCompleta {
+    gap: 20px;
+    padding: 16px 12px;
   }
 }

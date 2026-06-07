@@ -16,39 +16,46 @@
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
-  opacity: 0.25;
+  opacity: 0.2;
 }
 .passo1 {
   flex: 1;
-  border-radius: 20px;
+  border-radius: 24px;
   background-color: var(--azul-sereno);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 32px 36px;
+  gap: 28px;
+  padding: 36px 40px;
   min-width: 280px;
   max-width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 .passo1:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 .iconeBaloFala {
-  width: 96px;
-  height: 96px;
+  width: 88px;
+  height: 88px;
   object-fit: contain;
   flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+.passo1:hover .iconeBaloFala {
+  transform: scale(1.05);
 }
 .texto {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   min-width: 200px;
 }
 .conteASua {
@@ -64,8 +71,8 @@
   font-size: var(--fs-16);
   font-weight: 400;
   font-family: var(--font-inter);
-  line-height: 1.6;
-  opacity: 0.8;
+  line-height: 1.65;
+  opacity: 0.85;
 }
 @media screen and (max-width: 1050px) {
   .p1ELinha {
@@ -76,7 +83,7 @@
     font-size: var(--fs-22);
   }
   .passo1 {
-    padding: 28px 24px;
+    padding: 28px 28px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -84,12 +91,13 @@
     max-width: 100%;
   }
   .passo1 {
-    padding: 24px 20px;
+    padding: 24px 24px;
     gap: 20px;
+    border-radius: 20px;
   }
   .iconeBaloFala {
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -103,15 +111,18 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 24px 16px;
+    padding: 28px 20px;
+    border-radius: 18px;
+    gap: 16px;
   }
   .iconeBaloFala {
-    width: 72px;
-    height: 72px;
+    width: 68px;
+    height: 68px;
   }
   .texto {
     align-items: center;
     min-width: 0;
+    gap: 8px;
   }
   .conteASua {
     font-size: var(--fs-18);
