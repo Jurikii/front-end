@@ -23,7 +23,7 @@
   padding: var(--padding-3) 47px var(--padding-3) 34px;
   gap: var(--gap-60);
   max-width: 1440px;
-  max-height: 1245px;
+  transition: gap 0.3s ease;
 }
 .navBarLateral,
 .navbarLateral {
@@ -36,8 +36,8 @@
   border-radius: var(--br-10);
   border: var(--border-1);
   box-sizing: border-box;
-  padding: 34px var(--padding-0) var(--padding-10);
-  gap: 179px;
+  padding: 34px var(--padding-10) var(--padding-10);
+  gap: 60px;
   min-width: 300px;
   max-width: 376px;
   flex-shrink: 0;
@@ -45,10 +45,12 @@
   font-size: var(--fs-35);
   color: var(--azul-escuro);
   font-family: var(--font-montserrat);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .navBarLateral {
-  width: 274px;
-  gap: 100px;
+  align-self: stretch;
+  gap: 32px;
+  padding: 0 var(--padding-10);
 }
 .configuracoes2,
 .configuracoesOpes {
@@ -76,36 +78,56 @@
   font-size: var(--fs-14);
 }
 .opes {
-  width: 254px;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-40);
+  gap: var(--gap-10);
   font-size: var(--fs-20);
 }
-.fonte {
+.sidebarItem {
   align-self: stretch;
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 16px;
+  padding: var(--padding-10) var(--padding-12);
+  border-radius: var(--br-8);
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+  color: var(--azul-escuro);
+}
+.sidebarItem:hover {
+  background-color: rgba(61, 106, 138, 0.06);
+}
+.sidebarItem:focus-visible {
+  outline: 2px solid var(--amarelo);
+  outline-offset: -2px;
+}
+.sidebarItemAtivo {
+  background-color: rgba(250, 184, 76, 0.12);
   color: var(--amarelo);
 }
-.glyphsfontBoldIcon {
-  height: var(--height-40);
-  width: var(--width-40);
-  position: relative;
+.sidebarItemAtivo:hover {
+  background-color: rgba(250, 184, 76, 0.2);
 }
-.cores {
-  width: 141px;
-  height: var(--height-40);
-  display: flex;
-  align-items: center;
-  gap: 34px;
+.sidebarItemAtivo:focus-visible {
+  outline-color: var(--amarelo);
+}
+.glyphsfontBoldIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.25s ease;
+}
+.sidebarItemAtivo .glyphsfontBoldIcon {
+  opacity: 1;
 }
 .temas {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: var(--fs-16);
   font-weight: 600;
   font-family: inherit;
 }
@@ -116,14 +138,16 @@
 }
 .helpdesk {
   align-items: center;
-  gap: var(--gap-30);
-  font-size: var(--fs-20);
+  gap: var(--gap-20);
+  font-size: var(--fs-18);
   color: var(--color-black);
+  padding: var(--padding-20) var(--padding-12);
+  border-top: var(--border-1);
 }
 .precisaDeAjuda {
   align-self: stretch;
   align-items: flex-start;
-  gap: 13px;
+  gap: 8px;
 }
 .precisaDeAjuda2 {
   margin: 0;
@@ -132,6 +156,7 @@
   font-size: inherit;
   font-weight: 600;
   font-family: inherit;
+  color: var(--azul-escuro);
 }
 .faleComNosso {
   width: 100%;
@@ -139,28 +164,36 @@
   font-size: var(--fs-14);
   display: inline-block;
   max-width: 192px;
+  opacity: 0.7;
+  line-height: 1.5;
 }
 .btnhelp {
   width: 163px;
   height: 41px;
   border-radius: var(--br-10);
-  border: 3px solid var(--azul-sereno);
+  border: 2px solid var(--azul-sereno);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
   color: var(--azul-sereno);
   transition: all 0.2s ease;
   cursor: pointer;
 }
-.acessarAjuda {
-  position: relative;
-  font-weight: 600;
-}
 .btnhelp:hover {
   background-color: var(--azul-sereno);
   color: var(--branco);
+  box-shadow: 0 2px 8px rgba(61, 106, 138, 0.2);
+}
+.btnhelp:focus-visible {
+  outline: 2px solid var(--amarelo);
+  outline-offset: 2px;
+}
+.btnhelp:active {
+  transform: scale(0.97);
 }
 .image148Icon {
   align-self: stretch;
@@ -185,14 +218,13 @@
     max-width: 100%;
   }
   .navbarLateral {
-    padding-top: var(--padding-22);
-    padding-bottom: var(--padding-20);
-    box-sizing: border-box;
+    padding: 28px var(--padding-10) var(--padding-20);
   }
 }
 @media screen and (max-width: 1200px) {
   .conteudo {
     max-width: 100%;
+    padding: var(--padding-3) 28px;
   }
 }
 @media screen and (max-width: 1125px) {
@@ -203,10 +235,10 @@
   }
   .conteudo {
     gap: var(--gap-30);
-    padding-right: 23px;
+    padding: var(--padding-3) 24px;
   }
   .navbarLateral {
-    padding-top: var(--padding-20);
+    padding: 24px var(--padding-10) var(--padding-20);
   }
   .configuracoes3 {
     font-size: var(--fs-28);
@@ -220,47 +252,46 @@
   }
   .conteudo {
     gap: var(--gap-30);
-    padding-right: 23px;
+    padding: var(--padding-3) 20px;
   }
   .navbarLateral {
-    padding-top: var(--padding-20);
+    padding: 20px var(--padding-10) var(--padding-20);
+    min-width: 240px;
   }
   .configuracoes3 {
     font-size: var(--fs-28);
-  }
-}
-@media screen and (max-width: 800px) {
-  .conteudo {
-    max-width: 100%;
-  }
-  .navbarLateral {
-    padding-top: var(--padding-22);
-    padding-bottom: var(--padding-20);
-    box-sizing: border-box;
   }
 }
 @media screen and (max-width: 450px) {
   .conteudo {
     gap: var(--gap-15);
     max-width: 100%;
+    padding: var(--padding-3) 16px;
+    flex-direction: column;
   }
   .navbarLateral {
-    gap: 89px;
+    gap: 40px;
+    padding: 20px var(--padding-10);
+    min-width: 100%;
+    max-width: 100%;
   }
   .navBarLateral {
-    gap: 50px;
+    gap: 24px;
   }
   .configuracoesOpes {
-    gap: 23px;
+    gap: 20px;
   }
   .configuracoes3 {
     font-size: var(--fs-21);
   }
-  .opes {
-    gap: var(--gap-20);
+  .personalizeSuaExperincia {
+    font-size: var(--fs-13);
   }
-  .precisaDeAjuda2,
+  .glyphsfontBoldIcon {
+    width: 20px;
+    height: 20px;
+  }
   .temas {
-    font-size: var(--fs-16);
+    font-size: var(--fs-15);
   }
 }

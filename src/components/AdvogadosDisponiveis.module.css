@@ -1,12 +1,12 @@
 .advogadosDisponiveis {
   position: absolute;
-  top: 384px;
+  top: 380px;
   left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 32px;
   max-width: 100%;
   text-align: left;
   font-size: 25px;
@@ -15,28 +15,96 @@
 }
 .advogadosDisponveis {
   margin: 0;
-  align-self: stretch;
-  position: relative;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 .advogados {
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 19px;
+  gap: 16px;
   max-width: 100%;
 }
 .divisoria {
   align-self: stretch;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-silver), transparent);
-  margin: 8px 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 4px 0;
 }
-@media screen and (max-width: 450px) {
+.resultadoContagem {
+  font-weight: 400;
+  font-size: 18px;
+  opacity: 0.5;
+}
+.semResultados {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.semResultadosTexto {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--azul-escuro);
+  opacity: 0.6;
+  line-height: 1.5;
+}
+.limparFiltro {
+  height: 44px;
+  padding: 0 28px;
+  border-radius: 10px;
+  border: 1.5px solid var(--azul);
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--azul);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.limparFiltro:hover {
+  background-color: var(--azul);
+  color: var(--branco);
+}
+@media screen and (max-width: 1023px) {
+  .advogadosDisponiveis {
+    top: 330px;
+    gap: 24px;
+  }
+  .advogadosDisponveis {
+    font-size: 22px;
+  }
+  .resultadoContagem {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .advogadosDisponiveis {
+    top: 300px;
+    gap: 20px;
+  }
   .advogadosDisponveis {
     font-size: 20px;
+  }
+  .advogados {
+    gap: 12px;
+  }
+  .resultadoContagem {
+    font-size: 15px;
+    display: block;
+    margin-top: 4px;
+  }
+  .semResultados {
+    padding: 32px 16px;
+  }
+  .semResultadosTexto {
+    font-size: 15px;
   }
 }

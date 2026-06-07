@@ -59,11 +59,15 @@ const CardProcesso = ({
       </div>
 
       {/* ── Barra de ações ───────────────────────── */}
-      <div className={styles.acoes}>
-        {ACOES_PROCESSO.map((acao) => (
+      <div className={`${styles.acoes} ${ACOES_PROCESSO.length === 1 ? styles.acoesUnico : ""}`}>
+        {ACOES_PROCESSO.map((acao, i) => (
           <button
             key={acao.id}
-            className={[styles.acao, styles[`acao_${acao.variante}`] ?? ""].filter(Boolean).join(" ")}
+            className={[
+              styles.acao,
+              styles[`acao_${acao.variante}`],
+              ACOES_PROCESSO.length === 1 ? styles.acaoUnico : "",
+            ].filter(Boolean).join(" ")}
             onClick={() => onAcao?.(acao.id)}
           >
             <img className={styles.acaoIcone} alt="" src={acao.icone} />

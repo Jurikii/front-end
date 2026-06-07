@@ -1,8 +1,34 @@
+import { useState, useCallback } from "react";
 import Menu1 from "../../components/Menu1";
 import Opcoes from "../../components/Configuracoes/Opcoes";
+import Aparencia from "../../components/Configuracoes/Aparencia";
+import Notificacoes from "../../components/Configuracoes/Notificacoes";
+import Privacidade from "../../components/Configuracoes/Privacidade";
+import Acessibilidade from "../../components/Configuracoes/Acessibilidade";
 import styles from "./Configuracoes.module.css";
 
+const SIDEBAR_ITEMS = [
+  { id: "fonte", label: "Fonte", icon: "/glyphs-font-bold.svg" },
+  { id: "aparencia", label: "Aparência", icon: "/mdi-palette-outline.svg" },
+  { id: "notificacoes", label: "Notificações", icon: "/sininho.svg" },
+  { id: "privacidade", label: "Privacidade e Segurança", icon: "/icon-park-protect.svg" },
+  { id: "acessibilidade", label: "Acessibilidade", icon: "/cuida-search-outline.svg" },
+];
+
 const Configuracoes = () => {
+  const [abaAtiva, setAbaAtiva] = useState("fonte");
+
+  const renderAba = useCallback(() => {
+    switch (abaAtiva) {
+      case "fonte": return <Opcoes />;
+      case "aparencia": return <Aparencia />;
+      case "notificacoes": return <Notificacoes />;
+      case "privacidade": return <Privacidade />;
+      case "acessibilidade": return <Acessibilidade />;
+      default: return <Opcoes />;
+    }
+  }, [abaAtiva]);
+
   return (
     <div className={styles.configuracoes}>
       <Menu1 />
@@ -17,38 +43,25 @@ const Configuracoes = () => {
                 </div>
               </div>
               <div className={styles.opes}>
-                <div className={styles.fonte}>
-                  <img
-                    className={styles.glyphsfontBoldIcon}
-                    alt=""
-                    src="/glyphs-font-bold.svg"
-                  />
-                  <h3 className={styles.temas}>Fonte</h3>
-                </div>
-                <div className={styles.cores}>
-                  <img
-                    className={styles.glyphsfontBoldIcon}
-                    alt=""
-                    src="/mdi-palette-outline.svg"
-                  />
-                  <h3 className={styles.temas}>Temas</h3>
-                </div>
-                <div className={styles.cores}>
-                  <img
-                    className={styles.glyphsfontBoldIcon}
-                    alt=""
-                    src="/iconoir-sound-high-solid.svg"
-                  />
-                  <h3 className={styles.temas}>Temas</h3>
-                </div>
-                <div className={styles.cores}>
-                  <img
-                    className={styles.glyphsfontBoldIcon}
-                    alt=""
-                    src="/streamline-plump-user-protection-1-remix.svg"
-                  />
-                  <h3 className={styles.temas}>Temas</h3>
-                </div>
+                {SIDEBAR_ITEMS.map((item) => (
+                  <div
+                    key={item.id}
+                    className={`${styles.sidebarItem} ${abaAtiva === item.id ? styles.sidebarItemAtivo : ""}`}
+                    onClick={() => setAbaAtiva(item.id)}
+                    role="tab"
+                    aria-selected={abaAtiva === item.id}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setAbaAtiva(item.id);
+                      }
+                    }}
+                  >
+                    <img className={styles.glyphsfontBoldIcon} alt="" src={item.icon} />
+                    <h3 className={styles.temas}>{item.label}</h3>
+                  </div>
+                ))}
               </div>
             </div>
             <div className={styles.helpdesk}>
@@ -71,7 +84,7 @@ const Configuracoes = () => {
           />
         </section>
         <section className={styles.opcoesSection}>
-          <Opcoes />
+          {renderAba()}
         </section>
       </main>
     </div>

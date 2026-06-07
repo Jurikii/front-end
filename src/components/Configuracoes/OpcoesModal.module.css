@@ -1,0 +1,106 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+.modal {
+  background-color: var(--branco);
+  border-radius: var(--br-10);
+  padding: 36px 28px 28px;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  animation: scaleIn 0.25s ease;
+  outline: none;
+}
+.titulo {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  text-align: center;
+}
+.mensagem {
+  margin: 0;
+  font-size: var(--fs-15);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  text-align: center;
+  line-height: 1.5;
+}
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+.btnSalvar,
+.btnSair,
+.btnCancelar {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: var(--br-10);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  border: none;
+  text-align: center;
+}
+.btnSalvar {
+  background-color: var(--amarelo);
+  color: var(--azul);
+}
+.btnSalvar:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+.btnSalvar:hover {
+  filter: brightness(0.9);
+}
+.btnSair {
+  background-color: transparent;
+  color: var(--azul-escuro);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.btnSair:focus-visible {
+  outline: 2px solid var(--amarelo);
+  outline-offset: 2px;
+}
+.btnSair:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.btnCancelar {
+  background-color: transparent;
+  color: var(--color-gray-100);
+  font-weight: 500;
+}
+.btnCancelar:hover {
+  color: var(--azul-escuro);
+}
+.btnSalvar:active,
+.btnSair:active,
+.btnCancelar:active {
+  transform: scale(0.97);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}

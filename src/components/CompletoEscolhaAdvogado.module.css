@@ -1,140 +1,136 @@
 .completoEscolhaAdvogado {
   width: 100%;
-  border-radius: 10px;
-  border: 1px solid rgba(61, 106, 138, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(61, 106, 138, 0.15);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 40px 15px;
-  gap: 20px;
+  padding: 32px 40px 24px;
+  gap: 24px;
   max-width: 1292px;
   text-align: left;
   font-size: 25px;
   color: var(--azul);
   font-family: Montserrat;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .completoEscolhaAdvogado:hover {
   border-color: var(--amarelo);
-  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.12);
-}
-.advogados,
-.escolhaUmAdvogado {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  box-shadow: 0 8px 24px rgba(250, 184, 76, 0.1);
 }
 .advogados {
   align-self: stretch;
-  gap: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
   max-width: 100%;
 }
 .escolhaUmAdvogado {
   width: 100%;
-  gap: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
   max-width: 627px;
 }
 .escolhaUmAdvogado2 {
   margin: 0;
-  align-self: stretch;
-  position: relative;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
-.botesIniciais,
 .escolhaUmAdvogado3 {
   align-self: stretch;
   display: flex;
-  max-width: 100%;
-}
-.escolhaUmAdvogado3 {
   flex-direction: column;
   align-items: flex-start;
+  max-width: 100%;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
 }
 .botesIniciais {
+  align-self: stretch;
+  display: flex;
   align-items: center;
+  max-width: 100%;
 }
-.menuDeBusca,
-.pesquisar {
+.menuDeBusca {
   flex: 1;
   display: flex;
   align-items: flex-start;
   max-width: 100%;
 }
 .pesquisar {
-  height: 50px;
-  border-radius: 10px;
-  border: 1px solid var(--azul-escuro);
-  box-sizing: border-box;
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 24px 5px 19px;
-  gap: 20px;
+  height: 50px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(12, 24, 34, 0.2);
+  box-sizing: border-box;
+  padding: 5px 16px 5px 20px;
+  gap: 16px;
+  max-width: 100%;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .pesquisar:hover {
   border-color: var(--amarelo);
-  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+  box-shadow: 0 0 0 4px rgba(250, 184, 76, 0.1);
 }
 .pesquisar:focus-within {
   border-color: var(--amarelo);
-  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.18);
-}
-.busquePorNome,
-.lupaIcon {
-  position: relative;
-  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(250, 184, 76, 0.18);
 }
 .busquePorNome {
-  font-weight: 600;
+  font-weight: 500;
+  flex-shrink: 0;
 }
 .lupaIcon {
-  height: 38px;
-  width: 40px;
-  position: relative;
+  height: 20px;
+  width: 20px;
   flex-shrink: 0;
   transition: transform 0.2s ease;
+  opacity: 0.5;
 }
 .pesquisar:hover .lupaIcon {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
-.advogados2,
+.advogados2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 100%;
+}
 .mensagemSeria {
   align-self: stretch;
   display: flex;
-  max-width: 100%;
-}
-.advogados2 {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 19px;
-}
-.mensagemSeria {
-  border-radius: 30px;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
+  max-width: 100%;
   font-size: 20px;
   color: var(--azul-escuro);
 }
 .sininhoIcon {
-  height: 49px;
-  width: 46px;
-  position: relative;
-  border-radius: 3604px;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  opacity: 0.6;
 }
 .asPartesSero {
   margin: 0;
-  position: relative;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
-  display: inline-block;
-  max-width: 100%;
+  line-height: 1.5;
 }
 @media screen and (max-width: 1325px) {
   .completoEscolhaAdvogado {
@@ -148,19 +144,16 @@
 }
 @media screen and (max-width: 800px) {
   .completoEscolhaAdvogado {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box;
+    padding: 24px 20px 20px;
   }
   .advogados {
-    gap: 22px;
+    gap: 24px;
   }
   .escolhaUmAdvogado {
     max-width: 100%;
   }
   .pesquisar {
     flex-wrap: wrap;
-    gap: 20px;
   }
 }
 @media screen and (max-width: 450px) {

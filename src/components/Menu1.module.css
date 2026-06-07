@@ -4,42 +4,45 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px var(--padding-40);
+  padding: 8px 40px;
   box-sizing: border-box;
-  gap: var(--gap-4);
+  gap: 4px;
   max-width: 100%;
   font-family: var(--font-montserrat);
-  border-bottom: 1px solid var(--color-gainsboro);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 10;
+  min-height: 68px;
 }
 
 .logoArea {
   display: flex;
   align-items: center;
-  gap: var(--gap-10);
+  gap: 10px;
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;
 }
 
 .logoIcon {
-  width: 50px;
+  width: 44px;
   height: auto;
   object-fit: cover;
 }
 
 .marcaNome {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--preto);
+  letter-spacing: -0.01em;
 }
 
 .navegacaoAbas {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 8px;
   flex: 1;
   max-width: 832px;
   min-width: 0;
@@ -47,74 +50,84 @@
 
 .linkMenu {
   background: none;
-  border: 1px solid transparent;
-  font-size: var(--fs-16);
-  font-weight: 600;
+  border: none;
+  font-size: var(--fs-15);
+  font-weight: 500;
   font-family: inherit;
   color: var(--preto);
+  opacity: 0.7;
   cursor: pointer;
-  padding: 10px 24px;
+  padding: 8px 18px;
   border-radius: 8px;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .linkMenu:hover {
-  border-color: var(--color-gainsboro);
-  background-color: rgba(0, 0, 0, 0.03);
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .linkMenu:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .linkMenuAtivo {
   color: var(--amarelo);
+  opacity: 1;
+  font-weight: 600;
 }
 
 .perfilUsuarioArea {
   display: flex;
   align-items: center;
-  gap: var(--gap-20);
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.iconNotificacao,
+.iconConfig {
+  display: block;
 }
 
 .iconNotificacao { 
-  width: 24px; 
-  height: 22px; 
+  width: 20px; 
+  height: 20px; 
 }
 
 .iconConfig { 
-  width: 20px; 
-  height: 22px; 
+  width: 18px; 
+  height: 20px; 
 }
 
 .divisorVertical {
-  height: 24px;
+  height: 20px;
   width: 1px;
-  background-color: var(--color-gainsboro);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .infoUsuario {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 4px 10px 4px 12px;
+  border-radius: 100px;
   border: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
 .infoUsuario:hover {
-  border-color: var(--color-gainsboro);
+  border-color: rgba(0, 0, 0, 0.08);
   background-color: rgba(0, 0, 0, 0.03);
 }
 
 .infoUsuario:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .botaoAcaoIcon {
@@ -124,15 +137,15 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
 .botaoAcaoIcon:hover {
-  border-color: var(--color-gainsboro);
+  border-color: rgba(0, 0, 0, 0.08);
   background-color: rgba(0, 0, 0, 0.03);
 }
 
@@ -144,35 +157,35 @@
   font-size: var(--fs-14);
   font-weight: 600;
   color: var(--preto);
-  margin: 0;
 }
 
 .avatarFoto {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1023px) {
   .menu {
+    padding: 8px 24px;
     flex-wrap: wrap;
-    padding: 8px var(--padding-20);
-    justify-content: center;
+    min-height: auto;
   }
   .navegacaoAbas {
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
     order: 3;
     flex: none;
     width: 100%;
+    justify-content: center;
   }
   .linkMenu {
-    padding: 8px 14px;
+    padding: 6px 14px;
     font-size: var(--fs-14);
   }
   .perfilUsuarioArea {
-    gap: var(--gap-10);
+    gap: 8px;
   }
   .nomeUsuario {
     display: none;
@@ -180,7 +193,29 @@
 }
 
 @media screen and (max-width: 450px) {
+  .menu {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  .logoIcon {
+    width: 36px;
+  }
   .marcaNome {
-    font-size: 18px;
+    font-size: 17px;
+  }
+  .linkMenu {
+    padding: 6px 10px;
+    font-size: var(--fs-13);
+  }
+  .perfilUsuarioArea {
+    gap: 4px;
+  }
+  .botaoAcaoIcon {
+    width: 30px;
+    height: 30px;
+  }
+  .avatarFoto {
+    width: 28px;
+    height: 28px;
   }
 }

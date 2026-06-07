@@ -1,7 +1,16 @@
+import { useCallback } from "react";
 import PropTypes from "prop-types";
 import styles from "./BUSCA.module.css";
 
-const BUSCA = ({ className = "" }) => {
+const BUSCA = ({
+  className = "",
+  searchQuery = "",
+  onSearchChange,
+  onSearchSubmit,
+  onFilterClick,
+  onKeyDown,
+  filtroAtivo = false,
+}) => {
   return (
     <section className={[styles.busca, className].join(" ")}>
       <div className={styles.buscarAdvogado}>
@@ -13,17 +22,28 @@ const BUSCA = ({ className = "" }) => {
       <div className={styles.botesDeBusca}>
         <div className={styles.menuDeBusca}>
           <div className={styles.pesquisar}>
-            <div className={styles.buscarDocumento}>Buscar documento</div>
+            <input
+              className={styles.buscarDocumento}
+              type="text"
+              placeholder="Busque por nome ou área de atuação"
+              value={searchQuery}
+              onChange={(e) => onSearchChange?.(e.target.value)}
+              onKeyDown={onKeyDown}
+            />
+            <img className={styles.lupaIcon} alt="" src="/lupa.svg" />
           </div>
-          <img className={styles.lupaIcon} alt="" src="/lupa.svg" />
         </div>
-        <div className={styles.buscar}>
-          <div className={styles.buscar2}>Buscar</div>
-        </div>
-        <div className={styles.filtros}>
-          <div className={styles.buscarDocumento}>Filtros</div>
+        <button className={styles.buscar} onClick={onSearchSubmit}>
+          <span className={styles.buscar2}>Buscar</span>
+        </button>
+        <button
+          className={`${styles.filtros} ${filtroAtivo ? styles.filtrosAtivo : ""}`}
+          onClick={onFilterClick}
+        >
+          <span className={styles.buscarDocumento}>Filtrar</span>
           <img className={styles.filtroIcon} alt="" src="/filtro.svg" />
-        </div>
+          {filtroAtivo && <span className={styles.filtroBadge} />}
+        </button>
       </div>
     </section>
   );
@@ -31,6 +51,12 @@ const BUSCA = ({ className = "" }) => {
 
 BUSCA.propTypes = {
   className: PropTypes.string,
+  searchQuery: PropTypes.string,
+  onSearchChange: PropTypes.func,
+  onSearchSubmit: PropTypes.func,
+  onFilterClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  filtroAtivo: PropTypes.bool,
 };
 
 export default BUSCA;

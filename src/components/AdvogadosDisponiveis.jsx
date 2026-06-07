@@ -80,9 +80,11 @@ const AdvogadosDisponiveis = ({
   className = "",
   isFavorito,
   onToggleFavorito,
+  filteredList,
+  filtroAtivo = false,
 }) => {
   const navigate = useNavigate();
-  const advogadoItems = ADVOGADOS_LISTA;
+  const advogadoItems = filtroAtivo && filteredList ? filteredList : ADVOGADOS_LISTA;
 
   const onAdvogadoClick = useCallback((advogado) => {
     navigate(`/advogados/${advogado.id}`, { state: { advogado } });
@@ -93,13 +95,15 @@ const AdvogadosDisponiveis = ({
   }, [onAdvogadoClick]);
 
   const favoritos = useMemo(
-    () => advogadoItems.filter((item) => isFavorito?.(item.id)),
-    [advogadoItems, isFavorito]
+    () => ADVOGADOS_LISTA.filter((item) => isFavorito?.(item.id)),
+    [isFavorito]
   );
+
+  const showFavoritos = favoritos.length > 0 && !filtroAtivo;
 
   return (
     <section className={[styles.advogadosDisponiveis, className].join(" ")}>
-      {favoritos.length > 0 && (
+      {showFavoritos && (
         <>
           <h2 className={styles.advogadosDisponveis}>Advogados favoritos</h2>
           <div className={styles.advogados}>
@@ -128,30 +132,53 @@ const AdvogadosDisponiveis = ({
           <div className={styles.divisoria} />
         </>
       )}
-      <h2 className={styles.advogadosDisponveis}>Advogados disponíveis</h2>
-      <div className={styles.advogados}>
-        {advogadoItems.map((item, index) => (
-          <Advogado
-            key={index}
-            fotoDoAdvogadoJustifyContent={item.fotoDoAdvogadoJustifyContent}
-            geminiGeneratedImageBkgpjbk={item.geminiGeneratedImageBkgpjbk}
-            geminiGeneratedImageBkgpjbBorderRadius={
-              item.geminiGeneratedImageBkgpjbBorderRadius
-            }
-            draBeatrizOliveira={item.draBeatrizOliveira}
-            consumidorCvelTrabalhista={item.consumidorCvelTrabalhista}
-            consumidorCvelAlignSelf={item.consumidorCvelAlignSelf}
-            consumidorCvelDisplay={item.consumidorCvelDisplay}
-            setinhaJustifyContent={item.setinhaJustifyContent}
-            tipoDeAtendimentoJustifyContent={
-              item.tipoDeAtendimentoJustifyContent
-            }
-            onAdvogadoClick={() => onAdvogadoItemClick(item)}
-            favoritado={isFavorito?.(item.id)}
-            onToggleFavorito={() => onToggleFavorito?.(item.id)}
-          />
-        ))}
-      </div>
+      <h2 className={styles.advogadosDisponveis}>
+        {filtroAtivo ? "Resultados da busca" : "Advogados disponíveis"}
+        {filtroAtivo && (
+          <span className={styles.resultadoContagem}>
+            {" "}· {advogadoItems.length} encontrado{advogadoItems.length !== 1 ? "s" : ""}
+          </span>
+        )}
+      </h2>
+      {advogadoItems.length > 0 ? (
+        <div className={styles.advogados}>
+          {advogadoItems.map((item, index) => (
+            <Advogado
+              key={index}
+              fotoDoAdvogadoJustifyContent={item.fotoDoAdvogadoJustifyContent}
+              geminiGeneratedImageBkgpjbk={item.geminiGeneratedImageBkgpjbk}
+              geminiGeneratedImageBkgpjbBorderRadius={
+                item.geminiGeneratedImageBkgpjbBorderRadius
+              }
+              draBeatrizOliveira={item.draBeatrizOliveira}
+              consumidorCvelTrabalhista={item.consumidorCvelTrabalhista}
+              consumidorCvelAlignSelf={item.consumidorCvelAlignSelf}
+              consumidorCvelDisplay={item.consumidorCvelDisplay}
+              setinhaJustifyContent={item.setinhaJustifyContent}
+              tipoDeAtendimentoJustifyContent={
+                item.tipoDeAtendimentoJustifyContent
+              }
+              onAdvogadoClick={() => onAdvogadoItemClick(item)}
+              favoritado={isFavorito?.(item.id)}
+              onToggleFavorito={() => onToggleFavorito?.(item.id)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className={styles.semResultados}>
+          <div className={styles.semResultadosTexto}>
+            Nenhum advogado encontrado com esse filtro.
+          </div>
+          <button
+            className={styles.limparFiltro}
+            onClick={() => {
+              window.location.reload();
+            }}
+          >
+            Limpar filtros
+          </button>
+        </div>
+      )}
     </section>
   );
 };
@@ -160,6 +187,8 @@ AdvogadosDisponiveis.propTypes = {
   className: PropTypes.string,
   isFavorito: PropTypes.func,
   onToggleFavorito: PropTypes.func,
+  filteredList: PropTypes.array,
+  filtroAtivo: PropTypes.bool,
 };
 
 export default AdvogadosDisponiveis;

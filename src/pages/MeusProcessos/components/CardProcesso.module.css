@@ -121,6 +121,10 @@
   border-top: var(--border-1);
 }
 
+.acoesUnico {
+  justify-content: center;
+}
+
 .acao {
   flex: 1;
   display: flex;
@@ -135,7 +139,7 @@
   font-weight: 600;
   font-family: var(--font-montserrat);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .acao:active {
   transform: scale(0.98);
@@ -151,6 +155,26 @@
 
 .acao:not(:first-child) {
   border-left: var(--border-1);
+}
+
+.acaoUnico {
+  flex: none;
+  justify-content: center;
+  padding: var(--padding-14) var(--padding-20);
+  border-radius: var(--br-0) var(--br-0) var(--br-20) var(--br-20);
+  transition: background-color 0.2s ease, color 0.2s ease, gap 0.15s ease;
+  color: var(--azul);
+  gap: var(--gap-10);
+}
+.acaoUnico:hover {
+  background-color: var(--azul);
+  color: var(--branco);
+}
+.acaoUnico:hover .acaoIcone {
+  filter: brightness(0) invert(1);
+}
+.acaoUnico:active {
+  transform: scale(0.97);
 }
 
 .acao_primaria {
