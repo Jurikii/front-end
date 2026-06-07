@@ -1,11 +1,11 @@
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import InputField from "../ui/InputField";
 import PasswordInput from "../ui/PasswordInput";
 import googleIcon from "../../assets/icons/mynaui-google-solid.svg";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 const SignUpCard = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
   const [termosChecked, setTermosChecked] = useState(false);
 
   const onRegisterClick = useCallback(() => {
@@ -15,8 +15,8 @@ const SignUpCard = ({ className = "" }) => {
   const onGoogleClick = useCallback(() => {}, []);
 
   const onLoginClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   return (
     <div

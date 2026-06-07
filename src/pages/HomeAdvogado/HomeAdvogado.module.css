@@ -1,0 +1,197 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+}
+
+/* ── Main ── */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-28);
+  padding: 13.7px var(--padding-0);
+  max-width: 1381.9px;
+  width: 100%;
+  align-self: center;
+  box-sizing: border-box;
+}
+
+/* ── Saudação ── */
+.greeting {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding: var(--padding-0) var(--padding-0) var(--padding-2);
+  font-family: var(--font-montserrat);
+  color: var(--azul);
+}
+
+.greetingText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-12);
+}
+
+.greetingTitle {
+  margin: 0;
+  font-size: var(--fs-35);
+  font-weight: 700;
+}
+
+.greetingSubtitle {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 400;
+}
+
+.greetingAvatar {
+  width: 89px;
+  border-radius: var(--br-360);
+  object-fit: contain;
+}
+
+/* ── Estatísticas ── */
+.statsRow {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+  padding: var(--padding-2) var(--padding-0) var(--padding-0);
+  flex-wrap: wrap;
+}
+
+/* ── Painéis (consultas + processos) ── */
+.panels {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 21px;
+}
+
+.panel {
+  flex: 1;
+  min-width: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  padding: 29px 39px;
+  box-sizing: border-box;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-20);
+  color: var(--azul-escuro);
+}
+
+/* Header do painel */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--gap-20);
+  padding: 19.5px var(--padding-0) 21px;
+  color: var(--azul);
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+}
+
+.panelTitle h3 {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 600;
+}
+
+.panelIcon {
+  height: var(--height-26);
+  width: auto;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--azul);
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+.linkButton:active {
+  transform: scale(0.95);
+}
+
+/* Lista de items */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.separator {
+  border: none;
+  border-top: var(--border-1);
+  margin: 0;
+}
+
+/* Botão de "ver todos" */
+.viewAllButton {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--azul-sereno);
+  border: none;
+  cursor: pointer;
+  padding: var(--padding-8) 25px;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-20);
+  font-weight: 600;
+  color: var(--branco);
+  transition: transform 0.1s;
+}
+
+.viewAllButton:hover {
+  filter: brightness(0.85);
+}
+
+.viewAllButton:active {
+  transform: scale(0.95);
+}
+
+/* ── Responsividade ── */
+@media screen and (max-width: 1350px) {
+  .main { max-width: 100%; }
+}
+
+@media screen and (max-width: 1125px) {
+  .statsRow { flex-wrap: wrap; }
+}
+
+@media screen and (max-width: 800px) {
+  .greetingTitle { font-size: var(--fs-28); }
+  .panel { gap: var(--gap-15); }
+}
+
+@media screen and (max-width: 450px) {
+  .greeting {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .greetingTitle { font-size: var(--fs-21); }
+  .greetingSubtitle { font-size: var(--fs-16); }
+  .panel {
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+  }
+}

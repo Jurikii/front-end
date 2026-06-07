@@ -1,18 +1,18 @@
 import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import { sugestoesChat } from "../data/advogados";
 import ChatSugestoes from "./ChatSugestoes";
 import PropTypes from "prop-types";
 import styles from "./SeusDireitosChat.module.css";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const SeusDireitosChat = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
   const [mensagem, setMensagem] = useState("");
 
   const enviar = useCallback(() => {
     if (!mensagem.trim()) return;
-    navigate("/login");
-  }, [mensagem, navigate]);
+    openTipoModal("login");
+  }, [mensagem, openTipoModal]);
 
   const handleKeyDown = useCallback(
     (e) => {

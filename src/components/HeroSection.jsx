@@ -1,15 +1,15 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Navbar from "./Rodape e navbar/Navbar";
 import styles from "./HeroSection.module.css";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const HeroSection = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const handleTirarDuvidas = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   const handleTestarGratis = useCallback(() => {
     const el = document.getElementById("chat-demo");

@@ -1,0 +1,684 @@
+.agendaMinhasConsultas,
+.mainBody {
+  display: flex;
+  align-items: flex-start;
+}
+.agendaMinhasConsultas {
+  width: 100%;
+  position: relative;
+  background-color: var(--areia);
+  flex-direction: column;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.mainBody {
+  align-self: stretch;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: var(--padding-0) var(--padding-10) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  gap: var(--gap-8);
+  max-width: 100%;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+}
+.calendrio,
+.infoNavbarLateral,
+.navbarLateral {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.navbarLateral {
+  align-self: stretch;
+  flex: 1;
+  background-color: var(--branco);
+  border: var(--border-2);
+  box-sizing: border-box;
+  padding: var(--padding-20) var(--padding-10);
+  min-width: 211px;
+  max-width: 217px;
+}
+.calendrio,
+.infoNavbarLateral {
+  align-self: stretch;
+}
+.infoNavbarLateral {
+  align-self: stretch;
+  gap: var(--gap-20);
+  position: sticky;
+  top: 90px;
+}
+.calendrio {
+  align-self: stretch;
+  height: var(--height-65);
+  border-radius: var(--br-10);
+  justify-content: center;
+  padding: var(--padding-20) var(--padding-15);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.calendrio:hover {
+  background-color: var(--color-floralwhite-100);
+}
+.calendrio:active {
+  transform: scale(0.95);
+}
+.minhasConsultas {
+  width: 116px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+}
+.vectorIcon {
+  width: var(--width-20);
+  position: relative;
+  max-height: 100%;
+}
+.minhasConsultas2 {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--color-floralwhite-200);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-20) var(--padding-15);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.minhasConsultas2:hover {
+  background-color: var(--color-floralwhite-100);
+}
+.minhasConsultas2:active {
+  transform: scale(0.95);
+}
+.vectorIcon2 {
+  height: var(--height-24);
+  width: var(--width-20);
+  position: relative;
+}
+.bodyConsultas,
+.bodyConsultas2 {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 100%;
+}
+.bodyConsultas {
+  flex: 1.1128;
+  align-items: flex-start;
+  padding: var(--padding-8) var(--padding-0) var(--padding-20);
+  min-width: var(--min-w-310);
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+.bodyConsultas2 {
+  flex: 1;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 19.5px var(--padding-0);
+}
+.bodyConsultas3,
+.minhasConsultasSubtitulo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.bodyConsultas3 {
+  gap: 21px;
+  max-width: 1150px;
+}
+.minhasConsultasSubtitulo {
+  padding: var(--padding-0) var(--padding-20) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  gap: var(--gap-10);
+  max-width: 338.1px;
+  font-size: 35px;
+}
+.minhasConsultas5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.minhasConsultas6 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.acompanheTodasAsSuasConsul {
+  height: 17px;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-14);
+}
+.acompanheTodasAs {
+  position: relative;
+}
+.filtroConsulta,
+.filtros {
+  display: flex;
+  max-width: 100%;
+  row-gap: var(--gap-20);
+}
+.filtros {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-0);
+}
+.filtroConsulta {
+  flex: 1;
+  align-items: center;
+  min-width: 635px;
+}
+.botoEmAgendamento {
+  border-radius: var(--br-10) 0 0 var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px var(--padding-30);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.botoEmAgendamento:hover {
+  background-color: var(--color-whitesmoke);
+}
+.botoEmAgendamento:active {
+  transform: scale(0.95);
+}
+.emAgendamento4 {
+  position: relative;
+  font-weight: 500;
+}
+.botoFinalizadas {
+  border-radius: 0 var(--br-10) var(--br-10) 0;
+  background-color: var(--branco);
+  border: var(--border-2);
+  justify-content: center;
+  padding: 13px 53px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.botoFinalizadas:hover {
+  background-color: var(--color-whitesmoke);
+}
+.botoFinalizadas:active {
+  transform: scale(0.95);
+}
+.botoAtivo {
+  background-color: rgba(250, 184, 76, 0.15) !important;
+}
+.semResultados {
+  align-self: stretch;
+  text-align: center;
+  padding: 40px var(--padding-20);
+  font-size: var(--fs-16);
+  color: var(--color-darkslategray);
+}
+.botoFinalizadas,
+.infoFiltro,
+.ordenarPor {
+  display: flex;
+  align-items: center;
+}
+.ordenarPor {
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  flex-direction: column;
+  justify-content: center;
+  padding: 13px var(--padding-18);
+  font-size: var(--fs-15);
+  color: var(--preto);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.ordenarPor:hover {
+  background-color: var(--color-whitesmoke);
+}
+.ordenarPor:active {
+  transform: scale(0.95);
+}
+.infoFiltro {
+  width: 134px;
+  height: var(--height-18);
+  gap: var(--gap-15);
+}
+.vectorIcon3 {
+  height: var(--height-18);
+  width: 18px;
+  position: relative;
+}
+.ordernarPor {
+  position: relative;
+  font-weight: 600;
+}
+.detalhesWrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+.cardVisualizado,
+.cardsDeConsulta {
+  align-self: stretch;
+  flex-direction: column;
+  font-size: var(--fs-20);
+}
+.cardsDeConsulta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-10);
+}
+.cardVisualizado {
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  padding: var(--padding-18) var(--padding-15) var(--padding-11);
+  text-align: left;
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+.cardVisualizado,
+.cardVisualizado2 {
+  display: flex;
+  align-items: center;
+}
+.cardVisualizado2 {
+  width: 100%;
+  flex-direction: column;
+  gap: var(--gap-19);
+  max-width: 100%;
+}
+.infoCard,
+.infoCard2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-20);
+}
+.nomeDescImagem {
+  height: var(--height-50);
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+  overflow: hidden;
+}
+.fotoCliente {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.infoClienteCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  gap: 2px;
+}
+.nomeCliente {
+  font-size: var(--fs-16);
+  font-weight: 700;
+  color: var(--azul);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.assuntoCard {
+  font-size: var(--fs-14);
+  color: var(--color-darkslategray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dataIcon {
+  height: var(--height-48);
+  flex: 0 0 185px;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-15);
+  flex-shrink: 0;
+}
+.vectorIcon4 {
+  height: 27px;
+  width: var(--width-25);
+  position: relative;
+}
+.dataDia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sextaFeira {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.horarioIcon {
+  height: var(--height-25);
+  flex: 0 0 100px;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--gap-15);
+  flex-shrink: 0;
+}
+.vectorIcon5 {
+  height: var(--height-25);
+  width: var(--width-25);
+  position: relative;
+}
+.h32 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.dropdownIcon {
+  height: 45px;
+  width: 45px;
+  min-width: 45px;
+  position: relative;
+  border-radius: var(--br-10);
+  cursor: pointer;
+  transform-origin: center;
+  flex-shrink: 0;
+  transition: transform 0.1s ease, rotate 0.2s ease, background-color 0.2s ease;
+}
+.dropdownIcon:hover {
+  filter: brightness(0.92);
+}
+.dropdownIcon:active {
+  transform: scale(0.95);
+}
+.dropdownIconRotated {
+  rotate: 180deg;
+}
+.vectorIcon6 {
+  position: absolute;
+  top: 18px;
+  left: 13.5px;
+  width: 16.5px;
+  height: 9px;
+  object-fit: contain;
+}
+.informaesAdicionaisConsult {
+  align-self: stretch;
+  height: 300px;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18.5px var(--padding-20);
+  font-size: var(--fs-14);
+}
+.informaesAdicionaisConsult2 {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-0) var(--padding-0) var(--padding-0) 9px;
+  gap: var(--gap-30);
+}
+.detalhesDaConsulta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+.detalhesDaConsulta2 {
+  display: flex;
+  align-items: center;
+  padding: var(--padding-0) var(--padding-20) var(--padding-0) var(--padding-0);
+}
+.tipoDeAtendimento {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+.consultaOnline {
+  align-self: stretch;
+  position: relative;
+}
+.emAgendamento {
+  border-radius: 12.5px;
+  background-color: var(--color-floralwhite-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-4) 6px var(--padding-4) var(--padding-5);
+}
+.informaesAdicionaisConsultChild {
+  height: 261px;
+  width: var(--width-2);
+  position: relative;
+  background-color: var(--color-gainsboro-100);
+}
+.resumoDoAssunto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17.5px;
+  min-width: 177px;
+}
+.marianaDesejaOrientao {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  max-width: 272px;
+}
+.verMaisDetalhes {
+  align-self: stretch;
+  position: relative;
+  color: var(--amarelo);
+}
+.resumoDoAssunto3 {
+  height: 146.8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+.cliente {
+  align-self: stretch;
+  position: relative;
+  font-weight: 500;
+}
+.verPerfilDoCliente {
+  width: 165.5px;
+  height: 18.8px;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-10);
+  color: var(--amarelo);
+}
+.vectorIcon7 {
+  height: 18.8px;
+  width: 19.5px;
+  position: relative;
+}
+.eMailJoolimagmailcom {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  max-width: 165.5px;
+}
+.resumoDoAssunto4 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+  min-width: 177px;
+}
+.oClienteNo {
+  align-self: stretch;
+  position: relative;
+  color: var(--color-darkgray);
+}
+.card {
+  align-self: stretch;
+  min-height: 76px;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: var(--padding-18) var(--padding-15) var(--padding-18);
+}
+.vectorIcon10 {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  width: 16.5px;
+  height: 9px;
+}
+.resultadosNavResultados {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+}
+.resultadosNavResultadosInner {
+  display: flex;
+  align-items: flex-start;
+  color: var(--branco);
+}
+.frameParent {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+}
+.frameChild {
+  height: var(--height-30);
+  width: var(--width-30);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.1s ease, filter 0.2s ease;
+  border-radius: 50%;
+}
+.frameChild:hover {
+  filter: brightness(0.92);
+}
+.frameChild:active {
+  transform: scale(0.95);
+}
+.paginaBtn {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.paginaAtiva {
+  background-image: url(/public/Group-87@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.paginaInativa {
+  background-color: #ffffff;
+  border: 2px solid #c8c8c8;
+  color: #1a1a1a;
+  transition: border-color 0.15s;
+}
+.paginaInativa:hover {
+  border-color: #a0a0a0;
+}
+@media screen and (max-width: 1350px) {
+  .bodyConsultas3 {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1325px) {
+  .bodyConsultas3 {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .filtros,
+  .informaesAdicionaisConsult2 {
+    flex-wrap: wrap;
+  }
+  .informaesAdicionaisConsultChild {
+    width: 100%;
+    height: var(--height-2);
+  }
+  .infoCard2 {
+    gap: var(--gap-20);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 800px) {
+  .minhasConsultas6 {
+    font-size: var(--fs-28);
+  }
+  .filtroConsulta {
+    min-width: 100%;
+  }
+  .infoCard {
+    flex-wrap: wrap;
+  }
+  .infoCard2 {
+    gap: var(--gap-45);
+  }
+}
+@media screen and (max-width: 450px) {
+  .navbarLateral {
+    flex: 1;
+  }
+  .minhasConsultas6 {
+    font-size: 21px;
+  }
+  .filtroConsulta {
+    flex-wrap: wrap;
+  }
+  .h32,
+  .sextaFeira {
+    font-size: var(--fs-16);
+  }
+  .infoCard2 {
+    gap: var(--gap-22);
+  }
+  .resultadosNavResultados {
+    flex-wrap: wrap;
+  }
+}

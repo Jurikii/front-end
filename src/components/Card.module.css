@@ -1,0 +1,187 @@
+.card {
+  width: var(--width-1383);
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-15_5) var(--padding-31) var(--padding-15_5)
+    var(--padding-19);
+  min-width: var(--min-w-1027_1);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--color-black);
+  font-family: var(--font-montserrat);
+}
+.contedoCardProcesso {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: var(--gap-0);
+  max-width: 100%;
+  row-gap: var(--gap-20);
+}
+.infoCliente {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--padding-20) var(--padding-0);
+  box-sizing: border-box;
+  gap: var(--gap-20);
+  min-width: var(--min-w-261_1);
+  max-width: var(--max-w-261);
+}
+.infoClienteChild {
+  height: var(--height-50);
+  width: var(--width-50);
+  min-width: var(--width-50);
+  position: relative;
+  border-radius: var(--br-50);
+  background-color: var(--color-gainsboro-200);
+  flex-shrink: 0;
+}
+.infoCliente2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+.marianaSouza {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  font-family: inherit;
+}
+.marianaSouza,
+.marianasouzagmailcom {
+  align-self: stretch;
+  position: relative;
+}
+.frame {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: var(--min-w-10);
+  max-width: var(--max-w-142);
+}
+.frameChild {
+  height: var(--height-90);
+  width: var(--width-2);
+  position: relative;
+  background-color: var(--color-gainsboro-200);
+}
+.classificaesProcesso {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+  min-width: var(--min-w-318);
+  max-width: 100%;
+}
+.statusDoProcesso {
+  width: fit-content;
+  height: var(--height-27);
+  border-radius: var(--br-10);
+  background-color: var(--color-honeydew);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5) var(--padding-10);
+  box-sizing: border-box;
+  color: var(--color-darkolivegreen);
+}
+.alegaoDeAssdio,
+.trabalhista {
+  position: relative;
+}
+.alegaoDeAssdio {
+  width: 100%;
+  font-weight: 500;
+  display: inline-block;
+  max-width: var(--max-w-408);
+}
+.procN0001234562024502 {
+  align-self: stretch;
+  position: relative;
+  font-weight: 500;
+}
+.statusDoProcessoParent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-20) var(--padding-1) var(--padding-20) var(--padding-0);
+  box-sizing: border-box;
+  gap: var(--gap-20);
+  min-width: var(--min-w-376);
+  max-width: var(--max-w-378);
+  color: var(--color-darkolivegreen);
+}
+.statusDoProcesso2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+.statusDoProcesso3 {
+  width: var(--width-121);
+  height: var(--height-27);
+  border-radius: var(--br-10);
+  background-color: var(--color-honeydew);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5);
+  box-sizing: border-box;
+}
+.atualizadoEm10062026 {
+  align-self: stretch;
+  position: relative;
+  color: var(--azul);
+}
+.botoVerProcesso {
+  height: var(--height-50);
+  width: var(--width-50);
+  position: relative;
+  border-radius: var(--br-10);
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.1s;
+}
+.botoVerProcesso:hover {
+  filter: brightness(0.9);
+}
+.botoVerProcesso:active {
+  transform: scale(0.95);
+}
+@media screen and (max-width: 825px) {
+  .statusDoProcessoParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .statusDoProcessoParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .marianaSouza {
+    font-size: var(--fs-16);
+  }
+  .alegaoDeAssdio {
+    max-width: 100%;
+  }
+  .statusDoProcessoParent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

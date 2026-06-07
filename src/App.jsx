@@ -1,8 +1,13 @@
 import { useEffect } from "react";
-import { Routes, Route, useNavigationType, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigationType, useLocation } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { AuthModalProvider } from "./context/AuthModalContext";
+import ModalEscolhaTipo from "./components/ModalEscolhaTipo";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
+import LoginCliente from "./pages/LoginCliente/LoginCliente";
+import LoginAdvogado from "./pages/LoginAdvogado/LoginAdvogado";
+import CadastroCliente from "./pages/CadastroCliente/CadastroCliente";
+import CadastroAdvogado from "./pages/CadastroAdvogado/CadastroAdvogado";
 import UsurioIA from "./pages/UsuarioIA/UsurioIA";
 import IADocumentos from "./pages/IADocumentos/IADocumentos";
 import PerfilUsurio from "./pages/PerfilUsurio/PerfilUsurio";
@@ -22,6 +27,17 @@ import IADocumentosMaisDocumentos from "./pages/IADocumentosMaisDocumentos/IADoc
 import IADocumentosTrabalhista from "./pages/IADocumentosTrabalhista/IADocumentosTrabalhista";
 import PerfilAdvogado from "./pages/PerfilAdvogado/PerfilAdvogado";
 
+// ── Páginas do Advogado ──
+import HomeAdvogado from "./pages/HomeAdvogado/HomeAdvogado";
+import AgendaMinhasConsultas from "./pages/AgendaMinhasConsultas/AgendaMinhasConsultas";
+import AgendaCalendario from "./pages/AgendaCalendario/AgendaCalendario";
+import MeusProcessosAdvogado from "./pages/MeusProcessosAdvogado/MeusProcessosAdvogado";
+import DetalhesDaConsultaAdvogado from "./pages/DetalhesDaConsultaAdvogado/DetalhesDaConsultaAdvogado";
+import ChatAdvogado from "./pages/ChatAdvogado/ChatAdvogado";
+import PlanosAdvogado from "./pages/PlanosAdvogado/PlanosAdvogado";
+import PerfilAdvogadoAdv from "./pages/PerfilAdvogadoAdv/PerfilAdvogadoAdv";
+import ConfiguracoesAdvogado from "./pages/ConfiguracoesAdvogado/ConfiguracoesAdvogado";
+
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -40,10 +56,17 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/cadastro" element={<SignUpPage />} />
+    <AuthProvider>
+      <AuthModalProvider>
+        <ModalEscolhaTipo />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Navigate to="/" replace />} />
+          <Route path="/cadastro" element={<Navigate to="/" replace />} />
+          <Route path="/login/cliente" element={<LoginCliente />} />
+          <Route path="/login/advogado" element={<LoginAdvogado />} />
+          <Route path="/cadastro/cliente" element={<CadastroCliente />} />
+          <Route path="/cadastro/advogado" element={<CadastroAdvogado />} />
       <Route path="/ia" element={<UsurioIA />} />
       <Route path="/documentos" element={<IADocumentos />} />
       <Route path="/perfil" element={<PerfilUsurio />} />
@@ -63,7 +86,20 @@ function App() {
       <Route path="/documentos/mais" element={<IADocumentosMaisDocumentos />} />
       <Route path="/documentos/trabalhista" element={<IADocumentosTrabalhista />} />
       <Route path="/advogados/:id" element={<PerfilAdvogado />} />
-    </Routes>
+
+      {/* ── Rotas do Advogado ── */}
+      <Route path="/homeadvogado" element={<HomeAdvogado />} />
+      <Route path="/agendaadvogado" element={<AgendaMinhasConsultas />} />
+      <Route path="/calendarioadvogado" element={<AgendaCalendario />} />
+      <Route path="/meus-processosadvogado" element={<MeusProcessosAdvogado />} />
+      <Route path="/detalhes-processoadvogado" element={<DetalhesDaConsultaAdvogado />} />
+      <Route path="/chatadvogado" element={<ChatAdvogado />} />
+      <Route path="/planosadvogado" element={<PlanosAdvogado />} />
+      <Route path="/perfiladvogado" element={<PerfilAdvogadoAdv />} />
+      <Route path="/configuracoesadvogado" element={<ConfiguracoesAdvogado />} />
+        </Routes>
+      </AuthModalProvider>
+    </AuthProvider>
   );
 }
 

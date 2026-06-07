@@ -1,0 +1,106 @@
+.planos {
+  width: 100%;
+  position: relative;
+  background-color: var(--branco);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  line-height: normal;
+  letter-spacing: normal;
+  transition: gap 0.3s ease;
+}
+
+.conteudo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 64px 64px;
+  box-sizing: border-box;
+  gap: 40px;
+  max-width: 1280px;
+  flex-shrink: 0;
+  transition: padding 0.3s ease, gap 0.3s ease;
+}
+
+.hero {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 32px 16px;
+  gap: 12px;
+  font-size: 44px;
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+  text-align: center;
+  transition: padding 0.3s ease;
+}
+
+.tituloHero {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  transition: font-size 0.3s ease;
+}
+
+.destaque {
+  color: var(--amarelo);
+}
+
+.subtituloHero {
+  margin: 0;
+  font-size: var(--fs-18);
+  font-weight: 500;
+  max-width: 600px;
+  color: var(--color-gray);
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 1225px) {
+  .conteudo {
+    max-width: 100%;
+    padding: 0 40px 48px;
+  }
+  .planos {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .planos {
+    gap: 24px;
+  }
+  .conteudo {
+    gap: 32px;
+    padding: 0 24px 40px;
+  }
+  .tituloHero {
+    font-size: 32px;
+  }
+  .hero {
+    padding: 24px 20px 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .planos {
+    gap: 16px;
+  }
+  .conteudo {
+    gap: 24px;
+    padding: 0 16px 32px;
+  }
+  .tituloHero {
+    font-size: var(--fs-24);
+  }
+  .subtituloHero {
+    font-size: var(--fs-15);
+  }
+  .hero {
+    padding: 20px 12px 8px;
+  }
+}

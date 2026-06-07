@@ -1,18 +1,18 @@
 import { useMemo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./BotaoAgendar.module.css";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const BotaoAgendar = ({
   className = "",
   property1 = "Default",
   agendarMargin,
 }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const handleClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   const agendarStyle = useMemo(() => {
     return {

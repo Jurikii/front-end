@@ -1,14 +1,14 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./BotoSecundario.module.css";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 const BotoSecundario = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const onClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   return (
     <div

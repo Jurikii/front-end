@@ -1,0 +1,108 @@
+.linhaDeDias {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--gap-20);
+  text-align: left;
+  font-size: var(--fs-14);
+  color: var(--color-silver);
+  font-family: var(--font-montserrat);
+}
+
+.celulaOuter {
+  flex: 1;
+  background-color: var(--branco);
+  border: var(--border-2);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--padding-9) var(--padding-14) var(--padding-73);
+  min-width: var(--min-w-161);
+  max-width: var(--max-w-162);
+  overflow: hidden;
+}
+
+.celulaInner {
+  position: relative;
+  font-weight: 500;
+}
+
+.bolinha {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  border-radius: 50%;
+  background-color: var(--amarelo);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bolinhaHidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.3);
+  pointer-events: none;
+}
+
+.retangulosLista {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.retangulosListaVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.retangulo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--amarelo);
+  border-radius: 4px;
+  padding: 1px 6px;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1.4;
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retanguloHorario {
+  font-weight: 600;
+  color: var(--azul-escuro);
+  flex-shrink: 0;
+}
+
+.retanguloNome {
+  color: var(--azul-escuro);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retanguloMais {
+  font-size: 10px;
+  color: var(--color-silver);
+  text-align: center;
+}
+
+@media screen and (max-width: 1150px) {
+  .linhaDeDias {
+    flex-wrap: wrap;
+  }
+}

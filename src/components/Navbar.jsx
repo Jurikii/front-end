@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const LINKS_NAV = [
   { label: "Início", rota: "/" },
@@ -14,6 +15,7 @@ const LINKS_NAV = [
 
 const Navbar = ({ className = "", activeItem = "" }) => {
   const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const handleNavClick = useCallback(
     (rota) => {
@@ -53,10 +55,10 @@ const Navbar = ({ className = "", activeItem = "" }) => {
 
       {/* Botões de Ação Estruturados como o Menu1 */}
       <div className={styles.botoesArea}>
-        <button className={styles.botaoSecundario} onClick={() => handleNavClick("/login")}>
+        <button className={styles.botaoSecundario} onClick={() => openTipoModal("login")}>
           Entrar
         </button>
-        <button className={styles.botaoPrincipal} onClick={() => handleNavClick("/cadastro")}>
+        <button className={styles.botaoPrincipal} onClick={() => openTipoModal("cadastro")}>
           Criar Conta
         </button>
       </div>

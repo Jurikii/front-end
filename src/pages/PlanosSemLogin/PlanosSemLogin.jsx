@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import SecaoPlanos from "./components/SecaoPlanos";
 import { PLANOS_PARA_VOCE, PLANOS_PARA_EQUIPES } from "./data/planos";
 import styles from "./PlanosSemLogin.module.css";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 const Planos = () => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   return (
     <div className={styles.planos}>
@@ -32,7 +32,7 @@ const Planos = () => {
           icone="/Paravoce.svg"
           planos={PLANOS_PARA_VOCE}
           colunas={1}
-          onSelecionarPlano={() => navigate("/login")}
+          onSelecionarPlano={() => openTipoModal("login")}
         />
 
         {/* Seção: planos para equipes */}
@@ -41,7 +41,7 @@ const Planos = () => {
           icone="/Paraequipes.svg"
           planos={PLANOS_PARA_EQUIPES}
           colunas={2}
-          onSelecionarPlano={() => navigate("/login")}
+          onSelecionarPlano={() => openTipoModal("login")}
         />
       </main>
 

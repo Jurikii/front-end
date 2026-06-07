@@ -1,0 +1,88 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-15);
+  padding: var(--padding-5) var(--padding-0);
+  flex-wrap: wrap;
+  row-gap: var(--gap-20);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.item:hover {
+  filter: brightness(0.9);
+}
+
+.item:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  width: var(--width-60);
+  height: auto;
+  border-radius: var(--br-20);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-6);
+  min-width: 0;
+}
+
+.number {
+  font-size: var(--fs-20);
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+
+.subject {
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+}
+
+/* Badge de status */
+.statusBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--height-32);
+  border-radius: var(--br-10);
+  padding: var(--padding-5) var(--padding-10);
+  font-size: var(--fs-18);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.statusActive {
+  background-color: var(--color-darkgreen-200);
+  color: var(--color-darkgreen-100);
+}
+
+.statusPending {
+  background-color: var(--color-khaki-100);
+  color: var(--amarelo);
+  -webkit-text-stroke: var(--text-stroke-1);
+  paint-order: stroke fill;
+}
+
+.arrow {
+  height: var(--height-24);
+  width: var(--width-24);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.arrow:active {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 800px) {
+  .item { flex-wrap: wrap; }
+}

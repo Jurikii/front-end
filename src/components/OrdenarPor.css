@@ -1,0 +1,145 @@
+/* Overlay escuro ao redor do modal */
+.ordenar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: ordenarFadeIn 0.2s ease;
+}
+
+/* Modal branco */
+.ordenar-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 340px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  animation: ordenarSlideUp 0.25s ease;
+}
+
+@keyframes ordenarFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ordenarSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header */
+.ordenar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 18px 22px;
+}
+
+.ordenar-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1a1a1a;
+}
+
+.ordenar-icon {
+  color: #1a1a1a;
+  flex-shrink: 0;
+  /* ícone de sort ↕ */
+  width: 20px;
+  height: 20px;
+}
+
+.ordenar-titulo-texto {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0;
+}
+
+.ordenar-fechar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+
+.ordenar-fechar:hover {
+  opacity: 1;
+}
+
+/* Linha divisória */
+.ordenar-divider {
+  height: 1px;
+  background-color: #e8e8e8;
+  margin: 0;
+}
+
+/* Lista de opções */
+.ordenar-lista {
+  padding: 6px 0 10px 0;
+}
+
+/* Cada item */
+.ordenar-opcao {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.ordenar-opcao:hover {
+  background-color: #fafafa;
+}
+
+/* Círculo do radio */
+.ordenar-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #c8c8c8;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+/* Radio selecionado — borda laranja */
+.ordenar-radio.selecionado {
+  border-color: var(--amarelo, #fab84c);
+  background-color: var(--amarelo, #fab84c);
+}
+
+/* Bolinha interna branca quando selecionado */
+.ordenar-radio-inner {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: block;
+}
+
+/* Texto da opção */
+.ordenar-opcao-label {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.4;
+}

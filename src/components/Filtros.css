@@ -1,0 +1,260 @@
+/* Overlay */
+.filtros-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: filtrosFadeIn 0.2s ease;
+}
+
+/* Modal */
+.filtros-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  width: 390px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  animation: filtrosSlideUp 0.25s ease;
+}
+
+@keyframes filtrosFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes filtrosSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Scrollbar discreta */
+.filtros-modal::-webkit-scrollbar {
+  width: 4px;
+}
+.filtros-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.filtros-modal::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+/* ── Header ── */
+.filtros-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 18px 22px;
+}
+
+.filtros-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.filtros-fechar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.filtros-fechar:hover {
+  opacity: 1;
+}
+
+/* ── Divisória ── */
+.filtros-divider {
+  height: 1px;
+  background-color: #ebebeb;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ── Seção genérica ── */
+.filtros-secao {
+  padding: 18px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.filtros-secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── Grid 3 colunas — Área do Direito ── */
+.filtros-grid-areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 12px;
+  column-gap: 4px;
+}
+
+/* ── Row — Urgência (3 em linha) ── */
+.filtros-row-urgencia {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ── Row — Data ── */
+.filtros-row-data {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ── Checkbox label ── */
+.filtros-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Caixa do checkbox */
+.filtros-checkbox {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  border: 1.8px solid #c8c8c8;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+
+.filtros-checkbox.marcado {
+  background: var(--amarelo, #fab84c);
+  border-color: var(--amarelo, #fab84c);
+}
+
+/* Texto do checkbox */
+.filtros-checkbox-texto {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* ── Inputs ── */
+.filtros-input {
+  width: 100%;
+  height: 42px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.filtros-input::placeholder {
+  color: #b0b0b0;
+  font-weight: 400;
+}
+
+.filtros-input:focus {
+  border-color: var(--amarelo, #fab84c);
+}
+
+/* ── Radio dot (Última Atualização) ── */
+.filtros-data-opcao {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filtros-radio-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.filtros-radio-dot.selecionado {
+  background: var(--amarelo, #fab84c);
+}
+
+/* ── Footer ── */
+.filtros-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 22px 22px 22px;
+}
+
+.filtros-btn-limpar {
+  flex: 1;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.filtros-btn-limpar:hover {
+  background: #f5f5f5;
+}
+
+.filtros-btn-aplicar {
+  flex: 1.8;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: var(--amarelo, #fab84c);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.filtros-btn-aplicar:hover {
+  filter: brightness(0.95);
+}

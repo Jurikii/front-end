@@ -1,0 +1,1488 @@
+/* =========================================================
+   DetalhesDaConsultaAdvogado — estilos da página
+   ========================================================= */
+
+/* Layout geral */
+.pagina {
+  width: 100%;
+  position: relative;
+  background-color: var(--areia);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  isolation: isolate;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: var(--fs-15);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  text-align: left;
+}
+
+.conteudo {
+  display: flex;
+  /* altura cresce com o conteúdo — sem height fixo */
+  align-items: stretch;
+  align-self: stretch;
+  flex-wrap: nowrap;
+  padding: var(--padding-0) var(--padding-12) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  gap: var(--gap-12);
+  max-width: 100%;
+  z-index: 3;
+  position: relative;
+  font-size: var(--fs-14);
+  color: var(--preto);
+}
+
+/* =========================================================
+   Navbar lateral (sidebar)
+   ========================================================= */
+.navLateral {
+  /* sticky: a sidebar acompanha o scroll e fica sempre visível */
+  position: sticky;
+  top: 88px;
+  align-self: flex-start;
+  height: calc(100vh - 88px);
+  flex: 1;
+  background-color: var(--branco);
+  border: 1px solid var(--color-whitesmoke-200);
+  box-sizing: border-box;
+  padding: var(--padding-20) var(--padding-10);
+  min-width: 215px;
+  max-width: 217px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.navLateralItens {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+
+.navLateralItemAtivo {
+  align-self: stretch;
+  height: var(--height-65);
+  border-radius: var(--br-10);
+  background-color: var(--color-floralwhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding-20) var(--padding-15);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-20);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: left;
+  transition: transform 0.1s, filter 0.15s;
+}
+
+.navLateralItemAtivo:hover {
+  filter: brightness(0.97);
+}
+
+.navLateralItemAtivo:active {
+  transform: scale(0.95);
+}
+
+.navLateralItemAtivo img {
+  height: var(--height-24);
+  width: var(--width-20);
+  position: relative;
+}
+
+.navLateralItem {
+  align-self: stretch;
+  height: var(--height-65);
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-20) var(--padding-15);
+  box-sizing: border-box;
+  gap: var(--gap-20);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: left;
+  transition: transform 0.1s, background-color 0.15s;
+}
+
+.navLateralItem:hover {
+  background-color: var(--color-floralwhite);
+}
+
+.navLateralItem:active {
+  transform: scale(0.95);
+}
+
+.navLateralItem img {
+  height: 19px;
+  width: var(--width-20);
+  position: relative;
+}
+
+/* =========================================================
+   Área interna (conteúdo principal)
+   ========================================================= */
+.areaInterna {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: 6px var(--padding-0) 24px;
+  box-sizing: border-box;
+  min-width: 310px;
+  max-width: 100%;
+  /* cresce para acomodar todo o conteúdo */
+  min-height: 0;
+}
+
+.containerProcesso {
+  flex: 1;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content removido: o card cresce com o conteúdo */
+  padding: var(--padding-30) var(--padding-8);
+  box-sizing: border-box;
+  gap: 13px;
+  max-width: 100%;
+  /* garante que o card branco sempre envolve todo o conteúdo */
+  height: fit-content;
+  align-self: flex-start;
+  width: 100%;
+}
+
+/* =========================================================
+   Cabeçalho da seção (voltar + título)
+   ========================================================= */
+.cabecalho {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-0) var(--padding-40);
+  gap: var(--gap-8);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--fs-15);
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+}
+
+.botaoVoltar {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-7);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: var(--azul);
+  font-family: var(--font-montserrat);
+  transition: transform 0.1s;
+}
+
+.botaoVoltar:hover {
+  opacity: 0.8;
+}
+
+.botaoVoltar:active {
+  transform: scale(0.95);
+}
+
+.setaVoltar {
+  height: 20.1px;
+  width: 20.1px;
+  position: relative;
+  object-fit: contain;
+}
+
+.tituloPagina {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-35);
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* =========================================================
+   Corpo (colunas)
+   ========================================================= */
+.corpo {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--gap-15);
+  padding: var(--padding-0) var(--padding-20);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Linha superior: col. esquerda + andamentos lado a lado */
+.linhaSuperiror {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-15);
+  max-width: 100%;
+}
+
+.colunaEsquerda {
+  flex: 1.1157;
+  min-width: 302px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-15);
+  max-width: 100%;
+}
+
+/* =========================================================
+   Card de detalhes (cliente + resumo)
+   ========================================================= */
+.detalhesCard {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-29) var(--padding-30);
+  gap: 18.5px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--color-darkgreen-200);
+  font-family: var(--font-montserrat);
+}
+
+.separadorHorizontal {
+  width: 100%;
+  height: var(--height-1);
+  position: relative;
+  border-top: var(--border-1);
+  box-sizing: border-box;
+  max-width: 644px;
+}
+
+/* Bloco cliente */
+.infoCliente {
+  width: 100%;
+  max-width: 644px;
+}
+
+.clienteHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 39.2px;
+  max-width: 644px;
+  width: 100%;
+}
+
+.trabalhista {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+}
+
+/* =========================================================
+   Categoria (dropdown)
+   ========================================================= */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+.mountAnim {
+  animation: pageMount 0.45s ease both;
+}
+
+@keyframes pageMount {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.categoriaBase {
+  height: 40.8px;
+  border-radius: var(--br-10);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-8) var(--padding-10);
+  gap: var(--gap-10);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: 0.4px solid;
+  transition: transform 0.1s, filter 0.15s, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  animation: appear 0.25s ease-out;
+}
+
+.categoriaBase:hover {
+  filter: brightness(0.9);
+}
+
+.categoriaBase:active {
+  transform: scale(0.95);
+}
+
+.tituloCaso {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-25);
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--azul-escuro);
+}
+
+.dadosCliente {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+}
+
+.clienteRow {
+  height: 93px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.fotoCliente {
+  width: 65px;
+  position: relative;
+  border-radius: var(--br-360);
+  max-height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.clienteTextos {
+  height: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+
+.clienteNomeBloco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5);
+}
+
+.rotulo {
+  align-self: stretch;
+  position: relative;
+}
+
+.nome {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.separador {
+  height: 130px;
+  width: var(--width-1);
+  position: relative;
+  border-right: var(--border-1);
+  box-sizing: border-box;
+}
+
+.detalhesProcesso {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-20);
+  min-width: 194px;
+}
+
+.detalheItem {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-5);
+}
+
+/* Resumo */
+.resumo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+  padding: var(--padding-1) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  max-width: 644px;
+  color: var(--azul-escuro);
+}
+
+.resumoHeader {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-0) var(--padding-14) var(--padding-0) var(--padding-0);
+  gap: var(--gap-20);
+}
+
+.subtitulo {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.statusRotulo {
+  position: relative;
+  font-weight: 600;
+  font-size: var(--fs-18);
+}
+
+.resumoCorpo {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+  font-size: var(--fs-18);
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.resumoTexto {
+  margin: 0;
+  width: 389px;
+  position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.statusBadge {
+  height: 34px;
+  border-radius: var(--br-10);
+  background-color: var(--color-darkgreen-300);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5) var(--padding-10);
+  gap: var(--gap-10);
+  color: var(--color-darkgreen-200);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: transform 0.1s, filter 0.15s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.statusBadge:hover {
+  filter: brightness(0.9);
+}
+
+.statusBadge:active {
+  transform: scale(0.95);
+}
+
+.statusBadgeAmarelo {
+  background-color: rgba(250, 184, 76, 0.2) !important;
+  color: #92400e !important;
+}
+
+/* =========================================================
+   Informações do processo (grid)
+   ========================================================= */
+.informacoesProcesso {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-30) var(--padding-40);
+  gap: var(--gap-30);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-25);
+  color: var(--color-black);
+  font-family: var(--font-montserrat);
+}
+
+.secaoTitulo {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.infoGrid {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+  max-width: 100%;
+  font-size: var(--fs-20);
+  color: var(--azul-escuro);
+}
+
+.infoItem {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-70);
+  min-height: var(--min-h-48);
+}
+
+.infoItemHeader {
+  width: 245px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-15);
+}
+
+.infoIcone {
+  height: var(--height-30);
+  width: var(--width-30);
+  position: relative;
+}
+
+.infoValor {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.situacaoAtiva {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-darkgreen-100);
+}
+
+.divider {
+  align-self: stretch;
+  height: var(--height-1);
+  position: relative;
+  border-top: var(--border-1);
+  box-sizing: border-box;
+}
+
+.tags {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--padding-0) var(--padding-14) var(--padding-0) var(--padding-0);
+  gap: var(--gap-5);
+  min-width: 214px;
+  max-width: 100%;
+  font-size: var(--fs-18);
+  color: var(--color-darkgreen-100);
+  box-sizing: border-box;
+}
+
+.tag {
+  height: var(--height-32);
+  border-radius: var(--br-10);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5) var(--padding-12);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  transition: transform 0.1s, filter 0.15s;
+  animation: appear 0.25s ease-out;
+}
+
+.tag:hover {
+  filter: brightness(0.85);
+}
+
+.tag:active {
+  transform: scale(0.95);
+}
+
+.tagRemovendo {
+  animation: disappear 0.25s ease-out forwards;
+  pointer-events: none;
+}
+
+.tagAdicionar {
+  height: var(--height-32);
+  min-width: var(--height-32);
+  border-radius: var(--br-10);
+  border: 1.5px dashed var(--azul-sereno);
+  background-color: rgba(61, 106, 138, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  color: var(--azul-sereno);
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0 10px;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+.tagAdicionar:hover {
+  opacity: 0.7;
+}
+
+.tagAdicionar:active {
+  transform: scale(0.95);
+}
+
+/* =========================================================
+   Seção de andamentos
+   ========================================================= */
+.andamentos {
+  flex: 1;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 39px var(--padding-20) 37px;
+  gap: 40px;
+  min-width: 302px;
+  max-width: 405px;
+  text-align: left;
+  font-size: var(--fs-25);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+
+.andamentosHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: var(--gap-10);
+}
+
+.andamentoAdicionar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--br-10);
+  border: 1.5px dashed var(--azul-sereno);
+  background-color: rgba(61, 106, 138, 0.1);
+  color: var(--azul-sereno);
+  font-size: var(--fs-20);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-montserrat);
+  transition: background-color 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.andamentoAdicionar:hover {
+  background-color: rgba(61, 106, 138, 0.2);
+}
+
+.andamentoAdicionar:active {
+  transform: scale(0.95);
+}
+
+.andamentosLinha {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-60);
+  position: relative;
+  padding: var(--padding-0) 9px var(--padding-0) var(--padding-8);
+  box-sizing: border-box;
+  max-width: 363px;
+}
+
+.timelineRail {
+  position: absolute;
+  left: 22px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: var(--color-steelblue);
+  pointer-events: none;
+}
+
+.andamentoRow {
+  display: flex;
+  gap: var(--gap-10);
+  align-items: flex-start;
+}
+
+.timelineDot {
+  width: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.timelineDot::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--azul-sereno);
+  border: 2px solid var(--branco);
+  box-shadow: 0 0 0 2px var(--azul-sereno);
+  flex-shrink: 0;
+}
+
+.andamentosHeaderAcoes {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+}
+
+
+
+.verTodosBtn {
+  align-self: stretch;
+  height: 44px;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-10) var(--padding-25);
+  font-size: var(--fs-18);
+  color: var(--azul-sereno);
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+.verTodosBtn:hover {
+  opacity: 0.8;
+}
+
+.verTodosBtn:active {
+  transform: scale(0.95);
+}
+
+/* =========================================================
+   Painel lateral (próximos passos + observações) — rodapé da área principal
+   ========================================================= */
+.painelLateral {
+  align-self: stretch;
+  border-radius: var(--br-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 28.5px var(--padding-28);
+  gap: var(--gap-30) 51.5px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--fs-20);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+
+.proximosPassos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+  min-width: 310px;
+  max-width: 460px;
+}
+
+.listaPassos {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--fs-18);
+  padding-left: var(--padding-24);
+  width: 100%;
+  max-width: 460px;
+  animation: appear 0.25s ease-out;
+}
+
+.passoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--gap-10);
+}
+
+.passoEditList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-8);
+}
+
+.passoEditListSaindo {
+  animation: disappear 0.25s ease-out forwards;
+  pointer-events: none;
+}
+
+.passoEditRow {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+  width: 100%;
+  animation: appear 0.25s ease-out;
+}
+
+.passoRemovendo {
+  animation: disappear 0.25s ease-out forwards;
+  pointer-events: none;
+}
+
+.passoInput {
+  flex: 1;
+  padding: var(--padding-8) var(--padding-10);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  outline: none;
+  box-sizing: border-box;
+  max-width: 100%;
+  transition: border-color 0.15s;
+}
+
+.passoInput:focus {
+  border-color: var(--azul-sereno);
+}
+
+.passoRemover {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--fs-14);
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: background-color 0.15s;
+}
+
+.passoRemover:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.passoAdicionar {
+  width: calc(100% - 36px);
+  padding: var(--padding-8) var(--padding-10);
+  border: 1.5px dashed var(--azul-sereno);
+  border-radius: var(--br-10);
+  background-color: rgba(61, 106, 138, 0.1);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  color: var(--azul-sereno);
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.15s;
+}
+
+.passoAdicionar:hover {
+  background-color: rgba(61, 106, 138, 0.2);
+}
+
+.passoSalvar {
+  flex-basis: 100%;
+  padding: var(--padding-8) var(--padding-20);
+  border: none;
+  border-radius: var(--br-10);
+  background-color: var(--azul-sereno);
+  color: var(--branco);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-16);
+  font-weight: 600;
+  transition: filter 0.15s;
+}
+
+.passoSalvar:hover {
+  filter: brightness(1.1);
+}
+
+.observacoesTextarea {
+  flex: 1;
+  padding: var(--padding-10);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: border-color 0.15s;
+}
+
+.observacoesTextareaSaindo {
+  animation: disappear 0.25s ease-out forwards;
+  pointer-events: none;
+}
+
+.observacoesTextarea:focus {
+  border-color: var(--azul-sereno);
+}
+
+.observacoes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-10);
+  min-width: 310px;
+  max-width: 509px;
+}
+
+.observacoesCorpo {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-10);
+  max-width: 100%;
+  font-size: var(--fs-18);
+}
+
+.observacoesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--gap-10);
+}
+
+.botaoEditar {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+.botaoEditar:hover {
+  opacity: 0.7;
+}
+
+.botaoEditar:active {
+  transform: scale(0.95);
+}
+
+.botaoEditar img {
+  width: 28px;
+  height: 28px;
+}
+
+.observacoesTexto {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  min-width: 309px;
+  max-width: 475px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: var(--padding-6);
+  animation: appear 0.25s ease-out;
+}
+
+/* =========================================================
+   Modal de nova área
+   ========================================================= */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--branco);
+  border-radius: var(--br-10);
+  padding: var(--padding-30) var(--padding-25);
+  width: 340px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-10);
+}
+
+.modalTitulo {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  margin-bottom: var(--gap-5);
+}
+
+.modalLabel {
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+  margin-top: var(--gap-5);
+}
+
+.modalInput {
+  width: 100%;
+  padding: var(--padding-10) var(--padding-12);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.modalInput:focus {
+  border-color: var(--azul-sereno);
+}
+
+.colorPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-8);
+  margin-top: var(--gap-5);
+}
+
+.colorSwatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.15);
+}
+
+.colorSwatchAtivo {
+  border-color: var(--azul-escuro);
+  transform: scale(1.15);
+}
+
+.modalAcoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gap-10);
+  margin-top: var(--gap-15);
+}
+
+.modalCancelar {
+  padding: var(--padding-8) var(--padding-18);
+  border-radius: var(--br-10);
+  border: 1px solid var(--color-whitesmoke-200);
+  background: var(--branco);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  color: var(--azul-escuro);
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.modalCancelar:hover {
+  background-color: var(--color-whitesmoke-100);
+}
+
+.modalCancelar:active {
+  transform: scale(0.95);
+}
+
+.modalCriar {
+  padding: var(--padding-8) var(--padding-18);
+  border-radius: var(--br-10);
+  border: none;
+  background-color: var(--azul-sereno);
+  color: var(--branco);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.modalCriar:hover {
+  filter: brightness(1.1);
+}
+
+.modalCriar:active {
+  transform: scale(0.95);
+}
+
+/* =========================================================
+   Dropdown
+   ========================================================= */
+.dropdownWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--branco);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 180px;
+  padding: var(--padding-5);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: dropIn 0.2s ease-out;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-8);
+  padding: var(--padding-8) var(--padding-10);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-15);
+  color: var(--azul-escuro);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.dropdownItem:hover {
+  background-color: var(--color-whitesmoke-100);
+}
+
+/* Bolinhas coloridas do dropdown */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotMais {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1.5px dashed var(--azul-escuro);
+  opacity: 0.5;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background-color: var(--color-whitesmoke-200);
+  margin: var(--padding-2) 0;
+}
+
+.dropdownMenuTags {
+  background: var(--branco);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  min-width: 230px;
+  padding: var(--padding-5);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: dropIn 0.2s ease-out;
+}
+
+.dropdownVazio {
+  padding: var(--padding-8) var(--padding-10);
+  font-size: var(--fs-14);
+  font-family: var(--font-montserrat);
+  color: var(--azul-escuro);
+  opacity: 0.5;
+  text-align: center;
+}
+
+/* =========================================================
+   Barra inferior (mobile / posição absoluta)
+   ========================================================= */
+.barraInferior {
+  width: 394px;
+  margin: 0 !important;
+  position: absolute;
+  top: calc(50% - 366.4px);
+  right: -2244px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26.8px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.tituloPaginaMobile {
+  margin: 0;
+  position: relative;
+  font-size: var(--fs-35);
+  font-weight: 700;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Responsividade
+   ========================================================= */
+@media screen and (max-width: 1350px) {
+  .containerProcesso {
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .andamentos {
+    padding-top: var(--padding-25);
+    padding-bottom: var(--padding-24);
+    box-sizing: border-box;
+  }
+  .linhaSuperiror {
+    flex-direction: column;
+  }
+  .andamentos {
+    max-width: 100%;
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .tituloPagina {
+    font-size: var(--fs-28);
+  }
+  .clienteHeader {
+    gap: var(--gap-20);
+    max-width: 100%;
+  }
+  .dadosCliente,
+  .trabalhista {
+    flex-wrap: wrap;
+  }
+  .separador {
+    width: 100%;
+    height: var(--height-1);
+  }
+  .separadorHorizontal,
+  .resumo {
+    max-width: 100%;
+  }
+  .resumoCorpo,
+  .resumoHeader {
+    flex-wrap: wrap;
+  }
+  .informacoesProcesso {
+    gap: var(--gap-15);
+  }
+  .infoItem {
+    flex-wrap: wrap;
+  }
+  .andamentos {
+    max-width: 100%;
+    flex: 1;
+  }
+  .painelLateral {
+    gap: 26px;
+  }
+  .observacoes {
+    max-width: 100%;
+  }
+  .observacoesCorpo {
+    flex-wrap: wrap;
+  }
+  .observacoesTexto {
+    max-width: 100%;
+  }
+  .tituloPaginaMobile {
+    font-size: var(--fs-28);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .navLateral {
+    flex: 1;
+  }
+  .tituloPagina {
+    font-size: var(--fs-21);
+  }
+  .detalhesCard {
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+    box-sizing: border-box;
+  }
+  .trabalhistaBotao {
+    font-size: var(--fs-16);
+  }
+  .tituloCaso {
+    font-size: var(--fs-20);
+  }
+  .clienteRow {
+    flex-wrap: wrap;
+  }
+  .nome,
+  .subtitulo {
+    font-size: var(--fs-16);
+  }
+  .informacoesProcesso {
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+    box-sizing: border-box;
+  }
+  .secaoTitulo {
+    font-size: var(--fs-20);
+  }
+  .infoValor,
+  .situacaoAtiva {
+    font-size: var(--fs-16);
+  }
+  .andamentos {
+    gap: var(--gap-20);
+    padding-top: var(--padding-20);
+    padding-bottom: var(--padding-20);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .secaoTitulo {
+    font-size: var(--fs-20);
+  }
+  .andamentosLinha {
+    gap: var(--gap-30);
+  }
+  .proximosPassos {
+    max-width: 100%;
+  }
+  .subtitulo {
+    font-size: var(--fs-16);
+  }
+  .listaPassos {
+    max-width: 100%;
+  }
+  .tituloPaginaMobile {
+    font-size: var(--fs-21);
+  }
+}

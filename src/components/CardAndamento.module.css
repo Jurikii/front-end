@@ -1,0 +1,353 @@
+.cardAndamento {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-10);
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--fs-18);
+  color: var(--azul-escuro);
+  font-family: var(--font-montserrat);
+}
+
+.cabecalho {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+}
+
+.dataHora {
+  height: var(--height-22);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  white-space: pre-wrap;
+  flex-shrink: 0;
+  color: var(--color-darkslategray);
+}
+
+.botaoMenu {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+.botaoMenu:hover {
+  opacity: 0.7;
+}
+
+.botaoMenu:active {
+  transform: scale(0.95);
+}
+
+.iconeMenu {
+  height: var(--height-24);
+  width: var(--width-24);
+  position: relative;
+  object-fit: contain;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menuDropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  background: var(--branco);
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  z-index: 10;
+  overflow: hidden;
+  animation: dropIn 0.2s ease-out;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: var(--padding-8) var(--padding-14);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  color: var(--azul-escuro);
+  text-align: left;
+  transition: background-color 0.1s;
+}
+
+.menuItem:hover {
+  background-color: var(--color-whitesmoke-100);
+}
+
+.menuItem:active {
+  background-color: var(--color-whitesmoke-200);
+}
+
+.menuItemExcluir {
+  display: block;
+  width: 100%;
+  padding: var(--padding-8) var(--padding-14);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  color: #dc2626;
+  text-align: left;
+  transition: background-color 0.1s;
+}
+
+.menuItemExcluir:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.menuItemExcluir:active {
+  background-color: rgba(220, 38, 38, 0.2);
+}
+
+.tituloBotoes {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-0);
+  row-gap: var(--gap-20);
+}
+
+.titulo {
+  position: relative;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+
+.cardAndamento:hover .titulo {
+  color: var(--azul-sereno);
+}
+
+.botaoEditarCard {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+.botaoEditarCard:hover {
+  opacity: 0.7;
+}
+
+.botaoEditarCard:active {
+  transform: scale(0.95);
+}
+
+.iconeEditar {
+  height: var(--height-22);
+  width: var(--width-24);
+  position: relative;
+}
+
+.descricao {
+  margin: 0;
+  width: var(--width-229);
+  position: relative;
+  display: inline-block;
+}
+
+/* Edit mode */
+.editRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.editInput {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  outline: none;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.editInput:focus {
+  border-color: var(--azul-sereno);
+}
+
+.editSeparador {
+  color: var(--azul-escuro);
+  font-size: var(--fs-14);
+  flex-shrink: 0;
+}
+
+.editInputSmall {
+  width: 110px;
+  padding: 6px 8px 6px 28px;
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.editInputSmall:focus {
+  border-color: var(--azul-sereno);
+}
+
+.editInputFull {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  outline: none;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.editInputFull:focus {
+  border-color: var(--azul-sereno);
+}
+
+.editTextarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--color-whitesmoke-200);
+  border-radius: var(--br-10);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  outline: none;
+  resize: vertical;
+  min-height: 60px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.editTextarea:focus {
+  border-color: var(--azul-sereno);
+}
+
+.editAcoes {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.editSalvar {
+  border: none;
+  background-color: var(--azul-sereno);
+  color: var(--branco);
+  padding: 6px 16px;
+  border-radius: var(--br-10);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  transition: background-color 0.15s;
+}
+
+.editSalvar:hover {
+  background-color: #2d4f6a;
+}
+
+.editSalvar:active {
+  transform: scale(0.95);
+}
+
+.editCancelar {
+  border: 1px solid var(--color-whitesmoke-200);
+  background: none;
+  color: var(--azul-escuro);
+  padding: 6px 16px;
+  border-radius: var(--br-10);
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  transition: background-color 0.15s;
+}
+
+.editCancelar:hover {
+  background-color: var(--color-whitesmoke-200);
+}
+
+.editCancelar:active {
+  transform: scale(0.95);
+}
+
+/* Animation wrappers */
+.editContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-10);
+}
+
+.editando {
+  animation: appear 0.25s ease;
+}
+
+.editandoSaindo {
+  animation: disappear 0.25s ease forwards;
+  pointer-events: none;
+}
+
+.viewContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-10);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

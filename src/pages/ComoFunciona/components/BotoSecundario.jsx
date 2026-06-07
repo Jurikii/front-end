@@ -1,13 +1,13 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./BotoSecundario.module.css";
+import { useAuthModal } from "../../../context/AuthModalContext";
 
 const BotoSecundario = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const onBotoSecundarioClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   return (
     <button

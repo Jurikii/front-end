@@ -1,21 +1,21 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import FormField from "../ui/FormField";
 import PasswordInput from "../ui/PasswordInput";
 import RememberMe from "../ui/RememberMe";
 import emailIcon from "../../assets/icons/ic-outline-email.svg";
 import googleIcon from "../../assets/icons/mynaui-google-solid.svg";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 function LoginCard() {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const onEntrarClick = useCallback(() => {
-    navigate("/inicio");
-  }, [navigate]);
+    window.location.href = "/inicio";
+  }, []);
 
   const onCadastrarClick = useCallback(() => {
-    navigate("/cadastro");
-  }, [navigate]);
+    openTipoModal("cadastro");
+  }, [openTipoModal]);
 
   return (
     <form

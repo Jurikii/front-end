@@ -1,14 +1,14 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./ChatSugestoes.module.css";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const ChatSugestoes = ({ className = "", property1 = "Default", body }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const handleClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   return (
     <div

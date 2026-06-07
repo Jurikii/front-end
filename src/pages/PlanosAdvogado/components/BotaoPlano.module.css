@@ -1,0 +1,48 @@
+.botao {
+  align-self: stretch;
+  height: 48px;
+  border-radius: var(--br-10);
+  border: 1px solid var(--amarelo);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.botao:hover {
+  opacity: 0.85;
+}
+
+.assinar {
+  background-color: var(--branco);
+  color: var(--preto);
+  border-color: var(--amarelo);
+}
+
+.assinar:hover{
+  background-color: var(--amarelo);
+  opacity: 1;
+}
+
+.botao:active {
+  transform: scale(0.97);
+}
+
+.vendas {
+  background-color: var(--azul);
+  color: var(--branco);
+  border-color: var(--azul);
+}
+
+.adquirido {
+  background-color: var(--amarelo);
+  color: var(--preto);
+  border-color: var(--amarelo);
+}

@@ -1,14 +1,14 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./BotoPrincipal.module.css";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 const BotoPrincipal = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const onClick = useCallback(() => {
-    navigate("/cadastro");
-  }, [navigate]);
+    openTipoModal("cadastro");
+  }, [openTipoModal]);
 
   return (
     <div

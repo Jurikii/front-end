@@ -1,16 +1,16 @@
 import { useCallback, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { advogados } from "../data/advogados";
 import AdvogadoCard from "./AdvogadoCard";
 import PropTypes from "prop-types";
 import styles from "./AdvogadosSection.module.css";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const AdvogadosSection = ({ className = "" }) => {
-  const navigate = useNavigate();
+  const { openTipoModal } = useAuthModal();
 
   const onBotoContainerClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   const advogadosRef = useRef(null);
   const isDown = useRef(false);

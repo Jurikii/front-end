@@ -1,0 +1,28 @@
+.itemConversa {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--padding-10) var(--padding-12);
+  border-radius: var(--br-10);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+  text-align: left;
+  transition: background-color 0.15s;
+}
+
+.itemConversa:hover {
+  background-color: var(--color-floralwhite-100);
+}
+
+.itemSelecionado {
+  background-color: var(--color-floralwhite-200);
+}
+
+.tituloConversa {
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--azul);
+  line-height: 1.4;
+}

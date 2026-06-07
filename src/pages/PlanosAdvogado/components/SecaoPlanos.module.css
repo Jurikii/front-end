@@ -1,0 +1,61 @@
+.secao {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 100%;
+  font-size: 24px;
+  color: var(--preto);
+  font-family: var(--font-montserrat);
+  text-align: left;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.2s ease;
+}
+.cabecalho:hover {
+  opacity: 0.85;
+}
+
+.icone {
+  width: 28px;
+  max-height: 100%;
+}
+
+.titulo {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.cards {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 32px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .secao {
+    gap: 14px;
+  }
+  .cards {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .secao {
+    gap: 12px;
+  }
+  .titulo {
+    font-size: 20px;
+  }
+}
