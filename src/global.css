@@ -9,6 +9,48 @@
    ========================================================================== */
 
 :root {
+
+  /* ─── VARIÁVEIS EXCLUSIVAS DO GLOBAL1 (ADICIONAR) ──────────────── */
+
+  /* Cores */
+  --color-aliceblue: #edf4fb;
+  --color-cornsilk: #fef6df;
+  --color-darkslateblue: #1b51a6;
+  --color-honeydew: #e1f1df;
+  --color-mistyrose: #fce4e5;
+
+  /* Gaps e Paddings */
+  --gap-43: 43px;
+  --padding-7: 7px;
+
+  /* Alturas e Larguras (Dimensões Fixas) */
+  --height-118: 118px;
+  --height-219: 219px;
+  --width-12: 12px;
+  --width-32: 32px;
+  --width-33: 33px;
+  --width-162: 162px;
+  --width-2_3: 2.3px;
+  --width-45_3: 45.3px;
+
+  /* Limites de Layout e Posicionamento */
+  --min-w-311: 311px;
+  --left--0_35: -0.35px;
+  --left-42_65: 42.65px;
+  --top-5: 5px;
+  --top-1_5: 1.5px;
+
+
+  /* ─── VARIÁVEIS EM CONFLITO (COMENTADAS LADO A LADO) ───────────── */
+
+  /* --color-silver: #c2c1c1; */
+  /* CONFLITO: O principal usa '#bfbdbd'. Ative se notar diferença nos tons de cinza prateado. */
+  /* --color-whitesmoke-100: #f0f0f0; */
+  /* CONFLITO CRÍTICO: No principal vale '#f5f7f9'. Se o fundo de algum card sumir, ative esta linha. */
+  /* --color-whitesmoke-200: #e9f0e9; */
+  /* CONFLITO CRÍTICO: No principal vale '#f0f0f0'. Ative se houver quebra de tons claros/esverdeados. */
+  /* --color-firebrick: #ba1717; */
+  /* CONFLITO: O principal usa '#c83c3c' (um tom de vermelho ligeiramente diferente). */
   /* ─── VARIÁVEIS EXCLUSIVAS DESTE ARQUIVO (ADICIONAR) ──────────── */
 
   /* Cores */

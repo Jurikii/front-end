@@ -1,0 +1,254 @@
+/* ── Overlay ── */
+.fdOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.fdOverlayAberto {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── Modal ── */
+.fdModal {
+  background: #ffffff;
+  border-radius: 14px;
+  width: 370px;
+  max-height: 93vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95) translateY(16px);
+  transition: transform 0.25s ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fdOverlayAberto .fdModal {
+  transform: scale(1) translateY(0);
+}
+
+.fdModal::-webkit-scrollbar { display: none; }
+
+/* ── Header ── */
+.fdHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 16px 20px;
+  flex-shrink: 0;
+}
+
+.fdTitulo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.fdFechar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.fdFechar:hover { opacity: 1; }
+
+/* ── Divisória ── */
+.fdDivider {
+  height: 1px;
+  background-color: #ebebeb;
+  flex-shrink: 0;
+}
+
+/* ── Seção ── */
+.fdSecao {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fdSecaoTitulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── Grid 3 colunas ── */
+.fdGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 11px;
+  column-gap: 4px;
+}
+
+/* ── Row urgência ── */
+.fdRowUrgencia {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ── Row data ── */
+.fdRowData {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── Checkbox label ── */
+.fdCheckboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 0;
+}
+
+/* Caixa do checkbox */
+.fdCheckbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.8px solid #c8c8c8;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+
+.fdCheckbox.marcado {
+  background: var(--amarelo, #fab84c);
+  border-color: var(--amarelo, #fab84c);
+}
+
+/* ── Texto genérico ── */
+.fdTexto {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Input ── */
+.fdInput {
+  width: 100%;
+  height: 40px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 13px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.fdInput::placeholder {
+  color: #b0b0b0;
+}
+
+.fdInput:focus {
+  border-color: var(--amarelo, #fab84c);
+}
+
+/* ── Radio dot (Última Atualização) ── */
+.fdDataOpcao {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fdRadioDot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.fdRadioDot.selecionado {
+  background: var(--amarelo, #fab84c);
+}
+
+/* ── Footer ── */
+.fdFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px 20px 20px;
+  flex-shrink: 0;
+}
+
+.fdBtnLimpar {
+  flex: 1;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.fdBtnLimpar:hover {
+  background: #f5f5f5;
+}
+
+.fdBtnAplicar {
+  flex: 1.7;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: var(--amarelo, #fab84c);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.fdBtnAplicar:hover {
+  filter: brightness(0.95);
+}

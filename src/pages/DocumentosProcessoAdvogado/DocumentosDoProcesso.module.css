@@ -1,0 +1,294 @@
+/* ─── Página ────────────────────────────────────────────────── */
+.pagina {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--areia);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-montserrat);
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+/* ─── Menu superior ─────────────────────────────────────────── */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap-20);
+  padding: var(--padding-12) var(--padding-29) var(--padding-11);
+  background-color: var(--branco);
+  border-bottom: 1px solid var(--color-steelblue);
+  font-size: var(--fs-20);
+  color: var(--preto);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+  height: var(--height-65);
+}
+
+.logoImagem {
+  width: 61px;
+  object-fit: cover;
+}
+
+.logoTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoNome {
+  margin: 0;
+  font-size: var(--fs-25);
+  font-weight: 700;
+}
+
+.logoSlogan {
+  font-size: var(--fs-14);
+  color: var(--azul);
+}
+
+/* Abas de navegação */
+.abas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-60);
+  padding: 0 var(--padding-10);
+  min-width: var(--min-w-311);
+}
+
+.aba {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--preto);
+  padding: 0;
+}
+
+.abaAtiva {
+  text-decoration: underline;
+  color: var(--amarelo);
+}
+
+/* Área do usuário */
+.usuario {
+  flex: 1.0287;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-20);
+  min-width: var(--min-w-311);
+  max-width: 345px;
+}
+
+.usuarioIconeConfig,
+.usuarioIconeNotif {
+  cursor: pointer;
+  height: var(--height-29);
+}
+
+.usuarioIconeConfig { width: 31px; }
+.usuarioIconeNotif  { width: var(--width-26); }
+
+.usuarioDivisor {
+  width: var(--width-1);
+  height: var(--height-24);
+  background-color: var(--color-gainsboro);
+}
+
+.usuarioPerfil {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-10);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.usuarioAvatar {
+  height: 42px;
+  width: 42px;
+  border-radius: 360px;
+}
+
+.usuarioInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.usuarioNome {
+  font-size: var(--fs-20);
+  font-weight: 600;
+}
+
+.usuarioOab {
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--color-darkslategray);
+}
+
+.usuarioSeta {
+  height: var(--height-11);
+  width: var(--width-20);
+}
+
+/* ─── Área de conteúdo ──────────────────────────────────────── */
+.conteudo {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  gap: 8px;
+  padding: 0 var(--padding-10) 0 0;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────── */
+.sidebar {
+  width: 217px;
+  min-width: 215px;
+  flex-shrink: 0;
+  background-color: var(--branco);
+  border-right: var(--border-1);
+  padding: var(--padding-20) var(--padding-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-20);
+}
+
+.sidebarInner {
+  position: sticky;
+  top: 78px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-20);
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+  height: var(--height-65);
+  border-radius: var(--br-10);
+  padding: var(--padding-20) var(--padding-15);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--fs-14);
+  text-align: left;
+  color: var(--preto);
+  width: 100%;
+}
+
+.sidebarItemAtivo {
+  background-color: var(--color-floralwhite);
+}
+
+.sidebarIcone {
+  width: var(--width-20);
+  height: var(--height-24);
+  flex-shrink: 0;
+}
+
+/* ─── Corpo principal ───────────────────────────────────────── */
+.corpo {
+  flex: 1;
+  padding: var(--padding-12) 0 var(--padding-16);
+  min-width: 310px;
+  font-size: var(--fs-14);
+  color: var(--azul);
+}
+
+.corpoPainel {
+  border-radius: var(--br-10);
+  background-color: var(--branco);
+  padding: 44px 22px 63px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-35);
+}
+
+/* ─── Paginação ─────────────────────────────────────────────── */
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--padding-64) 0 0;
+  gap: var(--gap-20);
+  color: var(--preto);
+  font-size: var(--fs-14);
+}
+
+.paginacaoInfo {
+  flex-shrink: 0;
+}
+
+.paginacaoControles {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-20);
+}
+
+.paginacaoBotao {
+  height: var(--height-30);
+  width: var(--width-30);
+  cursor: pointer;
+}
+
+.paginacaoNumero {
+  height: var(--height-36);
+  width: var(--width-36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #d0d0d0;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--fs-14);
+  background: #ffffff;
+  color: var(--azul);
+  border-radius: 50%;
+}
+
+.paginacaoAtivo {
+  border: none;
+  background: transparent url(/public/Group-87@3x.png) center / cover no-repeat;
+  color: var(--branco);
+}
+
+/* ─── Responsivo ────────────────────────────────────────────── */
+@media screen and (max-width: 1325px) {
+  .logoSlogan { display: none; }
+  .paginacao  { padding-right: 32px; }
+}
+
+@media screen and (max-width: 1125px) {
+  .corpoPainel { padding-top: var(--padding-29); padding-bottom: 41px; }
+}
+
+@media screen and (max-width: 800px) {
+  .abas        { gap: var(--gap-30); }
+  .corpoPainel { gap: 17px; }
+  .paginacao   { flex-wrap: wrap; }
+}
+
+@media screen and (max-width: 450px) {
+  .sidebar        { width: auto; flex: 1; }
+  .corpoPainel    { padding-top: var(--padding-20); padding-bottom: 27px; }
+  .paginacaoControles { flex-wrap: wrap; }
+}

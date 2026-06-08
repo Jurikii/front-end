@@ -33,6 +33,7 @@ import AgendaMinhasConsultas from "./pages/AgendaMinhasConsultas/AgendaMinhasCon
 import AgendaCalendario from "./pages/AgendaCalendario/AgendaCalendario";
 import MeusProcessosAdvogado from "./pages/MeusProcessosAdvogado/MeusProcessosAdvogado";
 import DetalhesDaConsultaAdvogado from "./pages/DetalhesDaConsultaAdvogado/DetalhesDaConsultaAdvogado";
+import DocumentosDoProcesso from "./pages/DocumentosProcessoAdvogado/DocumentosDoProcesso";
 import ChatAdvogado from "./pages/ChatAdvogado/ChatAdvogado";
 import PlanosAdvogado from "./pages/PlanosAdvogado/PlanosAdvogado";
 import PerfilAdvogadoAdv from "./pages/PerfilAdvogadoAdv/PerfilAdvogadoAdv";
@@ -93,6 +94,8 @@ function App() {
       <Route path="/calendarioadvogado" element={<AgendaCalendario />} />
       <Route path="/meus-processosadvogado" element={<MeusProcessosAdvogado />} />
       <Route path="/detalhes-processoadvogado" element={<DetalhesDaConsultaAdvogado />} />
+      <Route path="/documentos-processoadvogado" element={<DocumentosDoProcesso />} />
+      
       <Route path="/chatadvogado" element={<ChatAdvogado />} />
       <Route path="/planosadvogado" element={<PlanosAdvogado />} />
       <Route path="/perfiladvogado" element={<PerfilAdvogadoAdv />} />

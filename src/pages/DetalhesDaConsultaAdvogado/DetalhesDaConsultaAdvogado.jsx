@@ -804,11 +804,11 @@ const DetalhesDaConsultaAdvogado = () => {
         <aside className={styles.navLateral}>
           <div className={styles.navLateralItens}>
             <button className={styles.navLateralItemAtivo} onClick={handleDetalhesClick}>
-              <img alt="" src="/Icone-calendario.svg" />
+              <img alt="" src="/Icone-Detalhes-Processo.svg" />
               <span>Detalhes do processo</span>
             </button>
             <button className={styles.navLateralItem} onClick={handleDocumentosClick}>
-              <img alt="" src="/Vector5.svg" />
+              <img alt="" src="/Icone-Documentos-Processo.svg" />
               <span>Documentos do processo</span>
             </button>
           </div>
