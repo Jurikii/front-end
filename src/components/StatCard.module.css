@@ -1,34 +1,41 @@
 .card {
   flex: 1;
-  border-radius: var(--br-10);
+  border-radius: var(--br-12);
   background-color: var(--branco);
-  border: var(--border-1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
-  gap: var(--gap-22);
-  padding: var(--padding-20) var(--padding-40);
-  min-width: var(--min-w-248);
+  gap: 20px;
+  padding: 20px 28px;
+  min-width: 220px;
   max-width: 100%;
   font-family: var(--font-montserrat);
-  font-size: var(--fs-14);
+  font-size: 14px;
   color: var(--azul);
   text-align: left;
   cursor: pointer;
-  transition: transform 0.1s;
+  box-shadow: var(--shadow-drop-4);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .card:hover {
-  filter: brightness(0.9);
+  box-shadow: var(--shadow-drop);
+  transform: translateY(-2px);
 }
 
 .card:active {
-  transform: scale(0.95);
+  transform: translateY(0);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--azul-sereno);
+  outline-offset: 2px;
 }
 
 .icon {
-  height: var(--height-70);
-  width: var(--width-70);
-  object-fit: cover;
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -36,28 +43,39 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-5);
+  gap: 4px;
 }
 
 .value {
   margin: 0;
-  font-size: var(--fs-35);
+  font-size: 32px;
   font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .label {
   font-weight: 500;
+  font-size: 15px;
 }
 
 .subtitle {
   color: var(--color-darkslategray);
+  font-size: 13px;
+}
+
+@media screen and (max-width: 1024px) {
+  .card { min-width: 200px; padding: 16px 24px; }
+  .icon { height: 48px; width: 48px; }
+  .value { font-size: 28px; }
 }
 
 @media screen and (max-width: 800px) {
-  .value { font-size: var(--fs-28); }
+  .value { font-size: 24px; }
+  .label { font-size: 14px; }
 }
 
-@media screen and (max-width: 450px) {
-  .card { width: var(--width-calc100-40); }
-  .value { font-size: var(--fs-21); }
+@media screen and (max-width: 600px) {
+  .card { min-width: 180px; padding: 14px 20px; }
+  .value { font-size: 22px; }
 }

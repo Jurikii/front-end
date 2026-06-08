@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import Navbar from "../../components/NavbarAdvogado";
+import Menu1 from "../../components/Menu1";
 import Opcoes from "../../components/Configuracoes/Opcoes";
 import Aparencia from "../../components/Configuracoes/Aparencia";
 import Notificacoes from "../../components/Configuracoes/Notificacoes";
@@ -31,7 +31,7 @@ const Configuracoes = () => {
 
   return (
     <div className={styles.configuracoes}>
-      <Navbar />
+      <Menu1 />
       <main className={styles.conteudo}>
         <section className={styles.navbarLateral}>
           <div className={styles.navBarLateral}>

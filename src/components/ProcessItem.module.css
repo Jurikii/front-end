@@ -2,27 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--gap-15);
-  padding: var(--padding-5) var(--padding-0);
+  gap: 16px;
+  padding: 12px 0;
   flex-wrap: wrap;
-  row-gap: var(--gap-20);
+  row-gap: 12px;
   cursor: pointer;
-  transition: transform 0.1s;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
 }
 
 .item:hover {
-  filter: brightness(0.9);
-}
-
-.item:active {
-  transform: scale(0.95);
+  background-color: rgba(61, 106, 138, 0.04);
 }
 
 .icon {
-  width: var(--width-60);
-  height: auto;
-  border-radius: var(--br-20);
-  object-fit: cover;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--br-12);
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -30,19 +27,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--gap-6);
+  gap: 4px;
   min-width: 0;
 }
 
 .number {
-  font-size: var(--fs-20);
+  font-size: 16px;
   font-weight: 600;
   color: var(--azul-escuro);
 }
 
 .subject {
-  font-size: var(--fs-18);
-  color: var(--azul-escuro);
+  font-size: 15px;
+  color: var(--azul-sereno);
 }
 
 /* Badge de status */
@@ -50,39 +47,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--height-32);
-  border-radius: var(--br-10);
-  padding: var(--padding-5) var(--padding-10);
-  font-size: var(--fs-18);
+  height: 30px;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .statusActive {
-  background-color: var(--color-darkgreen-200);
+  background-color: rgba(28, 101, 6, 0.1);
   color: var(--color-darkgreen-100);
 }
 
 .statusPending {
-  background-color: var(--color-khaki-100);
-  color: var(--amarelo);
-  -webkit-text-stroke: var(--text-stroke-1);
-  paint-order: stroke fill;
+  background-color: rgba(250, 184, 76, 0.12);
+  color: #c99220;
 }
 
 .arrow {
-  height: var(--height-24);
-  width: var(--width-24);
+  height: 22px;
+  width: 22px;
   flex-shrink: 0;
   cursor: pointer;
-  transition: transform 0.1s;
+  opacity: 0.4;
+  transform: scaleX(-1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.item:hover .arrow {
+  opacity: 0.8;
+  transform: scaleX(-1) translateX(3px);
 }
 
 .arrow:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
 }
 
 @media screen and (max-width: 800px) {
   .item { flex-wrap: wrap; }
+  .icon { width: 44px; height: 44px; }
 }
