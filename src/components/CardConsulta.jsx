@@ -20,7 +20,7 @@ const CardConsulta = ({ nomeCliente, assunto, horario }) => (
         </div>
       </div>
       <div className={styles.horario}>
-        <img className={styles.iconeRelogio} alt="" src="/Vector7.svg" />
+        <img className={styles.iconeRelogio} alt="" src="/Icone-relogio.svg" />
         <span>{horario}</span>
       </div>
     </div>

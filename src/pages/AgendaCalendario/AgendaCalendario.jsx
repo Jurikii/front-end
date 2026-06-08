@@ -106,7 +106,10 @@ const DIAS_SEMANA_NOMES = [
   "Quinta-feira", "Sexta-feira", "Sábado",
 ];
 
-
+const SIDEBAR_ITENS = [
+  { id: "calendario", label: "Calendário", icone: "/Icone-calendario.svg" },
+  { id: "minhas-consultas", label: "Minhas consultas", icone: "/Icone-minhas-consultas.svg" },
+];
 
 function obterSemanaDoDia(dia, mes, ano) {
   const data = new Date(ano, mes, dia);
@@ -121,6 +124,7 @@ function obterSemanaDoDia(dia, mes, ano) {
 }
 
 const AgendaCalendario = () => {
+  const [secaoAtiva, setSecaoAtiva] = useState("calendario");
   const hoje = new Date();
   const [mesAtual, setMesAtual] = useState(hoje.getMonth());
   const [anoAtual, setAnoAtual] = useState(hoje.getFullYear());
@@ -375,7 +379,20 @@ const AgendaCalendario = () => {
       <Navbar />
 
       <main className={styles.conteudo}>
-        <Sidebar />
+        <aside className={styles.sidebar}>
+          <nav className={styles.sidebarNav}>
+            {SIDEBAR_ITENS.map(({ id, label, icone }) => (
+              <button
+                key={id}
+                className={secaoAtiva === id ? styles.sidebarItemAtivo : styles.sidebarItem}
+                onClick={() => setSecaoAtiva(id)}
+              >
+                <img className={styles.sidebarIcone} alt="" src={icone} />
+                <span>{label}</span>
+              </button>
+            ))}
+          </nav>
+        </aside>
 
         <section className={styles.calendarioSecao}>
           <div className={styles.calendarioCard}>
@@ -460,7 +477,7 @@ const AgendaCalendario = () => {
                         aria-expanded={visaoAtual === "mes" ? mostrarSeletorMes : undefined}
                       >
                         <span className={styles.mesNome}>{tituloVisao}</span>
-                        {visaoAtual === "mes" && <img className={styles.chevronMes} alt="" src="/Vector6.svg" />}
+                        {visaoAtual === "mes" && <img className={styles.chevronMes} alt="" src="/Seta-baixo-calendario.svg" />}
                       </button>
 
                       <button
