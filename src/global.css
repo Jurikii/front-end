@@ -437,6 +437,28 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+select:focus,
+select:focus-visible {
+  outline: none !important;
+}
+
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  color: var(--azul-escuro);
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input[type="date"] {
+  color-scheme: light;
+}
+
 a:focus-visible {
   outline: 2px solid var(--azul-sereno);
   outline-offset: 2px;

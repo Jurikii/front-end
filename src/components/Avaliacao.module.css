@@ -15,17 +15,12 @@
   font-size: 20px;
   color: var(--sideBar);
   font-family: var(--font-montserrat);
-  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .root:hover {
   border-color: rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.09);
-  transform: translateY(-2px);
-}
-
-.root:hover .avaliaoChild {
-  transform: scale(1.05);
 }
 
 .atendimentoHumanoEContainer {
@@ -48,7 +43,6 @@
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 

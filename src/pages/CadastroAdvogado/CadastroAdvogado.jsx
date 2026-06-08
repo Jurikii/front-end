@@ -67,7 +67,7 @@ const CadastroAdvogado = () => {
         backgroundImage: `url(${bgCadastro})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "top",
+        backgroundPosition: "center",
       }}
     >
       <form
@@ -75,23 +75,27 @@ const CadastroAdvogado = () => {
         className="d-flex flex-column align-items-center w-100 overflow-hidden flex-shrink-0"
         autoComplete="off"
         style={{
-          maxWidth: "630px",
-          borderRadius: "20px",
-          background: "rgba(244,234,216,0.84)",
-          border: "1px solid var(--azul-escuro)",
+          maxWidth: "520px",
+          borderRadius: "var(--br-20)",
+          background: "rgba(244,234,216,0.88)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid rgba(12, 24, 34, 0.15)",
+          boxShadow: "var(--shadow-drop-3)",
           padding: "clamp(24px, 4vw, 48px)",
-          gap: "clamp(20px, 3vw, 32px)",
+          gap: "clamp(20px, 3vw, 28px)",
         }}
       >
-        <h1 className="m-0 fw-bold text-center"
-          style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(28px, 5vw, 40px)", color: "#000" }}>
-          Cadastro de Advogado
-        </h1>
-        <h3 className="m-0 fw-semibold text-center"
-          style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(16px, 2.5vw, 20px)", color: "#000" }}>
-          Preencha os dados para criar sua conta profissional.
-        </h3>
-
+        <div className="d-flex flex-column align-items-center gap-1 w-100">
+          <h1 className="m-0 fw-bold text-center"
+            style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(28px, 5vw, 36px)", color: "var(--azul-escuro)", letterSpacing: "-0.02em" }}>
+            Cadastro de Advogado
+          </h1>
+          <h3 className="m-0 text-center"
+            style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(15px, 2.2vw, 17px)", fontWeight: 500, color: "rgba(12, 24, 34, 0.65)", lineHeight: 1.5 }}>
+            Preencha os dados para criar sua conta profissional.
+          </h3>
+        </div>
 
         <InputField
           label="Nome completo"
@@ -181,59 +185,82 @@ const CadastroAdvogado = () => {
           onChange={(v) => updateField("confirmarSenha", v)}
         />
 
-        <div className="align-self-stretch d-flex align-items-center gap-2">
+        <div className="align-self-stretch d-flex align-items-center gap-3">
           <label className="d-flex align-items-center position-relative" style={{ cursor: "pointer" }}>
             <input type="checkbox" className="position-absolute" style={{ width: 0, height: 0, opacity: 0 }}
               checked={termos} onChange={() => setTermos(!termos)} />
-            <div className={`d-flex align-items-center justify-content-center flex-shrink-0 rounded border-2`}
+            <div className={`d-flex align-items-center justify-content-center flex-shrink-0 rounded`}
               style={{
-                width: "clamp(32px, 4vw, 40px)", height: "clamp(32px, 4vw, 40px)",
-                backgroundColor: termos ? "#fab84c" : "#f4ead8",
-                borderColor: termos ? "#000" : "var(--azul-escuro)",
-                transition: "all 0.2s",
+                width: "clamp(24px, 3vw, 28px)", height: "clamp(24px, 3vw, 28px)",
+                borderRadius: "var(--br-4, 4px)",
+                backgroundColor: termos ? "var(--amarelo)" : "var(--branco-no-absoluto)",
+                border: `2px solid ${termos ? "var(--amarelo)" : "rgba(12, 24, 34, 0.25)"}`,
+                transition: "all 0.2s ease",
               }}>
               {termos && (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <polyline points="20 6 9 17 4 12" stroke="#000" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <polyline points="20 6 9 17 4 12" stroke="var(--azul-escuro)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               )}
             </div>
           </label>
-          <div className="fw-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(14px, 2vw, 16px)" }}>
-            <span style={{ color: "#102e44" }}>Eu aceito os </span>
-            <span className="cursor-pointer" style={{ color: "#fab84c", textDecoration: "underline" }}>Termos de Uso </span>
-            <span style={{ color: "#020202" }}>e a </span>
-            <span className="cursor-pointer" style={{ color: "#fab84c", textDecoration: "underline" }}>Política de Privacidade</span>
+          <div className="fw-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(13px, 1.8vw, 14px)", lineHeight: 1.4 }}>
+            <span style={{ color: "var(--azul)" }}>Eu aceito os </span>
+            <span className="cursor-pointer" style={{ color: "var(--amarelo)", transition: "color 0.2s ease" }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "#e8a83a"}
+              onMouseLeave={(e) => e.currentTarget.style.color = "var(--amarelo)"}>Termos de Uso </span>
+            <span style={{ color: "rgba(2, 2, 2, 0.7)" }}>e a </span>
+            <span className="cursor-pointer" style={{ color: "var(--amarelo)", transition: "color 0.2s ease" }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "#e8a83a"}
+              onMouseLeave={(e) => e.currentTarget.style.color = "var(--amarelo)"}>Política de Privacidade</span>
           </div>
         </div>
 
         <button className="border-0 w-100" type="submit"
-          style={{ borderRadius: "15px", background: "#fab84c", padding: "clamp(10px, 1.5vw, 16px) 24px", cursor: "pointer" }}
-          onMouseOver={(e) => e.currentTarget.style.filter = "brightness(0.92)"}
-          onMouseOut={(e) => e.currentTarget.style.filter = ""}>
-          <b style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(18px, 2.5vw, 24px)", color: "#000" }}>Criar conta de advogado</b>
+          style={{
+            borderRadius: "var(--br-12)",
+            background: "var(--amarelo)",
+            padding: "clamp(12px, 1.8vw, 16px) 24px",
+            cursor: "pointer",
+            transition: "background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease",
+            boxShadow: "0 2px 8px rgba(250, 184, 76, 0.3)",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "#e8a83a"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(250, 184, 76, 0.4)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "var(--amarelo)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(250, 184, 76, 0.3)"; }}>
+          <b style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(16px, 2.2vw, 20px)", color: "var(--azul-escuro)" }}>Criar conta de advogado</b>
         </button>
 
-        <div className="align-self-stretch d-flex align-items-center gap-2">
-          <div style={{ flex: 1, borderTop: "1px solid #000" }} />
-          <h3 className="mb-0 fw-semibold text-nowrap" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(14px, 2vw, 16px)" }}>Ou cadastrar com</h3>
-          <div style={{ flex: 1, borderTop: "1px solid #000" }} />
+        <div className="align-self-stretch d-flex align-items-center gap-3">
+          <div style={{ flex: 1, borderTop: "1px solid rgba(12, 24, 34, 0.12)" }} />
+          <span className="mb-0 text-nowrap" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(13px, 1.8vw, 14px)", fontWeight: 500, color: "rgba(12, 24, 34, 0.45)" }}>Ou cadastrar com</span>
+          <div style={{ flex: 1, borderTop: "1px solid rgba(12, 24, 34, 0.12)" }} />
         </div>
 
         <button className="border-0 w-100 d-flex align-items-center justify-content-center gap-2" type="button"
-          style={{ borderRadius: "15px", background: "#fff", border: "1px solid var(--azul-escuro)", padding: "clamp(10px, 1.5vw, 16px) 24px", cursor: "pointer" }}>
-          <img style={{ height: "clamp(28px, 3.5vw, 35px)", width: "clamp(28px, 3.5vw, 35px)" }} alt="" src={googleIcon} />
-          <b style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(16px, 2vw, 20px)", color: "#000" }}>Continue com Google</b>
+          style={{
+            borderRadius: "var(--br-12)",
+            background: "var(--branco)",
+            border: "1px solid rgba(12, 24, 34, 0.2)",
+            padding: "clamp(12px, 1.8vw, 16px) 24px",
+            cursor: "pointer",
+            transition: "background 0.2s ease, border-color 0.2s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--branco-no-absoluto)"; e.currentTarget.style.borderColor = "var(--azul-escuro)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "var(--branco)"; e.currentTarget.style.borderColor = "rgba(12, 24, 34, 0.2)"; }}>
+          <img style={{ height: "clamp(20px, 2.5vw, 24px)", width: "clamp(20px, 2.5vw, 24px)" }} alt="" src={googleIcon} />
+          <b style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 2vw, 17px)", color: "var(--azul-escuro)" }}>Continue com Google</b>
         </button>
 
         <div className="align-self-stretch d-flex align-items-center justify-content-center gap-1 flex-wrap">
-          <h3 className="mb-0 fw-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(16px, 2.5vw, 20px)", color: "#000" }}>
+          <span style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(14px, 2vw, 15px)", fontWeight: 500, color: "rgba(12, 24, 34, 0.6)" }}>
             Já tem uma conta?
-          </h3>
-          <h3 className="mb-0 fw-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(16px, 2.5vw, 20px)", color: "#fab84c", cursor: "pointer", textDecoration: "underline" }}
+          </span>
+          <span style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(14px, 2vw, 15px)", fontWeight: 600, color: "var(--amarelo)", cursor: "pointer", transition: "color 0.2s ease" }}
+            onMouseEnter={(e) => e.currentTarget.style.color = "#e8a83a"}
+            onMouseLeave={(e) => e.currentTarget.style.color = "var(--amarelo)"}
             onClick={() => navigate("/login/advogado")}>
             Faça Login
-          </h3>
+          </span>
         </div>
       </form>
     </div>

@@ -13,6 +13,7 @@ function ColunaCiclo({ items, delay = 0 }) {
   const [topIdx,    setTopIdx]    = useState(0);
   const [animating, setAnimating] = useState(false);
   const [slotH,     setSlotH]     = useState(0);
+  const [paused,    setPaused]    = useState(false);
   const firstRef = useRef(null);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ function ColunaCiclo({ items, delay = 0 }) {
   }, []);
 
   useEffect(() => {
+    if (paused) return;
     let interval;
     const timeout = setTimeout(() => {
       interval = setInterval(() => setAnimating(true), INTERVAL);
@@ -44,7 +46,7 @@ function ColunaCiclo({ items, delay = 0 }) {
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [delay]);
+  }, [delay, paused]);
 
   const onTransitionEnd = useCallback(
     (e) => {
@@ -59,7 +61,9 @@ function ColunaCiclo({ items, delay = 0 }) {
   const containerH = slotH > 0 ? slotH * 2 : undefined;
 
   return (
-    <div className={styles.coluna} style={{ height: containerH }}>
+    <div className={styles.coluna} style={{ height: containerH }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}>
       {visible.map((item, i) => (
         <div
           key={`${topIdx}-${i}`}
