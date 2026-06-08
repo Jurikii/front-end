@@ -6,6 +6,13 @@ import CardAndamento from "../../components/CardAndamento";
 import { andamentos } from "../../data/andamentos";
 import styles from "./DetalhesDaConsultaAdvogado.module.css";
 
+// ---------------------------------------------------------------------------
+// Sub-componentes internos da página
+// Extraídos para facilitar leitura, mas mantidos no mesmo arquivo por serem
+// exclusivos desta página.
+// ---------------------------------------------------------------------------
+
+/** Botão de navegação "Voltar para meus processos" */
 const BotaoVoltar = ({ onClick }) => (
   <button className={styles.botaoVoltar} onClick={onClick}>
     <img
@@ -45,6 +52,7 @@ const catStyle = (color) => ({
   color,
 });
 
+/** Bloco com dados do cliente e do processo */
 const InfoCliente = ({ onCategoriaChange }) => {
   const [open, setOpen] = useState(false);
   const [categorias, setCategorias] = useState(CATEGORIA_DEFAULTS);
@@ -105,6 +113,7 @@ const InfoCliente = ({ onCategoriaChange }) => {
   return (
     <div className={styles.infoCliente}>
       <div className={styles.clienteHeader}>
+        {/* Categoria e título do processo */}
         <div className={styles.trabalhista}>
           <div className={styles.dropdownWrapper} ref={ref}>
             <button
@@ -188,6 +197,7 @@ const InfoCliente = ({ onCategoriaChange }) => {
           <h2 className={styles.tituloCaso}>Rescisão indireta</h2>
         </div>
 
+      {/* Dados do cliente */}
       <div className={styles.dadosCliente}>
         <div className={styles.clienteRow}>
           <img
@@ -205,6 +215,7 @@ const InfoCliente = ({ onCategoriaChange }) => {
 
         <div className={styles.separador} />
 
+        {/* Número do processo e advogada */}
         <div className={styles.detalhesProcesso}>
           <div className={styles.detalheItem}>
             <span className={styles.rotulo}>Processo nº</span>
@@ -235,6 +246,7 @@ const statusStyle = (value) => {
   }
 };
 
+/** Resumo do caso com status */
 const ResumoDoCaso = ({ onStatusChange }) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(STATUS_OPTIONS[0]);
@@ -314,6 +326,7 @@ const TAG_PRESETS = [
   { label: "Concluído", color: "#65a30d" },
 ];
 
+/** Grid com as informações detalhadas do processo */
 const InformacoesDoProcesso = () => {
   const [tags, setTags] = useState(TAG_PRESETS.slice(0, 2));
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -393,7 +406,7 @@ const InformacoesDoProcesso = () => {
     <section className={styles.informacoesProcesso}>
       <h2 className={styles.secaoTitulo}>Informações do processo</h2>
       <div className={styles.infoGrid}>
-        <InfoItem icone="/Vector6.svg" rotulo="Data de início" valor="15/03/2024" />
+        <InfoItem icone="/Icone-Data-Inicio.svg" rotulo="Data de início" valor="15/03/2024" />
         <Divider />
         <InfoItem
           icone="/tabler-map-pin.svg"
@@ -401,7 +414,7 @@ const InformacoesDoProcesso = () => {
           valor="1ª Vara do Trabalho de São Paulo-SP"
         />
         <Divider />
-        <InfoItem icone="/Vector7.svg" rotulo="Situação atual">
+        <InfoItem icone="/Icone-Balanca.svg" rotulo="Situação atual">
           <span className={styles.situacaoAtiva}>Em andamento</span>
         </InfoItem>
         <Divider />
@@ -523,6 +536,7 @@ const InformacoesDoProcesso = () => {
   );
 };
 
+/** Item reutilizável na grade de informações */
 const InfoItem = ({ icone, rotulo, valor, children }) => (
   <div className={styles.infoItem}>
     <div className={styles.infoItemHeader}>
@@ -533,8 +547,10 @@ const InfoItem = ({ icone, rotulo, valor, children }) => (
   </div>
 );
 
+/** Linha divisória entre itens de informação */
 const Divider = () => <div className={styles.divider} />;
 
+/** Lista de andamentos do processo */
 const Andamentos = ({ andamentosList, onAndamentoMenuClick, onAndamentoSave, onAndamentoDelete, onAndamentoAdd }) => {
   const [autoEditId, setAutoEditId] = useState(null);
   const [expandido, setExpandido] = useState(false);
@@ -602,6 +618,7 @@ const Andamentos = ({ andamentosList, onAndamentoMenuClick, onAndamentoSave, onA
   );
 };
 
+/** Painel lateral com próximos passos e observações */
 const PainelLateral = ({ className = "", style, onEditarObservacoesClick }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [passos, setPassos] = useState([
@@ -725,15 +742,16 @@ const PainelLateral = ({ className = "", style, onEditarObservacoesClick }) => {
   );
 };
 
+// ---------------------------------------------------------------------------
+// Componente principal da página
+// ---------------------------------------------------------------------------
+
 const DetalhesDaConsultaAdvogado = () => {
-  const navigate = useNavigate();
   const [andamentosList, setAndamentosList] = useState(andamentos);
   const nextAndamentoId = useRef(5);
 
-  const handleVoltarClick = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
-
+  const handleVoltarClick = useCallback(() => {}, []);
+  const handleMeusProcessosClick = useCallback(() => {}, []);
   const handleDetalhesClick = useCallback(() => {}, []);
   const handleDocumentosClick = useCallback(() => {}, []);
   const handleCategoriaChange = useCallback((opt) => {}, []);
@@ -779,13 +797,14 @@ const DetalhesDaConsultaAdvogado = () => {
 
   return (
     <div className={styles.pagina}>
-      <Navbar />
+      <Navbar activeTab="meusProcessos" onMeusProcessosClick={handleMeusProcessosClick} />
 
       <main className={styles.conteudo}>
+        {/* Navbar lateral */}
         <aside className={styles.navLateral}>
           <div className={styles.navLateralItens}>
             <button className={styles.navLateralItemAtivo} onClick={handleDetalhesClick}>
-              <img alt="" src="/Vector4.svg" />
+              <img alt="" src="/Icone-calendario.svg" />
               <span>Detalhes do processo</span>
             </button>
             <button className={styles.navLateralItem} onClick={handleDocumentosClick}>
@@ -795,15 +814,20 @@ const DetalhesDaConsultaAdvogado = () => {
           </div>
         </aside>
 
+        {/* Conteúdo principal */}
         <div className={styles.areaInterna}>
           <div className={styles.containerProcesso}>
+            {/* Cabeçalho da seção */}
             <section className={`${styles.cabecalho} ${styles.mountAnim}`} style={{animationDelay: "0s"}}>
               <BotaoVoltar onClick={handleVoltarClick} />
               <h1 className={styles.tituloPagina}>Detalhes do processo</h1>
             </section>
 
+            {/* Corpo */}
             <div className={styles.corpo}>
+              {/* Linha superior: coluna esquerda (detalhes + infos) e coluna direita (andamentos) */}
               <div className={`${styles.linhaSuperiror} ${styles.mountAnim}`} style={{animationDelay: "0.15s"}}>
+                {/* Coluna esquerda */}
                 <div className={styles.colunaEsquerda}>
                   <div className={styles.detalhesCard}>
                     <InfoCliente onCategoriaChange={handleCategoriaChange} />
@@ -813,6 +837,7 @@ const DetalhesDaConsultaAdvogado = () => {
                   <InformacoesDoProcesso />
                 </div>
 
+                {/* Coluna direita: andamentos */}
                 <Andamentos
                   andamentosList={andamentosList}
                   onAndamentoMenuClick={handleAndamentoMenuClick}
@@ -822,6 +847,7 @@ const DetalhesDaConsultaAdvogado = () => {
                 />
               </div>
 
+              {/* Rodapé: próximos passos + observações */}
               <PainelLateral
                 className={`${styles.mountAnim}`}
                 style={{animationDelay: "0.3s"}}
@@ -832,6 +858,7 @@ const DetalhesDaConsultaAdvogado = () => {
         </div>
       </main>
 
+      {/* Barra inferior (mobile) */}
       <div className={styles.barraInferior}>
         <BotaoVoltar onClick={handleVoltarClick} />
         <h2 className={styles.tituloPaginaMobile}>Detalhes do processo</h2>

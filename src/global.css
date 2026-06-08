@@ -9,7 +9,65 @@
    ========================================================================== */
 
 :root {
+  /* ─── VARIÁVEIS EXCLUSIVAS DESTE ARQUIVO (ADICIONAR) ──────────── */
 
+  /* Cores */
+  --color-khaki-100: rgba(239, 230, 154, 0.15);
+  --color-khaki-200: rgba(239, 230, 154, 0.6);
+  --color-lightsteelblue: #add0e9;
+  --color-whitesmoke-100: #f5f7f9;
+  --color-whitesmoke-200: #f0f0f0;
+
+  /* Gaps e Paddings */
+  --gap-6: 6px;
+  --gap-7: 7px;
+  --gap-12: 12px;
+  --gap-35: 35px;
+  --gap-70: 70px;
+  --padding-2: 2px;
+  --padding-14: 14px;
+  --padding-24: 24px;
+  --padding-28: 28px;
+  --padding-29: 29px;
+
+  /* Fontes e Tamanhos */
+  --font-inherit: inherit;
+  --fs-21: 21px;
+  --fs-35: 35px;
+
+  /* Alturas e Larguras (Dimensões Fixas) */
+  --height-15: 15px;
+  --height-17: 17px;
+  --height-20: 20px;
+  --height-22: 22px;
+  --height-28: 28px;
+  --height-32: 32px;
+  --height-52: 52px;
+  --height-60: 60px;
+  --height-70: 70px;
+  --height-87: 87px;
+  --width-14: 14px;
+  --width-15: 15px;
+  --width-28: 28px;
+  --width-60: 60px;
+  --width-70: 70px;
+  --width-229: 229px;
+  --width-calc100-40: calc(100% - 40px);
+
+  /* Limites de Layout e Efeitos */
+  --min-h-48: 48px;
+  --min-w-248: 248px;
+  --text-stroke-1: 1px var(--amarelo);
+
+
+  /* ─── VARIÁVEIS EM CONFLITO (COMENTADAS LADO A LADO) ───────────── */
+
+  /* --color-floralwhite: #fef9ec; */
+  /* CONFLITO: O principal usa '#fef9ec', mas o secundário usa com '-100' e '-200'. Ative se sumir o fundo claro. */
+  /* --color-gainsboro: rgba(217, 217, 217, 0.5); */
+  /* CONFLITO: O principal usa variações numéricas (-100, -200). Ative se elementos cinzas sumirem. */
+  /* --border-2: 0px solid var(--color-whitesmoke-200); */
+  /* CONFLITO CRÍTICO: No principal a '--border-2' tem espessura de '1px'. Aqui ela está zerada ('0px'). */
   /* ─── VARIÁVEIS EXCLUSIVAS DO GLOBAL1 (ADICIONAR) ──────────────── */
 
   /* Cores */
