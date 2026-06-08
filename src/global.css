@@ -1,6 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "./custom.css";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,700&display=swap");
 
 /* ==========================================================================
@@ -9,6 +9,62 @@
    ========================================================================== */
 
 :root {
+
+  /* ─── VARIÁVEIS EXCLUSIVAS DO GLOBAL1 (ADICIONAR) ──────────────── */
+
+  /* Cores */
+  --color-darkolivegreen: #285b21;
+  --color-floralwhite-100: #fef9f0;
+  --color-floralwhite-200: #fef9ec;
+  --color-honeydew: #e1f1df;
+
+  /* Gaps e Paddings */
+  --gap-45: 45px;
+  --gap-90: 90px;
+  --padding-31: 31px;
+  --padding-15_5: 15.5px;
+
+  /* Alturas e Larguras (Dimensões Fixas) */
+  --height-2: 2px;
+  --height-25: 25px;
+  --height-27: 27px;
+  --height-65: 65px;
+  --height-90: 90px;
+  --width-2: 2px;
+  --width-25: 25px;
+  --width-31: 31px;
+  --width-61: 61px;
+  --width-87: 87px;
+  --width-121: 121px;
+  --width-1383: 1383px;
+
+  /* Limites de Layout (Min / Max) */
+  --max-w-142: 142px;
+  --max-w-261: 261px;
+  --max-w-378: 378px;
+  --max-w-408: 408px;
+  --min-w-10: 10px;
+  --min-w-311: 311px;
+  --min-w-318: 318px;
+  --min-w-376: 376px;
+  --min-w-1027_1: 1027.1px;
+  --min-w-261_1: 261.1px;
+
+  /* Posicionamento Absoluto */
+  --left-14: 14px;
+  --left-10_1: 10.1px;
+  --top-01: 0;
+  --top-18: 18px;
+
+
+  /* ─── VARIÁVEIS EM CONFLITO (COMENTADAS LADO A LADO) ───────────── */
+
+  /* --color-darkgray: #acadae; */
+  /* CONFLITO: O principal usa #beadad. Ative esta se o cinza do novo módulo quebrar. */
+  /* --color-gainsboro-100: #e2e1df; */
+  /* CONFLITO: O principal usa #d9d9d9 (um tom ligeiramente diferente). */
+  /* --color-gainsboro-200: #d9d9d9; */
+  /* CONFLITO CRÍTICO: O principal usa rgba(217, 217, 217, 0.5) (transparente). Se fundos sumirem, ative aqui. */
   /* ─── Variáveis do módulo AgendaCalendário ────────────────────────────── */
   --br-0: 0px;
   --max-w-162: 162px;
