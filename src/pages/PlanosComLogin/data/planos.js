@@ -95,6 +95,14 @@ export const PLANOS_PARA_EQUIPES = [
   },
 ];
 
+export const REDES_SOCIAIS = [
+  { src: "/instagram-white-icon.svg", alt: "Instagram", url: "https://www.instagram.com/juriki_oficial/" },
+  { src: "/linkedin-app-white-icon.svg", alt: "LinkedIn", url: "https://www.linkedin.com/in/juriki-oficial-7165a8405/" },
+  { src: "/github-white-icon.svg", alt: "GitHub" },
+  { src: "/ri-youtube-line.svg", alt: "YouTube", url: "https://www.youtube.com/@Juriki_oficial" },
+  { src: "/hugeicons-new-twitter-rectangle.svg", alt: "Twitter/X", url: "https://x.com/Juriki_oficial" },
+];
+
 export const LINKS_RODAPE = {
   navegacao: ["Início", "Planos", "Sobre nós", "FAQ"],
   paraVoce: [
@@ -116,10 +124,3 @@ export const LINKS_RODAPE = {
   },
 };
 
-export const REDES_SOCIAIS = [
-  { src: "/instagram-white-icon.svg", alt: "Instagram", url: "https://www.instagram.com/juriki_juridico"},
-  { src: "/linkedin-app-white-icon.svg", alt: "LinkedIn", url: "https://www.linkedin.com/in/juriki-juridico-7165a8405/"},
-  { src: "/github-white-icon.svg", alt: "github", url: "https://github.com/juriki"},
-  { src: "/ri-youtube-line.svg", alt: "YouTube" },
-  { src: "/hugeicons-new-twitter-rectangle.svg", alt: "Twitter/X" },
-];

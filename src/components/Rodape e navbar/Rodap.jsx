@@ -1,14 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./Rodap.module.css";
 
-const REDES_SOCIAIS = [
-  { src: "/icon-park-outline-instagram.svg", alt: "Instagram", url: "https://www.instagram.com/juriki" },
-  { src: "/mingcute-linkedin-line.svg", alt: "LinkedIn", url: "https://www.linkedin.com/company/juriki" },
-  { src: "/qlementine-icons-facebook-16.svg", alt: "Facebook", url: "https://www.facebook.com/juriki" },
-  { src: "/ri-youtube-line.svg", alt: "YouTube", url: "https://www.youtube.com/@juriki" },
-  { src: "/hugeicons-new-twitter-rectangle.svg", alt: "Twitter", url: "https://x.com/juriki" },
-];
-
 const LINKS_RODAPE = {
   navegacao: ["Início", "Planos", "Sobre nós", "FAQ"],
   paraVoce: ["Como funciona", "Perguntas frequentes", "Termos de uso", "Política de privacidade"],
@@ -38,22 +30,41 @@ const Rodap = ({ className = "" }) => {
           </div>
           <p className={styles.slogan}>A justiça que fala a sua língua.</p>
           <div className={styles.redesSociais}>
-            {REDES_SOCIAIS.map(({ src, alt, url }) => (
-              <a
-                key={alt}
-                href={url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.linkSocial}
-              >
-                <img
-                  className={styles.iconeSocial}
-                  loading="lazy"
-                  alt={alt}
-                  src={src}
-                />
-              </a>
-            ))}
+            <a href="https://www.instagram.com/juriki_oficial/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconeSocial}
+                alt="Instagram"
+                src="/icon-park-outline-instagram.svg"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/juriki-oficial-7165a8405/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconeSocial}
+                alt="LinkedIn"
+                src="/mingcute-linkedin-line.svg"
+              />
+            </a>
+            <a href="https://www.facebook.com/people/Juriki-Jur%25C3%25ADdico/pfbid0fXtgyKwfohgzxJLss5Ez9qp4AvvauvfHKch6r75uq374MRHHgY9xfNnagk5ksnQfl/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconeSocial}
+                alt="Facebook"
+                src="/qlementine-icons-facebook-16.svg"
+              />
+            </a>
+            <a href="https://www.youtube.com/@Juriki_oficial" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconeSocial}
+                alt="YouTube"
+                src="/ri-youtube-line.svg"
+              />
+            </a>
+            <a href="https://x.com/Juriki_oficial" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconeSocial}
+                alt="Twitter"
+                src="/hugeicons-new-twitter-rectangle.svg"
+              />
+            </a>
           </div>
         </div>
 

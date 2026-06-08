@@ -19,31 +19,41 @@ const Rodap = ({ className = "" }) => {
             A justiça que fala a sua língua.
           </div>
           <div className={styles.redesSociais}>
-            <img
-              className={styles.iconParkOutlineinstagram}
-              alt=""
-              src="/icon-park-outline-instagram.svg"
-            />
-            <img
-              className={styles.iconParkOutlineinstagram}
-              alt=""
-              src="/mingcute-linkedin-line.svg"
-            />
-            <img
-              className={styles.iconParkOutlineinstagram}
-              alt=""
-              src="/qlementine-icons-facebook-16.svg"
-            />
-            <img
-              className={styles.iconParkOutlineinstagram}
-              alt=""
-              src="/ri-youtube-line.svg"
-            />
-            <img
-              className={styles.iconParkOutlineinstagram}
-              alt=""
-              src="/hugeicons-new-twitter-rectangle.svg"
-            />
+            <a href="https://www.instagram.com/juriki_oficial/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconParkOutlineinstagram}
+                alt=""
+                src="/icon-park-outline-instagram.svg"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/juriki-oficial-7165a8405/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconParkOutlineinstagram}
+                alt=""
+                src="/mingcute-linkedin-line.svg"
+              />
+            </a>
+            <a href="https://www.facebook.com/people/Juriki-Jur%25C3%25ADdico/pfbid0fXtgyKwfohgzxJLss5Ez9qp4AvvauvfHKch6r75uq374MRHHgY9xfNnagk5ksnQfl/" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconParkOutlineinstagram}
+                alt=""
+                src="/qlementine-icons-facebook-16.svg"
+              />
+            </a>
+            <a href="https://www.youtube.com/@Juriki_oficial" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconParkOutlineinstagram}
+                alt=""
+                src="/ri-youtube-line.svg"
+              />
+            </a>
+            <a href="https://x.com/Juriki_oficial" target="_blank" rel="noopener noreferrer">
+              <img
+                className={styles.iconParkOutlineinstagram}
+                alt=""
+                src="/hugeicons-new-twitter-rectangle.svg"
+              />
+            </a>
           </div>
         </div>
         <div className={styles.navegao}>
