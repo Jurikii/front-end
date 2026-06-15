@@ -300,53 +300,52 @@
   color: var(--branco);
 }
 .frameParent {
-  align-self: stretch;
-  flex: 1;
   display: flex;
   align-items: center;
-  gap: var(--gap-20);
+  gap: 12px;
 }
 .frameChild {
-  height: var(--height-30);
-  width: var(--width-30);
+  height: 32px;
+  width: 32px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.1s, filter 0.2s;
+  transition: opacity 0.2s ease;
   border-radius: 50%;
+  opacity: 0.6;
 }
 .frameChild:hover {
-  filter: brightness(0.92);
-}
-.frameChild:active {
-  transform: scale(0.95);
+  opacity: 1;
 }
 .div4 {
   position: relative;
   line-height: 13px;
 }
 .paginaBtn {
-  height: 36px;
-  width: 36px;
+  height: 34px;
+  width: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .paginaAtiva {
-  background-color: var(--azul-escuro);
-  color: var(--branco);
-  transition: background-color 0.15s;
+  background-color: var(--amarelo);
+  color: var(--azul-escuro);
+  border: none;
 }
 .paginaInativa {
-  background-color: #ffffff;
-  border: 2px solid #c8c8c8;
-  color: #1a1a1a;
-  transition: border-color 0.15s;
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  color: var(--azul-escuro);
 }
 .paginaInativa:hover {
-  border-color: #a0a0a0;
+  border-color: var(--amarelo);
+  background-color: rgba(250, 184, 76, 0.06);
 }
 @media screen and (max-width: 1400px) {
   .body {

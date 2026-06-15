@@ -1,8 +1,8 @@
 .card {
   width: var(--width-1383);
-  border-radius: var(--br-10);
+  border-radius: var(--br-20);
   background-color: var(--branco);
-  border: var(--border-2);
+  border: var(--border-1);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,12 @@
   font-size: var(--fs-14);
   color: var(--color-black);
   font-family: var(--font-montserrat);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-drop-2);
+  transform: translateY(-2px);
 }
 .contedoCardProcesso {
   align-self: stretch;
