@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/NavbarAdvogado";
 import ChatBanner from "../../components/ChatBanner";
 import StatCard from "../../components/StatCard";
@@ -85,6 +86,8 @@ const PROCESSES = [
 // ── Componente ────────────────────────────────────────────────────────────────
 
 const HomeAdvogado = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.page}>
       <Navbar />
@@ -106,7 +109,7 @@ const HomeAdvogado = () => {
         </section>
 
         {/* Banner do chat IA */}
-        <ChatBanner />
+        <ChatBanner onOpen={() => navigate("/chatadvogado")} />
 
         {/* Cards de estatísticas */}
         <section className={styles.statsRow}>
@@ -122,10 +125,10 @@ const HomeAdvogado = () => {
           <div className={styles.panel}>
             <div className={styles.panelHeader}>
               <div className={styles.panelTitle}>
-                <img alt="" src="/Vector4.svg" className={styles.panelIcon} />
+                <img alt="" src="/icone-calendario-proximas-consultas.svg" className={styles.panelIcon} />
                 <h3>Próximas consultas</h3>
               </div>
-              <button className={styles.linkButton}>Ver calendário</button>
+              <button className={styles.linkButton} onClick={() => navigate("/calendarioadvogado")}>Ver calendário</button>
             </div>
 
             <div className={styles.list}>
@@ -140,14 +143,14 @@ const HomeAdvogado = () => {
               ))}
             </div>
 
-            <button className={styles.viewAllButton}>Ver todas as consultas</button>
+            <button className={styles.viewAllButton} onClick={() => navigate("/agendaadvogado")}>Ver todas as consultas</button>
           </div>
 
           {/* Processos recentes */}
           <div className={styles.panel}>
             <div className={styles.panelHeader}>
               <div className={styles.panelTitle}>
-                <img alt="" src="/Vector5.svg" className={styles.panelIcon} />
+                <img alt="" src="/icone-pasta-processos-recentes.svg" className={styles.panelIcon} />
                 <h3>Processos recentes</h3>
               </div>
             </div>
@@ -161,7 +164,7 @@ const HomeAdvogado = () => {
               ))}
             </div>
 
-            <button className={styles.viewAllButton}>Ver todos os processos</button>
+            <button className={styles.viewAllButton} onClick={() => navigate("/meus-processosadvogado")}>Ver todos os processos</button>
           </div>
 
         </section>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./OrdenarPor.css";
 
+const PRIORITY_IDS = ["prioridade-alta", "prioridade-baixa"];
+
 const opcoes = [
   { id: "recentes", label: "Mais Recentes" },
   { id: "antigos", label: "Mais antigos" },
@@ -10,8 +12,15 @@ const opcoes = [
   { id: "prioridade-baixa", label: "Prioridade (Baixa →Alta)" },
 ];
 
-export default function OrdenarPor({ onClose }) {
+export default function OrdenarPor({ onClose, onSort }) {
   const [selecionado, setSelecionado] = useState("recentes");
+
+  const handleClick = (id) => {
+    if (PRIORITY_IDS.includes(id)) return;
+    setSelecionado(id);
+    onSort?.(id);
+    onClose();
+  };
 
   return (
     <div className="ordenar-overlay">
@@ -63,24 +72,27 @@ export default function OrdenarPor({ onClose }) {
         <div className="ordenar-divider" />
 
         <div className="ordenar-lista">
-          {opcoes.map((opcao) => (
-            <label
-              key={opcao.id}
-              className="ordenar-opcao"
-              onClick={() => setSelecionado(opcao.id)}
-            >
-              <span
-                className={`ordenar-radio ${
-                  selecionado === opcao.id ? "selecionado" : ""
-                }`}
+          {opcoes.map((opcao) => {
+            const isPriority = PRIORITY_IDS.includes(opcao.id);
+            return (
+              <label
+                key={opcao.id}
+                className={`ordenar-opcao${isPriority ? " ordenar-opcao-disabled" : ""}`}
+                onClick={() => handleClick(opcao.id)}
               >
-                {selecionado === opcao.id && (
-                  <span className="ordenar-radio-inner" />
-                )}
-              </span>
-              <span className="ordenar-opcao-label">{opcao.label}</span>
-            </label>
-          ))}
+                <span
+                  className={`ordenar-radio ${
+                    selecionado === opcao.id ? "selecionado" : ""
+                  }`}
+                >
+                  {selecionado === opcao.id && (
+                    <span className="ordenar-radio-inner" />
+                  )}
+                </span>
+                <span className="ordenar-opcao-label">{opcao.label}</span>
+              </label>
+            );
+          })}
         </div>
       </div>
     </div>

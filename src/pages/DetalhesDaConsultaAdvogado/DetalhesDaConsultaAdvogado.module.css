@@ -35,29 +35,26 @@
   color: var(--preto);
 }
 
-/* =========================================================
-   Navbar lateral (sidebar)
-   ========================================================= */
-.navLateral {
-  /* sticky: a sidebar acompanha o scroll e fica sempre visível */
+/* ─── Sidebar ───────────────────────────────────────────────── */
+.sidebar {
   position: sticky;
-  top: 88px;
-  align-self: flex-start;
-  height: calc(100vh - 88px);
+  top: 0;
+  height: 100vh;
   flex: 1;
   background-color: var(--branco);
-  border: 1px solid var(--color-whitesmoke-200);
+  border: var(--border-1);
   box-sizing: border-box;
-  padding: var(--padding-20) var(--padding-10);
-  min-width: 215px;
+  padding: var(--padding-20) 10px;
+  min-width: 211px;
   max-width: 217px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow-y: auto;
 }
 
-.navLateralItens {
+.sidebarInner {
+  position: sticky;
+  top: 20px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -65,75 +62,38 @@
   gap: var(--gap-20);
 }
 
-.navLateralItemAtivo {
+.sidebarItem {
   align-self: stretch;
-  height: var(--height-65);
+  border: none;
   border-radius: var(--br-10);
-  background-color: var(--color-floralwhite);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--padding-20) var(--padding-15);
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--gap-20);
-  border: none;
+  padding: var(--padding-12) var(--padding-15);
+  gap: var(--gap-9);
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  font-weight: 500;
   text-align: left;
-  transition: transform 0.1s, filter 0.15s;
+  background-color: transparent;
+  color: var(--preto);
 }
 
-.navLateralItemAtivo:hover {
-  filter: brightness(0.97);
-}
-
-.navLateralItemAtivo:active {
-  transform: scale(0.95);
-}
-
-.navLateralItemAtivo img {
-  height: var(--height-24);
-  width: var(--width-20);
-  position: relative;
-}
-
-.navLateralItem {
-  align-self: stretch;
-  height: var(--height-65);
-  border-radius: var(--br-10);
-  background-color: var(--branco);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: var(--padding-20) var(--padding-15);
-  box-sizing: border-box;
-  gap: var(--gap-20);
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  text-align: left;
-  transition: transform 0.1s, background-color 0.15s;
-}
-
-.navLateralItem:hover {
+.sidebarItemAtivo {
   background-color: var(--color-floralwhite);
+  color: var(--azul);
 }
 
-.navLateralItem:active {
-  transform: scale(0.95);
+.sidebarItem:hover {
+  background-color: var(--color-floralwhite);
+  color: var(--azul);
 }
 
-.navLateralItem img {
-  height: 19px;
+.sidebarIcone {
   width: var(--width-20);
   position: relative;
+  max-height: 100%;
 }
 
 /* =========================================================
@@ -1424,7 +1384,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .navLateral {
+  .sidebar {
     flex: 1;
   }
   .tituloPagina {

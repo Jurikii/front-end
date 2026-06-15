@@ -88,7 +88,7 @@
 }
 .seoEmAndamento {
   height: var(--height-42);
-  padding: 0 var(--gap-16);
+  padding: 2px var(--gap-16) 10px;
   background-color: var(--branco);
   border-bottom: 2px solid var(--amarelo);
   flex-direction: column;
@@ -132,7 +132,7 @@
 }
 .seoInterrompido {
   height: var(--height-42);
-  padding: 0 var(--gap-16);
+  padding: 2px var(--gap-16) 10px;
   background-color: var(--branco);
   border-bottom: 2px solid transparent;
   flex-direction: column;
@@ -195,14 +195,11 @@
   justify-content: center;
   padding: var(--padding-13) var(--padding-18);
   cursor: pointer;
-  transition: transform 0.1s, filter 0.1s;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .ordenarPor:hover {
-  border-color: var(--azul);
-  box-shadow: var(--shadow-drop-4);
-}
-.ordenarPor:active {
-  transform: scale(0.97);
+  background-color: rgba(250, 184, 76, 0.08);
+  border-color: var(--amarelo);
 }
 .infoFiltro {
   width: 134px;
@@ -228,14 +225,11 @@
   padding: var(--padding-13) var(--padding-16) var(--padding-13)
     var(--padding-20);
   cursor: pointer;
-  transition: transform 0.1s, filter 0.1s;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .filtro:hover {
-  border-color: var(--azul);
-  box-shadow: var(--shadow-drop-4);
-}
-.filtro:active {
-  transform: scale(0.97);
+  background-color: rgba(250, 184, 76, 0.08);
+  border-color: var(--amarelo);
 }
 .infoFiltro2 {
   width: 84px;

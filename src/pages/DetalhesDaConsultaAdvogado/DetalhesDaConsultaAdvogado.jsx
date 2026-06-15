@@ -1,9 +1,10 @@
 import { useCallback, useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { createPortal } from "react-dom";
 import Navbar from "../../components/NavbarAdvogado";
 import CardAndamento from "../../components/CardAndamento";
 import { andamentos } from "../../data/andamentos";
+import { NAV_LATERAL } from "../DocumentosProcessoAdvogado/data/documentos";
 import styles from "./DetalhesDaConsultaAdvogado.module.css";
 
 // ---------------------------------------------------------------------------
@@ -749,11 +750,12 @@ const PainelLateral = ({ className = "", style, onEditarObservacoesClick }) => {
 const DetalhesDaConsultaAdvogado = () => {
   const [andamentosList, setAndamentosList] = useState(andamentos);
   const nextAndamentoId = useRef(5);
+  const navigate = useNavigate();
 
-  const handleVoltarClick = useCallback(() => {}, []);
+  const handleVoltarClick = useCallback(() => navigate("/meus-processosadvogado"), [navigate]);
   const handleMeusProcessosClick = useCallback(() => {}, []);
-  const handleDetalhesClick = useCallback(() => {}, []);
-  const handleDocumentosClick = useCallback(() => {}, []);
+  const handleDetalhesClick = useCallback(() => navigate("/detalhes-processoadvogado"), [navigate]);
+  const handleDocumentosClick = useCallback(() => navigate("/documentos-processoadvogado"), [navigate]);
   const handleCategoriaChange = useCallback((opt) => {}, []);
   const handleStatusChange = useCallback((opt) => {}, []);
   const handleEditarObservacoesClick = useCallback(() => {}, []);
@@ -801,16 +803,18 @@ const DetalhesDaConsultaAdvogado = () => {
 
       <main className={styles.conteudo}>
         {/* Navbar lateral */}
-        <aside className={styles.navLateral}>
-          <div className={styles.navLateralItens}>
-            <button className={styles.navLateralItemAtivo} onClick={handleDetalhesClick}>
-              <img alt="" src="/Icone-Detalhes-Processo.svg" />
-              <span>Detalhes do processo</span>
-            </button>
-            <button className={styles.navLateralItem} onClick={handleDocumentosClick}>
-              <img alt="" src="/Icone-Documentos-Processo.svg" />
-              <span>Documentos do processo</span>
-            </button>
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarInner}>
+            {NAV_LATERAL.map(({ label, icone }) => (
+              <button
+                key={label}
+                className={[styles.sidebarItem, label === "Detalhes do processo" ? styles.sidebarItemAtivo : ""].join(" ")}
+                onClick={label === "Detalhes do processo" ? handleDetalhesClick : handleDocumentosClick}
+              >
+                <img className={styles.sidebarIcone} alt="" src={icone} />
+                <span>{label}</span>
+              </button>
+            ))}
           </div>
         </aside>
 

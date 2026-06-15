@@ -22,6 +22,22 @@
   overflow-x: hidden;
 }
 
+.corpoPrincipal > * {
+  animation: fadeInUp 0.35s ease both;
+}
+
+.corpoPrincipal > *:nth-child(2) { animation-delay: 0.05s; }
+
+.cumprimentosIa {
+  animation: fadeInUp 0.35s ease both;
+  animation-delay: 0.05s;
+}
+
+.formularioChat {
+  animation: fadeInUp 0.35s ease both;
+  animation-delay: 0.1s;
+}
+
 .sidebarEsquerda {
   background-color: var(--branco);
   border-right: 1px solid var(--color-gainsboro-100);
@@ -90,7 +106,7 @@
   gap: 28px;
   width: 100%;
   margin: auto 0;
-  animation: fadeIn 0.3s ease;
+  animation: fadeInUp 0.35s ease both;
 }
 
 .areaChat {
@@ -320,9 +336,9 @@
   width: 13px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media screen and (max-width: 1200px) {

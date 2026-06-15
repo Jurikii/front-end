@@ -13,9 +13,12 @@
 }
 .mainBody {
   align-self: stretch;
+  min-height: calc(100vh - 81px);
+  display: flex;
+  align-items: stretch;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: 0 0 0 10px;
+  padding: 0 7px 0 0;
   box-sizing: border-box;
   gap: 8px;
   max-width: 100%;
@@ -25,77 +28,87 @@
   color: var(--preto);
   font-family: var(--font-montserrat);
 }
-.calendrio,
-.infoNavbarLateral,
-.navbarLateral {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+.mainBody > * {
+  animation: fadeInUp 0.35s ease both;
 }
-.navbarLateral {
-  align-self: stretch;
+
+.mainBody > *:nth-child(2) { animation-delay: 0.05s; }
+
+.bodyConsultas3 > * {
+  animation: fadeInUp 0.35s ease both;
+}
+
+.bodyConsultas3 > *:nth-child(2) { animation-delay: 0.05s; }
+.bodyConsultas3 > *:nth-child(3) { animation-delay: 0.1s; }
+.bodyConsultas3 > *:nth-child(4) { animation-delay: 0.15s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   flex: 1;
   background-color: var(--branco);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
-  padding: 20px 10px;
+  padding: var(--padding-20) 10px;
   min-width: 211px;
   max-width: 217px;
-}
-.calendrio,
-.infoNavbarLateral {
-  align-self: stretch;
-}
-.infoNavbarLateral {
-  align-self: stretch;
-  gap: 20px;
-  position: sticky;
-  top: 90px;
-}
-.calendrio {
-  align-self: stretch;
-  height: 56px;
-  border-radius: var(--br-10);
-  justify-content: center;
-  padding: 16px 15px;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-.calendrio:hover {
-  background-color: rgba(254, 249, 240, 0.6);
-}
-.minhasConsultas {
-  width: 116px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.vectorIcon {
-  width: 20px;
-  position: relative;
-  max-height: 100%;
-}
-.minhasConsultas2 {
-  align-self: stretch;
-  border-radius: var(--br-10);
-  background-color: var(--color-floralwhite-200);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding: 16px 15px;
+}
+
+.sidebarNav {
+  position: sticky;
+  top: 20px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-20);
+}
+
+.sidebarItemAtivo,
+.sidebarItem {
+  align-self: stretch;
+  border: none;
+  border-radius: var(--br-10);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-12) var(--padding-15);
+  gap: var(--gap-9);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  text-align: left;
 }
-.minhasConsultas2:hover {
-  background-color: rgba(254, 249, 240, 0.6);
+
+.sidebarItemAtivo {
+  background-color: var(--color-floralwhite);
+  color: var(--azul);
 }
-.vectorIcon2 {
-  height: 24px;
-  width: 20px;
+
+.sidebarItem {
+  background-color: transparent;
+  color: var(--preto);
+}
+
+.sidebarItem:hover {
+  background-color: var(--color-floralwhite);
+  color: var(--azul);
+}
+
+.sidebarIcone {
+  width: var(--width-20);
   position: relative;
+  max-height: 100%;
 }
 .bodyConsultas,
 .bodyConsultas2 {
@@ -762,5 +775,12 @@
   }
   .informaesAdicionaisConsult {
     padding: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .sidebar {
+    flex: 1;
+    min-height: auto;
   }
 }

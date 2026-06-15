@@ -208,8 +208,8 @@ export const DOCUMENTOS = [
 
 // Itens da navbar lateral
 export const NAV_LATERAL = [
-  { label: "Detalhes do processo",   icone: "/Vector5.svg", ativo: false },
-  { label: "Documentos do processo", icone: "/Vector9.svg", ativo: true  },
+  { label: "Detalhes do processo",   icone: "/Icone-Detalhes-Processo.svg", ativo: false },
+  { label: "Documentos do processo", icone: "/Icone-Documentos-Processo.svg", ativo: true  },
 ];
 
 // Itens do menu principal

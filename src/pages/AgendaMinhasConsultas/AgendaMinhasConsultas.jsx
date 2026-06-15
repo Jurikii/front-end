@@ -1,17 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/NavbarAdvogado";
-import Sidebar from "../../components/Sidebar";
 import ConsultaCard from "../../components/ConsultaCard";
 import OrdenarPor from "../../components/OrdenarPor";
 import { consultas as dataConsultas } from "../../data/consultas";
 import styles from "./AgendaMinhasConsultas.module.css";
 
+const SIDEBAR_ITENS = [
+  { id: "calendario", label: "Calendário", icone: "/Icone-calendario.svg" },
+  { id: "minhas-consultas", label: "Minhas consultas", icone: "/Icone-minhas-consultas.svg" },
+];
+
 const ITENS_POR_PAGINA = 5;
 
 const AgendaMinhasConsultas = () => {
+  const navigate = useNavigate();
+  const [secaoAtiva, setSecaoAtiva] = useState("minhas-consultas");
   const [consultas, setConsultas] = useState(dataConsultas);
   const [filtroAtivo, setFiltroAtivo] = useState("agendamento");
   const [mostrarOrdenarPor, setMostrarOrdenarPor] = useState(false);
+  const [sortBy, setSortBy] = useState("recentes");
   const [paginaAtual, setPaginaAtual] = useState(1);
 
   const toggleExpandido = (id) => {
@@ -20,7 +28,30 @@ const AgendaMinhasConsultas = () => {
     );
   };
 
-  const consultasFiltradas = consultas.filter((c) =>
+  const consultasOrdenadas = [...consultas].sort((a, b) => {
+    switch (sortBy) {
+      case "antigos": {
+        const [da, ma, aa] = a.data.split("/").map(Number);
+        const [db, mb, ab] = b.data.split("/").map(Number);
+        const dateA = new Date(aa, ma - 1, da);
+        const dateB = new Date(ab, mb - 1, db);
+        return dateA - dateB || a.horario.localeCompare(b.horario);
+      }
+      case "nome-az":
+        return a.cliente.nome.localeCompare(b.cliente.nome);
+      case "nome-za":
+        return b.cliente.nome.localeCompare(a.cliente.nome);
+      default: {
+        const [da, ma, aa] = a.data.split("/").map(Number);
+        const [db, mb, ab] = b.data.split("/").map(Number);
+        const dateA = new Date(aa, ma - 1, da);
+        const dateB = new Date(ab, mb - 1, db);
+        return dateB - dateA || b.horario.localeCompare(a.horario);
+      }
+    }
+  });
+
+  const consultasFiltradas = consultasOrdenadas.filter((c) =>
     filtroAtivo === "agendamento"
       ? c.status === "Em agendamento"
       : c.status === "Finalizada"
@@ -35,12 +66,33 @@ const AgendaMinhasConsultas = () => {
     setPaginaAtual(1);
   };
 
+  const handleSort = (id) => {
+    setSortBy(id);
+    setPaginaAtual(1);
+  };
+
   return (
     <div className={styles.agendaMinhasConsultas}>
       <Navbar />
 
       <main className={styles.mainBody}>
-        <Sidebar />
+        <aside className={styles.sidebar}>
+          <nav className={styles.sidebarNav}>
+            {SIDEBAR_ITENS.map(({ id, label, icone }) => (
+              <button
+                key={id}
+                className={secaoAtiva === id ? styles.sidebarItemAtivo : styles.sidebarItem}
+                onClick={() => {
+                  setSecaoAtiva(id);
+                  if (id === "calendario") navigate("/calendarioadvogado");
+                }}
+              >
+                <img className={styles.sidebarIcone} alt="" src={icone} />
+                <span>{label}</span>
+              </button>
+            ))}
+          </nav>
+        </aside>
 
         <section className={styles.bodyConsultas}>
           <div className={styles.bodyConsultas2}>
@@ -94,7 +146,7 @@ const AgendaMinhasConsultas = () => {
       </main>
 
       {mostrarOrdenarPor && (
-        <OrdenarPor onClose={() => setMostrarOrdenarPor(false)} />
+        <OrdenarPor onClose={() => setMostrarOrdenarPor(false)} onSort={handleSort} />
       )}
     </div>
   );

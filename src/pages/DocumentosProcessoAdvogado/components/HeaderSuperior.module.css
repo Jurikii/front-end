@@ -204,6 +204,11 @@
   font-size: var(--fs-15);
   font-weight: 600;
   user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.botaoFiltro:hover {
+  background-color: rgba(250, 184, 76, 0.08);
+  border-color: var(--amarelo);
 }
 
 .backdrop {

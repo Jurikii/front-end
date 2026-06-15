@@ -13,7 +13,6 @@
   font-size: 14px;
   color: var(--azul);
   text-align: left;
-  cursor: pointer;
   box-shadow: var(--shadow-drop-4);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }

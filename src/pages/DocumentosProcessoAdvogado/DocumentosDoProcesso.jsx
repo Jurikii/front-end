@@ -1,8 +1,10 @@
 import { useCallback, useState, useMemo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/NavbarAdvogado";
 import HeaderSuperior from "./components/HeaderSuperior";
 import TabelaDocumentos from "./components/TabelaDocumentos";
 import NovoDocumentoModal from "./components/NovoDocumentoModal";
-import { NAV_LATERAL, MENU_ABAS, DOCUMENTOS } from "./data/documentos";
+import { NAV_LATERAL, DOCUMENTOS } from "./data/documentos";
 import styles from "./DocumentosDoProcesso.module.css";
 
 const ITENS_POR_PAGINA = 5;
@@ -188,9 +190,21 @@ const DocumentosDoProcesso = () => {
     ];
   }, [dynamicUrgencias]);
 
+  const navigate = useNavigate();
+
   const handleNavClick = useCallback((destino) => {
-    console.log(`Navegar para: ${destino}`);
-  }, []);
+    const rotas = {
+      inicio: "/homeadvogado",
+      chat: "/chatadvogado",
+      agenda: "/agendaadvogado",
+      processos: "/meus-processosadvogado",
+      configuracao: "/configuracoesadvogado",
+      perfil: "/perfiladvogado",
+      configuracoes: "/configuracoesadvogado",
+    };
+    const rota = rotas[destino];
+    if (rota) navigate(rota);
+  }, [navigate]);
 
   // Categorias dinâmicas baseadas nos documentos atuais
   const categorias = useMemo(() => {
@@ -348,62 +362,7 @@ const DocumentosDoProcesso = () => {
 
   return (
     <div className={styles.pagina}>
-      {/* ── Menu superior ── */}
-      <header className={styles.menu}>
-        <div className={styles.logo}>
-          <img
-            className={styles.logoImagem}
-            loading="lazy"
-            alt="Logo Juriki"
-            src="/Logo-juriki-girassol-completo-2@2x.png"
-          />
-          <div className={styles.logoTexto}>
-            <h2 className={styles.logoNome}>JURIKI</h2>
-            <span className={styles.logoSlogan}>A justiça que fala a sua língua</span>
-          </div>
-        </div>
-
-        <nav className={styles.abas}>
-          {MENU_ABAS.map(({ label, onClick }) => (
-            <button
-              key={label}
-              className={[
-                styles.aba,
-                label === "Meus processos" ? styles.abaAtiva : "",
-              ].join(" ")}
-              onClick={() => onClick && handleNavClick(onClick)}
-            >
-              {label}
-            </button>
-          ))}
-        </nav>
-
-        <div className={styles.usuario}>
-          <img
-            className={styles.usuarioIconeConfig}
-            alt="Configurações"
-            src="/Vector.svg"
-            onClick={() => handleNavClick("configuracoes")}
-          />
-          <img
-            className={styles.usuarioIconeNotif}
-            alt="Notificações"
-            src="/Vector1.svg"
-          />
-          <div className={styles.usuarioDivisor} />
-          <button
-            className={styles.usuarioPerfil}
-            onClick={() => handleNavClick("perfil")}
-          >
-            <img className={styles.usuarioAvatar} alt="Perfil" src="/user.svg" />
-            <div className={styles.usuarioInfo}>
-              <span className={styles.usuarioNome}>Alice Silva</span>
-              <span className={styles.usuarioOab}>OAB/SP 123.456</span>
-            </div>
-            <img className={styles.usuarioSeta} alt="" src="/Vector3.svg" />
-          </button>
-        </div>
-      </header>
+      <Navbar />
 
       {/* ── Área principal ── */}
       <main className={styles.conteudo}>
@@ -414,6 +373,10 @@ const DocumentosDoProcesso = () => {
             <button
               key={label}
               className={[styles.sidebarItem, ativo ? styles.sidebarItemAtivo : ""].join(" ")}
+              onClick={() => {
+                if (label === "Detalhes do processo") navigate("/detalhes-processoadvogado");
+                if (label === "Documentos do processo") navigate("/documentos-processoadvogado");
+              }}
             >
               <img className={styles.sidebarIcone} alt="" src={icone} />
               <span>{label}</span>

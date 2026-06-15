@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/NavbarAdvogado";
-import Sidebar from "../../components/Sidebar";
 import LinhaDeDias from "../../components/LinhaDeDias";
 import CardConsulta from "../../components/CardConsulta";
 import styles from "./AgendaCalendario.module.css";
@@ -124,6 +124,7 @@ function obterSemanaDoDia(dia, mes, ano) {
 }
 
 const AgendaCalendario = () => {
+  const navigate = useNavigate();
   const [secaoAtiva, setSecaoAtiva] = useState("calendario");
   const hoje = new Date();
   const [mesAtual, setMesAtual] = useState(hoje.getMonth());
@@ -385,7 +386,10 @@ const AgendaCalendario = () => {
               <button
                 key={id}
                 className={secaoAtiva === id ? styles.sidebarItemAtivo : styles.sidebarItem}
-                onClick={() => setSecaoAtiva(id)}
+                onClick={() => {
+                  setSecaoAtiva(id);
+                  if (id === "minhas-consultas") navigate("/agendaadvogado");
+                }}
               >
                 <img className={styles.sidebarIcone} alt="" src={icone} />
                 <span>{label}</span>
@@ -664,7 +668,7 @@ const AgendaCalendario = () => {
                 ))}
               </div>
 
-              <button className={styles.btnVerMais}>Ver mais consultas</button>
+              <button className={styles.btnVerMais} onClick={() => navigate("/agendaadvogado")}>Ver mais consultas</button>
             </aside>
           </div>
         </section>

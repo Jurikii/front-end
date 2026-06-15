@@ -5,7 +5,7 @@ import styles from "./NavbarAdvogado.module.css";
 const NAV_LINKS = [
   { label: "Início", paths: ["/homeadvogado"] },
   { label: "Chat", paths: ["/chatadvogado"] },
-  { label: "Agenda", paths: ["/agendaadvogado", "/calendarioadvogado"] },
+  { label: "Agenda", paths: ["/calendarioadvogado", "/agendaadvogado"] },
   { label: "Meus processos", paths: ["/meus-processosadvogado", "/detalhes-processoadvogado"] },
 ];
 

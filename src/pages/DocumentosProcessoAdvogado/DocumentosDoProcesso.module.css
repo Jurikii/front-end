@@ -11,143 +11,6 @@
 }
 
 /* ─── Menu superior ─────────────────────────────────────────── */
-.menu {
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--gap-20);
-  padding: var(--padding-12) var(--padding-29) var(--padding-11);
-  background-color: var(--branco);
-  border-bottom: 1px solid var(--color-steelblue);
-  font-size: var(--fs-20);
-  color: var(--preto);
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-10);
-  height: var(--height-65);
-}
-
-.logoImagem {
-  width: 61px;
-  object-fit: cover;
-}
-
-.logoTexto {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.logoNome {
-  margin: 0;
-  font-size: var(--fs-25);
-  font-weight: 700;
-}
-
-.logoSlogan {
-  font-size: var(--fs-14);
-  color: var(--azul);
-}
-
-/* Abas de navegação */
-.abas {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-60);
-  padding: 0 var(--padding-10);
-  min-width: var(--min-w-311);
-}
-
-.aba {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: var(--fs-20);
-  font-weight: 600;
-  font-family: inherit;
-  color: var(--preto);
-  padding: 0;
-}
-
-.abaAtiva {
-  text-decoration: underline;
-  color: var(--amarelo);
-}
-
-/* Área do usuário */
-.usuario {
-  flex: 1.0287;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--gap-20);
-  min-width: var(--min-w-311);
-  max-width: 345px;
-}
-
-.usuarioIconeConfig,
-.usuarioIconeNotif {
-  cursor: pointer;
-  height: var(--height-29);
-}
-
-.usuarioIconeConfig { width: 31px; }
-.usuarioIconeNotif  { width: var(--width-26); }
-
-.usuarioDivisor {
-  width: var(--width-1);
-  height: var(--height-24);
-  background-color: var(--color-gainsboro);
-}
-
-.usuarioPerfil {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-10);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font: inherit;
-}
-
-.usuarioAvatar {
-  height: 42px;
-  width: 42px;
-  border-radius: 360px;
-}
-
-.usuarioInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.usuarioNome {
-  font-size: var(--fs-20);
-  font-weight: 600;
-}
-
-.usuarioOab {
-  font-size: var(--fs-14);
-  font-weight: 500;
-  color: var(--color-darkslategray);
-}
-
-.usuarioSeta {
-  height: var(--height-11);
-  width: var(--width-20);
-}
-
 /* ─── Área de conteúdo ──────────────────────────────────────── */
 .conteudo {
   display: flex;
@@ -159,50 +22,63 @@
 
 /* ─── Sidebar ───────────────────────────────────────────────── */
 .sidebar {
-  width: 217px;
-  min-width: 215px;
-  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex: 1;
   background-color: var(--branco);
-  border-right: var(--border-1);
-  padding: var(--padding-20) var(--padding-10);
+  border: var(--border-1);
+  box-sizing: border-box;
+  padding: var(--padding-20) 10px;
+  min-width: 211px;
+  max-width: 217px;
   display: flex;
   flex-direction: column;
-  gap: var(--gap-20);
+  align-items: flex-start;
 }
 
 .sidebarInner {
   position: sticky;
-  top: 78px;
+  top: 20px;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--gap-20);
 }
 
 .sidebarItem {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-20);
-  height: var(--height-65);
-  border-radius: var(--br-10);
-  padding: var(--padding-20) var(--padding-15);
-  background: none;
+  align-self: stretch;
   border: none;
+  border-radius: var(--br-10);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-12) var(--padding-15);
+  gap: var(--gap-9);
   cursor: pointer;
-  font: inherit;
+  font-family: var(--font-montserrat);
   font-size: var(--fs-14);
+  font-weight: 500;
   text-align: left;
+  background-color: transparent;
   color: var(--preto);
-  width: 100%;
 }
 
 .sidebarItemAtivo {
   background-color: var(--color-floralwhite);
+  color: var(--azul);
+}
+
+.sidebarItem:hover {
+  background-color: var(--color-floralwhite);
+  color: var(--azul);
 }
 
 .sidebarIcone {
   width: var(--width-20);
-  height: var(--height-24);
-  flex-shrink: 0;
+  position: relative;
+  max-height: 100%;
 }
 
 /* ─── Corpo principal ───────────────────────────────────────── */
@@ -272,17 +148,11 @@
 }
 
 /* ─── Responsivo ────────────────────────────────────────────── */
-@media screen and (max-width: 1325px) {
-  .logoSlogan { display: none; }
-  .paginacao  { padding-right: 32px; }
-}
-
 @media screen and (max-width: 1125px) {
   .corpoPainel { padding-top: var(--padding-29); padding-bottom: 41px; }
 }
 
 @media screen and (max-width: 800px) {
-  .abas        { gap: var(--gap-30); }
   .corpoPainel { gap: 17px; }
   .paginacao   { flex-wrap: wrap; }
 }
