@@ -6,16 +6,17 @@
   flex-direction: column;
   align-items: flex-start;
   padding: var(--padding-26);
-  gap: var(--gap-28);
+  gap: var(--gap-20);
   text-align: left;
   font-size: var(--fs-20);
   color: var(--color-black);
   font-family: var(--font-montserrat);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .section:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-drop-2);
+  border-color: rgba(217, 217, 217, 0.8);
 }
 
 .title {
@@ -41,7 +42,7 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 32px;
   padding: 6px 0;
 }
 
@@ -49,7 +50,7 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 32px;
   justify-content: flex-start;
 }
 
@@ -60,7 +61,7 @@
   align-content: center;
   flex-wrap: wrap;
   padding: 6px 0;
-  gap: var(--gap-10) 50px;
+  gap: var(--gap-10) 32px;
 }
 
 .labelGroup,
@@ -75,10 +76,11 @@
 
 .icon,
 .iconLast {
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
   flex-shrink: 0;
   position: relative;
+  object-fit: contain;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -126,10 +128,10 @@
     flex-wrap: wrap;
   }
   .row {
-    gap: 35px;
+    gap: 24px;
   }
   .rowWrap {
-    gap: 35px;
+    gap: 24px;
   }
 }
 

@@ -4,7 +4,7 @@
   background-color: var(--branco);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--padding-0) var(--padding-0) 12.9px;
   box-sizing: border-box;
   line-height: normal;
@@ -14,25 +14,31 @@
 
 .main {
   width: 100%;
+  align-self: stretch;
+  min-height: calc(100vh - 81px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--padding-32) var(--padding-0);
+  padding: 24px 0 40px;
   box-sizing: border-box;
-  gap: var(--gap-40);
-  max-width: 1292px;
-  transition: padding 0.3s ease, gap 0.3s ease;
 }
 
 .content {
-  align-self: stretch;
+  align-self: center;
+  width: 100%;
+  max-width: 1150px;
+  border-radius: var(--br-12);
+  background-color: var(--branco);
+  box-shadow: var(--shadow-drop);
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   align-content: flex-start;
-  gap: 43px;
-  max-width: 100%;
-  transition: gap 0.3s ease;
+  gap: 24px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
 }
 
 .leftColumn {
@@ -46,22 +52,21 @@
 }
 
 @media screen and (max-width: 1325px) {
-  .main {
+  .content {
     max-width: 100%;
   }
 }
 
 @media screen and (max-width: 1125px) {
   .main {
-    padding-top: 21px;
-    padding-bottom: 21px;
+    padding-top: 20px;
+    padding-bottom: 30px;
     box-sizing: border-box;
   }
 }
 
 @media screen and (max-width: 800px) {
   .main {
-    gap: var(--gap-20);
     padding-top: var(--padding-20);
     padding-bottom: var(--padding-20);
     box-sizing: border-box;
@@ -69,6 +74,14 @@
 
   .content {
     gap: 21px;
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .content {
+    padding: 12px;
+    gap: 16px;
   }
 }
 

@@ -13,11 +13,12 @@
   font-size: var(--fs-24);
   color: var(--azul-escuro);
   font-family: var(--font-montserrat);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-drop-2);
+  border-color: rgba(217, 217, 217, 0.8);
 }
 
 .contentWrapper {
@@ -46,13 +47,13 @@
 }
 
 .tagBadge {
-  height: 36px;
+  min-height: 32px;
   border-radius: var(--br-10);
   background-color: var(--color-darkgreen-300);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-5) 10px;
+  padding: var(--padding-5) 12px;
   box-sizing: border-box;
   color: var(--color-darkgreen-200);
 }
@@ -130,10 +131,16 @@
 .trocarBtn:hover {
   background-color: var(--amarelo);
   color: var(--branco);
+  box-shadow: 0 2px 8px rgba(250, 184, 76, 0.25);
 }
 
 .trocarBtn:hover .trocarIcon {
   filter: brightness(0) invert(1);
+}
+
+.trocarBtn:focus-visible {
+  outline: 2px solid var(--azul-sereno);
+  outline-offset: 2px;
 }
 
 .trocarIcon {
@@ -143,14 +150,13 @@
 }
 
 .statusBadge {
-  width: 150px;
-  height: 28px;
+  min-width: 120px;
   border-radius: var(--br-10);
   background-color: var(--color-darkgreen-300);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-5);
+  padding: 6px 16px;
   box-sizing: border-box;
   font-size: var(--fs-16);
   color: var(--color-darkgreen-100);
@@ -167,6 +173,7 @@
 @media screen and (max-width: 800px) {
   .card {
     gap: var(--gap-15);
+    padding: var(--gap-20);
   }
   .contentWrapper {
     gap: var(--gap-15);
@@ -174,9 +181,15 @@
   .tagTitle {
     font-size: var(--fs-20);
   }
+  .statusBadge {
+    font-size: var(--fs-14);
+  }
 }
 
 @media screen and (max-width: 450px) {
+  .card {
+    padding: var(--padding-15);
+  }
   .tagTitle {
     font-size: var(--fs-16);
   }

@@ -138,6 +138,7 @@ const AgendaCalendario = () => {
   const timeoutRef = useRef(null);
   const bolinhaElRef = useRef(null);
   const painelRef = useRef(null);
+  const dadosPainelRef = useRef({ label: "", consultas: [] });
   const mostrarTodasConsultas = true;
 
   useEffect(() => {
@@ -174,11 +175,10 @@ const AgendaCalendario = () => {
     }
   }, [diaHovered, posicionarPainel]);
 
-  const handleBolinhaEnter = useCallback((dia, pos, el) => {
+  const handleBolinhaEnter = useCallback((dia, _pos, el) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     bolinhaElRef.current = el;
     setDiaHovered(dia);
-    setPosPanel(pos);
   }, []);
 
   const handleBolinhaLeave = useCallback(() => {
@@ -193,8 +193,10 @@ const AgendaCalendario = () => {
   }, []);
 
   const handlePainelLeave = useCallback(() => {
-    setDiaHovered(null);
-    bolinhaElRef.current = null;
+    timeoutRef.current = setTimeout(() => {
+      setDiaHovered(null);
+      bolinhaElRef.current = null;
+    }, 300);
   }, []);
 
   const mesData = useMemo(() => gerarCalendario(mesAtual, anoAtual), [mesAtual, anoAtual]);
@@ -214,20 +216,19 @@ const AgendaCalendario = () => {
     ),
   }));
 
-  const diaHoveredData = diaHovered !== null
-    ? new Date(anoAtual, mesAtual, diaHovered)
-    : null;
-  const diaHoveredLabel = diaHoveredData
-    ? `${DIAS_SEMANA_NOMES[diaHoveredData.getDay()]}, ${String(diaHovered).padStart(2, "0")}/${String(mesAtual + 1).padStart(2, "0")}`
-    : "";
+  if (diaHovered !== null) {
+    const diaHoveredData = new Date(anoAtual, mesAtual, diaHovered);
+    dadosPainelRef.current = {
+      label: `${DIAS_SEMANA_NOMES[diaHoveredData.getDay()]}, ${String(diaHovered).padStart(2, "0")}/${String(mesAtual + 1).padStart(2, "0")}`,
+      consultas: CONSULTAS_POR_DIA[diaHovered] || [],
+    };
+  }
 
-  const consultasDoDia = diaHovered !== null
-    ? (CONSULTAS_POR_DIA[diaHovered] || [])
-    : [];
+  const diaHoveredLabel = dadosPainelRef.current.label;
+  const consultasDoDia = dadosPainelRef.current.consultas;
   const consultasVisiveis = mostrarTodasConsultas
     ? consultasDoDia
     : consultasDoDia.slice(0, 2);
-
   const consultasDoDiaSelecionado = (mesAtual === 5 && anoAtual === 2026)
     ? (CONSULTAS_POR_DIA[diaSelecionado] || [])
     : [];
@@ -637,41 +638,42 @@ const AgendaCalendario = () => {
               )}
 
             </div>
-
-            <aside
-              ref={painelRef}
-              className={`${styles.painelDia} ${diaHovered !== null ? styles.painelDiaVisivel : ""}`}
-              style={{
-                position: "fixed",
-                left: posPanel.left,
-                top: posPanel.top,
-                bottom: "auto",
-              }}
-              onMouseEnter={handlePainelEnter}
-              onMouseLeave={handlePainelLeave}
-            >
-              <div className={styles.painelDiaCabecalho}>
-                <span className={styles.painelDiaTitulo}>{diaHoveredLabel}</span>
-                <div className={styles.painelDiaContagem}>
-                  <span>{consultasDoDia.length} consultas</span>
-                </div>
-              </div>
-
-              <div className={styles.listaConsultas}>
-                {consultasVisiveis.map((consulta, i) => (
-                  <CardConsulta
-                    key={i}
-                    nomeCliente={consulta.nomeCliente}
-                    assunto={consulta.assunto}
-                    horario={consulta.horario}
-                  />
-                ))}
-              </div>
-
-              <button className={styles.btnVerMais} onClick={() => navigate("/agendaadvogado")}>Ver mais consultas</button>
-            </aside>
           </div>
         </section>
+
+        <aside
+          ref={painelRef}
+          className={`${styles.painelDia} ${diaHovered !== null ? styles.painelDiaVisivel : ""}`}
+          style={{
+            position: "fixed",
+            left: posPanel.left,
+            top: posPanel.top,
+            bottom: "auto",
+          }}
+          onMouseEnter={handlePainelEnter}
+          onMouseLeave={handlePainelLeave}
+        >
+          <div className={styles.painelDiaCabecalho}>
+            <span className={styles.painelDiaTitulo}>{diaHoveredLabel}</span>
+            <div className={styles.painelDiaContagem}>
+              <span>{consultasDoDia.length} consultas</span>
+            </div>
+          </div>
+
+          <div className={styles.listaConsultas}>
+            {consultasVisiveis.map((consulta, i) => (
+              <CardConsulta
+                key={i}
+                nomeCliente={consulta.nomeCliente}
+                assunto={consulta.assunto}
+                horario={consulta.horario}
+              />
+            ))}
+          </div>
+
+          <button className={styles.btnVerMais} onClick={() => navigate("/agendaadvogado")}>Ver mais consultas</button>
+        </aside>
+
       </main>
     </div>
   );

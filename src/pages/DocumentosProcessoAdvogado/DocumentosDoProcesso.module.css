@@ -5,6 +5,7 @@
   background-color: var(--areia);
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   font-family: var(--font-montserrat);
   line-height: normal;
   letter-spacing: normal;
@@ -12,11 +13,17 @@
 
 /* ─── Área de conteúdo ──────────────────────────────────────── */
 .conteudo {
+  align-self: stretch;
+  min-height: calc(100vh - 81px);
   display: flex;
   align-items: stretch;
-  flex: 1;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0 7px 0 0;
+  box-sizing: border-box;
   gap: 8px;
-  padding: 0 var(--padding-10) 0 0;
+  max-width: 100%;
+  flex-shrink: 0;
 }
 
 /* ─── Sidebar ───────────────────────────────────────────────── */
@@ -82,21 +89,30 @@
 
 /* ─── Corpo principal ───────────────────────────────────────── */
 .corpo {
-  flex: 1;
-  padding: var(--padding-12) 0 var(--padding-16);
+  flex: 1.1128;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 8px 0 20px;
   min-width: 310px;
+  max-width: 100%;
   font-size: var(--fs-14);
   color: var(--azul);
 }
 
 .corpoPainel {
-  border-radius: var(--br-10);
+  flex: 1;
+  border-radius: var(--br-12);
   background-color: var(--branco);
   box-shadow: var(--shadow-drop);
-  padding: 44px 22px 63px;
   display: flex;
   flex-direction: column;
-  gap: var(--gap-35);
+  padding: 24px 20px;
+  box-sizing: border-box;
+  gap: 24px;
+  position: relative;
+  isolation: isolate;
+  max-width: 100%;
 }
 
 .corpoPainel > * {
@@ -171,18 +187,22 @@
 }
 
 /* ─── Responsivo ────────────────────────────────────────────── */
+@media screen and (max-width: 1150px) {
+  .corpoPainel { max-width: 100%; }
+}
+
 @media screen and (max-width: 1125px) {
-  .corpoPainel { padding-top: var(--padding-29); padding-bottom: 41px; }
+  .corpoPainel { padding-top: 20px; padding-bottom: 20px; }
 }
 
 @media screen and (max-width: 800px) {
-  .corpoPainel { gap: 17px; }
+  .corpoPainel { gap: 17px; padding-top: 16px; padding-bottom: 16px; }
   .paginacao   { flex-wrap: wrap; }
 }
 
 @media screen and (max-width: 450px) {
   .sidebar { min-width: 100%; max-width: 100%; height: auto; position: relative; }
   .conteudo { flex-direction: column; padding: 0; }
-  .corpoPainel { padding-top: var(--padding-20); padding-bottom: 27px; }
+  .corpoPainel { padding: 12px; }
   .paginacaoControles { flex-wrap: wrap; }
 }

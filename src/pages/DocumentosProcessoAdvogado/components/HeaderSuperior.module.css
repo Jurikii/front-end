@@ -15,13 +15,19 @@
 .botaoVoltar {
   display: flex;
   align-items: center;
-  gap: var(--gap-15);
+  gap: 7px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   color: inherit;
   font: inherit;
+}
+
+.botaoVoltar span {
+  color: var(--azul);
+  font-size: var(--fs-15);
+  font-weight: 600;
 }
 
 .setaVoltar {
