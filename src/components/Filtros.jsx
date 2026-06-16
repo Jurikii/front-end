@@ -11,32 +11,30 @@ const areasDoDir = [
   "Empresarial",
 ];
 
-const niveisUrgencia = ["Alta prioridade", "Média prioridade", "Baixa prioridade"];
-
 const opcoesData = ["Hoje", "Últimos 7 dias", "Últimos 30 dias"];
 
-export default function Filtros({ onClose, onAplicar, onLimpar }) {
-  const [areas, setAreas] = useState({ Trabalhista: true });
-  const [urgencias, setUrgencias] = useState({ "Alta prioridade": true });
-  const [cliente, setCliente] = useState("");
-  const [processo, setProcesso] = useState("");
-  const [dataAtual, setDataAtual] = useState("Hoje");
+export default function Filtros({ onClose, onAplicar, onLimpar, valores: current }) {
+  const [areas, setAreas] = useState(current?.areas ?? {});
+
+  const [cliente, setCliente] = useState(current?.cliente ?? "");
+  const [processo, setProcesso] = useState(current?.processo ?? "");
+  const [dataAtual, setDataAtual] = useState(current?.dataAtual ?? null);
 
   function toggleArea(area) {
     setAreas((prev) => ({ ...prev, [area]: !prev[area] }));
   }
 
-  function toggleUrgencia(nivel) {
-    setUrgencias((prev) => ({ ...prev, [nivel]: !prev[nivel] }));
-  }
-
   function handleLimpar() {
     setAreas({});
-    setUrgencias({});
     setCliente("");
     setProcesso("");
     setDataAtual(null);
     onLimpar?.();
+  }
+
+  function handleAplicar() {
+    onAplicar?.({ areas, cliente, processo, dataAtual });
+    onClose();
   }
 
   return (
@@ -85,31 +83,6 @@ export default function Filtros({ onClose, onAplicar, onLimpar }) {
           </div>
         </div>
 
-        <div className="filtros-divider" />
-
-        {/* Nível de Urgência */}
-        <div className="filtros-secao">
-          <div className="filtros-secao-titulo">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 17l4-8 4 5 3-3 4 6H3z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
-            </svg>
-            <span>Nível de Urgência</span>
-          </div>
-          <div className="filtros-row-urgencia">
-            {niveisUrgencia.map((nivel) => (
-              <label key={nivel} className="filtros-checkbox-label" onClick={() => toggleUrgencia(nivel)}>
-                <span className={`filtros-checkbox ${urgencias[nivel] ? "marcado" : ""}`}>
-                  {urgencias[nivel] && (
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
-                </span>
-                <span className="filtros-checkbox-texto">{nivel}</span>
-              </label>
-            ))}
-          </div>
-        </div>
 
         <div className="filtros-divider" />
 
@@ -164,7 +137,7 @@ export default function Filtros({ onClose, onAplicar, onLimpar }) {
           </div>
           <div className="filtros-row-data">
             {opcoesData.map((opcao) => (
-              <label key={opcao} className="filtros-data-opcao" onClick={() => setDataAtual(opcao)}>
+              <label key={opcao} className="filtros-data-opcao" onClick={() => setDataAtual((prev) => prev === opcao ? null : opcao)}>
                 <span className={`filtros-radio-dot ${dataAtual === opcao ? "selecionado" : ""}`} />
                 <span className="filtros-checkbox-texto">{opcao}</span>
               </label>
@@ -177,7 +150,7 @@ export default function Filtros({ onClose, onAplicar, onLimpar }) {
           <button className="filtros-btn-limpar" onClick={handleLimpar}>
             Limpar filtros
           </button>
-          <button className="filtros-btn-aplicar" onClick={onAplicar}>
+          <button className="filtros-btn-aplicar" onClick={handleAplicar}>
             Aplicar filtros
           </button>
         </div>

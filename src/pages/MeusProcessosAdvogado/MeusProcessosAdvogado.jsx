@@ -15,6 +15,8 @@ const MeusProcessos = () => {
   const [showOrdenarPor, setShowOrdenarPor] = useState(false);
   const [showFiltros, setShowFiltros] = useState(false);
   const [paginaAtual, setPaginaAtual] = useState(1);
+  const [sortOption, setSortOption] = useState("recentes");
+  const [filtrosAplicados, setFiltrosAplicados] = useState(null);
 
   const totais = {
     todos: processos.length,
@@ -23,12 +25,15 @@ const MeusProcessos = () => {
     finalizado: processos.filter((p) => p.status === STATUS.FINALIZADO).length,
   };
 
-  const processosFiltrados = statusFiltro
+  const processosBase = statusFiltro
     ? processos.filter((p) => p.status === statusFiltro)
-    : processos;
+    : [...processos];
 
-  const totalPaginas = Math.ceil(processosFiltrados.length / ITENS_POR_PAGINA);
-  const processosPagina = processosFiltrados.slice(
+  const processosFiltrados = aplicarFiltros(processosBase, filtrosAplicados);
+  const processosOrdenados = ordenarProcessos(processosFiltrados, sortOption);
+
+  const totalPaginas = Math.ceil(processosOrdenados.length / ITENS_POR_PAGINA);
+  const processosPagina = processosOrdenados.slice(
     (paginaAtual - 1) * ITENS_POR_PAGINA,
     paginaAtual * ITENS_POR_PAGINA
   );
@@ -42,6 +47,61 @@ const MeusProcessos = () => {
     setPaginaAtual(pagina);
     window.scrollTo(0, 0);
   };
+
+  function parseDataBR(dataStr) {
+    const [dia, mes, ano] = dataStr.split("/").map(Number);
+    return new Date(ano, mes - 1, dia);
+  }
+
+  function ordenarProcessos(lista, opcao) {
+    const sorted = [...lista];
+    switch (opcao) {
+      case "recentes":
+        sorted.sort((a, b) => parseDataBR(b.atualizadoEm) - parseDataBR(a.atualizadoEm));
+        break;
+      case "antigos":
+        sorted.sort((a, b) => parseDataBR(a.atualizadoEm) - parseDataBR(b.atualizadoEm));
+        break;
+      case "nome-az":
+        sorted.sort((a, b) => a.cliente.nome.localeCompare(b.cliente.nome));
+        break;
+      case "nome-za":
+        sorted.sort((a, b) => b.cliente.nome.localeCompare(a.cliente.nome));
+        break;
+    }
+    return sorted;
+  }
+
+  function aplicarFiltros(lista, filtros) {
+    if (!filtros) return lista;
+    return lista.filter((p) => {
+      const areasAtivas = Object.entries(filtros.areas).filter(([, v]) => v).map(([k]) => k);
+      if (areasAtivas.length > 0 && !areasAtivas.includes(p.area)) return false;
+
+      if (filtros.cliente && !p.cliente.nome.toLowerCase().includes(filtros.cliente.toLowerCase())) return false;
+
+      if (filtros.processo && !p.numero.includes(filtros.processo)) return false;
+
+      if (filtros.dataAtual) {
+        const dataProcesso = parseDataBR(p.atualizadoEm);
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+        if (filtros.dataAtual === "Hoje") {
+          if (dataProcesso.getTime() !== hoje.getTime()) return false;
+        } else if (filtros.dataAtual === "Últimos 7 dias") {
+          const limite = new Date(hoje);
+          limite.setDate(hoje.getDate() - 7);
+          if (dataProcesso < limite) return false;
+        } else if (filtros.dataAtual === "Últimos 30 dias") {
+          const limite = new Date(hoje);
+          limite.setDate(hoje.getDate() - 30);
+          if (dataProcesso < limite) return false;
+        }
+      }
+
+      return true;
+    });
+  }
 
   return (
     <div className={styles.meusProcessos}>
@@ -61,8 +121,8 @@ const MeusProcessos = () => {
           />
         </div>
 
-        {showOrdenarPor && <OrdenarPor onClose={() => setShowOrdenarPor(false)} />}
-        {showFiltros && <Filtros onClose={() => setShowFiltros(false)} />}
+        {showOrdenarPor && <OrdenarPor onClose={() => setShowOrdenarPor(false)} onSort={setSortOption} selecionado={sortOption} />}
+        {showFiltros && <Filtros onClose={() => setShowFiltros(false)} onAplicar={(f) => setFiltrosAplicados(f)} onLimpar={() => setFiltrosAplicados(null)} valores={filtrosAplicados} />}
 
         <BarraPesquisa />
 

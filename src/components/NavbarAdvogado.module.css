@@ -73,7 +73,7 @@
   color: var(--preto);
   padding: 6px 0;
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .navItem::after {
@@ -84,7 +84,7 @@
   width: 0;
   height: 2px;
   background-color: var(--amarelo);
-  transition: width 0.2s ease;
+  transition: width 0.3s ease;
   border-radius: 1px;
 }
 
@@ -96,7 +96,8 @@
   width: 100%;
 }
 
-.navItemActive {
+.navItemActive,
+.navItemActive:hover {
   color: var(--amarelo);
 }
 

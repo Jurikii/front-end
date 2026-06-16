@@ -10,7 +10,6 @@
   letter-spacing: normal;
 }
 
-/* ─── Menu superior ─────────────────────────────────────────── */
 /* ─── Área de conteúdo ──────────────────────────────────────── */
 .conteudo {
   display: flex;
@@ -25,9 +24,9 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  flex: 1;
+  flex-shrink: 0;
   background-color: var(--branco);
-  border: var(--border-1);
+  border: none;
   box-sizing: border-box;
   padding: var(--padding-20) 10px;
   min-width: 211px;
@@ -93,10 +92,20 @@
 .corpoPainel {
   border-radius: var(--br-10);
   background-color: var(--branco);
+  box-shadow: var(--shadow-drop);
   padding: 44px 22px 63px;
   display: flex;
   flex-direction: column;
   gap: var(--gap-35);
+}
+
+.corpoPainel > * {
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ─── Paginação ─────────────────────────────────────────────── */
@@ -172,7 +181,8 @@
 }
 
 @media screen and (max-width: 450px) {
-  .sidebar        { width: auto; flex: 1; }
-  .corpoPainel    { padding-top: var(--padding-20); padding-bottom: 27px; }
+  .sidebar { min-width: 100%; max-width: 100%; height: auto; position: relative; }
+  .conteudo { flex-direction: column; padding: 0; }
+  .corpoPainel { padding-top: var(--padding-20); padding-bottom: 27px; }
   .paginacaoControles { flex-wrap: wrap; }
 }

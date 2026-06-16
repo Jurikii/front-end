@@ -27,7 +27,7 @@
   flex-wrap: nowrap;
   padding: var(--padding-0) var(--padding-12) var(--padding-0) var(--padding-0);
   box-sizing: border-box;
-  gap: var(--gap-12);
+  gap: 8px;
   max-width: 100%;
   z-index: 3;
   position: relative;
@@ -42,7 +42,7 @@
   height: 100vh;
   flex: 1;
   background-color: var(--branco);
-  border: var(--border-1);
+  border: none;
   box-sizing: border-box;
   padding: var(--padding-20) 10px;
   min-width: 211px;
@@ -127,6 +127,7 @@
   height: fit-content;
   align-self: flex-start;
   width: 100%;
+  box-shadow: var(--shadow-drop);
 }
 
 /* =========================================================
@@ -280,6 +281,7 @@
     opacity: 0;
     transform: scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -291,6 +293,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.7);
@@ -305,6 +308,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1191,6 +1195,7 @@
     opacity: 0;
     transform: translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1323,9 +1328,11 @@
     padding-bottom: var(--padding-24);
     box-sizing: border-box;
   }
+
   .linhaSuperiror {
     flex-direction: column;
   }
+
   .andamentos {
     max-width: 100%;
     flex: 1;
@@ -1336,48 +1343,61 @@
   .tituloPagina {
     font-size: var(--fs-28);
   }
+
   .clienteHeader {
     gap: var(--gap-20);
     max-width: 100%;
   }
+
   .dadosCliente,
   .trabalhista {
     flex-wrap: wrap;
   }
+
   .separador {
     width: 100%;
     height: var(--height-1);
   }
+
   .separadorHorizontal,
   .resumo {
     max-width: 100%;
   }
+
   .resumoCorpo,
   .resumoHeader {
     flex-wrap: wrap;
   }
+
   .informacoesProcesso {
     gap: var(--gap-15);
   }
+
   .infoItem {
     flex-wrap: wrap;
   }
+
   .andamentos {
     max-width: 100%;
     flex: 1;
   }
+
   .painelLateral {
     gap: 26px;
   }
+
   .observacoes {
     max-width: 100%;
   }
+
   .observacoesCorpo {
     flex-wrap: wrap;
   }
+
   .observacoesTexto {
     max-width: 100%;
   }
+
   .tituloPaginaMobile {
     font-size: var(--fs-28);
   }
@@ -1387,39 +1407,49 @@
   .sidebar {
     flex: 1;
   }
+
   .tituloPagina {
     font-size: var(--fs-21);
   }
+
   .detalhesCard {
     padding-top: var(--padding-20);
     padding-bottom: var(--padding-20);
     box-sizing: border-box;
   }
+
   .trabalhistaBotao {
     font-size: var(--fs-16);
   }
+
   .tituloCaso {
     font-size: var(--fs-20);
   }
+
   .clienteRow {
     flex-wrap: wrap;
   }
+
   .nome,
   .subtitulo {
     font-size: var(--fs-16);
   }
+
   .informacoesProcesso {
     padding-top: var(--padding-20);
     padding-bottom: var(--padding-20);
     box-sizing: border-box;
   }
+
   .secaoTitulo {
     font-size: var(--fs-20);
   }
+
   .infoValor,
   .situacaoAtiva {
     font-size: var(--fs-16);
   }
+
   .andamentos {
     gap: var(--gap-20);
     padding-top: var(--padding-20);
@@ -1427,21 +1457,27 @@
     box-sizing: border-box;
     max-width: 100%;
   }
+
   .secaoTitulo {
     font-size: var(--fs-20);
   }
+
   .andamentosLinha {
     gap: var(--gap-30);
   }
+
   .proximosPassos {
     max-width: 100%;
   }
+
   .subtitulo {
     font-size: var(--fs-16);
   }
+
   .listaPassos {
     max-width: 100%;
   }
+
   .tituloPaginaMobile {
     font-size: var(--fs-21);
   }

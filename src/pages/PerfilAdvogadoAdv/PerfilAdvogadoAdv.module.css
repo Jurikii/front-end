@@ -23,6 +23,16 @@
   width: 100%;
   transition: padding 0.3s ease;
 }
+
+.conteudo > * {
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media screen and (max-width: 1325px) {
   .conteudo {
     padding: 32px 40px;
