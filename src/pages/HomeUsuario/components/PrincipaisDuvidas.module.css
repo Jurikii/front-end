@@ -192,6 +192,7 @@
   gap: var(--gap-8);
   flex: 1;
   min-width: 0;
+  padding-left: var(--padding-8);
 }
 .digiteSuaDvidaClipChild {
   width: 44px;

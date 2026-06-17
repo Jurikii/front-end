@@ -25,6 +25,10 @@
 .duvida1Chat:active {
   transform: scale(0.97);
 }
+.duvida1Chat:hover > :first-child {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+}
 .chat,
 .fuiDemitidoQuais {
   position: relative;
@@ -48,8 +52,9 @@
   flex-shrink: 0;
   opacity: 0.4;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scaleX(-1);
 }
 .duvida1Chat:hover .setinha1 {
   opacity: 0.7;
-  transform: translateX(2px);
+  transform: scaleX(-1) translateX(-2px);
 }

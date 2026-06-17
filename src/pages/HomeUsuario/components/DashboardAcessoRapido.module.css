@@ -9,6 +9,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
+  align-items: stretch;
   padding: var(--padding-100) var(--padding-40) var(--padding-100);
   gap: 48px;
   max-width: 100%;
@@ -51,6 +52,7 @@
   max-width: 100%;
   font-size: var(--fs-20);
   color: var(--azul-sereno);
+  flex: 1;
 }
 .processosChild {
   align-self: stretch;
@@ -71,6 +73,21 @@
   padding: var(--padding-0) var(--padding-0) var(--padding-0) var(--padding-0);
   box-sizing: border-box;
   gap: 48px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: var(--br-8);
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+.processosConcluidos:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+.processosConcluidos:hover .verTodos2 {
+  color: var(--azul);
+}
+.processosConcluidos:hover .setinha1 {
+  transform: scaleX(-1) translateX(-4px);
 }
 .processosEmAndamento {
   flex: 1;
@@ -97,7 +114,7 @@
 .processosConcludos {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: 18px;
   font-weight: 600;
   font-family: inherit;
 }
@@ -118,16 +135,11 @@
 .verTodos {
   display: flex;
   align-items: center;
-  cursor: pointer;
   font-size: var(--fs-14);
   gap: var(--gap-6);
   padding: var(--padding-6) var(--padding-10);
   border-radius: 8px;
-  transition: background-color 0.2s ease;
   flex-shrink: 0;
-}
-.verTodos:hover {
-  background-color: rgba(61, 106, 138, 0.06);
 }
 .verTodos2 {
   position: relative;
@@ -136,18 +148,12 @@
   white-space: nowrap;
   color: var(--azul-sereno);
 }
-.verTodos:hover .verTodos2 {
-  color: var(--azul);
-}
 .setinha1 {
   height: var(--height-16);
   width: var(--width-16);
   position: relative;
   transition: transform 0.25s ease;
   transform: scaleX(-1);
-}
-.verTodos:hover .setinha1 {
-  transform: scaleX(-1) translateX(-4px);
 }
 .acessoRapido {
   flex: 1;

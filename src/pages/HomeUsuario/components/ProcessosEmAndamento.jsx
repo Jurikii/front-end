@@ -34,7 +34,7 @@ const ProcessosEmAndamento = ({
   }, [navigate, filtro]);
 
   return (
-    <div className={[styles.processosEmAndamento, className].join(" ")}>
+    <div className={[styles.processosEmAndamento, className].join(" ")} onClick={onVerTodosContainerClick}>
       <div className={styles.processosEmAndamento2}>
         <img
           className={styles.iconeBalana}
@@ -56,7 +56,7 @@ const ProcessosEmAndamento = ({
         </div>
       </div>
       <h2 className={styles.h2}>{prop}</h2>
-      <div className={styles.verTodos} onClick={onVerTodosContainerClick}>
+      <div className={styles.verTodos}>
         <div className={styles.verTodos2}>Ver todos</div>
         <img className={styles.setinha1} alt="" src="/setinha-1.svg" />
       </div>

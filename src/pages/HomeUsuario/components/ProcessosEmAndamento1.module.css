@@ -13,6 +13,7 @@
   border-radius: var(--br-8);
   padding: var(--padding-8) 0;
   cursor: pointer;
+  flex: 1;
 }
 
 .processosEmAndamento:hover {
@@ -47,7 +48,7 @@
 }
 .vejaSeusAdvogados {
   position: relative;
-  font-size: var(--fs-13);
+  font-size: var(--fs-14);
   color: var(--azul-escuro);
   opacity: 0.7;
 }

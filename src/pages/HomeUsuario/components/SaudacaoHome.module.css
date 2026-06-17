@@ -138,6 +138,10 @@
   object-fit: contain;
   min-width: var(--min-w-310);
   align-self: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image145Icon:hover {
+  transform: translateY(-4px);
 }
 @media screen and (max-width: 1050px) {
   .image145Icon {

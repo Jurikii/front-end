@@ -42,7 +42,18 @@ const DashboardAcessoRapido = ({ className = "" }) => {
             prop={String(activeCount)}
           />
           <div className={styles.processosChild} />
-          <div className={styles.processosConcluidos}>
+          <ProcessosEmAndamento
+            iconeBalana="/icone-advogado@2x.png"
+            iconeBalanaMaxHeight="unset"
+            iconeBalanaHeight="60px"
+            processosEmAndamentoHeight="47px"
+            processosEmAndamento="Consultas com Advogados"
+            acompanhesSeusProcessosAtivos="Acompanhe suas consultas realizadas"
+            prop={String(FILTROS.find((f) => f.id === "consultas")?.contagem ?? 0)}
+            filtro="consultas"
+          />
+          <div className={styles.processosChild} />
+          <div className={styles.processosConcluidos} onClick={onVerTodosContainerClick}>
             <div className={styles.processosEmAndamento}>
               <img
                 className={styles.iconeConcludo}
@@ -60,30 +71,15 @@ const DashboardAcessoRapido = ({ className = "" }) => {
               </div>
             </div>
             <h2 className={styles.h2}>{String(PROCESSOS.filter((p) => p.status === STATUS.ENCERRADO).length)}</h2>
-            <div className={styles.verTodos} onClick={onVerTodosContainerClick}>
+            <div className={styles.verTodos}>
               <div className={styles.verTodos2}>Ver todos</div>
               <img className={styles.setinha1} alt="" src="/setinha-1.svg" />
             </div>
           </div>
-          <div className={styles.processosChild} />
-          <ProcessosEmAndamento
-            iconeBalana="/icone-advogado@2x.png"
-            iconeBalanaMaxHeight="unset"
-            iconeBalanaHeight="60px"
-            processosEmAndamentoHeight="47px"
-            processosEmAndamento="Consultas com Advogados"
-            acompanhesSeusProcessosAtivos="Acompanhe suas consultas realizadas"
-            prop={String(FILTROS.find((f) => f.id === "consultas")?.contagem ?? 0)}
-          />
         </div>
       </section>
       <section className={styles.acessoRapido}>
         <div className={styles.ttuloAcessoRpido}>
-          <img
-            className={styles.materialSymbolsLightelectriIcon}
-            alt=""
-            src="/material-symbols-light-electric-bolt-rounded.svg"
-          />
           <h2 className={styles.acessoRpido}>Acesso rápido</h2>
         </div>
         <div className={styles.processos}>
