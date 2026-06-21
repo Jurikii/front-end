@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Navbar from "./Rodape e navbar/Navbar";
 import styles from "./HeroSection.module.css";
@@ -6,6 +6,19 @@ import { useAuthModal } from "../context/AuthModalContext";
 
 const HeroSection = ({ className = "" }) => {
   const { openTipoModal } = useAuthModal();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleTirarDuvidas = useCallback(() => {
     openTipoModal("login");
@@ -17,7 +30,10 @@ const HeroSection = ({ className = "" }) => {
   }, []);
 
   return (
-    <section className={[styles.navbarParent, className].join(" ")}>
+    <section
+      ref={sectionRef}
+      className={`${styles.navbarParent} ${className} ${isVisible ? styles.animActive : ""}`}
+    >
       <Navbar activeItem="Início" />
       <section className={styles.frameWrapper}>
         <div className={styles.heroImage}>

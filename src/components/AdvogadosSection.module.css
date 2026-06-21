@@ -4,7 +4,7 @@
   background-color: var(--color-antiquewhite);
   display: flex;
   justify-content: center;
-  padding: 120px 64px;
+  padding: 60px 64px;
   box-sizing: border-box;
   text-align: center;
   font-size: var(--fs-16);
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .texto {
@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
   text-align: center;
   font-size: 54px;
   color: var(--azul-escuro);
@@ -53,6 +53,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  opacity: 0;
 }
 
 .groupIcon {
@@ -78,7 +79,7 @@
   font-weight: 500;
   font-family: var(--font-inter);
   color: var(--azul-escuro);
-  opacity: 0.75;
+  opacity: 0;
   line-height: 1.6;
 }
 
@@ -98,6 +99,8 @@
   user-select: none;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  position: relative;
+  z-index: 3;
 }
 
 .advogados::-webkit-scrollbar {
@@ -119,6 +122,7 @@
   color: var(--color-black);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 14px rgba(250, 184, 76, 0.35);
+  opacity: 0;
 }
 .boto:hover {
   transform: translateY(-2px);
@@ -143,7 +147,7 @@
   gap: 8px;
   font-size: var(--fs-13);
   color: var(--azul-escuro);
-  opacity: 0.6;
+  opacity: 0;
 }
 
 .iconamoonattentionCircle {
@@ -200,12 +204,15 @@
 
 @media screen and (max-width: 1366px) {
   .fundoSeoConheaSeusDefenParent {
-    padding: 100px 48px;
+    padding: 48px 48px;
   }
 }
 @media screen and (max-width: 1150px) {
   .fundoSeoConheaSeusDefenParent {
-    padding: 80px 48px;
+    padding: 40px 48px;
+  }
+  .seoConheaDefensores {
+    gap: 16px;
   }
   .defensores {
     flex-wrap: wrap;
@@ -214,13 +221,13 @@
 
 @media screen and (max-width: 1023px) {
   .fundoSeoConheaSeusDefenParent {
-    padding: 60px 32px;
+    padding: 32px 32px;
   }
   .seoConheaDefensores {
-    gap: 28px;
+    gap: 16px;
   }
   .texto {
-    gap: 24px;
+    gap: 12px;
   }
   .conheaSeusDefensoresContainer {
     font-size: 40px;
@@ -235,10 +242,13 @@
 
 @media screen and (max-width: 767px) {
   .fundoSeoConheaSeusDefenParent {
-    padding: 40px 20px;
+    padding: 20px 20px;
   }
   .seoConheaDefensores {
-    gap: 24px;
+    gap: 12px;
+  }
+  .texto {
+    gap: 10px;
   }
   .conheaSeusDefensoresContainer {
     font-size: 30px;

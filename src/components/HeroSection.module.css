@@ -9,6 +9,7 @@
 
 .frameWrapper {
   width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   padding: 0 117px;
@@ -73,7 +74,6 @@
   padding: 6px 14px;
   gap: 8px;
   transition: border-color 0.2s ease, background-color 0.2s ease;
-  animation: fadeInDown 0.5s ease forwards;
   opacity: 0;
 }
 .groupParent:hover {
@@ -108,7 +108,6 @@
   align-items: center;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  animation: fadeInUp 0.6s ease 0.15s forwards;
   opacity: 0;
 }
 
@@ -132,7 +131,6 @@
   letter-spacing: 0.01em;
   color: var(--azul-escuro);
   opacity: 0;
-  animation: fadeInUp 0.5s ease 0.35s forwards;
 }
 
 .botes2 {
@@ -140,7 +138,6 @@
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  animation: fadeInUp 0.5s ease 0.45s forwards;
   opacity: 0;
 }
 
@@ -219,7 +216,6 @@
   gap: 48px;
   color: var(--color-black);
   flex-wrap: wrap;
-  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
   opacity: 0;
   transform-origin: left center;
 }
@@ -261,6 +257,29 @@
   object-fit: cover;
   object-position: right center;
   opacity: 0;
+}
+
+.animActive .groupParent {
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.animActive .entendaSeusDireitosContainer {
+  animation: fadeInUp 0.6s ease 0.15s forwards;
+}
+
+.animActive .tireDvidasTraduza {
+  animation: fadeInUp 0.5s ease 0.35s forwards;
+}
+
+.animActive .botes2 {
+  animation: fadeInUp 0.5s ease 0.45s forwards;
+}
+
+.animActive .seguroParent {
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+
+.animActive .heroImg {
   animation: scaleIn 0.8s ease forwards;
 }
 

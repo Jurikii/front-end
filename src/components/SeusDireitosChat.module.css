@@ -49,6 +49,7 @@
   font-family: inherit;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  opacity: 0;
 }
 
 .direitos {
@@ -67,7 +68,7 @@
   font-size: var(--fs-20);
   font-weight: 400;
   font-family: var(--font-inter);
-  opacity: 0.8;
+  opacity: 0;
   line-height: 1.6;
   color: var(--sideBar);
 }
@@ -100,6 +101,7 @@
   color: var(--sideBar);
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
 }
 .chat:focus-within {
   border-color: rgba(255, 255, 255, 0.35);

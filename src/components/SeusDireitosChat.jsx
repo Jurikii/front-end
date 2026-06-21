@@ -11,7 +11,6 @@ const SeusDireitosChat = ({ className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const sectionRef = useRef(null);
-  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -19,10 +18,7 @@ const SeusDireitosChat = ({ className = "" }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimatedRef.current) {
-          hasAnimatedRef.current = true;
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
         setIsInViewport(entry.isIntersecting);
       },
       { threshold: 0.1 }

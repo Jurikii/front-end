@@ -30,6 +30,7 @@
   font-family: inherit;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  opacity: 0;
 }
 
 .histriasTransformadas {
@@ -44,6 +45,7 @@
   font-family: var(--font-inter);
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+  opacity: 0;
 }
 
 .avaliaes {

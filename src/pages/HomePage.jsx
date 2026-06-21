@@ -47,25 +47,33 @@ const HomePage = () => {
         alt=""
         src="/fundo-flor-bege-canto-direito@2x.png"
       />
-      <HeroSection />
-      <div id="chat-demo" className={styles.seusDireitosChatWrapper}>
+      {/* Block 1: Hero Section */}
+      <div className={styles.block}>
+        <HeroSection />
+      </div>
+
+      {/* Block 2: SeusDireitosChat */}
+      <div id="chat-demo" className={`${styles.block} ${styles.seusDireitosChatWrapper}`}>
         <SeusDireitosChat />
       </div>
-      <AdvogadosSection />
 
-
-      <div className={styles.secaoAvaliacoesWrapper}>
-        <img className={styles.maskGroupIcon} alt="" src="/outro-fundo-flor-azul-1@2x.png" />
-        <SecaoAvaliacoes />
+      {/* Block 3: Advogados Section */}
+      <div className={styles.block}>
+        <AdvogadosSection />
       </div>
 
-      <section className={styles.florzinhaTextoEBotoParent}>
-        <FlorzinhaTextoEBotao />
-
-      </section>
-      <img className={styles.maskGroupIcon} alt="" src="/Mask-group1@2x.png" />
-
-      <Rodap />
+      {/* Block 4: SecaoAvaliacoes + FlorzinhaTextoEBotao + Rodap */}
+      <div className={styles.blockLast}>
+        <div className={styles.secaoAvaliacoesWrapper}>
+          <img className={styles.maskGroupIcon} alt="" src="/outro-fundo-flor-azul-1@2x.png" />
+          <SecaoAvaliacoes />
+        </div>
+        <section className={styles.florzinhaTextoEBotoParent}>
+          <FlorzinhaTextoEBotao />
+        </section>
+        <img className={styles.maskGroupIcon} alt="" src="/Mask-group1@2x.png" />
+        <Rodap />
+      </div>
     </div>
   );
 };

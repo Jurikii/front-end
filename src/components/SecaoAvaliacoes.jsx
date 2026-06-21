@@ -103,7 +103,6 @@ const SecaoAvaliacoes = ({ className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const avaliaesRef = useRef(null);
-  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -111,10 +110,7 @@ const SecaoAvaliacoes = ({ className = "" }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimatedRef.current) {
-          hasAnimatedRef.current = true;
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
@@ -124,15 +120,19 @@ const SecaoAvaliacoes = ({ className = "" }) => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible || !avaliaesRef.current) return;
+    if (!avaliaesRef.current) return;
 
     const columns = Array.from(avaliaesRef.current.children);
     columns.forEach((col, colIdx) => {
       const cards = Array.from(col.children).slice(0, 2);
       cards.forEach((card, rowIdx) => {
         const index = rowIdx * 3 + colIdx;
-        card.style.setProperty("--stagger-delay", `${index * 0.08}s`);
-        card.classList.add(styles.animCard);
+        if (isVisible) {
+          card.style.setProperty("--stagger-delay", `${index * 0.08}s`);
+          card.classList.add(styles.animCard);
+        } else {
+          card.classList.remove(styles.animCard);
+        }
       });
     });
   }, [isVisible]);

@@ -13,7 +13,6 @@ const AdvogadosSection = ({ className = "" }) => {
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -21,10 +20,7 @@ const AdvogadosSection = ({ className = "" }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimatedRef.current) {
-          hasAnimatedRef.current = true;
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
