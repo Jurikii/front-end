@@ -96,21 +96,12 @@
   scroll-snap-type: x mandatory;
   cursor: grab;
   user-select: none;
-  scrollbar-width: thin;
-  scrollbar-color: var(--amarelo) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .advogados::-webkit-scrollbar {
-  height: 4px;
-}
-
-.advogados::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.advogados::-webkit-scrollbar-thumb {
-  background-color: var(--amarelo);
-  border-radius: 10px;
+  display: none;
 }
 
 .boto {
@@ -163,6 +154,48 @@
 
 .aIaNo {
   font-weight: 400;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animTitle {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.animSubtitle {
+  animation: fadeInUp 0.5s ease both;
+  animation-delay: 0.15s;
+}
+
+.animCards > * {
+  animation: fadeInUp 0.4s ease both;
+}
+.animCards > *:nth-child(1) { animation-delay: 0.3s; }
+.animCards > *:nth-child(2) { animation-delay: 0.39s; }
+.animCards > *:nth-child(3) { animation-delay: 0.48s; }
+.animCards > *:nth-child(4) { animation-delay: 0.57s; }
+.animCards > *:nth-child(5) { animation-delay: 0.66s; }
+.animCards > *:nth-child(6) { animation-delay: 0.75s; }
+.animCards > *:nth-child(7) { animation-delay: 0.84s; }
+.animCards > *:nth-child(8) { animation-delay: 0.93s; }
+.animCards > *:nth-child(9) { animation-delay: 1.02s; }
+
+.animButton {
+  animation: fadeIn 0.4s ease both;
+  animation-delay: 0.5s;
+}
+
+.animAlerta {
+  animation: fadeInUp 0.5s ease both;
+  animation-delay: 1.2s;
 }
 
 @media screen and (max-width: 1366px) {

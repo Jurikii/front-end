@@ -15,12 +15,11 @@
   color: var(--sideBar);
   font-family: var(--font-montserrat);
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .chatSugestes:hover {
-  background-color: var(--amarelo);
-  color: var(--color-black);
   border-color: var(--amarelo);
+  box-shadow: 0 0 8px rgba(255, 200, 50, 0.35), 0 0 20px rgba(255, 200, 50, 0.1), inset 0 0 0 9999px rgba(255, 255, 255, 0.06);
 }
 .chatSugestes:active {
   transform: scale(0.97);

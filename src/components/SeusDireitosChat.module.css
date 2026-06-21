@@ -1,3 +1,27 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.fundoFlor1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+
+.flowerVisible {
+  opacity: 0.7;
+}
+
 .seusDireitosChat {
   position: relative;
   width: 100%;
@@ -29,6 +53,12 @@
 
 .direitos {
   color: var(--amarelo);
+  text-shadow: 0 0 0px transparent;
+  transition: text-shadow 0.5s ease;
+}
+
+.direitosUnderline {
+  text-shadow: 0 0 12px rgba(255, 200, 50, 0.4), 0 0 28px rgba(255, 200, 50, 0.12);
 }
 
 .nossaIaTraduz {
@@ -74,7 +104,7 @@
 .chat:focus-within {
   border-color: rgba(255, 255, 255, 0.35);
   background-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 8px rgba(255, 200, 50, 0.35), 0 0 24px rgba(255, 200, 50, 0.12);
 }
 
 .input {
@@ -113,6 +143,33 @@
 
 .mdiaddIcon:hover {
   background-color: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animTitle {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.animSubtitle {
+  animation: fadeInUp 0.5s ease both;
+  animation-delay: 0.15s;
+}
+
+.animCards > * {
+  animation: fadeInUp 0.45s ease both;
+}
+.animCards > *:nth-child(1) { animation-delay: 0.3s; }
+.animCards > *:nth-child(2) { animation-delay: 0.39s; }
+.animCards > *:nth-child(3) { animation-delay: 0.48s; }
+.animCards > *:nth-child(4) { animation-delay: 0.57s; }
+
+.animChat {
+  animation: fadeInUp 0.45s ease both;
+  animation-delay: 0.7s;
 }
 
 @media screen and (max-width: 1366px) {

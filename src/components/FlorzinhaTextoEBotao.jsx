@@ -11,7 +11,9 @@ const FlorzinhaTextoEBotao = ({ className = "" }) => {
   }, [openTipoModal]);
 
   return (
-    <div className={[styles.florzinhaTextoEBoto, className].join(" ")}>
+    <div
+      className={[styles.florzinhaTextoEBoto, className].join(" ")}
+    >
       <img className={styles.image77Icon} alt="" src="/image-77@2x.png" />
       <div className={styles.textoEmDestaqueEBoto}>
         <div className={styles.textoEmDestaque}>

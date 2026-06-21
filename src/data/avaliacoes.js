@@ -1,7 +1,7 @@
 export const avaliacoesAnimada = [
   {
     property1: "Avaliação 2 - v1",
-    avaliaoWidth: "434px",
+    avaliaoWidth: "",
     ellipse8: "/Ellipse-83@2x.png",
     roseA: "João Pedro Santos",
     texto: "Atendimento excepcional! Finalmente entendi termos jurídicos que pareciam um enigma. Recomendo!",
@@ -32,7 +32,7 @@ export const avaliacoesAnimada = [
 export const avaliacoesSubindo = [
   {
     property1: "Avaliação 1",
-    avaliaoWidth: "426px",
+    avaliaoWidth: "",
     ellipse8: "/Ellipse-84@2x.png",
     roseA: "Camila Nunes",
     texto: "Clareza nas explicações faz toda diferença. Entendi meus direitos sem precisar de um tradutor.",

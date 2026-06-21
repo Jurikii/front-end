@@ -100,17 +100,54 @@ ColunaCiclo.propTypes = {
 };
 
 const SecaoAvaliacoes = ({ className = "" }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const avaliaesRef = useRef(null);
+  const hasAnimatedRef = useRef(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || !avaliaesRef.current) return;
+
+    const columns = Array.from(avaliaesRef.current.children);
+    columns.forEach((col, colIdx) => {
+      const cards = Array.from(col.children).slice(0, 2);
+      cards.forEach((card, rowIdx) => {
+        const index = rowIdx * 3 + colIdx;
+        card.style.setProperty("--stagger-delay", `${index * 0.08}s`);
+        card.classList.add(styles.animCard);
+      });
+    });
+  }, [isVisible]);
+
   return (
-    <section className={[styles.seoAvaliaes, className].join(" ")}>
+    <section ref={sectionRef} className={[styles.seoAvaliaes, className].join(" ")}>
       <div className={styles.textoHistrias}>
-        <h1 className={styles.maisDoQueContainer}>
+        <h1 className={`${styles.maisDoQueContainer} ${isVisible ? styles.animTitle : ""}`}>
           <span>{`Mais do que números, `}</span>
           <span className={styles.histriasTransformadas}>
             histórias transformadas
           </span>
           <span>.</span>
         </h1>
-        <h1 className={styles.milharesDePessoasContainer}>
+        <h1 className={`${styles.milharesDePessoasContainer} ${isVisible ? styles.animSubtitle : ""}`}>
           <span>Milhares de pessoas já encontraram</span>
           <span className={styles.span}>{` `}</span>
           <span className={styles.histriasTransformadas}>clareza</span>
@@ -123,7 +160,7 @@ const SecaoAvaliacoes = ({ className = "" }) => {
         </h1>
       </div>
 
-      <div className={styles.avaliaes}>
+      <div ref={avaliaesRef} className={styles.avaliaes}>
         {colunas.map((cards, i) => (
           <ColunaCiclo key={i} items={cards} delay={i * 1100} />
         ))}

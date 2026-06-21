@@ -49,7 +49,6 @@ const HomePage = () => {
       />
       <HeroSection />
       <div id="chat-demo" className={styles.seusDireitosChatWrapper}>
-        <img className={styles.fundoFlor1} alt="" src="/fundo-flor-1@2x.png" />
         <SeusDireitosChat />
       </div>
       <AdvogadosSection />

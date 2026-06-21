@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
 import { advogados } from "../data/advogados";
 import AdvogadoCard from "./AdvogadoCard";
 import PropTypes from "prop-types";
@@ -7,15 +7,35 @@ import { useAuthModal } from "../context/AuthModalContext";
 
 const AdvogadosSection = ({ className = "" }) => {
   const { openTipoModal } = useAuthModal();
-
-  const onBotoContainerClick = useCallback(() => {
-    openTipoModal("login");
-  }, [openTipoModal]);
-
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const advogadosRef = useRef(null);
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+  const hasAnimatedRef = useRef(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const onBotoContainerClick = useCallback(() => {
+    openTipoModal("login");
+  }, [openTipoModal]);
 
   const onMouseDown = (e) => {
     e.preventDefault();
@@ -37,13 +57,14 @@ const AdvogadosSection = ({ className = "" }) => {
 
   return (
     <main
+      ref={sectionRef}
       className={[styles.fundoSeoConheaSeusDefenParent, className].join(" ")}
     >
       <div className={styles.fundoSeoConheaSeusDefen} />
       <img className={styles.maskGroupIcon} alt="" src="/Mask-group2@2x.png" />
       <div className={styles.seoConheaDefensores}>
         <section className={styles.texto}>
-          <div className={styles.defensores}>
+          <div className={`${styles.defensores} ${isVisible ? styles.animTitle : ""}`}>
             <img className={styles.groupIcon} alt="" src="/Group1.svg" />
             <h1 className={styles.conheaSeusDefensoresContainer}>
               <span>Conheça seus</span>
@@ -52,7 +73,7 @@ const AdvogadosSection = ({ className = "" }) => {
             </h1>
             <img className={styles.groupIcon} alt="" src="/Group1.svg" />
           </div>
-          <h1 className={styles.pessoasReaisDedicadasContainer}>
+          <h1 className={`${styles.pessoasReaisDedicadasContainer} ${isVisible ? styles.animSubtitle : ""}`}>
             <span>
               Pessoas reais dedicadas a transformar seus problemas jurídicos em
             </span>
@@ -61,14 +82,13 @@ const AdvogadosSection = ({ className = "" }) => {
           </h1>
         </section>
         <div
-          className={styles.advogados}
+          className={`${styles.advogados} ${isVisible ? styles.animCards : ""}`}
           ref={advogadosRef}
           onMouseDown={onMouseDown}
           onMouseLeave={onMouseLeave}
           onMouseUp={onMouseUp}
           onMouseMove={onMouseMove}
         >
-
           {advogados.map((item, index) => (
             <AdvogadoCard
               key={index}
@@ -82,12 +102,12 @@ const AdvogadosSection = ({ className = "" }) => {
             />
           ))}
         </div>
-        <div className={styles.boto} onClick={onBotoContainerClick}>
+        <div className={`${styles.boto} ${isVisible ? styles.animButton : ""}`} onClick={onBotoContainerClick}>
           <b className={styles.conheaNossosEspecialistas}>
             Conheça nossos Especialistas
           </b>
         </div>
-        <div className={styles.alerta}>
+        <div className={`${styles.alerta} ${isVisible ? styles.animAlerta : ""}`}>
           <img
             className={styles.iconamoonattentionCircle}
             alt=""
