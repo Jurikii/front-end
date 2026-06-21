@@ -51,13 +51,27 @@ const UsurioIA = () => {
   const [dragAtivo, setDragAtivo]     = useState(false);
   const [erroArquivo, setErroArquivo] = useState("");
   const [extraindo, setExtraindo]     = useState(false);
+  const [gravando, setGravando]       = useState(false);
+  const reconhecimentoRef = useRef(null);
+  const ultimoIndiceProcessadoRef = useRef(0);
 
-  const fimChatRef     = useRef(null);
+  const fimChatRef      = useRef(null);
   const inputArquivoRef = useRef(null);
+  const textareaRef     = useRef(null);
+  const autoResizeTextarea = useCallback(() => {
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  }, []);
 
   useEffect(() => {
     fimChatRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [historico, carregando]);
+
+  useEffect(() => {
+    autoResizeTextarea();
+  }, [mensagem, autoResizeTextarea]);
 
   // ─── Extração de texto do PDF ───────────────────────────────────────────────
   const extrairTextoPDF = async (arquivo) => {
@@ -230,6 +244,68 @@ const UsurioIA = () => {
     }
   };
 
+  // ─── Reconhecimento de voz ────────────────────────────────────────────
+  const iniciarGravacao = useCallback(() => {
+    const SpeechRec =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRec) {
+      alert("Reconhecimento de voz não é suportado neste navegador.");
+      return;
+    }
+
+    ultimoIndiceProcessadoRef.current = 0;
+    const recognition = new SpeechRec();
+    recognition.lang = "pt-BR";
+    recognition.interimResults = true;
+    recognition.continuous = true;
+
+    recognition.onresult = (event) => {
+      let novoTexto = "";
+      for (let i = ultimoIndiceProcessadoRef.current; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          novoTexto += event.results[i][0].transcript;
+        }
+      }
+      if (novoTexto) {
+        setMensagem((prev) => (prev ? prev + " " + novoTexto : novoTexto).trim());
+        ultimoIndiceProcessadoRef.current = event.results.length;
+      }
+    };
+
+    recognition.onerror = () => {
+      setGravando(false);
+    };
+
+    recognition.start();
+    reconhecimentoRef.current = recognition;
+    setGravando(true);
+  }, []);
+
+  const pararGravacao = useCallback(() => {
+    if (reconhecimentoRef.current) {
+      reconhecimentoRef.current.stop();
+      reconhecimentoRef.current = null;
+    }
+    setGravando(false);
+  }, []);
+
+  const handleMicClick = () => {
+    if (gravando) {
+      pararGravacao();
+    } else {
+      iniciarGravacao();
+    }
+  };
+
+  // Cleanup na desmontagem
+  useEffect(() => {
+    return () => {
+      if (reconhecimentoRef.current) {
+        reconhecimentoRef.current.abort();
+      }
+    };
+  }, []);
+
   const emConversa = historico.length > 0;
 
   return (
@@ -373,19 +449,38 @@ const UsurioIA = () => {
                   <img src="/Group-80@2x.png" alt="Anexo" />
                 </button>
 
-                <input
-                  type="text"
+                <textarea
+                  ref={textareaRef}
                   className={styles.campoTexto}
+                  rows={1}
                   placeholder={
                     arquivoPdf
                       ? "PDF anexado. Digite sua pergunta sobre o documento..."
                       : "Digite sua dúvida aqui..."
                   }
                   value={mensagem}
-                  onChange={(e) => setMensagem(e.target.value)}
+                  onChange={(e) => {
+                    setMensagem(e.target.value);
+                    autoResizeTextarea();
+                  }}
                   onKeyDown={handleKeyDown}
                   disabled={carregando}
                 />
+
+                <button
+                  type="button"
+                  className={`${styles.botaoMicrofone} ${gravando ? styles.botaoMicrofoneAtivo : ""}`}
+                  title={gravando ? "Parar gravação" : "Falar"}
+                  onClick={handleMicClick}
+                  disabled={carregando}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
+                    <path d="M5 10a7 7 0 0 0 14 0" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                    <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="8" y1="22" x2="16" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </button>
 
                 <button
                   type="button"

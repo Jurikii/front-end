@@ -59,7 +59,6 @@ const Navbar = ({ className = "" }) => {
             <span className={styles.userName}>Alice Silva</span>
             <span className={styles.userOab}>OAB/SP 123.456</span>
           </div>
-          <img className={styles.chevron} src="/Vector3.svg" alt="" />
         </button>
       </div>
 

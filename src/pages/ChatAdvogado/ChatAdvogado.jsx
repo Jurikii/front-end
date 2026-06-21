@@ -1,9 +1,13 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import * as pdfjsLib from "pdfjs-dist";
+import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import Navbar from "../../components/NavbarAdvogado";
 import NavbarLateralChat from "./components/NavbarLateralChat";
 import BotoSugesto from "./components/BotoSugesto";
 import RespostaIA from "./components/RespostaIA";
 import styles from "./ChatAdvogado.module.css";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 const FORMATOS = [
   {
@@ -41,6 +45,16 @@ const ChatAdvogado = () => {
 
   const fimChatRef = useRef(null);
   const textareaRef = useRef(null);
+  const inputArquivoRef = useRef(null);
+  const reconhecimentoRef = useRef(null);
+  const ultimoIndiceProcessadoRef = useRef(0);
+
+  // Estados para upload de PDF
+  const [arquivoPdf, setArquivoPdf]   = useState(null);
+  const [dragAtivo, setDragAtivo]     = useState(false);
+  const [erroArquivo, setErroArquivo] = useState("");
+  const [extraindo, setExtraindo]     = useState(false);
+  const [gravando, setGravando]       = useState(false);
 
   useEffect(() => {
     fimChatRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -53,15 +67,139 @@ const ChatAdvogado = () => {
     }
   }, [mensagem]);
 
+  // ─── Extração de texto do PDF ───────────────────────────────────────────────
+  const extrairTextoPDF = async (arquivo) => {
+    setErroArquivo("");
+    if (arquivo.type !== "application/pdf") {
+      setErroArquivo("Apenas arquivos PDF são aceitos.");
+      return;
+    }
+    if (arquivo.size > 10 * 1024 * 1024) {
+      setErroArquivo("Arquivo muito grande. Limite: 10 MB.");
+      return;
+    }
+    setExtraindo(true);
+    try {
+      const arrayBuffer = await arquivo.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let texto = "";
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const pagina = await pdf.getPage(i);
+        const conteudo = await pagina.getTextContent();
+        texto += conteudo.items.map((item) => item.str).join(" ") + "\n";
+      }
+      if (!texto.trim()) {
+        setErroArquivo("Este PDF parece ser uma imagem escaneada e não possui texto extraível.");
+        return;
+      }
+      setArquivoPdf({ nome: arquivo.name, texto });
+    } catch (err) {
+      console.error("Erro pdfjs:", err);
+      setErroArquivo("Não foi possível ler o PDF. Verifique se o arquivo não está corrompido.");
+    } finally {
+      setExtraindo(false);
+    }
+  };
+
+  const handleDragOver = useCallback((e) => {
+    e.preventDefault();
+    setDragAtivo(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e) => {
+    e.preventDefault();
+    setDragAtivo(false);
+  }, []);
+
+  const handleDrop = useCallback((e) => {
+    e.preventDefault();
+    setDragAtivo(false);
+    const arquivo = e.dataTransfer.files[0];
+    if (arquivo) extrairTextoPDF(arquivo);
+  }, []);
+
+  const handleInputArquivo = (e) => {
+    const arquivo = e.target.files[0];
+    if (arquivo) extrairTextoPDF(arquivo);
+    e.target.value = "";
+  };
+
+  const removerArquivo = () => {
+    setArquivoPdf(null);
+    setErroArquivo("");
+  };
+
+  // ─── Reconhecimento de voz ────────────────────────────────────────────
+  const iniciarGravacao = useCallback(() => {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRec) {
+      alert("Reconhecimento de voz não é suportado neste navegador.");
+      return;
+    }
+    ultimoIndiceProcessadoRef.current = 0;
+    const recognition = new SpeechRec();
+    recognition.lang = "pt-BR";
+    recognition.interimResults = true;
+    recognition.continuous = true;
+
+    recognition.onresult = (event) => {
+      let novoTexto = "";
+      for (let i = ultimoIndiceProcessadoRef.current; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          novoTexto += event.results[i][0].transcript;
+        }
+      }
+      if (novoTexto) {
+        setMensagem((prev) => (prev ? prev + " " + novoTexto : novoTexto).trim());
+        ultimoIndiceProcessadoRef.current = event.results.length;
+      }
+    };
+
+    recognition.onerror = () => {
+      setGravando(false);
+    };
+
+    recognition.start();
+    reconhecimentoRef.current = recognition;
+    setGravando(true);
+  }, []);
+
+  const pararGravacao = useCallback(() => {
+    if (reconhecimentoRef.current) {
+      reconhecimentoRef.current.stop();
+      reconhecimentoRef.current = null;
+    }
+    setGravando(false);
+  }, []);
+
+  const handleMicClick = () => {
+    if (gravando) {
+      pararGravacao();
+    } else {
+      iniciarGravacao();
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (reconhecimentoRef.current) {
+        reconhecimentoRef.current.abort();
+      }
+    };
+  }, []);
+
   const handleEnviar = async (textoOverride) => {
     const texto = (textoOverride ?? mensagem).trim();
     if (!texto || carregando) return;
 
+    const conteudoExibido = arquivoPdf ? `${texto}\n📄 ${arquivoPdf.nome}` : texto;
+
     setHistorico((prev) => [
       ...prev,
-      { tipo: "usuario", conteudo: texto, horario: horarioAtual() },
+      { tipo: "usuario", conteudo: conteudoExibido, horario: horarioAtual() },
     ]);
     setMensagem("");
+    setArquivoPdf(null);
     setCarregando(true);
 
     try {
@@ -123,7 +261,27 @@ const ChatAdvogado = () => {
           />
         </aside>
 
-        <section className={styles.telaIa}>
+        <section
+          className={`${styles.telaIa} ${dragAtivo ? styles.telaIaDragAtiva : ""}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          <input
+            ref={inputArquivoRef}
+            type="file"
+            accept="application/pdf"
+            style={{ display: "none" }}
+            onChange={handleInputArquivo}
+          />
+          {dragAtivo && (
+            <div className={styles.overlayDrag}>
+              <div className={styles.overlayDragConteudo}>
+                <span className={styles.overlayDragIcone}>📄</span>
+                <span className={styles.overlayDragTexto}>Solte o PDF aqui</span>
+              </div>
+            </div>
+          )}
           <div className={styles.containerCentro}>
 
             <header className={styles.cumprimentosIa}>
@@ -199,12 +357,49 @@ const ChatAdvogado = () => {
               </div>
             )}
 
+            {extraindo && (
+              <div className={styles.previewPdf}>
+                <span>⏳ Extraindo texto do PDF...</span>
+              </div>
+            )}
+
+            {arquivoPdf && !extraindo && (
+              <div className={styles.previewPdf}>
+                <span>📄 {arquivoPdf.nome}</span>
+                <button
+                  onClick={removerArquivo}
+                  title="Remover arquivo"
+                  className={styles.botaoRemoverPdf}
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+
+            {erroArquivo && (
+              <span className={styles.erroArquivo}>{erroArquivo}</span>
+            )}
+
             <div className={styles.formularioChat}>
               <div className={styles.inputIa}>
+                <button
+                  type="button"
+                  className={`${styles.botaoMidia} ${arquivoPdf ? styles.botaoMidiaAtivo : ""}`}
+                  title="Anexar PDF"
+                  onClick={() => inputArquivoRef.current?.click()}
+                  disabled={extraindo}
+                >
+                  <img src="/Group-80@2x.png" alt="Anexo" />
+                </button>
+
                 <textarea
                   ref={textareaRef}
                   className={styles.campoTexto}
-                  placeholder="Digite sua dúvida aqui..."
+                  placeholder={
+                    arquivoPdf
+                      ? "PDF anexado. Digite sua pergunta sobre o documento..."
+                      : "Digite sua dúvida aqui..."
+                  }
                   value={mensagem}
                   onChange={(e) => setMensagem(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -214,10 +409,25 @@ const ChatAdvogado = () => {
 
                 <button
                   type="button"
+                  className={`${styles.botaoMicrofone} ${gravando ? styles.botaoMicrofoneAtivo : ""}`}
+                  title={gravando ? "Parar gravação" : "Falar"}
+                  onClick={handleMicClick}
+                  disabled={carregando}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
+                    <path d="M5 10a7 7 0 0 0 14 0" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                    <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="8" y1="22" x2="16" y2="22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
                   className={styles.botaoEnviar}
                   title="Enviar mensagem"
                   onClick={() => handleEnviar()}
-                  disabled={carregando || !mensagem.trim()}
+                  disabled={carregando || (!mensagem.trim() && !arquivoPdf)}
                 >
                   <img src="/Group-79@2x.png" alt="Enviar" />
                 </button>

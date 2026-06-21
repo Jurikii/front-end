@@ -3,14 +3,14 @@ import styles from "./StatCard.module.css";
 
 const StatCard = ({ icon, value, label, subtitle, onClick }) => {
   return (
-    <button className={styles.card} type="button" onClick={onClick}>
+    <div className={styles.card} onClick={onClick}>
       <img className={styles.icon} loading="lazy" alt="" src={icon} />
       <div className={styles.info}>
         <h2 className={styles.value}>{value}</h2>
         <span className={styles.label}>{label}</span>
         <span className={styles.subtitle}>{subtitle}</span>
       </div>
-    </button>
+    </div>
   );
 };
 

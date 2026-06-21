@@ -54,7 +54,7 @@ const ConsultaCard = ({ consulta, onToggle }) => {
             </div>
           </div>
           <div className={styles.dataIcon}>
-            <img className={styles.vectorIcon4} alt="" src="/Vector7.svg" />
+            <img className={styles.vectorIcon4} alt="" src="/Icone-calendario.svg" />
             <div className={styles.dataDia}>
               <h3 className={styles.sextaFeira}>{data}</h3>
               <h3 className={styles.sextaFeira}>{diaSemana}</h3>

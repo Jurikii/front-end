@@ -25,14 +25,7 @@ const AppointmentItem = ({ time, day, initials, name, subject, type, isPresentia
         </div>
 
         <div className={[styles.typeBadge, isPresential ? styles.typeBadgePresential : ""].join(" ")}>
-          {!isPresential && (
-            <img
-              className={styles.dot}
-              src="/tabler-point-filled.svg"
-              alt=""
-              loading="lazy"
-            />
-          )}
+          
           <span>{isPresential ? "Presencial" : "Online"}</span>
         </div>
       </div>

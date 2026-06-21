@@ -4,6 +4,8 @@
   background-color: var(--branco);
   border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
+  cursor: default !important;
+  user-select: none;
   align-items: center;
   gap: 20px;
   padding: 20px 28px;
@@ -43,6 +45,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .value {
@@ -56,6 +60,10 @@
 .label {
   font-weight: 500;
   font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .subtitle {

@@ -16,7 +16,9 @@ const ITENS_POR_PAGINA = 5;
 const AgendaMinhasConsultas = () => {
   const navigate = useNavigate();
   const [secaoAtiva, setSecaoAtiva] = useState("minhas-consultas");
-  const [consultas, setConsultas] = useState(dataConsultas);
+  const [consultas, setConsultas] = useState(
+    dataConsultas.map((c) => ({ ...c, expandido: false }))
+  );
   const [filtroAtivo, setFiltroAtivo] = useState("agendamento");
   const [mostrarOrdenarPor, setMostrarOrdenarPor] = useState(false);
   const [sortBy, setSortBy] = useState("recentes");
