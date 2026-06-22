@@ -7,5 +7,5 @@ export default defineConfig({
     outDir: "build",
   },
   plugins: [react()],
-  base: '/Jurikii/'
+  base: '/front-end/'
 });
