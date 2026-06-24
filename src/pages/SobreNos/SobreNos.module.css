@@ -38,6 +38,8 @@
   width: 100%;
   max-width: 520px;
   text-align: left;
+  right: 150px;
+  top: -40px;
 }
 
 .badge {
