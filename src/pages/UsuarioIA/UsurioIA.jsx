@@ -10,7 +10,7 @@ import styles from "./UsurioIA.module.css";
 // Aponta para o worker via CDN — evita problemas de path no Vite/Webpack
 pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
-const N8N_WEBHOOK_URL = "/webhook/juriki-chat";
+const N8N_WEBHOOK_URL = "https://rezendesantos.app.n8n.cloud/webhook/juriki-chat";
 
 const FORMATOS = [
   {
@@ -181,8 +181,8 @@ const UsurioIA = () => {
 
     if (!resposta.ok) throw new Error("Erro ao contatar o servidor.");
 
-    const dados = await resposta.text();
-    return dados ?? "Sem resposta.";
+    const dados = await resposta.json();
+    return dados.answer ?? "Sem resposta.";
   };
 
   // ─── Envio da mensagem ───────────────────────────────────────────────────────

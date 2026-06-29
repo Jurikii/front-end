@@ -129,6 +129,47 @@ const ChatAdvogado = () => {
     setErroArquivo("");
   };
 
+  // ─── Sanitização de instrução livre ─────────────────────────────────────────
+  const sanitizarInstrucao = (texto) =>
+    texto
+      .replace(/ignore (all |todas |as )?(previous |anteriores )?instructions?/gi, "")
+      .replace(/system prompt/gi, "")
+      .replace(/você (agora |now )?(é|is|deve ser)/gi, "")
+      .trim();
+
+  // ─── Envio ao n8n ────────────────────────────────────────────────────────────
+  const N8N_WEBHOOK_URL = "https://rezendesantos.app.n8n.cloud/webhook/chat-advogado";
+
+  const enviarParaN8n = async (texto) => {
+    const formato       = FORMATOS.find((f) => f.id === formatoAtivo);
+    const instrucaoLimpa = sanitizarInstrucao(instrucaoLivre);
+    const instrucaoFinal = instrucaoLimpa
+      ? `${formato.instrucao} Além disso, siga esta instrução específica do usuário: "${instrucaoLimpa}"`
+      : formato.instrucao;
+
+    const mensagemFinal = arquivoPdf
+      ? `${texto}\n\n---\n📄 Conteúdo do arquivo "${arquivoPdf.nome}":\n${arquivoPdf.texto}`
+      : texto;
+
+    const resposta = await fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: mensagemFinal,
+        instrucaoFormato: instrucaoFinal,
+        history: historico.map((m) => ({
+          role: m.tipo === "usuario" ? "user" : "assistant",
+          content: m.conteudo,
+        })),
+      }),
+    });
+
+    if (!resposta.ok) throw new Error("Erro ao contatar o servidor.");
+
+    const dados = await resposta.json();
+    return dados.answer ?? "Sem resposta.";
+  };
+
   // ─── Reconhecimento de voz ────────────────────────────────────────────
   const iniciarGravacao = useCallback(() => {
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -203,16 +244,12 @@ const ChatAdvogado = () => {
     setCarregando(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const respostaIA = await enviarParaN8n(texto);
       setHistorico((prev) => [
         ...prev,
-        {
-          tipo: "ia",
-          conteudo: "Recebi sua solicitação. Estou processando as informações para trazer a melhor resposta jurídica para você. Em instantes terá uma análise completa.",
-          horario: horarioAtual(),
-        },
+        { tipo: "ia", conteudo: respostaIA, horario: horarioAtual() },
       ]);
-    } catch {
+    } catch (erro) {
       setHistorico((prev) => [
         ...prev,
         {
