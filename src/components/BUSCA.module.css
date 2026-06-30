@@ -64,10 +64,6 @@
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.menuDeBusca:hover .pesquisar {
-  border-color: var(--amarelo);
-  box-shadow: 0 0 0 4px rgba(250, 184, 76, 0.1);
-}
 .menuDeBusca:focus-within .pesquisar {
   border-color: var(--amarelo);
   box-shadow: 0 0 0 4px rgba(250, 184, 76, 0.18);
@@ -92,9 +88,6 @@
   flex-shrink: 0;
   transition: transform 0.2s ease;
   opacity: 0.4;
-}
-.menuDeBusca:hover .lupaIcon {
-  transform: scale(1.1);
 }
 
 @media screen and (max-width: 1023px) {

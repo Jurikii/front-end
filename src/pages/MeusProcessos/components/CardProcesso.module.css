@@ -119,6 +119,7 @@
   align-content: center;
   font-size: var(--fs-16);
   border-top: var(--border-1);
+  cursor: pointer;
 }
 
 .acoesUnico {
@@ -166,11 +167,16 @@
   color: var(--azul);
   gap: var(--gap-10);
 }
-.acaoUnico:hover {
+.acoes:hover,
+.acoesUnico:hover {
   background-color: var(--azul);
+}
+.acoes:hover .acaoUnico,
+.acoesUnico:hover .acaoUnico {
   color: var(--branco);
 }
-.acaoUnico:hover .acaoIcone {
+.acoes:hover .acaoUnico .acaoIcone,
+.acoesUnico:hover .acaoUnico .acaoIcone {
   filter: brightness(0) invert(1);
 }
 .acaoUnico:active {

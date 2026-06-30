@@ -3,13 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: var(--border-1);
   gap: var(--gap-20);
   font-size: var(--fs-28);
   color: var(--azul);
   font-family: var(--font-montserrat);
   text-align: left;
-  padding-bottom: var(--padding-16);
+  padding-bottom: 0;
   transition: border-color 0.2s ease;
 }
 
@@ -40,9 +39,11 @@
 .filtros {
   align-self: stretch;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   font-size: var(--fs-15);
   gap: var(--gap-20);
+  border-bottom: var(--border-1);
+  min-height: 42px;
 }
 
 .filtro,
@@ -50,20 +51,30 @@
   display: flex;
   align-items: center;
   gap: var(--gap-8);
-  height: 40px;
-  padding: var(--padding-8) var(--padding-12);
+  padding: 2px var(--gap-16) 0;
+  margin-bottom: -1px;
+  height: 42px;
   box-sizing: border-box;
   background: none;
   border: none;
+  border-bottom: 2px solid transparent;
   font-size: inherit;
   font-family: var(--font-montserrat);
   font-weight: 600;
   color: var(--azul);
   cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+.filtro:hover {
+  border-bottom-color: var(--color-gainsboro-100);
+  color: var(--azul);
 }
 
 .filtroAtivo {
-  border-bottom: 3px solid var(--amarelo);
+  border-bottom: 2px solid var(--amarelo);
+  color: var(--amarelo);
+  margin-bottom: -1px;
 }
 .filtroAtivo:hover {
   opacity: 0.8;
@@ -73,31 +84,28 @@
   transform: scale(0.97);
 }
 
-.filtro:hover {
-  opacity: 0.7;
-}
-
 .filtroIcone {
   height: 22px;
   width: 22px;
 }
 
 .filtroBadge {
+  width: 21px;
+  border-radius: var(--br-10);
+  background-color: var(--color-floralwhite-200);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: var(--br-10);
-  background-color: var(--color-khaki);
+  color: var(--azul);
   font-size: var(--fs-13);
   font-weight: 600;
+  padding: 2px 0;
 }
 
 @media screen and (max-width: 800px) {
   .cabecalho {
     gap: var(--gap-16);
-    padding-bottom: var(--padding-12);
   }
 
   .paginaTitulo {

@@ -37,11 +37,6 @@ const CabecalhoProcessos = ({ className = "", filtroAtivo = FILTROS[0].id, onFil
               onClick={() => handleFiltroClick(filtro.id)}
               aria-pressed={ativo}
             >
-              <img
-                className={styles.filtroIcone}
-                alt=""
-                src={filtro.icone}
-              />
               <span className={styles.filtroLabel}>{filtro.label}</span>
               <span className={styles.filtroBadge}>{filtro.contagem}</span>
             </button>
