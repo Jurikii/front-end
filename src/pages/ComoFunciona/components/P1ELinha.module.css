@@ -4,25 +4,25 @@
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
-  gap: 24px;
   max-width: 100%;
   text-align: left;
   font-size: var(--fs-24);
   color: var(--branco);
   font-family: var(--font-montserrat);
 }
-.p1ELinhaChild {
-  width: 80px;
-  height: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  opacity: 0.2;
-}
 .passo1 {
   flex: 1;
+  position: relative;
   border-radius: 24px;
-  background-color: var(--azul-sereno);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  will-change: transform;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 48, 87, 0.85) 0%,
+    rgba(26, 48, 87, 0.92) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -30,25 +30,44 @@
   padding: 36px 40px;
   min-width: 280px;
   max-width: 100%;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06),
+              0 2px 8px rgba(0, 0, 0, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+.passo1::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 .passo1:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12),
+              0 6px 16px rgba(0, 0, 0, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 .iconeBaloFala {
   width: 88px;
   height: 88px;
   object-fit: contain;
   flex-shrink: 0;
-  transition: transform 0.35s ease;
+  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .passo1:hover .iconeBaloFala {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(-3deg);
 }
 .texto {
   flex: 1;
@@ -101,12 +120,6 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .p1ELinha {
-    gap: 16px;
-  }
-  .p1ELinhaChild {
-    width: 50px;
-  }
   .passo1 {
     flex-direction: column;
     align-items: center;
@@ -131,5 +144,23 @@
   .descrevaSuaSituao {
     font-size: var(--fs-15);
     text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passo1 {
+    transition: none;
+  }
+
+  .passo1:hover {
+    transform: none;
+  }
+
+  .iconeBaloFala {
+    transition: none;
+  }
+
+  .passo1:hover .iconeBaloFala {
+    transform: none;
   }
 }

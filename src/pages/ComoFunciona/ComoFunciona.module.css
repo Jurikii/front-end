@@ -16,6 +16,20 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.comoFuncionaTeste::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
 .passoAPasso {
   width: 100%;
   display: flex;
@@ -32,12 +46,38 @@
 }
 .dashedLine {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50px;
+  bottom: 50px;
   left: 64px;
-  border-left: 3px dashed var(--amarelo);
-  opacity: 0.25;
+  width: 3px;
   z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--amarelo) 8%,
+    var(--amarelo) 92%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.dashedRevealed {
+  opacity: 0.2;
+}
+
+.dashedLine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 6px,
+    currentColor 6px,
+    currentColor 12px
+  );
+  color: var(--amarelo);
 }
 .stepRow {
   display: grid;
@@ -46,6 +86,58 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.stepRowHidden {
+  opacity: 0;
+  transform: scale(0.93) translateY(25px);
+  pointer-events: none;
+}
+
+.stepRowVisible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.stepRowVisible .circle {
+  animation: circleReveal 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.1s both;
+}
+
+.stepRowVisible .numero {
+  animation: numberPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+}
+
+@keyframes circleReveal {
+  0% {
+    transform: scale(0.7);
+    box-shadow: 0 0 0 rgba(250, 184, 76, 0);
+  }
+  60% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 20px rgba(250, 184, 76, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(250, 184, 76, 0.3);
+  }
+}
+
+@keyframes numberPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 .numeroBox {
   display: flex;
@@ -60,7 +152,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
@@ -80,18 +173,6 @@
   font-family: inherit;
   line-height: 1;
 }
-.jurikii21 {
-  width: 1px;
-  position: absolute;
-  margin: 0 !important;
-  top: calc(50% - 449.5px);
-  left: calc(50% - 310px);
-  max-height: 100%;
-  z-index: 2;
-  flex-shrink: 0;
-  opacity: 0;
-  pointer-events: none;
-}
 @media screen and (max-width: 1050px) {
   .passoAPasso {
     max-width: 100%;
@@ -103,9 +184,6 @@
   }
   .numero {
     font-size: var(--fs-36);
-  }
-  .dashedLine {
-    left: 52px;
   }
 }
 @media screen and (max-width: 900px) {
@@ -150,5 +228,38 @@
   }
   .numero {
     font-size: var(--fs-22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashedLine {
+    opacity: 0.2;
+    transition: none;
+  }
+
+  .stepRow {
+    transition: none;
+  }
+
+  .stepRowHidden {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .stepRowVisible .circle {
+    animation: none;
+  }
+
+  .stepRowVisible .numero {
+    animation: none;
+  }
+
+  .circle {
+    transition: none;
+  }
+
+  .circle:hover {
+    transform: none;
   }
 }
