@@ -1,15 +1,7 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./InicioDvidas.module.css";
 
 const InicioDvidas = ({ className = "" }) => {
-  const navigate = useNavigate();
-
-  const onBotoDvidasContainerClick = useCallback(() => {
-    navigate("/#chat-demo");
-  }, [navigate]);
-
   return (
     <section className={[styles.inicioDvidas, className].join(" ")}>
       <div className={styles.dvidas}>
@@ -30,25 +22,6 @@ const InicioDvidas = ({ className = "" }) => {
         <b className={styles.semJuridiqusS}>
           Sem juridiquês. Só respostas claras pra você entender seus direitos.
         </b>
-        <div className={styles.noAchouEBoto}>
-          <div className={styles.iconeBaloETexto}>
-            <img className={styles.groupIcon3} alt="" src="/Group6.svg" />
-            <h3 className={styles.noAchouO}>
-              Não achou o que procura? Pergunte direto pra nossa IA.
-            </h3>
-          </div>
-          <div
-            className={styles.botoDvidas}
-            onClick={onBotoDvidasContainerClick}
-          >
-            <img
-              className={styles.hugeiconschat01}
-              alt=""
-              src="/hugeicons-chat-01.svg"
-            />
-            <div className={styles.aquiAJustia}>Perguntar para a IA</div>
-          </div>
-        </div>
       </div>
       <img
         className={styles.image113Icon}

@@ -74,61 +74,6 @@
   opacity: 0.75;
   max-width: 480px;
 }
-.noAchouEBoto {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  font-size: var(--fs-18);
-}
-.iconeBaloETexto {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 251px;
-}
-.groupIcon3 {
-  width: 40px;
-  position: relative;
-  max-height: 100%;
-  flex-shrink: 0;
-}
-.noAchouO {
-  margin: 0;
-  font-size: inherit;
-  font-weight: 600;
-  font-family: inherit;
-  line-height: 1.4;
-}
-.botoDvidas {
-  box-shadow: var(--shadow-drop);
-  border-radius: var(--br-10);
-  background-color: var(--amarelo);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
-  gap: 10px;
-  cursor: pointer;
-  color: var(--azul-escuro);
-  white-space: nowrap;
-  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-.botoDvidas:hover {
-  filter: brightness(0.92);
-  box-shadow: var(--shadow-drop-2);
-}
-.botoDvidas:active {
-  transform: scale(0.97);
-}
-.hugeiconschat01 {
-  height: 22px;
-  width: 22px;
-  position: relative;
-}
 .image113Icon {
   max-width: 42%;
   height: auto;
@@ -174,15 +119,5 @@
   }
   .semJuridiqusS {
     font-size: var(--fs-16);
-  }
-  .iconeBaloETexto {
-    flex-wrap: wrap;
-    min-width: 100%;
-  }
-  .noAchouO {
-    font-size: var(--fs-16);
-  }
-  .botoDvidas {
-    padding: 10px 16px;
   }
 }

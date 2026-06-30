@@ -1,4 +1,5 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import PerguntaFaq from "./PerguntaFaq";
 import TernoAmarelo from "./TernoAmarelo";
 import EscudoAzul from "./EscudoAzul";
@@ -44,6 +45,11 @@ const mapaIcone = {
 
 const FaqBody = ({ className = "", searchTerm = "", onSearchEmpty }) => {
   const [categoriaAtiva, setCategoriaAtiva] = useState("mais-buscadas");
+  const navigate = useNavigate();
+
+  const onBotoDvidasContainerClick = useCallback(() => {
+    navigate("/#chat-demo");
+  }, [navigate]);
 
   const termoBusca = (searchTerm || "").toLowerCase().trim();
 
@@ -135,19 +141,25 @@ const FaqBody = ({ className = "", searchTerm = "", onSearchEmpty }) => {
           </div>
         ))}
         <div className={styles.mensagem}>
-          <div className={styles.texto}>
-            <div className={styles.aJurikiExiste}>
-              A Juriki existe para tornar o jurídico simples, acessível e
-              humano.
+          <div className={styles.noAchouEBoto}>
+            <div className={styles.iconeBaloETexto}>
+              <img className={styles.groupIcon3} alt="" src="/Group6.svg" />
+              <h3 className={styles.noAchouO}>
+                Não achou o que procura? Pergunte direto pra nossa IA.
+              </h3>
             </div>
-            <div className={styles.conteComA}>Conte com a gente!</div>
+            <div
+              className={styles.botoDvidas}
+              onClick={onBotoDvidasContainerClick}
+            >
+              <img
+                className={styles.hugeiconschat01}
+                alt=""
+                src="/hugeicons-chat-01.svg"
+              />
+              <div className={styles.aquiAJustia}>Perguntar para a IA</div>
+            </div>
           </div>
-          <img
-            className={styles.image114Icon}
-            loading="lazy"
-            alt=""
-            src="/image-114@2x.png"
-          />
         </div>
       </section>
       <div className={styles.perguntasMaisBuscadas}>
