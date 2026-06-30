@@ -92,12 +92,12 @@
 }
 
 .cornerTopLeft {
-  bottom: 120px;
+  top: 0;
   left: 0;
 }
 
 .cornerTopRight {
-  bottom: 120px;
+  top: 0;
   right: 0;
 }
 
