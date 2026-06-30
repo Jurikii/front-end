@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { useFavoritos } from "../../hooks/useFavoritos";
 import Menu1 from "../../components/Menu1";
 import BUSCA from "../../components/BUSCA";
@@ -14,63 +14,22 @@ const AREAS = [
   "Previdenciário",
 ];
 
-const FILTROS_OPCOES = [
-  { id: "todos", label: "Todos" },
-  { id: "melhor-avaliacao", label: "Melhor avaliação" },
-  { id: "az", label: "A-Z" },
-  { id: "za", label: "Z-A" },
-];
-
-const FILTRO_LABEL = {
-  "melhor-avaliacao": "Melhor avaliação",
-  "az": "A-Z",
-  "za": "Z-A",
-};
-
 const BuscarAdvogado = () => {
   const { isFavorito, toggleFavorito } = useFavoritos();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedArea, setSelectedArea] = useState(null);
   const [filtroAtivo, setFiltroAtivo] = useState(false);
-  const [filtroModalAberto, setFiltroModalAberto] = useState(false);
-  const [filtroOrdenacao, setFiltroOrdenacao] = useState("todos");
 
   const handleSearchChange = useCallback((value) => {
     setSearchQuery(value);
   }, []);
 
-  const handleSearchSubmit = useCallback(() => {
-    setFiltroAtivo(true);
-  }, []);
-
-  const handleKeyDown = useCallback(
-    (e) => {
-      if (e.key === "Enter") {
-        setFiltroAtivo(true);
-      }
-    },
-    []
-  );
-
-  const abrirFiltro = useCallback(() => {
-    setFiltroModalAberto(true);
-  }, []);
-
-  const fecharFiltro = useCallback(() => {
-    setFiltroModalAberto(false);
-  }, []);
-
-  const selecionarFiltro = useCallback((id) => {
-    setFiltroOrdenacao(id);
-    if (id !== "todos" || selectedArea || searchQuery) {
-      setFiltroAtivo(true);
-    }
-    setFiltroModalAberto(false);
+  useEffect(() => {
+    setFiltroAtivo(!!selectedArea || !!searchQuery);
   }, [selectedArea, searchQuery]);
 
   const handleAreaClick = useCallback((area) => {
     setSelectedArea((prev) => (prev === area ? null : area));
-    setFiltroAtivo(true);
   }, []);
 
   const advogadosFiltrados = useMemo(() => {
@@ -84,28 +43,17 @@ const BuscarAdvogado = () => {
     }
 
     if (searchQuery.trim()) {
-      const query = searchQuery.trim().toLowerCase();
+      const normalizar = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      const query = normalizar(searchQuery.trim());
       lista = lista.filter(
         (adv) =>
-          adv.nome.toLowerCase().includes(query) ||
-          adv.areas.some((a) => a.toLowerCase().includes(query))
+          normalizar(adv.nome).includes(query) ||
+          adv.areas.some((a) => normalizar(a).includes(query))
       );
     }
 
-    if (filtroOrdenacao === "az") {
-      lista.sort((a, b) => a.nome.localeCompare(b.nome));
-    } else if (filtroOrdenacao === "za") {
-      lista.sort((a, b) => b.nome.localeCompare(a.nome));
-    } else if (filtroOrdenacao === "melhor-avaliacao") {
-      lista.sort((a, b) => (b.rating || 0) - (a.rating || 0));
-    }
-
     return lista;
-  }, [selectedArea, searchQuery, filtroOrdenacao]);
-
-  const filtroLabelAtivo = filtroOrdenacao !== "todos" ? FILTRO_LABEL[filtroOrdenacao] : null;
-
-  const temFiltroPersonalizado = filtroOrdenacao !== "todos" || !!selectedArea || !!searchQuery;
+  }, [selectedArea, searchQuery]);
 
   return (
     <div className={styles.buscarAdvogado}>
@@ -114,25 +62,7 @@ const BuscarAdvogado = () => {
         <BUSCA
           searchQuery={searchQuery}
           onSearchChange={handleSearchChange}
-          onSearchSubmit={handleSearchSubmit}
-          onFilterClick={abrirFiltro}
-          onKeyDown={handleKeyDown}
-          filtroAtivo={temFiltroPersonalizado}
         />
-
-        {filtroLabelAtivo && (
-          <div className={styles.filtroAtivoInfo}>
-            <span className={styles.filtroAtivoTexto}>
-              Filtrando por: <strong>{filtroLabelAtivo}</strong>
-            </span>
-            <button
-              className={styles.limparFiltroBtn}
-              onClick={() => selecionarFiltro("todos")}
-            >
-              Limpar
-            </button>
-          </div>
-        )}
 
         <div className={styles.areasAtuacao}>
           <h2 className={styles.reasDeAtuao}>Áreas de atuação</h2>
@@ -150,13 +80,12 @@ const BuscarAdvogado = () => {
             ))}
             <div
               className={`${styles.tagArea} ${
-                !selectedArea && filtroOrdenacao === "todos" && !searchQuery ? styles.tagAreaAtiva : ""
+                !selectedArea && !searchQuery ? styles.tagAreaAtiva : ""
               }`}
               onClick={() => {
                 setSelectedArea(null);
                 setSearchQuery("");
                 setFiltroAtivo(false);
-                setFiltroOrdenacao("todos");
               }}
             >
               <div className={styles.tagLabel}>Ver todas</div>
@@ -170,32 +99,6 @@ const BuscarAdvogado = () => {
           filtroAtivo={filtroAtivo}
         />
       </main>
-
-      {filtroModalAberto && (
-        <div className={styles.overlay} onClick={fecharFiltro}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitulo}>Ordenar por</h3>
-              <button className={styles.modalFechar} onClick={fecharFiltro}>
-                ✕
-              </button>
-            </div>
-            <div className={styles.filtroOpcoes}>
-              {FILTROS_OPCOES.map((opcao) => (
-                <button
-                  key={opcao.id}
-                  className={`${styles.filtroOpcao} ${
-                    filtroOrdenacao === opcao.id ? styles.filtroOpcaoAtiva : ""
-                  }`}
-                  onClick={() => selecionarFiltro(opcao.id)}
-                >
-                  {opcao.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

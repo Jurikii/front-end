@@ -119,10 +119,6 @@ const AdvogadosDisponiveis = ({
                 consumidorCvelTrabalhista={item.consumidorCvelTrabalhista}
                 consumidorCvelAlignSelf={item.consumidorCvelAlignSelf}
                 consumidorCvelDisplay={item.consumidorCvelDisplay}
-                setinhaJustifyContent={item.setinhaJustifyContent}
-                tipoDeAtendimentoJustifyContent={
-                  item.tipoDeAtendimentoJustifyContent
-                }
                 onAdvogadoClick={() => onAdvogadoItemClick(item)}
                 favoritado
                 onToggleFavorito={() => onToggleFavorito?.(item.id)}
@@ -154,10 +150,6 @@ const AdvogadosDisponiveis = ({
               consumidorCvelTrabalhista={item.consumidorCvelTrabalhista}
               consumidorCvelAlignSelf={item.consumidorCvelAlignSelf}
               consumidorCvelDisplay={item.consumidorCvelDisplay}
-              setinhaJustifyContent={item.setinhaJustifyContent}
-              tipoDeAtendimentoJustifyContent={
-                item.tipoDeAtendimentoJustifyContent
-              }
               onAdvogadoClick={() => onAdvogadoItemClick(item)}
               favoritado={isFavorito?.(item.id)}
               onToggleFavorito={() => onToggleFavorito?.(item.id)}

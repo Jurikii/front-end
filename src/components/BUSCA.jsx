@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import PropTypes from "prop-types";
 import styles from "./BUSCA.module.css";
 
@@ -6,10 +5,6 @@ const BUSCA = ({
   className = "",
   searchQuery = "",
   onSearchChange,
-  onSearchSubmit,
-  onFilterClick,
-  onKeyDown,
-  filtroAtivo = false,
 }) => {
   return (
     <section className={[styles.busca, className].join(" ")}>
@@ -28,22 +23,10 @@ const BUSCA = ({
               placeholder="Busque por nome ou área de atuação"
               value={searchQuery}
               onChange={(e) => onSearchChange?.(e.target.value)}
-              onKeyDown={onKeyDown}
             />
             <img className={styles.lupaIcon} alt="" src="/lupa.svg" />
           </div>
         </div>
-        <button className={styles.buscar} onClick={onSearchSubmit}>
-          <span className={styles.buscar2}>Buscar</span>
-        </button>
-        <button
-          className={`${styles.filtros} ${filtroAtivo ? styles.filtrosAtivo : ""}`}
-          onClick={onFilterClick}
-        >
-          <span className={styles.buscarDocumento}>Filtrar</span>
-          <img className={styles.filtroIcon} alt="" src="/filtro.svg" />
-          {filtroAtivo && <span className={styles.filtroBadge} />}
-        </button>
       </div>
     </section>
   );
@@ -53,10 +36,6 @@ BUSCA.propTypes = {
   className: PropTypes.string,
   searchQuery: PropTypes.string,
   onSearchChange: PropTypes.func,
-  onSearchSubmit: PropTypes.func,
-  onFilterClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  filtroAtivo: PropTypes.bool,
 };
 
 export default BUSCA;

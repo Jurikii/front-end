@@ -15,8 +15,9 @@ const AgendarConsulta = () => {
   const tratamento = nome.startsWith("Dr.") ? "do Dr." : "da Dra.";
 
   const onVoltar = useCallback(() => {
-    navigate("/advogados");
-  }, [navigate]);
+    const id = encodeURIComponent(advogado?.oab ?? nome);
+    navigate(`/advogados/${id}`, { state: { advogado } });
+  }, [navigate, advogado, nome]);
 
   return (
     <div className={styles.page}>
@@ -48,7 +49,7 @@ const AgendarConsulta = () => {
                 </div>
               </div>
               <div className={styles.oabRow}>
-                <img className={styles.oabIcon} alt="" src="/oab-icon.svg" />
+                <img className={styles.oabIcon} alt="" src="/OAB.png" />
                 <span>{oab}</span>
               </div>
             </div>

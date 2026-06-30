@@ -42,7 +42,7 @@ const CardAdvogado = ({
                 <h3 className={styles.label}>{areas.join("  •  ")}</h3>
               </div>
               <div className={styles.linhaOab}>
-                <img className={styles.iconeOab} alt="" src="/Vector4.svg" />
+                <img className={styles.iconeOab} alt="" src="/OAB.png" />
                 <h3 className={styles.label}>{oab}</h3>
               </div>
             </div>

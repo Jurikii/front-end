@@ -12,8 +12,6 @@ const Advogado = ({
   consumidorCvelTrabalhista,
   consumidorCvelAlignSelf,
   consumidorCvelDisplay,
-  setinhaJustifyContent,
-  tipoDeAtendimentoJustifyContent,
   favoritado,
   onToggleFavorito,
 }) => {
@@ -35,18 +33,6 @@ const Advogado = ({
       display: consumidorCvelDisplay,
     };
   }, [consumidorCvelAlignSelf, consumidorCvelDisplay]);
-
-  const setinhaStyle = useMemo(() => {
-    return {
-      justifyContent: setinhaJustifyContent,
-    };
-  }, [setinhaJustifyContent]);
-
-  const tipoDeAtendimentoStyle = useMemo(() => {
-    return {
-      justifyContent: tipoDeAtendimentoJustifyContent,
-    };
-  }, [tipoDeAtendimentoJustifyContent]);
 
   const onAdvogadoClick1 = useCallback(() => {
     // Please sync "Perfil advogado" to the project
@@ -72,11 +58,8 @@ const Advogado = ({
           </h3>
         </div>
       </div>
-      <div className={styles.setinha} style={setinhaStyle}>
-        <div
-          className={styles.tipoDeAtendimento}
-          style={tipoDeAtendimentoStyle}
-        >
+      <div className={styles.setinha}>
+        <div className={styles.tipoDeAtendimento}>
           <div className={styles.icones}>
             <button
               className={styles.botaoFavorito}
@@ -130,8 +113,6 @@ Advogado.propTypes = {
   geminiGeneratedImageBkgpjbBorderRadius: PropTypes.string,
   consumidorCvelAlignSelf: PropTypes.string,
   consumidorCvelDisplay: PropTypes.string,
-  setinhaJustifyContent: PropTypes.string,
-  tipoDeAtendimentoJustifyContent: PropTypes.string,
   /** Action props */
   onAdvogadoClick: PropTypes.func,
   onToggleFavorito: PropTypes.func,

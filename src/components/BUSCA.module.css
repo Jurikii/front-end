@@ -1,6 +1,6 @@
 .busca {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 100%;
   display: flex;
@@ -96,84 +96,7 @@
 .menuDeBusca:hover .lupaIcon {
   transform: scale(1.1);
 }
-.buscar {
-  height: 50px;
-  min-width: 160px;
-  padding: 0 28px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--amarelo), #f5a623);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: 600;
-  font-family: inherit;
-  font-size: inherit;
-  color: var(--preto);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 14px rgba(250, 184, 76, 0.3);
-}
-.buscar:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(250, 184, 76, 0.4);
-}
-.buscar:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(250, 184, 76, 0.2);
-}
-.buscar2 {
-  font-weight: 600;
-  white-space: nowrap;
-}
-.filtros {
-  height: 50px;
-  min-width: 140px;
-  padding: 0 24px;
-  border-radius: 12px;
-  background-color: var(--areia);
-  border: 1.5px solid rgba(12, 24, 34, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  font-family: inherit;
-  font-size: inherit;
-  color: var(--azul-escuro);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-}
-.filtros:hover {
-  border-color: var(--amarelo);
-  background-color: rgba(250, 184, 76, 0.06);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-.filtros:active {
-  transform: translateY(0);
-}
-.filtrosAtivo {
-  border-color: var(--amarelo);
-  background-color: rgba(250, 184, 76, 0.1);
-}
-.filtroBadge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--amarelo);
-  border: 2px solid var(--areia);
-}
-.filtroIcon {
-  height: 20px;
-  width: 20px;
-  flex-shrink: 0;
-  opacity: 0.6;
-}
+
 @media screen and (max-width: 1023px) {
   .buscarAdvogado2 {
     font-size: 32px;

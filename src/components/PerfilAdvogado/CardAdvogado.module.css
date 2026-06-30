@@ -154,24 +154,20 @@
   user-select: none;
   height: 30px;
   border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.35s ease;
 }
 .favoritos:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  opacity: 0.75;
 }
-.favoritos:active {
-  transform: scale(0.97);
-}
+
 
 .iconeMd {
   height: 24px;
   width: 24px;
   position: relative;
-  transition: transform 0.2s ease;
+  transition: transform 0.35s ease;
 }
-.favoritos:hover .iconeMd {
-  transform: scale(1.1);
-}
+
 
 .textoFavoritos {
   margin: 0;

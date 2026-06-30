@@ -24,6 +24,13 @@
   max-width: 1292px;
 }
 
+.sessaoCompleta > * {
+  animation: fadeIn 0.35s ease both;
+}
+.sessaoCompleta > *:nth-child(2) { animation-delay: 0.05s; }
+.sessaoCompleta > *:nth-child(3) { animation-delay: 0.1s; }
+.sessaoCompleta > *:nth-child(4) { animation-delay: 0.15s; }
+
 .topo {
   align-self: stretch;
   display: flex;
@@ -45,14 +52,15 @@
   padding: 6px 20px 6px 0;
   background: none;
   border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 .voltarBtn:hover {
-  background-color: rgba(16, 46, 68, 0.05);
+  opacity: 0.75;
 }
-.voltarBtn:active {
-  transform: scale(0.97);
+.voltarBtn:hover .voltarIcone {
+  transform: translateX(-4px);
 }
+
 
 .voltarIcone {
   height: 18px;
@@ -61,9 +69,7 @@
   object-fit: contain;
   transition: transform 0.2s ease;
 }
-.voltarBtn:hover .voltarIcone {
-  transform: translateX(-2px);
-}
+
 
 .voltarTexto {
   font-size: var(--fs-14);
@@ -79,6 +85,11 @@
   font-weight: 700;
   font-family: var(--font-montserrat);
   color: var(--azul);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media screen and (max-width: 1300px) {
