@@ -1,9 +1,10 @@
 .buscarAdvogado {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   background-color: var(--branco);
-  overflow-x: hidden;
   line-height: normal;
   letter-spacing: normal;
 }

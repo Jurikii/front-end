@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import ComoFunciona from "../../components/SobreNos/ComoFunciona";
 import Misso from "../../components/SobreNos/Misso";
 import Milhes from "../../components/SobreNos/Milhes";
 import Navbar from "../../components/Navbar";
 import Rodap from "../../components/SobreNos/Rodap";
+import Reveal from "../../components/Reveal";
 import styles from "./SobreNos.module.css";
 
 const SobreNos = () => {
@@ -36,14 +38,16 @@ const SobreNos = () => {
       </section>
 
       {/* ============ MILHÕES ============ */}
-      <Milhes />
+      <Reveal threshold={0.2}>
+        <Milhes />
+      </Reveal>
 
       {/* ============ CONTEÚDO (com fundo decorativo) ============ */}
       <div className={styles.contentBg}>
         <img className={styles.contentBgImg} alt="" src="/merged-asset-11@2x.png" />
 
         {/* ===== ESSÊNCIA ===== */}
-        <section className={styles.essencia}>
+        <Reveal as="section" className={styles.essencia} threshold={0.2}>
           <div className={styles.essenciaTitle}>
             <img className={styles.decorIcon} alt="" src="/Group2.svg" />
             <h1>
@@ -58,10 +62,10 @@ const SobreNos = () => {
             Unimos tecnologia, inteligência artificial e apoio profissional para
             aproximar as pessoas da justiça.
           </p>
-        </section>
+        </Reveal>
 
         {/* ===== MISSÃO & VISÃO ===== */}
-        <section className={styles.missoes}>
+        <Reveal as="section" className={styles.missoes} threshold={0.2}>
           <Misso
             mditargetArrow="/mdi-target-arrow@2x.png"
             nossaMisso="Nossa missão"
@@ -74,64 +78,130 @@ const SobreNos = () => {
             nossaMisso="Nossa visão"
             contribuirComTecnologiasQue="Associar-se aos veículos jurídicos já existentes, ampliando o público alvo."
           />
-        </section>
+        </Reveal>
 
         {/* ===== VALORES ===== */}
         <section className={styles.valoresSection}>
-          <div className={styles.valoresTitle}>
-            <img className={styles.decorSmall} alt="" src="/Group.svg" />
-            <h2>Nossos valores</h2>
-            <img className={styles.decorSmall} alt="" src="/Group.svg" />
-          </div>
+          <Reveal threshold={0.2}>
+            <div className={styles.valoresTitle}>
+              <img className={styles.decorSmall} alt="" src="/Group.svg" />
+              <h2>Nossos valores</h2>
+              <img className={styles.decorSmall} alt="" src="/Group.svg" />
+            </div>
+          </Reveal>
 
-          <div className={styles.valorGrid}>
-            <div className={styles.valorCard}>
+          <motion.div
+            className={styles.valorGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08 } },
+            }}
+          >
+            <motion.div
+              className={styles.valorCard}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIcon} loading="lazy" alt="" src="/Idea5@2x.png" />
               <h3>Transparência</h3>
               <p>Comunicação clara e honesta em tudo o que fazemos.</p>
-            </div>
-            <div className={styles.valorCard}>
+            </motion.div>
+            <motion.div
+              className={styles.valorCard}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIcon} alt="" src="/Idea3@2x.png" />
               <h3>Diversidade</h3>
               <p>Valorizamos todas as vozes e perspectivas.</p>
-            </div>
-            <div className={`${styles.valorCard} ${styles.valorCardTall}`}>
+            </motion.div>
+            <motion.div
+              className={`${styles.valorCard} ${styles.valorCardTall}`}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIconLarge} alt="" src="/Idea@2x.png" />
               <h3>Inclusão social</h3>
               <p>Justiça é um direito de todos, sem exceção.</p>
-            </div>
-            <div className={styles.valorCard}>
+            </motion.div>
+            <motion.div
+              className={styles.valorCard}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIcon} alt="" src="/Idea6@2x.png" />
               <h3>Inovação</h3>
               <p>Tecnologia e criatividade para transformar.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className={styles.valorGrid2}>
-            <div className={styles.valorCard}>
+          <motion.div
+            className={styles.valorGrid2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08 } },
+            }}
+          >
+            <motion.div
+              className={styles.valorCard}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIcon} alt="" src="/Idea4@2x.png" />
               <h3>Acessibilidade</h3>
               <p>Informação jurídica simples, acessível e compreensível.</p>
-            </div>
-            <div className={styles.valorCard}>
+            </motion.div>
+            <motion.div
+              className={styles.valorCard}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIcon} alt="" src="/Idea1@2x.png" />
               <h3>Confiança</h3>
               <p>Segurança e responsabilidade em cada resposta.</p>
-            </div>
-            <div className={`${styles.valorCard} ${styles.valorCardTall}`}>
+            </motion.div>
+            <motion.div
+              className={`${styles.valorCard} ${styles.valorCardTall}`}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+              }}
+            >
               <img className={styles.valorIconWide} alt="" src="/Idea2@2x.png" />
               <h3>Integração</h3>
               <p>Conectamos pessoas, conhecimento e soluções.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
       </div>
 
       {/* ============ COMO FUNCIONA ============ */}
-      <ComoFunciona />
+      <Reveal threshold={0.2}>
+        <ComoFunciona />
+      </Reveal>
 
       {/* ============ FOOTER ============ */}
-      <Rodap />
+      <Reveal threshold={0.1}>
+        <Rodap />
+      </Reveal>
     </div>
   );
 };

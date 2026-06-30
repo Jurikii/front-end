@@ -1,38 +1,40 @@
 .menu {
   align-self: stretch;
+  position: sticky;
+  top: 0;
+  z-index: 99;
   background-color: var(--branco);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 40px;
+  flex-wrap: wrap;
+  padding: 10px 29px;
   box-sizing: border-box;
-  gap: 4px;
+  gap: 20px;
   max-width: 100%;
   font-family: var(--font-montserrat);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  position: relative;
-  z-index: 10;
-  min-height: 68px;
 }
 
 .logoArea {
   display: flex;
   align-items: center;
   gap: 10px;
+  height: 56px;
   text-decoration: none;
   color: inherit;
   flex-shrink: 0;
 }
 
 .logoIcon {
-  width: 44px;
+  width: 52px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .marcaNome {
   margin: 0;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--preto);
   letter-spacing: -0.01em;
@@ -42,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 48px;
   flex: 1;
   max-width: 832px;
   min-width: 0;
@@ -51,8 +53,8 @@
 .linkMenu {
   background: none;
   border: none;
-  font-size: var(--fs-15);
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   font-family: inherit;
   color: var(--preto);
   opacity: 0.7;
@@ -85,7 +87,7 @@
 .perfilUsuarioArea {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   flex-shrink: 0;
 }
 
@@ -95,17 +97,17 @@
 }
 
 .iconNotificacao { 
-  width: 20px; 
-  height: 20px; 
+  height: 24px; 
+  width: auto; 
 }
 
 .iconConfig { 
-  width: 18px; 
-  height: 20px; 
+  height: 24px; 
+  width: auto; 
 }
 
 .divisorVertical {
-  height: 20px;
+  height: 24px;
   width: 1px;
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -154,26 +156,24 @@
 }
 
 .nomeUsuario {
-  font-size: var(--fs-14);
+  font-size: 16px;
   font-weight: 600;
   color: var(--preto);
 }
 
 .avatarFoto {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 @media screen and (max-width: 1023px) {
   .menu {
-    padding: 8px 24px;
-    flex-wrap: wrap;
-    min-height: auto;
+    padding: 10px 20px;
   }
   .navegacaoAbas {
-    gap: 8px;
+    gap: 24px;
     flex-wrap: wrap;
     order: 3;
     flex: none;
@@ -182,10 +182,10 @@
   }
   .linkMenu {
     padding: 6px 14px;
-    font-size: var(--fs-14);
+    font-size: 15px;
   }
   .perfilUsuarioArea {
-    gap: 8px;
+    gap: 12px;
   }
   .nomeUsuario {
     display: none;
@@ -194,28 +194,31 @@
 
 @media screen and (max-width: 450px) {
   .menu {
-    padding: 8px 16px;
-    gap: 8px;
+    padding: 8px 14px;
+    gap: 12px;
+  }
+  .logoArea {
+    height: 44px;
   }
   .logoIcon {
-    width: 36px;
+    width: 40px;
   }
   .marcaNome {
-    font-size: 17px;
+    font-size: 18px;
   }
   .linkMenu {
     padding: 6px 10px;
-    font-size: var(--fs-13);
+    font-size: 14px;
   }
   .perfilUsuarioArea {
-    gap: 4px;
+    gap: 8px;
   }
   .botaoAcaoIcon {
     width: 30px;
     height: 30px;
   }
   .avatarFoto {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 }
