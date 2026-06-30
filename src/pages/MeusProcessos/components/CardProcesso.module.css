@@ -104,8 +104,6 @@
   height: 24px;
   flex: 0 0 auto;
   border-radius: 999px;
-  background-color: #d4edda;
-  color: #155724;
   padding: 0 var(--padding-12);
   font-size: 12px;
   font-weight: 600;
@@ -120,6 +118,7 @@
   font-size: var(--fs-16);
   border-top: var(--border-1);
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .acoesUnico {
@@ -198,6 +197,7 @@
 .acaoIcone {
   height: 18px;
   width: 18px;
+  transition: filter 0.3s ease;
 }
 
 @media screen and (max-width: 1325px) {

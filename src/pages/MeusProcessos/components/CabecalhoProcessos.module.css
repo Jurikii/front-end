@@ -40,9 +40,9 @@
   align-self: stretch;
   display: flex;
   align-items: flex-end;
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
   gap: var(--gap-20);
-  border-bottom: var(--border-1);
+
   min-height: 42px;
 }
 
@@ -60,7 +60,6 @@
   border-bottom: 2px solid transparent;
   font-size: inherit;
   font-family: var(--font-montserrat);
-  font-weight: 600;
   color: var(--azul);
   cursor: pointer;
   transition: border-color 0.25s ease, color 0.25s ease;
@@ -74,6 +73,7 @@
 .filtroAtivo {
   border-bottom: 2px solid var(--amarelo);
   color: var(--amarelo);
+  font-weight: 600;
   margin-bottom: -1px;
 }
 .filtroAtivo:hover {

@@ -55,10 +55,6 @@
   border-radius: var(--br-8);
 }
 
-.item:last-child {
-  padding-bottom: 0;
-}
-
 .item:hover {
   background-color: rgba(61, 106, 138, 0.04);
 }

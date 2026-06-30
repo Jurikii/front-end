@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProcessoCard.module.css";
-import { CORES_CATEGORIA } from "../../MeusProcessos/data/processos";
+import { CORES_CATEGORIA, STATUS, STATUS_STYLE } from "../../MeusProcessos/data/processos";
 
 const ProcessoCard = ({ processo }) => {
   const navigate = useNavigate();
@@ -48,7 +48,13 @@ const ProcessoCard = ({ processo }) => {
           </div>
         </div>
       </div>
-      <div className={styles.statusBadge}>
+      <div
+        className={styles.statusBadge}
+        style={{
+          backgroundColor: (STATUS_STYLE[processo.status] ?? STATUS_STYLE[STATUS.EM_ANDAMENTO]).bg,
+          color: (STATUS_STYLE[processo.status] ?? STATUS_STYLE[STATUS.EM_ANDAMENTO]).text,
+        }}
+      >
         <h3 className={styles.statusText}>{processo.status}</h3>
       </div>
     </section>

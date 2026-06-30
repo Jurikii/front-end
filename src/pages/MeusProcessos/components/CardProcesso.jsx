@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { CORES_CATEGORIA, ACOES_PROCESSO } from "../data/processos";
+import { CORES_CATEGORIA, ACOES_PROCESSO, STATUS, STATUS_STYLE } from "../data/processos";
 import styles from "./CardProcesso.module.css";
 
 /**
@@ -53,26 +53,36 @@ const CardProcesso = ({
           </ul>
 
           <div className={styles.statusArea}>
-            <span className={styles.badgeStatus}>{status}</span>
+            <span
+              className={styles.badgeStatus}
+              style={{
+                backgroundColor: (STATUS_STYLE[status] ?? STATUS_STYLE[STATUS.EM_ANDAMENTO]).bg,
+                color: (STATUS_STYLE[status] ?? STATUS_STYLE[STATUS.EM_ANDAMENTO]).text,
+              }}
+            >
+              {status}
+            </span>
           </div>
         </div>
       </div>
 
       {/* ── Barra de ações ───────────────────────── */}
-      <div className={`${styles.acoes} ${ACOES_PROCESSO.length === 1 ? styles.acoesUnico : ""}`}>
+      <div
+        className={`${styles.acoes} ${ACOES_PROCESSO.length === 1 ? styles.acoesUnico : ""}`}
+        onClick={() => onAcao?.(ACOES_PROCESSO[0]?.id)}
+      >
         {ACOES_PROCESSO.map((acao, i) => (
-          <button
+          <div
             key={acao.id}
             className={[
               styles.acao,
               styles[`acao_${acao.variante}`],
               ACOES_PROCESSO.length === 1 ? styles.acaoUnico : "",
             ].filter(Boolean).join(" ")}
-            onClick={() => onAcao?.(acao.id)}
           >
             <img className={styles.acaoIcone} alt="" src={acao.icone} />
             <span>{acao.label}</span>
-          </button>
+          </div>
         ))}
       </div>
     </article>

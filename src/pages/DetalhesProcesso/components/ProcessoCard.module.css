@@ -152,14 +152,12 @@
 .statusBadge {
   min-width: 120px;
   border-radius: var(--br-10);
-  background-color: var(--color-darkgreen-300);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 6px 16px;
   box-sizing: border-box;
   font-size: var(--fs-16);
-  color: var(--color-darkgreen-100);
 }
 
 .statusText {

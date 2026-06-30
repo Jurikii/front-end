@@ -26,6 +26,16 @@ export const STATUS = {
   EM_ANDAMENTO: "Em andamento",
   ENCERRADO: "Encerrado",
   AGUARDANDO: "Aguardando",
+  AGENDADO: "Agendado",
+  REALIZADO: "Realizado",
+};
+
+export const STATUS_STYLE = {
+  [STATUS.EM_ANDAMENTO]: { bg: "#d4edda", text: "#155724" },
+  [STATUS.ENCERRADO]: { bg: "#e8e8e8", text: "#4a4a4a" },
+  [STATUS.AGUARDANDO]: { bg: "#fdf0d9", text: "#8a6a1a" },
+  [STATUS.AGENDADO]: { bg: "#cce5ff", text: "#004085" },
+  [STATUS.REALIZADO]: { bg: "#d4edda", text: "#155724" },
 };
 
 // ── Lista de processos ─────────────────────────────────────────────
@@ -77,6 +87,70 @@ export const PROCESSOS = [
       { date: "05/05/2026", title: "Estudo psicossocial concluído", description: "Laudo apresentado ao juízo." },
       { date: "18/03/2026", title: "Audiência de conciliação", description: "Partes não chegaram a acordo." },
       { date: "10/01/2026", title: "Petição inicial deferida", description: "Liminar de guarda provisória deferida." },
+    ],
+  },
+
+  // ── Processos encerrados ──────────────────────────────────────────
+  {
+    id: "proc-004",
+    categoria: "Trabalhista",
+    titulo: "Acordo trabalhista",
+    numeroProcesso: "0004567-89.2023.5.02.0001",
+    advogado: "Dra. Beatriz Oliveira",
+    dataInicio: "10/06/2023",
+    vara: "4ª Vara do Trabalho de São Paulo-SP",
+    atualizadoEm: "20/12/2025",
+    status: STATUS.ENCERRADO,
+    andamentos: [
+      { date: "20/12/2025", title: "Acordo homologado", description: "Acordo entre as partes homologado pelo juiz." },
+      { date: "15/11/2025", title: "Audiência de conciliação", description: "Proposta de acordo apresentada." },
+      { date: "02/08/2025", title: "Perícia contábil", description: "Laudo pericial apresentado." },
+    ],
+  },
+  {
+    id: "proc-005",
+    categoria: "Civel",
+    titulo: "Indenização securitária",
+    numeroProcesso: "0005678-90.2023.8.26.0100",
+    advogado: "Dr. Rafael Mendes",
+    dataInicio: "05/03/2023",
+    vara: "5ª Vara Cível de São Paulo-SP",
+    atualizadoEm: "10/10/2025",
+    status: STATUS.ENCERRADO,
+    andamentos: [
+      { date: "10/10/2025", title: "Sentença transitada em julgado", description: "Processo arquivado definitivamente." },
+      { date: "18/07/2025", title: "Acórdão publicado", description: "Tribunal manteve sentença de primeiro grau." },
+      { date: "12/04/2025", title: "Apelação interposta", description: "Parte contrária interpôs recurso de apelação." },
+    ],
+  },
+
+  // ── Consultas agendadas ──────────────────────────────────────────
+  {
+    id: "cons-001",
+    categoria: "Trabalhista",
+    titulo: "Consulta sobre rescisão",
+    numeroProcesso: "N/A",
+    advogado: "Dra. Beatriz Oliveira",
+    dataInicio: "15/07/2026",
+    vara: "Online",
+    atualizadoEm: "10/06/2026",
+    status: STATUS.AGENDADO,
+    andamentos: [
+      { date: "15/07/2026", title: "Consulta agendada", description: "Reunião virtual agendada para as 14h." },
+    ],
+  },
+  {
+    id: "cons-002",
+    categoria: "Família",
+    titulo: "Consulta sobre guarda",
+    numeroProcesso: "N/A",
+    advogado: "Dra. Camila Torres",
+    dataInicio: "22/07/2026",
+    vara: "Online",
+    atualizadoEm: "12/06/2026",
+    status: STATUS.AGENDADO,
+    andamentos: [
+      { date: "22/07/2026", title: "Consulta agendada", description: "Reunião virtual agendada para as 10h." },
     ],
   },
 ];

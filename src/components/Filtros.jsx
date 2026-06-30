@@ -13,7 +13,7 @@ const areasDoDir = [
 
 const opcoesData = ["Hoje", "Últimos 7 dias", "Últimos 30 dias"];
 
-export default function Filtros({ onClose, onAplicar, onLimpar, valores: current }) {
+export default function Filtros({ onClose, onAplicar, onLimpar, valores: current, hideCliente = false }) {
   const [areas, setAreas] = useState(current?.areas ?? {});
 
   const [cliente, setCliente] = useState(current?.cliente ?? "");
@@ -84,25 +84,27 @@ export default function Filtros({ onClose, onAplicar, onLimpar, valores: current
         </div>
 
 
-        <div className="filtros-divider" />
-
-        {/* Cliente */}
-        <div className="filtros-secao">
-          <div className="filtros-secao-titulo">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/>
-              <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-            </svg>
-            <span>Cliente</span>
-          </div>
-          <input
-            className="filtros-input"
-            type="text"
-            placeholder="Buscar cliente"
-            value={cliente}
-            onChange={(e) => setCliente(e.target.value)}
-          />
-        </div>
+        {!hideCliente && (
+          <>
+            <div className="filtros-divider" />
+            <div className="filtros-secao">
+              <div className="filtros-secao-titulo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8"/>
+                  <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>
+                <span>Cliente</span>
+              </div>
+              <input
+                className="filtros-input"
+                type="text"
+                placeholder="Buscar cliente"
+                value={cliente}
+                onChange={(e) => setCliente(e.target.value)}
+              />
+            </div>
+          </>
+        )}
 
         <div className="filtros-divider" />
 

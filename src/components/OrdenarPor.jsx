@@ -1,14 +1,18 @@
 import { useState } from "react";
 import "./OrdenarPor.css";
 
-const opcoes = [
+const OPCOES_PADRAO = [
   { id: "recentes", label: "Mais Recentes" },
   { id: "antigos", label: "Mais antigos" },
   { id: "nome-az", label: "Nome do cliente (A-Z)" },
   { id: "nome-za", label: "Nome do cliente (Z-A)" },
 ];
 
-export default function OrdenarPor({ onClose, onSort, selecionado: current }) {
+export default function OrdenarPor({ onClose, onSort, selecionado: current, hideCliente = false }) {
+  const opcoes = hideCliente
+    ? OPCOES_PADRAO.filter((o) => o.id !== "nome-az" && o.id !== "nome-za")
+    : OPCOES_PADRAO;
+
   const [selecionado, setSelecionado] = useState(current ?? "recentes");
 
   const handleClick = (id) => {
