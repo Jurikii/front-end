@@ -207,12 +207,6 @@
   animation: fadeSlideIn 0.2s ease;
 }
 
-/* ─── Destaque no alfinete quando PDF está anexado ─────────────────────────── */
-
-.botaoMidiaAtivo img {
-  filter: sepia(1) saturate(4) hue-rotate(5deg);
-}
-
 /* ─── Formulário de chat ───────────────────────────────────────────────────── */
 
 .formularioChat {
@@ -251,7 +245,8 @@
   color: var(--preto);
   background: transparent;
   resize: none;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   overflow-wrap: break-word;
   white-space: pre-wrap;
   line-height: 1.4;

@@ -120,32 +120,35 @@
 }
 .inputIa {
   align-self: stretch;
-  min-height: 64px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border: 1px solid var(--color-gainsboro);
+  border-radius: 30px;
   background-color: var(--branco);
   box-sizing: border-box;
-  flex-direction: column;
-  padding: var(--padding-4);
-  transition: box-shadow 0.25s ease;
-}
-.inputIa:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 8px 8px 8px 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .inputIa:focus-within {
-  box-shadow: 0 4px 20px rgba(61, 106, 138, 0.12);
+  border-color: var(--amarelo);
+  box-shadow: 0 4px 14px rgba(250, 184, 76, 0.12);
 }
 
 .campoTexto {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
-  background: transparent;
-  font-size: var(--fs-15);
   font-family: var(--font-montserrat);
-  color: var(--azul);
-  height: 100%;
-  min-width: 0;
+  font-size: var(--fs-14);
+  color: var(--preto);
+  background: transparent;
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  padding: 0;
+  max-height: 120px;
 }
 
 .campoTexto::placeholder {
@@ -153,26 +156,65 @@
   opacity: 0.55;
 }
 
+.botaoAnexo,
+.botaoMicrofone,
 .botaoEnviar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--padding-8);
-  transition: opacity 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
   flex-shrink: 0;
-  border-radius: 12px;
-  align-self: center;
+  transition: opacity 0.2s;
 }
 
+.botaoMicrofone {
+  color: #888;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.botaoMicrofone:hover {
+  color: #555;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.botaoMicrofoneAtivo {
+  color: #e53935;
+  background-color: rgba(229, 57, 53, 0.08);
+  animation: pulsarMic 1.2s ease-in-out infinite;
+}
+
+.botaoMicrofoneAtivo:hover {
+  color: #c62828;
+  background-color: rgba(229, 57, 53, 0.14);
+}
+
+@keyframes pulsarMic {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.3); }
+  50%      { box-shadow: 0 0 0 8px rgba(229, 57, 53, 0); }
+}
+
+.botaoAnexo:hover,
 .botaoEnviar:hover:not(:disabled) {
-  background-color: rgba(61, 106, 138, 0.06);
+  opacity: 0.75;
 }
 
-.botaoEnviar:active:not(:disabled) {
-  transform: scale(0.93);
+.botaoAnexo img,
+.botaoEnviar img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.botaoMicrofone svg {
+  color: inherit;
+  width: 22px;
+  height: 22px;
 }
 
 .botaoEnviar:disabled {
@@ -189,10 +231,9 @@
 .digiteSuaDvidaClip {
   display: flex;
   align-items: center;
-  gap: var(--gap-8);
+  gap: 4px;
   flex: 1;
   min-width: 0;
-  padding-left: var(--padding-8);
 }
 .digiteSuaDvidaClipChild {
   width: 44px;

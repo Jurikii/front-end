@@ -19,3 +19,15 @@
 .homeElementos > section:last-child {
   margin-bottom: 0;
 }
+
+.homeElementos > * {
+  animation: fadeIn 0.35s ease both;
+}
+
+.homeElementos > *:nth-child(2) { animation-delay: 0.05s; }
+.homeElementos > *:nth-child(3) { animation-delay: 0.1s;  }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}

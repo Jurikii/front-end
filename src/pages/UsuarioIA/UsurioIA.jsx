@@ -73,6 +73,25 @@ const UsurioIA = () => {
     autoResizeTextarea();
   }, [mensagem, autoResizeTextarea]);
 
+  // ─── Pega arquivo pendente do sessionStorage (vindo da Home) ──────────────
+  useEffect(() => {
+    const dados = sessionStorage.getItem("juriki_arquivo_pendente_dados");
+    const nome = sessionStorage.getItem("juriki_arquivo_pendente_nome");
+    if (dados && nome) {
+      sessionStorage.removeItem("juriki_arquivo_pendente_dados");
+      sessionStorage.removeItem("juriki_arquivo_pendente_nome");
+      fetch(dados)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const arquivo = new File([blob], nome, { type: "application/pdf" });
+          extrairTextoPDF(arquivo);
+        })
+        .catch(() => {
+          setErroArquivo("Não foi possível carregar o arquivo anexado.");
+        });
+    }
+  }, []);
+
   // ─── Extração de texto do PDF ───────────────────────────────────────────────
   const extrairTextoPDF = async (arquivo) => {
   setErroArquivo("");
@@ -441,7 +460,7 @@ const UsurioIA = () => {
                 {/* Botão do alfinete agora abre o explorador de arquivos */}
                 <button
                   type="button"
-                  className={`${styles.botaoMidia} ${arquivoPdf ? styles.botaoMidiaAtivo : ""}`}
+                  className={styles.botaoMidia}
                   title="Anexar PDF"
                   onClick={() => inputArquivoRef.current?.click()}
                   disabled={extraindo}
