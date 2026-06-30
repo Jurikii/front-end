@@ -71,6 +71,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow: hidden;
 }
 
 .nomeEDescricao {
@@ -92,6 +93,9 @@
   font-weight: 600;
   color: var(--color-gray);
   font-family: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ── Preço ────────────────────────────────────────── */

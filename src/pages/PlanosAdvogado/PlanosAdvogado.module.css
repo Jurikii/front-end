@@ -1,7 +1,7 @@
 .planos {
   width: 100%;
   position: relative;
-  background-color: var(--branco);
+  background-color: var(--areia);
   overflow: hidden;
   display: flex;
   flex-direction: column;
