@@ -1,7 +1,6 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +84,7 @@
 }
 .btnCancelar {
   background-color: transparent;
-  color: var(--color-gray-100);
+  color: rgba(0, 0, 0, 0.45);
   font-weight: 500;
 }
 .btnCancelar:hover {

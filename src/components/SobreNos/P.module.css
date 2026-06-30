@@ -10,11 +10,11 @@
   font-size: var(--fs-20);
   color: var(--branco);
   font-family: var(--font-montserrat);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   max-width: 260px;
 }
 .p1:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
 .imagemBaloIcon {
   width: 100px;
@@ -51,9 +51,9 @@
   min-height: 100px;
   text-align: center;
   max-width: 222px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-size: var(--fs-15);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 @media screen and (max-width: 975px) {
   .p1 {

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import Navbar from "./Rodape e navbar/Navbar";
+import Navbar from "./Navbar";
 import styles from "./HeroSection.module.css";
 import { useAuthModal } from "../context/AuthModalContext";
 

@@ -71,6 +71,21 @@
 .iconParkOutlineinstagram {
   height: var(--height-24);
   width: var(--width-24);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.85;
+}
+.redesSociais a:hover .iconParkOutlineinstagram {
+  transform: scale(1.2);
+  opacity: 1;
+}
+.redesSociais a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+.redesSociais a:hover {
+  transform: translateY(-2px);
 }
 
 .navegao {
@@ -98,10 +113,25 @@
 .incio {
   align-self: stretch;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
+  position: relative;
+  width: fit-content;
 }
 .incio:hover {
   color: var(--amarelo);
+}
+.incio::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--amarelo);
+  transition: width 0.3s ease;
+}
+.incio:hover::after {
+  width: 100%;
 }
 
 .paraVoc {

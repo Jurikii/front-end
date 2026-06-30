@@ -1,19 +1,18 @@
 import PropTypes from "prop-types";
-import { useNavigate, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./NavbarAdvogado.module.css";
 
 const NAV_LINKS = [
-  { label: "Início", paths: ["/homeadvogado"] },
-  { label: "Chat", paths: ["/chatadvogado"] },
-  { label: "Agenda", paths: ["/calendarioadvogado", "/agendaadvogado"] },
-  { label: "Meus processos", paths: ["/meus-processosadvogado", "/detalhes-processoadvogado"] },
+  { label: "Início", to: "/homeadvogado" },
+  { label: "Chat", to: "/chatadvogado" },
+  { label: "Agenda", to: "/calendarioadvogado" },
+  { label: "Meus processos", to: "/meus-processosadvogado" },
 ];
 
 const Navbar = ({ className = "" }) => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
 
-  const isActive = (paths) => paths.includes(pathname);
+  const linkClass = ({ isActive }) =>
+    [styles.navItem, isActive ? styles.navItemActive : ""].join(" ");
 
   return (
     <header className={[styles.navbar, className].join(" ")}>
@@ -32,34 +31,30 @@ const Navbar = ({ className = "" }) => {
       </div>
 
       <nav className={styles.navLinks}>
-        {NAV_LINKS.map(({ label, paths }) => (
-          <button
-            key={label}
-            className={[styles.navItem, isActive(paths) ? styles.navItemActive : ""].join(" ")}
-            onClick={() => navigate(paths[0])}
-          >
+        {NAV_LINKS.map(({ label, to }) => (
+          <NavLink key={label} to={to} className={linkClass} end>
             {label}
-          </button>
+          </NavLink>
         ))}
       </nav>
 
       <div className={styles.userArea}>
-        <button className={styles.iconButton} onClick={() => navigate("/configuracoesadvogado")} aria-label="Configurações">
+        <NavLink to="/configuracoesadvogado" className={styles.iconButton} aria-label="Configurações">
           <img src="/Vector.svg" alt="Configurações" />
-        </button>
+        </NavLink>
         <button className={styles.iconButton} aria-label="Notificações">
           <img src="/Vector1.svg" alt="Notificações" />
         </button>
 
         <div className={styles.divider} />
 
-        <button className={styles.userButton} onClick={() => navigate("/perfiladvogado")}>
+        <NavLink to="/perfiladvogado" className={styles.userButton}>
           <img className={styles.avatar} src="/user.svg" alt="Avatar Alice Silva" />
           <div className={styles.userInfo}>
             <span className={styles.userName}>Alice Silva</span>
             <span className={styles.userOab}>OAB/SP 123.456</span>
           </div>
-        </button>
+        </NavLink>
       </div>
 
     </header>

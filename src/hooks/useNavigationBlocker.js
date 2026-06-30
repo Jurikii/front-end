@@ -15,13 +15,17 @@ export function useNavigationBlocker(hasUnsavedChanges) {
 
   useEffect(() => {
     if (!hasUnsavedChanges) return;
+    const BASENAME = "/front-end";
     const handleNavClick = (e) => {
       const anchor = e.target.closest("a[href]");
       if (!anchor) return;
       const href = anchor.getAttribute("href");
-      if (!href || href.startsWith("#") || href.startsWith("javascript:") || href === window.location.pathname) return;
-      e.preventDefault(); e.stopPropagation();
-      pendingNavRef.current = href;
+      if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+      const path = href.startsWith(BASENAME) ? href.slice(BASENAME.length) || "/" : href;
+      if (path === window.location.pathname.replace(new RegExp("^" + BASENAME), "") || path === window.location.pathname) return;
+      e.preventDefault();
+      e.stopPropagation();
+      pendingNavRef.current = path;
       setModalAberto(true);
     };
     document.addEventListener("click", handleNavClick, true);
@@ -30,11 +34,13 @@ export function useNavigationBlocker(hasUnsavedChanges) {
 
   useEffect(() => {
     if (!hasUnsavedChanges) return;
+    const BASENAME = "/front-end";
     const handlePopState = () => {
       if (!modalAberto) {
         setModalAberto(true);
-        pendingNavRef.current = window.location.pathname;
-        window.history.pushState(null, "", window.location.pathname);
+        const fullPath = window.location.pathname;
+        pendingNavRef.current = fullPath.startsWith(BASENAME) ? fullPath.slice(BASENAME.length) || "/" : fullPath;
+        window.history.pushState(null, "", fullPath);
       }
     };
     window.addEventListener("popstate", handlePopState);
@@ -42,20 +48,30 @@ export function useNavigationBlocker(hasUnsavedChanges) {
   }, [hasUnsavedChanges, modalAberto]);
 
   const handleModalSalvar = useCallback((saveConfig) => {
-    saveConfig();
+    const navTarget = pendingNavRef.current;
+    pendingNavRef.current = null;
     setModalAberto(false);
-    if (pendingNavRef.current) {
-      navigate(pendingNavRef.current);
-      pendingNavRef.current = null;
+    try {
+      saveConfig();
+    } catch (e) {
+      console.error("Erro ao salvar configurações:", e);
+    }
+    if (navTarget) {
+      setTimeout(() => navigate(navTarget), 0);
     }
   }, [navigate]);
 
   const handleModalSair = useCallback((discardConfig) => {
-    discardConfig();
+    const navTarget = pendingNavRef.current;
+    pendingNavRef.current = null;
     setModalAberto(false);
-    if (pendingNavRef.current) {
-      navigate(pendingNavRef.current);
-      pendingNavRef.current = null;
+    try {
+      discardConfig();
+    } catch (e) {
+      console.error("Erro ao descartar configurações:", e);
+    }
+    if (navTarget) {
+      setTimeout(() => navigate(navTarget), 0);
     }
   }, [navigate]);
 

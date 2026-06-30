@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Rodape e navbar/Navbar";
+import Navbar from "../../components/Navbar";
 import TtuloESubttulo from "./components/TtuloESubttulo";
 import P1ELinha from "./components/P1ELinha";
 import Rodap from "./components/Rodap";
