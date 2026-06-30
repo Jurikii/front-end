@@ -8,11 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-.cartoAzul:hover {
-  background-color: var(--azul);
-  transform: scale(1.06);
+  transition: background-color 0.2s ease;
 }
 .ioncardOutlineIcon {
   width: 18px;

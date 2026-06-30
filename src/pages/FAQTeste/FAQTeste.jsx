@@ -44,11 +44,10 @@ const FAQTeste = () => {
               ref={inputRef}
               className={styles.searchInput}
               type="text"
-              placeholder="Qual é a sua dúvida?"
+              placeholder="Qual é a sua dúvida? Ex: plano, advogado, segurança..."
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <span className={styles.qualA}>Ex: plano, advogado, segurança...</span>
         </div>
         <FaqBody searchTerm={searchTerm} onSearchEmpty={onSearchEmpty} />
 

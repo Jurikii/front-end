@@ -69,16 +69,6 @@
   color: var(--azul-escuro);
   opacity: 0.7;
 }
-.qualA {
-  margin: 0;
-  position: relative;
-  font-size: var(--fs-16);
-  font-weight: 500;
-  font-family: inherit;
-  white-space: nowrap;
-  color: var(--azul-escuro);
-  opacity: 0.7;
-}
 .overlay {
   position: fixed;
   inset: 0;
@@ -194,10 +184,6 @@
     padding: 16px 24px;
     border-radius: 14px;
   }
-  .qualA {
-    white-space: normal;
-    font-size: var(--fs-15);
-  }
 }
 @media screen and (max-width: 450px) {
   .mainContent {
@@ -207,9 +193,6 @@
   .chat {
     padding: 14px 20px;
     border-radius: 12px;
-  }
-  .qualA {
-    font-size: var(--fs-14);
   }
   .modal {
     padding: 28px 20px 24px;

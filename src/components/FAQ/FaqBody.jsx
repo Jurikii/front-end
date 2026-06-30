@@ -129,7 +129,7 @@ const FaqBody = ({ className = "", searchTerm = "", onSearchEmpty }) => {
               className={styles.streamlinestar1SolidIcon}
               loading="lazy"
               alt=""
-              src={cat.icone}
+              src={categoriaAtiva === cat.id ? cat.icone.replace('.svg', '-amarelo.svg') : cat.icone}
             />
             <h3 className={styles.sobreAIa}>{cat.label}</h3>
           </div>
@@ -137,7 +137,7 @@ const FaqBody = ({ className = "", searchTerm = "", onSearchEmpty }) => {
         <div className={styles.mensagem}>
           <div className={styles.texto}>
             <div className={styles.aJurikiExiste}>
-              A juriki existe para tornar o jurídico simples, acessível e
+              A Juriki existe para tornar o jurídico simples, acessível e
               humano.
             </div>
             <div className={styles.conteComA}>Conte com a gente!</div>

@@ -34,7 +34,7 @@ const InicioDvidas = ({ className = "" }) => {
           <div className={styles.iconeBaloETexto}>
             <img className={styles.groupIcon3} alt="" src="/Group6.svg" />
             <h3 className={styles.noAchouO}>
-              Não achou o que procura? Pergunta direto pra nossa IA.
+              Não achou o que procura? Pergunte direto pra nossa IA.
             </h3>
           </div>
           <div
