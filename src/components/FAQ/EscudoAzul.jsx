@@ -7,7 +7,7 @@ const EscudoAzul = ({ className = "", property1 = "fechado" }) => {
       className={[styles.escudoAzul, className].join(" ")}
       data-property1={property1}
     >
-      <img className={styles.groupIcon} alt="" src="/Group4.svg" />
+      <img className={styles.groupIcon} alt="" src={property1 === "aberto" ? "/Group4-amarelo.svg" : "/Group4.svg"} />
     </div>
   );
 };

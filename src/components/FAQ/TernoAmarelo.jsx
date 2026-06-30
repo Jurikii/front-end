@@ -7,7 +7,7 @@ const TernoAmarelo = ({ className = "", property1 = "fechado" }) => {
       className={[styles.ternoAmarelo, className].join(" ")}
       data-property1={property1}
     >
-      <img className={styles.vectorIcon} alt="" src="/Vector8.svg" />
+      <img className={styles.vectorIcon} alt="" src={property1 === "aberto" ? "/Vector8.svg" : "/Vector8-azul.svg"} />
     </div>
   );
 };
