@@ -11,7 +11,7 @@ const CartoAzul = ({ className = "", property1 = "fechado" }) => {
         className={styles.ioncardOutlineIcon}
         loading="lazy"
         alt=""
-        src="/ion-card-outline.svg"
+        src={property1 === "aberto" ? "/ion-card-outline-amarelo.svg" : "/ion-card-outline.svg"}
       />
     </div>
   );

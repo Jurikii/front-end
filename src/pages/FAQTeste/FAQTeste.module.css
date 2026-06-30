@@ -28,7 +28,7 @@
   width: 100%;
   border-radius: 16px;
   background-color: var(--branco-dos-valores);
-  border: 1px solid var(--amarelo);
+  border: 1px solid var(--azul-sereno);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -39,8 +39,8 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .chat:focus-within {
-  border-color: var(--azul-sereno);
-  box-shadow: var(--shadow-drop-2);
+  border-color: var(--amarelo);
+  box-shadow: var(--shadow-drop-2), 0 0 0 3px rgba(250, 184, 76, 0.25);
 }
 .lupaEDvida {
   display: flex;

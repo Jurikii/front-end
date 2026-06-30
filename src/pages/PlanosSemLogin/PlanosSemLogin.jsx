@@ -14,16 +14,18 @@ const Planos = () => {
       <main className={styles.conteudo}>
         {/* Hero */}
         <section className={styles.hero}>
-          <h1 className={styles.tituloHero}>
-            <span>Escolha o </span>
-            <span className={styles.destaque}>plano ideal</span>
-            <span> para o seu momento</span>
-          </h1>
-          <p className={styles.subtituloHero}>
-            Comece com o essencial e evolua conforme sua necessidade.
-            <br />
-            Sem complicação, com clareza e apoio quando você precisar
-          </p>
+          <div className={styles.heroContent}>
+            <h1 className={styles.tituloHero}>
+              <span>Escolha o </span>
+              <span className={styles.destaque}>plano ideal</span>
+              <span> para o seu momento</span>
+            </h1>
+            <p className={styles.subtituloHero}>
+              Comece com o essencial e evolua conforme sua necessidade.
+              <br />
+              Sem complicação, com clareza e apoio quando você precisar
+            </p>
+          </div>
         </section>
 
         {/* Seção: planos individuais */}
@@ -45,6 +47,27 @@ const Planos = () => {
         />
       </main>
 
+      {/* Girassóis decorativos */}
+      <img
+        src="/esquerdo-superior.png"
+        alt=""
+        className={`${styles.cornerImage} ${styles.cornerTopLeft}`}
+      />
+      <img
+        src="/direito-superior.png"
+        alt=""
+        className={`${styles.cornerImage} ${styles.cornerTopRight}`}
+      />
+      <img
+        src="/esquerdo-inferior.png"
+        alt=""
+        className={`${styles.cornerImage} ${styles.cornerBottomLeft}`}
+      />
+      <img
+        src="/direito-inferior.png"
+        alt=""
+        className={`${styles.cornerImage} ${styles.cornerBottomRight}`}
+      />
     </div>
   );
 };

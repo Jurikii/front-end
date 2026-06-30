@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, cloneElement } from "react";
 import PropTypes from "prop-types";
 import styles from "./PerguntaFaq.module.css";
 
@@ -25,7 +25,7 @@ const PerguntaFaq = ({
     >
       <div className={styles.pergunta} onClick={toggleOpen}>
         <div className={styles.iconeEPergunta}>
-          {iconePergunta1 || iconeAmarelo}
+          {cloneElement(iconePergunta1 || iconeAmarelo, { property1 })}
           <h3 className={styles.aJurikiSubstitui}>
             {aJurikiSubstituiUmAdvogado}
           </h3>
