@@ -3,7 +3,6 @@ import styles from "./P1ELinha.module.css";
 
 const P1ELinha = ({
   className = "",
-  line61,
   passo1FlexWrap,
   passo1AlignContent,
   iconeBaloFala,
@@ -19,12 +18,6 @@ const P1ELinha = ({
 
   return (
     <section className={[styles.p1ELinha, className].join(" ")}>
-      <img
-        className={styles.p1ELinhaChild}
-        loading="lazy"
-        alt=""
-        src={line61}
-      />
       <div className={styles.passo1} style={passo1Style}>
         <img
           className={styles.iconeBaloFala}

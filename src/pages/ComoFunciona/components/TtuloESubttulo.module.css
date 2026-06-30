@@ -3,19 +3,22 @@
   max-width: 976px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 40px;
   padding: 0 24px;
   box-sizing: border-box;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   font-size: var(--fs-18);
   color: var(--azul-escuro);
   font-family: var(--font-montserrat);
 }
 .textinhoEFlorzinhas {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  will-change: transform, opacity;
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .textinhoEFlorzinhas2 {
   height: 36px;
@@ -49,14 +52,9 @@
 .comoFuncionaAJuriki {
   width: 100%;
   max-width: 780px;
-}
-
-@media screen and (min-width: 901px) {
-  .comoFuncionaAJuriki {
-    align-self: flex-start;
-    margin-left: 112px;
-    max-width: calc(100% - 112px);
-  }
+  will-change: transform, opacity;
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.15s,
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.15s;
 }
 .comoFuncionaAContainer {
   margin: 0;
@@ -65,13 +63,7 @@
   font-family: inherit;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  text-align: center;
-}
-
-@media screen and (min-width: 901px) {
-  .comoFuncionaAContainer {
-    text-align: left;
-  }
+  text-align: left;
 }
 .juriki {
   color: var(--amarelo);
@@ -79,17 +71,11 @@
 .simplificamosOAcessoInfor {
   align-self: stretch;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   max-width: 780px;
-}
-
-@media screen and (min-width: 901px) {
-  .simplificamosOAcessoInfor {
-    align-self: flex-start;
-    justify-content: flex-start;
-    margin-left: 112px;
-    max-width: calc(100% - 112px);
-  }
+  will-change: transform, opacity;
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.3s,
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
 }
 .simplificamosOAcesso {
   font-size: var(--fs-22);
@@ -98,14 +84,8 @@
   line-height: 1.65;
   color: var(--preto);
   opacity: 0.7;
-  text-align: center;
+  text-align: left;
   max-width: 640px;
-}
-
-@media screen and (min-width: 901px) {
-  .simplificamosOAcesso {
-    text-align: left;
-  }
 }
 .ttuloESubttuloChild {
   width: 80px;
@@ -114,14 +94,29 @@
   background: linear-gradient(90deg, var(--amarelo), #f5a623);
   border: none;
   opacity: 0.85;
+  align-self: flex-start;
+  will-change: transform, opacity, width;
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.45s,
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.45s,
+              width 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.45s;
 }
 
-@media screen and (min-width: 901px) {
-  .ttuloESubttuloChild {
-    align-self: flex-start;
-    margin-left: 112px;
-  }
+.eltHidden {
+  opacity: 0;
+  transform: translateY(25px) scale(0.97);
+  pointer-events: none;
 }
+
+.eltHidden.ttuloESubttuloChild {
+  width: 0;
+}
+
+.eltVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
 @media screen and (max-width: 1050px) {
   .ttuloESubttulo {
     gap: 32px;
@@ -154,5 +149,24 @@
   }
   .simplificamosOAcesso {
     font-size: var(--fs-16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .textinhoEFlorzinhas,
+  .comoFuncionaAJuriki,
+  .simplificamosOAcessoInfor,
+  .ttuloESubttuloChild {
+    transition: none;
+  }
+
+  .eltHidden {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .eltHidden.ttuloESubttuloChild {
+    width: 80px;
   }
 }
