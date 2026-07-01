@@ -51,9 +51,7 @@ function App() {
   }, [action, pathname]);
 
   useEffect(() => {
-    if (pathname === "/") {
-      document.title = "JURIKI - Inteligência Artificial Jurídica";
-    }
+    document.title = "JURIKI";
   }, [pathname]);
 
   return (
