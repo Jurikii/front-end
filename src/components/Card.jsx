@@ -26,7 +26,7 @@ const Card = ({ processo, className = "", onVerProcesso }) => {
     <section className={[styles.card, className].join(" ")}>
       <div className={styles.contedoCardProcesso}>
         <div className={styles.infoCliente}>
-          <div className={styles.infoClienteChild} />
+          <img className={styles.infoClienteChild} alt="" src="/user.svg" />
           <div className={styles.infoCliente2}>
             <h3 className={styles.marianaSouza}>{cliente.nome}</h3>
             <div className={styles.marianasouzagmailcom}>{cliente.email}</div>

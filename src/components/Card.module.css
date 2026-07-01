@@ -49,8 +49,8 @@
   min-width: var(--width-50);
   position: relative;
   border-radius: var(--br-50);
-  background-color: var(--color-gainsboro-200);
   flex-shrink: 0;
+  object-fit: cover;
 }
 .infoCliente2 {
   flex: 1;

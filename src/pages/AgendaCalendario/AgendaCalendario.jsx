@@ -149,16 +149,26 @@ const AgendaCalendario = () => {
 
   const GAP = 8;
 
-  const posicionarPainel = useCallback(() => {
-    if (!bolinhaElRef.current) return;
-    const rect = bolinhaElRef.current.getBoundingClientRect();
-    const left = rect.right + GAP;
+  const LARGURA_PAINEL = 288;
+
+  const calcularPosicao = useCallback((el) => {
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
     const altura = painelRef.current ? painelRef.current.offsetHeight : 0;
+    const cabeDireita = rect.right + GAP + LARGURA_PAINEL <= window.innerWidth;
+    const left = cabeDireita
+      ? rect.right + GAP
+      : Math.max(GAP, rect.left - GAP - LARGURA_PAINEL);
     const top = altura > 0 && window.innerHeight - rect.top < altura
       ? Math.max(GAP, rect.bottom - altura)
       : rect.top;
-    setPosPanel({ left, top });
+    return { left, top };
   }, []);
+
+  const posicionarPainel = useCallback(() => {
+    const pos = calcularPosicao(bolinhaElRef.current);
+    if (pos) setPosPanel(pos);
+  }, [calcularPosicao]);
 
   useEffect(() => {
     if (diaHovered === null) return;
@@ -179,7 +189,9 @@ const AgendaCalendario = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     bolinhaElRef.current = el;
     setDiaHovered(dia);
-  }, []);
+    const pos = calcularPosicao(el);
+    if (pos) setPosPanel(pos);
+  }, [calcularPosicao]);
 
   const handleBolinhaLeave = useCallback(() => {
     timeoutRef.current = setTimeout(() => {
@@ -201,7 +213,7 @@ const AgendaCalendario = () => {
 
   const mesData = useMemo(() => gerarCalendario(mesAtual, anoAtual), [mesAtual, anoAtual]);
 
-  const exibirBolinhas = mesAtual === 5 && anoAtual === 2026;
+  const exibirBolinhas = mesAtual === 6 && anoAtual === 2026;
   const semanasComBolinha = mesData.semanas.map((semana) => ({
     ...semana,
     qtdConsultas: semana.dias.map((dia, i) =>
@@ -229,7 +241,7 @@ const AgendaCalendario = () => {
   const consultasVisiveis = mostrarTodasConsultas
     ? consultasDoDia
     : consultasDoDia.slice(0, 2);
-  const consultasDoDiaSelecionado = (mesAtual === 5 && anoAtual === 2026)
+  const consultasDoDiaSelecionado = (mesAtual === 6 && anoAtual === 2026)
     ? (CONSULTAS_POR_DIA[diaSelecionado] || [])
     : [];
 
@@ -358,7 +370,7 @@ const AgendaCalendario = () => {
   const semanaDias = useMemo(() => {
     if (visaoAtual !== "semana") return [];
     const datas = obterSemanaDoDia(diaSelecionado, mesAtual, anoAtual);
-    const exibirConsultas = mesAtual === 5 && anoAtual === 2026;
+    const exibirConsultas = mesAtual === 6 && anoAtual === 2026;
     return datas.map((data) => {
       const dia = data.getDate();
       const foraDoMes = data.getMonth() !== mesAtual;
@@ -469,8 +481,8 @@ const AgendaCalendario = () => {
                     <div className={styles.mesNavegacao}>
                       <button
                         className={styles.btnMes}
-                        onClick={irParaProximo}
-                        aria-label="Próximo"
+                        onClick={irParaAnterior}
+                        aria-label="Anterior"
                       >
                         ‹
                       </button>

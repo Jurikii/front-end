@@ -322,7 +322,7 @@ const ChatAdvogado = () => {
           <div className={styles.containerCentro}>
 
             <header className={styles.cumprimentosIa}>
-              <h1 className={styles.olAlice}>Olá, Dra. Alice!</h1>
+              <h1 className={styles.olAlice}>Olá, Dra. Rosana!</h1>
               <h2 className={styles.comoPossoAjudar}>Como posso te ajudar hoje?</h2>
             </header>
 

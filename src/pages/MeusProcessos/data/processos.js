@@ -11,7 +11,7 @@ export const CORES_CATEGORIA = {
     fundo: "rgba(28, 101, 6, 0.05)",
     texto: "#1c6406",
   },
-  Civel: {
+  "Cível": {
     fundo: "rgba(61, 106, 138, 0.1)",
     texto: "#3d6a8a",
   },
@@ -58,7 +58,7 @@ export const PROCESSOS = [
   },
   {
     id: "proc-002",
-    categoria: "Civel",
+    categoria: "Cível",
     titulo: "Cobrança de débitos",
     numeroProcesso: "0002345-67.2024.8.26.0100",
     advogado: "Dr. Rafael Mendes",
@@ -109,7 +109,7 @@ export const PROCESSOS = [
   },
   {
     id: "proc-005",
-    categoria: "Civel",
+    categoria: "Cível",
     titulo: "Indenização securitária",
     numeroProcesso: "0005678-90.2023.8.26.0100",
     advogado: "Dr. Rafael Mendes",

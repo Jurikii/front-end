@@ -2,7 +2,7 @@ import { useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import ProcessosEmAndamento from "./ProcessosEmAndamento";
 import ProcessosEmAndamento1 from "./ProcessosEmAndamento1";
-import { PROCESSOS, STATUS, FILTROS } from "../../MeusProcessos/data/processos";
+import { PROCESSOS, STATUS } from "../../MeusProcessos/data/processos";
 import PropTypes from "prop-types";
 import styles from "./DashboardAcessoRapido.module.css";
 
@@ -11,6 +11,11 @@ const DashboardAcessoRapido = ({ className = "" }) => {
 
   const activeCount = useMemo(
     () => PROCESSOS.filter((p) => p.status === STATUS.EM_ANDAMENTO).length,
+    []
+  );
+
+  const agendadasCount = useMemo(
+    () => PROCESSOS.filter((p) => p.status === STATUS.AGENDADO).length,
     []
   );
 
@@ -47,9 +52,9 @@ const DashboardAcessoRapido = ({ className = "" }) => {
             iconeBalanaMaxHeight="unset"
             iconeBalanaHeight="60px"
             processosEmAndamentoHeight="47px"
-            processosEmAndamento="Consultas com Advogados"
-            acompanhesSeusProcessosAtivos="Acompanhe suas consultas realizadas"
-            prop={String(FILTROS.find((f) => f.id === "consultas")?.contagem ?? 0)}
+            processosEmAndamento="Consultas agendadas"
+            acompanhesSeusProcessosAtivos="Acompanhe suas consultas agendadas"
+            prop={String(agendadasCount)}
             filtro="consultas"
           />
           <div className={styles.processosChild} />

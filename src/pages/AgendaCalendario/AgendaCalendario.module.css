@@ -610,7 +610,7 @@
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-4px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s ease 0.25s;
 }
 
 .painelDiaVisivel {
@@ -618,6 +618,7 @@
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s ease 0s;
 }
 
 .painelDiaCabecalho {

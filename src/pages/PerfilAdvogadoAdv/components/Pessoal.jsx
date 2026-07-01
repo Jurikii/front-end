@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./Pessoal.module.css";
 
 const Pessoal = ({ className = "", editando = false, email, onEmailChange, onSalvar }) => {
-  const [nome, setNome] = useState("Alice Silva");
+  const [nome, setNome] = useState("Rosana Silva");
   const [oab, setOab] = useState("OAB/SP 123.456");
   const [telefone, setTelefone] = useState("(11) 91234-5678");
 

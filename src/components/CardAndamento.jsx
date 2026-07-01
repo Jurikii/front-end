@@ -67,6 +67,7 @@ const CardAndamento = ({
 
   const handleCancel = () => {
     startExiting(() => {
+      if (autoEdit) onDelete?.(index);
       setIsEditing(false);
       onEditEnd?.();
     });

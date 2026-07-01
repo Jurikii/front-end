@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import OrdenarPor from "./OrdenarPor";
 import FiltrosDocumentos from "./FiltrosDocumentos";
@@ -204,21 +205,26 @@ const HeaderSuperior = ({ className = "", onVoltar, ordenarPor, onChangeOrdenarP
             <img className={styles.filtroIcone} alt="" src="/Icone-Ordenar-Por.svg" />
             <span className={styles.filtroTexto}>Ordenar por</span>
           </button>
-          <OrdenarPor aberto={ordenarAberto} onFechar={fecharTudo} selecionado={ordenarPor} onChange={onChangeOrdenarPor} />
         </div>
         <div className={styles.grupoFiltro}>
           <button className={styles.botaoFiltro} onClick={toggleFiltros}>
             <img className={styles.filtroIcone} alt="" src="/Vector13.svg" />
             <span className={styles.filtroTexto}>Filtros</span>
           </button>
-          <FiltrosDocumentos aberto={filtrosAberto} onFechar={fecharTudo} onAplicar={onAplicarFiltros} onLimpar={onLimparFiltros} opcoesFormatos={opcoesFormatos} opcoesTipos={opcoesTipos} opcoesAreas={opcoesAreas} opcoesUrgencias={opcoesUrgencias} filtrosAtuais={filtrosAtuais} />
         </div>
       </div>
 
-      <div
-        className={[styles.backdrop, ordenarAberto || filtrosAberto ? styles.backdropVisivel : ""].join(" ")}
-        onClick={fecharTudo}
-      />
+      {createPortal(
+        <>
+          <div
+            className={[styles.backdrop, ordenarAberto || filtrosAberto ? styles.backdropVisivel : ""].join(" ")}
+            onClick={fecharTudo}
+          />
+          <OrdenarPor aberto={ordenarAberto} onFechar={fecharTudo} selecionado={ordenarPor} onChange={onChangeOrdenarPor} />
+          <FiltrosDocumentos aberto={filtrosAberto} onFechar={fecharTudo} onAplicar={onAplicarFiltros} onLimpar={onLimparFiltros} opcoesFormatos={opcoesFormatos} opcoesTipos={opcoesTipos} opcoesAreas={opcoesAreas} opcoesUrgencias={opcoesUrgencias} filtrosAtuais={filtrosAtuais} />
+        </>,
+        document.body
+      )}
 
       {/* Cards de categorias */}
         <div className={styles.linhaCards}>

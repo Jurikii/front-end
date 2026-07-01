@@ -23,6 +23,20 @@
   width: 100%;
   transition: padding 0.3s ease;
 }
+
+.meuPerfil > * {
+  animation: entradaFluida 0.4s ease both;
+}
+
+.meuPerfil > *:nth-child(2) { animation-delay: 0.05s; }
+.meuPerfil > *:nth-child(3) { animation-delay: 0.1s; }
+.meuPerfil > *:nth-child(4) { animation-delay: 0.15s; }
+.meuPerfil > *:nth-child(5) { animation-delay: 0.2s; }
+
+@keyframes entradaFluida {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @media screen and (max-width: 1325px) {
   .meuPerfil {
     padding: 32px 40px;

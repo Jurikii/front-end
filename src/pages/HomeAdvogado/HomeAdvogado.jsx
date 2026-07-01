@@ -97,13 +97,13 @@ const HomeAdvogado = () => {
         {/* Saudação */}
         <section className={styles.greeting}>
           <div className={styles.greetingText}>
-            <h1 className={styles.greetingTitle}>Olá, Dra. Alice!</h1>
+            <h1 className={styles.greetingTitle}>Olá, Dra. Rosana!</h1>
             <h3 className={styles.greetingSubtitle}>Como posso te ajudar hoje?</h3>
           </div>
           <img
             className={styles.greetingAvatar}
             loading="lazy"
-            alt="Avatar Dra. Alice"
+            alt="Avatar Dra. Rosana"
             src="/image-114@2x.png"
           />
         </section>
