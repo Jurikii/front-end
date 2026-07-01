@@ -48,7 +48,7 @@ const Menu1 = ({ className = "" }) => {
         >
           <span className={styles.nomeUsuario}>Alice Silva</span>
           <div className={styles.avatarContainer}>
-            <img className={styles.avatarFoto} loading="lazy" alt="Foto de perfil" src="/Avatar-Foto-Teste.png" />
+            <img className={styles.avatarFoto} loading="lazy" alt="Foto de perfil" src="/user.svg" />
           </div>
         </NavLink>
       </div>

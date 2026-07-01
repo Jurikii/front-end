@@ -365,7 +365,7 @@ const ChatAdvogado = () => {
                         <span className={styles.horarioUsuario}>{msg.horario}</span>
                       </div>
                       <img
-                        src="/Avatar-Foto-Teste.png"
+                        src="/user.svg"
                         alt="Avatar"
                         className={styles.avatarUsuario}
                       />

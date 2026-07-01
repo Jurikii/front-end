@@ -413,7 +413,7 @@ const UsurioIA = () => {
                         <span className={styles.horarioUsuario}>{msg.horario}</span>
                       </div>
                       <img
-                        src="/-Foto-Teste.png"
+                        src="/user.svg"
                         alt="Avatar"
                         className={styles.avatarUsuario}
                       />
