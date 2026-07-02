@@ -5,6 +5,8 @@ function PasswordInput({
   className = "",
   label,
   placeholder = "Digite sua senha",
+  value = "",
+  onChange,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -61,8 +63,8 @@ function PasswordInput({
           placeholder={placeholder}
           type={showPassword ? "text" : "password"}
           autoComplete="new-password"
-          value=""
-          onChange={() => {}}
+          value={value}
+          onChange={(e) => onChange?.(e.target.value)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         />

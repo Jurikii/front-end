@@ -138,7 +138,7 @@ const ChatAdvogado = () => {
       .trim();
 
   // ─── Envio ao n8n ────────────────────────────────────────────────────────────
-  const N8N_WEBHOOK_URL = "https://rezendesantos.app.n8n.cloud/webhook/chat-advogado";
+  const N8N_WEBHOOK_URL = "https://thomasrezendesantos.app.n8n.cloud/webhook/juriki-advogado";
 
   const enviarParaN8n = async (texto) => {
     const formato       = FORMATOS.find((f) => f.id === formatoAtivo);
